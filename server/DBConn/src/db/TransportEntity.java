@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -19,6 +16,7 @@ public class TransportEntity {
     private String posApplyDocCode;
     private Double longitude;
     private Double latitude;
+    private int id;
 
     @Basic
     @Column(name = "CHARGE")
@@ -119,5 +117,15 @@ public class TransportEntity {
         result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
         result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
         return result;
+    }
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

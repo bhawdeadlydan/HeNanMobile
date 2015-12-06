@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by richard on 2015/12/6.
@@ -17,6 +14,7 @@ public class ItemEntity {
     private String itemUnit;
     private String iteMcol;
     private int saleBomDetailId;
+    private int id;
 
     @Basic
     @Column(name = "ITEM_CODE")
@@ -105,5 +103,15 @@ public class ItemEntity {
         result = 31 * result + (iteMcol != null ? iteMcol.hashCode() : 0);
         result = 31 * result + saleBomDetailId;
         return result;
+    }
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

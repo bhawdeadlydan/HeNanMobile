@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -15,6 +12,7 @@ public class LogEntity {
     private Timestamp time;
     private String operation;
     private String note;
+    private int id;
 
     @Basic
     @Column(name = "TIME")
@@ -66,5 +64,15 @@ public class LogEntity {
         result = 31 * result + (operation != null ? operation.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
         return result;
+    }
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

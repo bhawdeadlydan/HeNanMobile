@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.AsnEntity" table="asn" schema="mobile">
+        <id name="code" column="CODE"/>
+        <property name="company" column="COMPANY"/>
+        <property name="orgCode" column="ORG_CODE"/>
+        <property name="warehouseCode" column="WAREHOUSE_CODE"/>
+        <property name="billType" column="BILL_TYPE"/>
+        <property name="expectedArriveDate" column="EXPECTED_ARRIVE_DATE"/>
+        <property name="flag" column="FLAG"/>
+        <property name="relatedBill1" column="RELATED_BILL1"/>
+        <property name="relatedBill2" column="RELATED_BILL2"/>
+        <property name="relatedBill3" column="RELATED_BILL3"/>
+        <property name="projectCode" column="PROJECT_CODE"/>
+        <property name="orderDate" column="ORDER_DATE"/>
+        <property name="dock" column="DOCK"/>
+        <property name="buyerName" column="BUYER_NAME"/>
+        <property name="buyerEmail" column="BUYER_EMAIL"/>
+        <property name="buyerFax" column="BUYER_FAX"/>
+        <property name="buyerPhone" column="BUYER_PHONE"/>
+        <property name="materialsName" column="MATERIALS_NAME"/>
+        <property name="materialsEmail" column="MATERIALS_EMAIL"/>
+        <property name="materialsFax" column="MATERIALS_FAX"/>
+        <property name="materialsPhone" column="MATERIALS_PHONE"/>
+        <property name="vendorCode" column="VENDOR_CODE"/>
+        <property name="vendorName" column="VENDOR_NAME"/>
+        <property name="vendorContactName" column="VENDOR_CONTACT_NAME"/>
+        <property name="vendorContactEmail" column="VENDOR_CONTACT_EMAIL"/>
+        <property name="vendorContactFax" column="VENDOR_CONTACT_FAX"/>
+        <property name="vendorContactPhone" column="VENDOR_CONTACT_PHONE"/>
+        <property name="carrierName" column="CARRIER_NAME"/>
+        <property name="carrierContactName" column="CARRIER_CONTACT_NAME"/>
+        <property name="carrierContactEmail" column="CARRIER_CONTACT_EMAIL"/>
+        <property name="carrierContactFax" column="CARRIER_CONTACT_FAX"/>
+        <property name="carrierContactPhone" column="CARRIER_CONTACT_PHONE"/>
+        <property name="disposition" column="DISPOSITION"/>
+    </class>
+</hibernate-mapping>

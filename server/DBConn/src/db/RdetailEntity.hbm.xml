@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.RdetailEntity" table="rdetail" schema="mobile">
+        <id name="id" column="ID"/>
+        <property name="saleBomCode" column="SALE_BOM_CODE"/>
+        <property name="itemErpCode" column="ITEM_ERP_CODE"/>
+        <property name="itemErpUnit" column="ITEM_ERP_UNIT"/>
+        <property name="itemCode" column="ITEM_CODE"/>
+        <property name="itemUnit" column="ITEM_UNIT"/>
+        <property name="shipQuantity" column="SHIP_QUANTITY"/>
+        <property name="rposCode" column="RPOS_CODE"/>
+    </class>
+</hibernate-mapping>

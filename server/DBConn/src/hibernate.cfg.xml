@@ -6,6 +6,8 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/mobile</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">rfid</property>
+        <property name="connection.password">rfid</property>
         <mapping class="db.SaleBomDetailEntity"/>
         <mapping class="db.AllocationEntity"/>
         <mapping class="db.AsnEntity"/>
@@ -23,6 +25,23 @@
         <mapping class="db.SaleBomEntity"/>
         <mapping class="db.TransportEntity"/>
         <mapping class="db.WmsDetailEntity"/>
+        <mapping resource="db/SaleBomDetailEntity.hbm.xml"/>
+        <mapping resource="db/AllocationEntity.hbm.xml"/>
+        <mapping resource="db/AsnEntity.hbm.xml"/>
+        <mapping resource="db/BomEntity.hbm.xml"/>
+        <mapping resource="db/CheckEntity.hbm.xml"/>
+        <mapping resource="db/DetailEntity.hbm.xml"/>
+        <mapping resource="db/ItemEntity.hbm.xml"/>
+        <mapping resource="db/LogEntity.hbm.xml"/>
+        <mapping resource="db/PackingEntity.hbm.xml"/>
+        <mapping resource="db/PackingBomEntity.hbm.xml"/>
+        <mapping resource="db/PosEntity.hbm.xml"/>
+        <mapping resource="db/RasnEntity.hbm.xml"/>
+        <mapping resource="db/RdetailEntity.hbm.xml"/>
+        <mapping resource="db/RposEntity.hbm.xml"/>
+        <mapping resource="db/SaleBomEntity.hbm.xml"/>
+        <mapping resource="db/TransportEntity.hbm.xml"/>
+        <mapping resource="db/WmsDetailEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

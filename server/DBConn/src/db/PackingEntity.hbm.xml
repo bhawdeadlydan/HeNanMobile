@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.PackingEntity" table="packing" schema="mobile">
+        <id name="id" column="ID"/>
+        <property name="packingCode" column="PACKING_CODE"/>
+        <property name="packingName" column="PACKING_NAME"/>
+        <property name="packingCount" column="PACKING_COUNT"/>
+        <property name="packingLenUnit" column="PACKING_LEN_UNIT"/>
+        <property name="packingLen" column="PACKING_LEN"/>
+        <property name="packingWidth" column="PACKING_WIDTH"/>
+        <property name="packingHeight" column="PACKING_HEIGHT"/>
+        <property name="packingCapacityUom" column="PACKING_CAPACITY_UOM"/>
+        <property name="packingCapacity" column="PACKING_CAPACITY"/>
+        <property name="packingWeightUom" column="PACKING_WEIGHT_UOM"/>
+        <property name="packingWeight" column="PACKING_WEIGHT"/>
+        <property name="packingBomId" column="PACKING_BOM_ID"/>
+    </class>
+</hibernate-mapping>

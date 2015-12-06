@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -13,9 +10,24 @@ import java.sql.Timestamp;
 @Table(name = "pos", schema = "mobile", catalog = "")
 public class PosEntity {
     private String company;
+    private String warehouseCode;
+    private String billType;
+    private String code;
+    private String applyDocCode;
+    private String projectCode;
+    private String applyUnit;
+    private String applyPerson;
+    private Timestamp applyDate;
+    private String constructionUnit;
+    private String receiver;
+    private String receiverUidCode;
+    private String applyDocDesc;
+    private Timestamp expectedShipDate;
+    private String dockCode;
+    private String disposition;
 
     @Basic
-    @javax.persistence.Column(name = "COMPANY")
+    @Column(name = "COMPANY")
     public String getCompany() {
         return company;
     }
@@ -24,10 +36,8 @@ public class PosEntity {
         this.company = company;
     }
 
-    private String warehouseCode;
-
     @Basic
-    @javax.persistence.Column(name = "WAREHOUSE_CODE")
+    @Column(name = "WAREHOUSE_CODE")
     public String getWarehouseCode() {
         return warehouseCode;
     }
@@ -36,10 +46,8 @@ public class PosEntity {
         this.warehouseCode = warehouseCode;
     }
 
-    private String billType;
-
     @Basic
-    @javax.persistence.Column(name = "BILL_TYPE")
+    @Column(name = "BILL_TYPE")
     public String getBillType() {
         return billType;
     }
@@ -48,10 +56,8 @@ public class PosEntity {
         this.billType = billType;
     }
 
-    private String code;
-
     @Basic
-    @javax.persistence.Column(name = "CODE")
+    @Column(name = "CODE")
     public String getCode() {
         return code;
     }
@@ -60,10 +66,8 @@ public class PosEntity {
         this.code = code;
     }
 
-    private String applyDocCode;
-
     @Id
-    @javax.persistence.Column(name = "APPLY_DOC_CODE")
+    @Column(name = "APPLY_DOC_CODE")
     public String getApplyDocCode() {
         return applyDocCode;
     }
@@ -72,10 +76,8 @@ public class PosEntity {
         this.applyDocCode = applyDocCode;
     }
 
-    private String projectCode;
-
     @Basic
-    @javax.persistence.Column(name = "PROJECT_CODE")
+    @Column(name = "PROJECT_CODE")
     public String getProjectCode() {
         return projectCode;
     }
@@ -84,10 +86,8 @@ public class PosEntity {
         this.projectCode = projectCode;
     }
 
-    private String applyUnit;
-
     @Basic
-    @javax.persistence.Column(name = "APPLY_UNIT")
+    @Column(name = "APPLY_UNIT")
     public String getApplyUnit() {
         return applyUnit;
     }
@@ -96,10 +96,8 @@ public class PosEntity {
         this.applyUnit = applyUnit;
     }
 
-    private String applyPerson;
-
     @Basic
-    @javax.persistence.Column(name = "APPLY_PERSON")
+    @Column(name = "APPLY_PERSON")
     public String getApplyPerson() {
         return applyPerson;
     }
@@ -108,10 +106,8 @@ public class PosEntity {
         this.applyPerson = applyPerson;
     }
 
-    private Timestamp applyDate;
-
     @Basic
-    @javax.persistence.Column(name = "APPLY_DATE")
+    @Column(name = "APPLY_DATE")
     public Timestamp getApplyDate() {
         return applyDate;
     }
@@ -120,10 +116,8 @@ public class PosEntity {
         this.applyDate = applyDate;
     }
 
-    private String constructionUnit;
-
     @Basic
-    @javax.persistence.Column(name = "CONSTRUCTION_UNIT")
+    @Column(name = "CONSTRUCTION_UNIT")
     public String getConstructionUnit() {
         return constructionUnit;
     }
@@ -132,10 +126,8 @@ public class PosEntity {
         this.constructionUnit = constructionUnit;
     }
 
-    private String receiver;
-
     @Basic
-    @javax.persistence.Column(name = "RECEIVER")
+    @Column(name = "RECEIVER")
     public String getReceiver() {
         return receiver;
     }
@@ -144,10 +136,8 @@ public class PosEntity {
         this.receiver = receiver;
     }
 
-    private String receiverUidCode;
-
     @Basic
-    @javax.persistence.Column(name = "RECEIVER_UID_CODE")
+    @Column(name = "RECEIVER_UID_CODE")
     public String getReceiverUidCode() {
         return receiverUidCode;
     }
@@ -156,10 +146,8 @@ public class PosEntity {
         this.receiverUidCode = receiverUidCode;
     }
 
-    private String applyDocDesc;
-
     @Basic
-    @javax.persistence.Column(name = "APPLY_DOC_DESC")
+    @Column(name = "APPLY_DOC_DESC")
     public String getApplyDocDesc() {
         return applyDocDesc;
     }
@@ -168,10 +156,8 @@ public class PosEntity {
         this.applyDocDesc = applyDocDesc;
     }
 
-    private Timestamp expectedShipDate;
-
     @Basic
-    @javax.persistence.Column(name = "EXPECTED_SHIP_DATE")
+    @Column(name = "EXPECTED_SHIP_DATE")
     public Timestamp getExpectedShipDate() {
         return expectedShipDate;
     }
@@ -180,10 +166,8 @@ public class PosEntity {
         this.expectedShipDate = expectedShipDate;
     }
 
-    private String dockCode;
-
     @Basic
-    @javax.persistence.Column(name = "DOCK_CODE")
+    @Column(name = "DOCK_CODE")
     public String getDockCode() {
         return dockCode;
     }
@@ -192,10 +176,8 @@ public class PosEntity {
         this.dockCode = dockCode;
     }
 
-    private String disposition;
-
     @Basic
-    @javax.persistence.Column(name = "DISPOSITION")
+    @Column(name = "DISPOSITION")
     public String getDisposition() {
         return disposition;
     }

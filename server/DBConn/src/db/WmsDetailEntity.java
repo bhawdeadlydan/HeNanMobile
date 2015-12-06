@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by richard on 2015/12/6.
@@ -23,6 +20,7 @@ public class WmsDetailEntity {
     private Integer expectedQuantity;
     private String asnCode;
     private int allocationId;
+    private int id;
 
     @Basic
     @Column(name = "IS_BOM")
@@ -184,5 +182,15 @@ public class WmsDetailEntity {
         result = 31 * result + (asnCode != null ? asnCode.hashCode() : 0);
         result = 31 * result + allocationId;
         return result;
+    }
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

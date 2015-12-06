@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.SaleBomEntity" table="sale_bom" schema="mobile">
+        <id name="id" column="ID"/>
+        <property name="saleBomCode" column="SALE_BOM_CODE"/>
+        <property name="saleBomName" column="SALE_BOM_NAME"/>
+        <property name="saleBomUnit" column="SALE_BOM_UNIT"/>
+        <property name="bomId" column="BOM_ID"/>
+    </class>
+</hibernate-mapping>

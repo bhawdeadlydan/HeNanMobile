@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by richard on 2015/12/6.
@@ -20,6 +17,7 @@ public class DetailEntity {
     private String itemUnitCode;
     private Double expectedQuantity;
     private String posApplyDocCode;
+    private int id;
 
     @Basic
     @Column(name = "IS_BOM")
@@ -145,5 +143,15 @@ public class DetailEntity {
         result = 31 * result + (expectedQuantity != null ? expectedQuantity.hashCode() : 0);
         result = 31 * result + (posApplyDocCode != null ? posApplyDocCode.hashCode() : 0);
         return result;
+    }
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

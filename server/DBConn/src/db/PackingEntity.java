@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by richard on 2015/12/6.
@@ -23,6 +20,7 @@ public class PackingEntity {
     private String packingWeightUom;
     private Double packingWeight;
     private int packingBomId;
+private int id;
 
     @Basic
     @Column(name = "PACKING_CODE")
@@ -144,7 +142,7 @@ public class PackingEntity {
         this.packingBomId = packingBomId;
     }
 
-    @Override
+        @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -172,8 +170,7 @@ public class PackingEntity {
 
         return true;
     }
-
-    @Override
+@Override
     public int hashCode() {
         int result = packingCode != null ? packingCode.hashCode() : 0;
         result = 31 * result + (packingName != null ? packingName.hashCode() : 0);
@@ -188,5 +185,15 @@ public class PackingEntity {
         result = 31 * result + (packingWeight != null ? packingWeight.hashCode() : 0);
         result = 31 * result + packingBomId;
         return result;
+    }
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

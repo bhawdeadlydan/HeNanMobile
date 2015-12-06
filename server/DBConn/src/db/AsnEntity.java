@@ -1,9 +1,6 @@
 package db;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -13,9 +10,41 @@ import java.sql.Timestamp;
 @Table(name = "asn", schema = "mobile", catalog = "")
 public class AsnEntity {
     private String company;
+    private String orgCode;
+    private String warehouseCode;
+    private String billType;
+    private Timestamp expectedArriveDate;
+    private String code;
+    private byte flag;
+    private String relatedBill1;
+    private String relatedBill2;
+    private String relatedBill3;
+    private String projectCode;
+    private Timestamp orderDate;
+    private String dock;
+    private String buyerName;
+    private String buyerEmail;
+    private String buyerFax;
+    private String buyerPhone;
+    private String materialsName;
+    private String materialsEmail;
+    private String materialsFax;
+    private String materialsPhone;
+    private String vendorCode;
+    private String vendorName;
+    private String vendorContactName;
+    private String vendorContactEmail;
+    private String vendorContactFax;
+    private String vendorContactPhone;
+    private String carrierName;
+    private String carrierContactName;
+    private String carrierContactEmail;
+    private String carrierContactFax;
+    private String carrierContactPhone;
+    private String disposition;
 
     @Basic
-    @javax.persistence.Column(name = "COMPANY")
+    @Column(name = "COMPANY")
     public String getCompany() {
         return company;
     }
@@ -24,10 +53,8 @@ public class AsnEntity {
         this.company = company;
     }
 
-    private String orgCode;
-
     @Basic
-    @javax.persistence.Column(name = "ORG_CODE")
+    @Column(name = "ORG_CODE")
     public String getOrgCode() {
         return orgCode;
     }
@@ -36,10 +63,8 @@ public class AsnEntity {
         this.orgCode = orgCode;
     }
 
-    private String warehouseCode;
-
     @Basic
-    @javax.persistence.Column(name = "WAREHOUSE_CODE")
+    @Column(name = "WAREHOUSE_CODE")
     public String getWarehouseCode() {
         return warehouseCode;
     }
@@ -48,10 +73,8 @@ public class AsnEntity {
         this.warehouseCode = warehouseCode;
     }
 
-    private String billType;
-
     @Basic
-    @javax.persistence.Column(name = "BILL_TYPE")
+    @Column(name = "BILL_TYPE")
     public String getBillType() {
         return billType;
     }
@@ -60,10 +83,8 @@ public class AsnEntity {
         this.billType = billType;
     }
 
-    private Timestamp expectedArriveDate;
-
     @Basic
-    @javax.persistence.Column(name = "EXPECTED_ARRIVE_DATE")
+    @Column(name = "EXPECTED_ARRIVE_DATE")
     public Timestamp getExpectedArriveDate() {
         return expectedArriveDate;
     }
@@ -72,10 +93,8 @@ public class AsnEntity {
         this.expectedArriveDate = expectedArriveDate;
     }
 
-    private String code;
-
     @Id
-    @javax.persistence.Column(name = "CODE")
+    @Column(name = "CODE")
     public String getCode() {
         return code;
     }
@@ -84,10 +103,8 @@ public class AsnEntity {
         this.code = code;
     }
 
-    private byte flag;
-
     @Basic
-    @javax.persistence.Column(name = "FLAG")
+    @Column(name = "FLAG")
     public byte getFlag() {
         return flag;
     }
@@ -96,10 +113,8 @@ public class AsnEntity {
         this.flag = flag;
     }
 
-    private String relatedBill1;
-
     @Basic
-    @javax.persistence.Column(name = "RELATED_BILL1")
+    @Column(name = "RELATED_BILL1")
     public String getRelatedBill1() {
         return relatedBill1;
     }
@@ -108,10 +123,8 @@ public class AsnEntity {
         this.relatedBill1 = relatedBill1;
     }
 
-    private String relatedBill2;
-
     @Basic
-    @javax.persistence.Column(name = "RELATED_BILL2")
+    @Column(name = "RELATED_BILL2")
     public String getRelatedBill2() {
         return relatedBill2;
     }
@@ -120,10 +133,8 @@ public class AsnEntity {
         this.relatedBill2 = relatedBill2;
     }
 
-    private String relatedBill3;
-
     @Basic
-    @javax.persistence.Column(name = "RELATED_BILL3")
+    @Column(name = "RELATED_BILL3")
     public String getRelatedBill3() {
         return relatedBill3;
     }
@@ -132,10 +143,8 @@ public class AsnEntity {
         this.relatedBill3 = relatedBill3;
     }
 
-    private String projectCode;
-
     @Basic
-    @javax.persistence.Column(name = "PROJECT_CODE")
+    @Column(name = "PROJECT_CODE")
     public String getProjectCode() {
         return projectCode;
     }
@@ -144,10 +153,8 @@ public class AsnEntity {
         this.projectCode = projectCode;
     }
 
-    private Timestamp orderDate;
-
     @Basic
-    @javax.persistence.Column(name = "ORDER_DATE")
+    @Column(name = "ORDER_DATE")
     public Timestamp getOrderDate() {
         return orderDate;
     }
@@ -156,10 +163,8 @@ public class AsnEntity {
         this.orderDate = orderDate;
     }
 
-    private String dock;
-
     @Basic
-    @javax.persistence.Column(name = "DOCK")
+    @Column(name = "DOCK")
     public String getDock() {
         return dock;
     }
@@ -168,10 +173,8 @@ public class AsnEntity {
         this.dock = dock;
     }
 
-    private String buyerName;
-
     @Basic
-    @javax.persistence.Column(name = "BUYER_NAME")
+    @Column(name = "BUYER_NAME")
     public String getBuyerName() {
         return buyerName;
     }
@@ -180,10 +183,8 @@ public class AsnEntity {
         this.buyerName = buyerName;
     }
 
-    private String buyerEmail;
-
     @Basic
-    @javax.persistence.Column(name = "BUYER_EMAIL")
+    @Column(name = "BUYER_EMAIL")
     public String getBuyerEmail() {
         return buyerEmail;
     }
@@ -192,10 +193,8 @@ public class AsnEntity {
         this.buyerEmail = buyerEmail;
     }
 
-    private String buyerFax;
-
     @Basic
-    @javax.persistence.Column(name = "BUYER_FAX")
+    @Column(name = "BUYER_FAX")
     public String getBuyerFax() {
         return buyerFax;
     }
@@ -204,10 +203,8 @@ public class AsnEntity {
         this.buyerFax = buyerFax;
     }
 
-    private String buyerPhone;
-
     @Basic
-    @javax.persistence.Column(name = "BUYER_PHONE")
+    @Column(name = "BUYER_PHONE")
     public String getBuyerPhone() {
         return buyerPhone;
     }
@@ -216,10 +213,8 @@ public class AsnEntity {
         this.buyerPhone = buyerPhone;
     }
 
-    private String materialsName;
-
     @Basic
-    @javax.persistence.Column(name = "MATERIALS_NAME")
+    @Column(name = "MATERIALS_NAME")
     public String getMaterialsName() {
         return materialsName;
     }
@@ -228,10 +223,8 @@ public class AsnEntity {
         this.materialsName = materialsName;
     }
 
-    private String materialsEmail;
-
     @Basic
-    @javax.persistence.Column(name = "MATERIALS_EMAIL")
+    @Column(name = "MATERIALS_EMAIL")
     public String getMaterialsEmail() {
         return materialsEmail;
     }
@@ -240,10 +233,8 @@ public class AsnEntity {
         this.materialsEmail = materialsEmail;
     }
 
-    private String materialsFax;
-
     @Basic
-    @javax.persistence.Column(name = "MATERIALS_FAX")
+    @Column(name = "MATERIALS_FAX")
     public String getMaterialsFax() {
         return materialsFax;
     }
@@ -252,10 +243,8 @@ public class AsnEntity {
         this.materialsFax = materialsFax;
     }
 
-    private String materialsPhone;
-
     @Basic
-    @javax.persistence.Column(name = "MATERIALS_PHONE")
+    @Column(name = "MATERIALS_PHONE")
     public String getMaterialsPhone() {
         return materialsPhone;
     }
@@ -264,10 +253,8 @@ public class AsnEntity {
         this.materialsPhone = materialsPhone;
     }
 
-    private String vendorCode;
-
     @Basic
-    @javax.persistence.Column(name = "VENDOR_CODE")
+    @Column(name = "VENDOR_CODE")
     public String getVendorCode() {
         return vendorCode;
     }
@@ -276,10 +263,8 @@ public class AsnEntity {
         this.vendorCode = vendorCode;
     }
 
-    private String vendorName;
-
     @Basic
-    @javax.persistence.Column(name = "VENDOR_NAME")
+    @Column(name = "VENDOR_NAME")
     public String getVendorName() {
         return vendorName;
     }
@@ -288,10 +273,8 @@ public class AsnEntity {
         this.vendorName = vendorName;
     }
 
-    private String vendorContactName;
-
     @Basic
-    @javax.persistence.Column(name = "VENDOR_CONTACT_NAME")
+    @Column(name = "VENDOR_CONTACT_NAME")
     public String getVendorContactName() {
         return vendorContactName;
     }
@@ -300,10 +283,8 @@ public class AsnEntity {
         this.vendorContactName = vendorContactName;
     }
 
-    private String vendorContactEmail;
-
     @Basic
-    @javax.persistence.Column(name = "VENDOR_CONTACT_EMAIL")
+    @Column(name = "VENDOR_CONTACT_EMAIL")
     public String getVendorContactEmail() {
         return vendorContactEmail;
     }
@@ -312,10 +293,8 @@ public class AsnEntity {
         this.vendorContactEmail = vendorContactEmail;
     }
 
-    private String vendorContactFax;
-
     @Basic
-    @javax.persistence.Column(name = "VENDOR_CONTACT_FAX")
+    @Column(name = "VENDOR_CONTACT_FAX")
     public String getVendorContactFax() {
         return vendorContactFax;
     }
@@ -324,10 +303,8 @@ public class AsnEntity {
         this.vendorContactFax = vendorContactFax;
     }
 
-    private String vendorContactPhone;
-
     @Basic
-    @javax.persistence.Column(name = "VENDOR_CONTACT_PHONE")
+    @Column(name = "VENDOR_CONTACT_PHONE")
     public String getVendorContactPhone() {
         return vendorContactPhone;
     }
@@ -336,10 +313,8 @@ public class AsnEntity {
         this.vendorContactPhone = vendorContactPhone;
     }
 
-    private String carrierName;
-
     @Basic
-    @javax.persistence.Column(name = "CARRIER_NAME")
+    @Column(name = "CARRIER_NAME")
     public String getCarrierName() {
         return carrierName;
     }
@@ -348,10 +323,8 @@ public class AsnEntity {
         this.carrierName = carrierName;
     }
 
-    private String carrierContactName;
-
     @Basic
-    @javax.persistence.Column(name = "CARRIER_CONTACT_NAME")
+    @Column(name = "CARRIER_CONTACT_NAME")
     public String getCarrierContactName() {
         return carrierContactName;
     }
@@ -360,10 +333,8 @@ public class AsnEntity {
         this.carrierContactName = carrierContactName;
     }
 
-    private String carrierContactEmail;
-
     @Basic
-    @javax.persistence.Column(name = "CARRIER_CONTACT_EMAIL")
+    @Column(name = "CARRIER_CONTACT_EMAIL")
     public String getCarrierContactEmail() {
         return carrierContactEmail;
     }
@@ -372,10 +343,8 @@ public class AsnEntity {
         this.carrierContactEmail = carrierContactEmail;
     }
 
-    private String carrierContactFax;
-
     @Basic
-    @javax.persistence.Column(name = "CARRIER_CONTACT_FAX")
+    @Column(name = "CARRIER_CONTACT_FAX")
     public String getCarrierContactFax() {
         return carrierContactFax;
     }
@@ -384,10 +353,8 @@ public class AsnEntity {
         this.carrierContactFax = carrierContactFax;
     }
 
-    private String carrierContactPhone;
-
     @Basic
-    @javax.persistence.Column(name = "CARRIER_CONTACT_PHONE")
+    @Column(name = "CARRIER_CONTACT_PHONE")
     public String getCarrierContactPhone() {
         return carrierContactPhone;
     }
@@ -396,10 +363,8 @@ public class AsnEntity {
         this.carrierContactPhone = carrierContactPhone;
     }
 
-    private String disposition;
-
     @Basic
-    @javax.persistence.Column(name = "DISPOSITION")
+    @Column(name = "DISPOSITION")
     public String getDisposition() {
         return disposition;
     }

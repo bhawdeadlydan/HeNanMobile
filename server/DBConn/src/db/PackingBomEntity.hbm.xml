@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.PackingBomEntity" table="packing_bom" schema="mobile">
+        <id name="id" column="ID"/>
+        <property name="packingBomCode" column="PACKING_BOM_CODE"/>
+        <property name="packingType" column="PACKING_TYPE"/>
+        <property name="vendorCode" column="VENDOR_CODE"/>
+        <property name="vendorName" column="VENDOR_NAME"/>
+        <property name="bomId" column="BOM_ID"/>
+    </class>
+</hibernate-mapping>
