@@ -1,0 +1,224 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SB_WMS_WMS_ImportComEpuSimMatStorSrv WSDL service -->
+
+  <service name="SB_WMS_WMS_ImportComEpuSimMatStorSrvPort" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"/>
+      <parameter name="wsdlServiceElement" value="SB_WMS_WMS_ImportComEpuSimMatStorSrv"/>
+      <parameter name="schemaQualified" value="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv,http://mss.cmcc.com/MsgHeader"/>
+      <parameter name="wsdlServicePort" value="SB_WMS_WMS_ImportComEpuSimMatStorSrvPort"/>
+      <parameter name="className" value="PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl"/>
+      <parameter name="wsdlPortType" value="SB_WMS_WMS_ImportComEpuSimMatStorSrv"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <operation name="process" qname="process" returnQName="retNS:SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse" xmlns:retNS="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv" returnType="rtns:SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse" xmlns:rtns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv" soapAction="process" >
+        <parameter qname="pns:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest" xmlns:pns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv" type="tns:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest" xmlns:tns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"/>
+      </operation>
+      <parameter name="allowedMethods" value="process"/>
+
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:BOMS_Collection"
+        type="java:PutOut.BOMS_Item[]"
+        innerType="cmp-ns:BOMS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:WMS_DETAIL_Collection"
+        type="java:PutOut.WMS_DETAIL_Item[]"
+        innerType="cmp-ns:WMS_DETAIL_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:ITEMS_Item"
+        type="java:PutOut.ITEMS_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SALE_BOM_DETAIL_Item"
+        type="java:PutOut.SALE_BOM_DETAIL_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest"
+        type="java:PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection"
+        type="java:PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem[]"
+        innerType="cmp-ns:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SALE_BOMS_Item"
+        type="java:PutOut.SALE_BOMS_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:ITEMS_Collection"
+        type="java:PutOut.ITEMS_Item[]"
+        innerType="cmp-ns:ITEMS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse"
+        type="java:PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:ErrorCollection"
+        type="java:PutOut.ErrorItem[]"
+        innerType="cmp-ns:ErrorItem" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:PACKING_BOMS_Collection"
+        type="java:PutOut.PACKING_BOMS_Item[]"
+        innerType="cmp-ns:PACKING_BOMS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem"
+        type="java:PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SALE_BOM_DETAILS_Item"
+        type="java:PutOut.SALE_BOM_DETAIL_Item[]"
+        innerType="cmp-ns:SALE_BOM_DETAIL_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SALE_BOM_DETAILS_Collection"
+        type="java:PutOut.SALE_BOM_DETAIL_Item[][]"
+        innerType="cmp-ns:SALE_BOM_DETAILS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:PACKINGS_Collection"
+        type="java:PutOut.PACKINGS_Item[]"
+        innerType="cmp-ns:PACKINGS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:WMS_DETAILS_Item"
+        type="java:PutOut.WMS_DETAIL_Item[][]"
+        innerType="cmp-ns:WMS_DETAIL_Collection" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:ErrorItem"
+        type="java:PutOut.ErrorItem"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:PACKINGS_Item"
+        type="java:PutOut.PACKINGS_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:SALE_BOMS_Collection"
+        type="java:PutOut.SALE_BOMS_Item[]"
+        innerType="cmp-ns:SALE_BOMS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:WMS_DETAIL_Item"
+        type="java:PutOut.WMS_DETAIL_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/MsgHeader"
+        qname="ns:MsgHeader"
+        type="java:PutOut.MsgHeader"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:ResponseCollection"
+        type="java:PutOut.ResponseItem[]"
+        innerType="cmp-ns:ResponseItem" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:WMS_DETAILS_Collection"
+        type="java:PutOut.WMS_DETAIL_Item[][][]"
+        innerType="cmp-ns:WMS_DETAILS_Item" xmlns:cmp-ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:ResponseItem"
+        type="java:PutOut.ResponseItem"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:PACKING_BOMS_Item"
+        type="java:PutOut.PACKING_BOMS_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv"
+        qname="ns:BOMS_Item"
+        type="java:PutOut.BOMS_Item"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
