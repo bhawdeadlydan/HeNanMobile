@@ -9,6 +9,7 @@ package PutOut;
 
 public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrv_PortType{
     public PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse process(PutOut.SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest payload) throws java.rmi.RemoteException {
+        System.out.println("put out");
         return null;
     }
 

@@ -9,6 +9,7 @@ package PutIn;
 
 public class SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvBindingImpl implements PutIn.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrv_PortType{
     public PutIn.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvResponse process(PutIn.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvRequest payload) throws java.rmi.RemoteException {
+        System.out.println("put in");
         return null;
     }
 
