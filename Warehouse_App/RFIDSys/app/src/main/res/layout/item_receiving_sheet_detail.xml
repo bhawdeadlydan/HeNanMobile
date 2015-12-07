@@ -11,6 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:weightSum="1"
         android:id="@+id/linearLayout6">
 
@@ -18,13 +21,13 @@
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="项目编码："
-            android:id="@+id/receiving_sheet_detail_project_code" />
+            android:id="@+id/text_receiving_sheet_detail_project_code" />
 
         <TextView
             android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:text="项目负责人："
-            android:id="@+id/receiving_sheet_detail_apply_person" />
+            android:text="订单日期："
+            android:id="@+id/text_receiving_sheet_detail_order_date" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,20 +36,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout6"
         android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:weightSum="1"
         android:id="@+id/linearLayout7">
 
         <TextView
-            android:layout_width="175dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:text="其他信息："
-            android:id="@+id/textView5" />
+            android:text="供应商名称："
+            android:id="@+id/text_receiving_sheet_detail_vendor_name" />
 
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:text="其他信息    ："
-            android:id="@+id/textView7" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,13 +56,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout7"
         android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:weightSum="1">
 
         <TextView
             android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:text="其他信息："
-            android:id="@+id/textView21"
-            android:layout_weight="0.50" />
+            android:text="需求申购人："
+            android:id="@+id/text_receiving_sheet_detail_apply_person" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="采购单号："
+            android:id="@+id/text_receiving_sheet_detail_related_bill" />
     </LinearLayout>
+
 </RelativeLayout>

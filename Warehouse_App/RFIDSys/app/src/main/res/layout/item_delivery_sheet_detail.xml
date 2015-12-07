@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/linearLayout10">
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="申领人    ："
+            android:id="@+id/text_delivery_sheet_detail_apply_persion" />
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="申领项目："
+            android:id="@+id/text_delivery_sheet_detail_project_code" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout10"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/linearLayout11">
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="申领单位："
+            android:id="@+id/text_delivery_sheet_detail_apply_unit" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout11"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="申领单编码："
+            android:id="@+id/text_delivery_sheet_detail_apply_project_code" />
+
+    </LinearLayout>
+</RelativeLayout>

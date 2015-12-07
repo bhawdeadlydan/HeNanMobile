@@ -6,7 +6,9 @@ import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 
@@ -27,7 +29,6 @@ public class ReceivingSheetsActivity extends AppCompatActivity {
 
         sheetListView = (ExpandableListView) findViewById(R.id.list_receiving_sheets);
 
-
         list.add("0000000001");
         list.add("0000000002");
         list.add("0000000003");
@@ -36,12 +37,12 @@ public class ReceivingSheetsActivity extends AppCompatActivity {
         sheetListView.setAdapter(tmpAdapter);
 
 
-        sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+/*        sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
-                
+
             }
-        });
+        });*/
 
 
 
