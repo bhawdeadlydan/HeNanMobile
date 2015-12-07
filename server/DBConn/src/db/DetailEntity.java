@@ -15,7 +15,7 @@ public class DetailEntity {
     private String itemCode;
     private String itemName;
     private String itemUnitCode;
-    private Double expectedQuantity;
+    private Integer expectedQuantity;
     private String posApplyDocCode;
     private int id;
 
@@ -91,11 +91,11 @@ public class DetailEntity {
 
     @Basic
     @Column(name = "EXPECTED_QUANTITY")
-    public Double getExpectedQuantity() {
+    public Integer getExpectedQuantity() {
         return expectedQuantity;
     }
 
-    public void setExpectedQuantity(Double expectedQuantity) {
+    public void setExpectedQuantity(Integer expectedQuantity) {
         this.expectedQuantity = expectedQuantity;
     }
 
