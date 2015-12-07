@@ -1,9 +1,14 @@
 import dao.BaseDao;
+import dao.LogDao;
 import db.CheckEntity;
+import db.LogEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -37,6 +42,16 @@ public class Main extends BaseDao {
     }
 
     public static void main(final String[] args) throws Exception {
-        list();
+        LogDao ldao = new LogDao();
+        LogEntity l = new LogEntity();
+        l.setNote("123");
+        l.setOperation("asd");
+        l.setTime(new Timestamp(System.currentTimeMillis()));
+        ldao.addEntity(l);
+        List list = ldao.findAll("LogEntity");
+        for(Iterator it = list.iterator(); it.hasNext();) {
+            LogEntity log = (LogEntity) it.next();
+            System.out.println(log.getId());
+        }
     }
 }
