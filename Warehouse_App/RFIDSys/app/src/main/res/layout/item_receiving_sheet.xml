@@ -11,8 +11,8 @@
         android:text="收货单号：ZH-VS-00000000000000000"
         android:id="@+id/text_receiving_sheet_code"
         android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/btn_receiving_sheet"
-        android:layout_marginEnd="20dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="26dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
