@@ -228,7 +228,7 @@
         <primary>1</primary>
       </key>
       <column id="79" parent="7" name="IS_BOM">
-        <data-type>tinyint(1)</data-type>
+        <data-type>varchar(30)</data-type>
       </column>
       <column id="80" parent="7" name="SALE_BOM_CODE">
         <data-type>varchar(20)</data-type>
@@ -638,7 +638,6 @@
         <data-type>varchar(30)</data-type>
       </column>
       <column id="199" parent="18" name="ALLOCATION_id">
-        <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
       <column id="200" parent="18" name="ID">
@@ -649,49 +648,43 @@
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="202" parent="18" name="fk_WMS_DETAIL_ALLOCATION1">
-        <columns>ALLOCATION_id</columns>
-        <ref-key>allocation.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <foreign-key id="203" parent="18" name="fk_WMS_DETAIL_ASN1">
+      <foreign-key id="202" parent="18" name="fk_WMS_DETAIL_ASN1">
         <columns>ASN_CODE</columns>
         <ref-key>asn.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="204" parent="19" name="CARTON_ORDER_NUM">
+      <column id="203" parent="19" name="CARTON_ORDER_NUM">
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="205" parent="19" name="RECEIVE_DATE">
+      <column id="204" parent="19" name="RECEIVE_DATE">
         <data-type>timestamp</data-type>
       </column>
-      <column id="206" parent="19" name="ITEM_CODE">
+      <column id="205" parent="19" name="ITEM_CODE">
         <data-type>varchar(30)</data-type>
       </column>
-      <column id="207" parent="19" name="ITEM_NAME">
+      <column id="206" parent="19" name="ITEM_NAME">
         <data-type>varchar(240)</data-type>
       </column>
-      <column id="208" parent="19" name="ITEM_UNIT_CODE">
+      <column id="207" parent="19" name="ITEM_UNIT_CODE">
         <data-type>varchar(30)</data-type>
       </column>
-      <column id="209" parent="19" name="RECEIVE_QUANTITY">
+      <column id="208" parent="19" name="RECEIVE_QUANTITY">
         <data-type>int(11)</data-type>
       </column>
-      <column id="210" parent="19" name="ID">
+      <column id="209" parent="19" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="211" parent="19" name="RASN_CODE">
+      <column id="210" parent="19" name="RASN_CODE">
         <mandatory>1</mandatory>
         <data-type>varchar(30)</data-type>
       </column>
-      <key id="212" parent="19" name="PRIMARY">
+      <key id="211" parent="19" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="213" parent="19" name="fk_DETAIL_RASN1">
+      <foreign-key id="212" parent="19" name="fk_DETAIL_RASN1">
         <columns>RASN_CODE</columns>
         <ref-key>rasn.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

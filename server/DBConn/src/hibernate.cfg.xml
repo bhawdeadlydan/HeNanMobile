@@ -11,7 +11,6 @@
         <mapping class="db.AsnEntity"/>
         <mapping class="db.BomEntity"/>
         <mapping class="db.CheckEntity"/>
-        <mapping class="db.DetailEntity"/>
         <mapping class="db.ItemEntity"/>
         <mapping class="db.LogEntity"/>
         <mapping class="db.PackingEntity"/>
@@ -22,7 +21,6 @@
         <mapping class="db.RposEntity"/>
         <mapping class="db.SaleBomEntity"/>
         <mapping class="db.TransportEntity"/>
-        <mapping class="db.WmsDetailEntity"/>
         <mapping resource="db/SaleBomDetailEntity.hbm.xml"/>
         <mapping resource="db/AsnEntity.hbm.xml"/>
         <mapping resource="db/BomEntity.hbm.xml"/>
@@ -37,11 +35,13 @@
         <mapping resource="db/RposEntity.hbm.xml"/>
         <mapping resource="db/SaleBomEntity.hbm.xml"/>
         <mapping resource="db/TransportEntity.hbm.xml"/>
-        <mapping resource="db/WmsDetailEntity.hbm.xml"/>
         <mapping class="db.RasndetailEntity"/>
         <mapping resource="db/RasndetailEntity.hbm.xml"/>
         <mapping resource="db/AllocationEntity.hbm.xml"/>
+        <mapping class="db.DetailEntity"/>
         <mapping resource="db/DetailEntity.hbm.xml"/>
+        <mapping class="db.WmsDetailEntity"/>
+        <mapping resource="db/WmsDetailEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

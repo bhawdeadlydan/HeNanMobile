@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "detail", schema = "mobile", catalog = "")
 public class DetailEntity {
-    private Byte isBom;
+    private String isBom;
     private String saleBomCode;
     private String itemErpCode;
     private String itemErpUnit;
@@ -21,11 +21,11 @@ public class DetailEntity {
 
     @Basic
     @Column(name = "IS_BOM")
-    public Byte getIsBom() {
+    public String getIsBom() {
         return isBom;
     }
 
-    public void setIsBom(Byte isBom) {
+    public void setIsBom(String isBom) {
         this.isBom = isBom;
     }
 

@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 
 public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrv_PortType{
     public PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse process(PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest payload) throws java.rmi.RemoteException {
+        System.out.println("入库");
         SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse r = new SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse();
         ASNDao asndao = new ASNDao();
         PackingBomDao pbdao = new PackingBomDao();

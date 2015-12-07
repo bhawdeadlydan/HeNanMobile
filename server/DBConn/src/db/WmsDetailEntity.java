@@ -19,7 +19,7 @@ public class WmsDetailEntity {
     private String itemUnitCode;
     private Integer expectedQuantity;
     private String asnCode;
-    private int allocationId;
+    private Integer allocationId;
     private int id;
 
     @Basic
@@ -134,11 +134,11 @@ public class WmsDetailEntity {
 
     @Basic
     @Column(name = "ALLOCATION_id")
-    public int getAllocationId() {
+    public Integer getAllocationId() {
         return allocationId;
     }
 
-    public void setAllocationId(int allocationId) {
+    public void setAllocationId(Integer allocationId) {
         this.allocationId = allocationId;
     }
 
@@ -159,7 +159,6 @@ public class WmsDetailEntity {
 
         WmsDetailEntity that = (WmsDetailEntity) o;
 
-        if (allocationId != that.allocationId) return false;
         if (id != that.id) return false;
         if (isBom != null ? !isBom.equals(that.isBom) : that.isBom != null) return false;
         if (saleBomCode != null ? !saleBomCode.equals(that.saleBomCode) : that.saleBomCode != null) return false;
@@ -174,6 +173,7 @@ public class WmsDetailEntity {
         if (expectedQuantity != null ? !expectedQuantity.equals(that.expectedQuantity) : that.expectedQuantity != null)
             return false;
         if (asnCode != null ? !asnCode.equals(that.asnCode) : that.asnCode != null) return false;
+        if (allocationId != null ? !allocationId.equals(that.allocationId) : that.allocationId != null) return false;
 
         return true;
     }
@@ -191,7 +191,7 @@ public class WmsDetailEntity {
         result = 31 * result + (itemUnitCode != null ? itemUnitCode.hashCode() : 0);
         result = 31 * result + (expectedQuantity != null ? expectedQuantity.hashCode() : 0);
         result = 31 * result + (asnCode != null ? asnCode.hashCode() : 0);
-        result = 31 * result + allocationId;
+        result = 31 * result + (allocationId != null ? allocationId.hashCode() : 0);
         result = 31 * result + id;
         return result;
     }

@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 
 public class SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvBindingImpl implements PutOut.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrv_PortType{
     public PutOut.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvResponse process(PutOut.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvRequest payload) throws java.rmi.RemoteException {
+        System.out.println("出库");
         SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvResponse r = new SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvResponse();
         PosDao pdao = new PosDao();
         DetailDao ddao = new DetailDao();
@@ -40,7 +41,7 @@ public class SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvBindingImpl implements PutO
             pdao.addEntity(pos);
             for(DETAILS_Item dItem : positem.getDETAILS_Collection()) {
                 DetailEntity detail = new DetailEntity();
-                detail.setIsBom((byte)((dItem.getIS_BOM().toLowerCase() == "1".toLowerCase()) ? 1 : 0));
+                detail.setIsBom(dItem.getIS_BOM());
                 detail.setSaleBomCode(dItem.getSALE_BOM_CODE());
                 detail.setItemErpCode(dItem.getITEM_ERP_CODE());
                 detail.setItemErpUnit(dItem.getITEM_ERP_UNIT());

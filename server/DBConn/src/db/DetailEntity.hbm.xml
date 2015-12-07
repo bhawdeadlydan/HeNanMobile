@@ -14,5 +14,6 @@
         <property name="itemName" column="ITEM_NAME"/>
         <property name="itemUnitCode" column="ITEM_UNIT_CODE"/>
         <property name="expectedQuantity" column="EXPECTED_QUANTITY"/>
+        <property name="posApplyDocCode" column="POS_APPLY_DOC_CODE"/>
     </class>
 </hibernate-mapping>
