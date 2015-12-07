@@ -3,7 +3,7 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "allocation", schema = "mobile", catalog = "")

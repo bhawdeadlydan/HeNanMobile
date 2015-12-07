@@ -102,7 +102,7 @@
       </column>
       <column id="40" parent="4" name="FLAG">
         <mandatory>1</mandatory>
-        <data-type>tinyint(1)</data-type>
+        <data-type>varchar(30)</data-type>
       </column>
       <column id="41" parent="4" name="RELATED_BILL1">
         <data-type>varchar(30)</data-type>

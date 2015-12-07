@@ -3,7 +3,7 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "packing", schema = "mobile", catalog = "")
@@ -20,7 +20,7 @@ public class PackingEntity {
     private String packingWeightUom;
     private Double packingWeight;
     private int packingBomId;
-private int id;
+    private int id;
 
     @Basic
     @Column(name = "PACKING_CODE")
@@ -142,7 +142,17 @@ private int id;
         this.packingBomId = packingBomId;
     }
 
-        @Override
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -150,6 +160,7 @@ private int id;
         PackingEntity that = (PackingEntity) o;
 
         if (packingBomId != that.packingBomId) return false;
+        if (id != that.id) return false;
         if (packingCode != null ? !packingCode.equals(that.packingCode) : that.packingCode != null) return false;
         if (packingName != null ? !packingName.equals(that.packingName) : that.packingName != null) return false;
         if (packingCount != null ? !packingCount.equals(that.packingCount) : that.packingCount != null) return false;
@@ -170,7 +181,8 @@ private int id;
 
         return true;
     }
-@Override
+
+    @Override
     public int hashCode() {
         int result = packingCode != null ? packingCode.hashCode() : 0;
         result = 31 * result + (packingName != null ? packingName.hashCode() : 0);
@@ -184,16 +196,7 @@ private int id;
         result = 31 * result + (packingWeightUom != null ? packingWeightUom.hashCode() : 0);
         result = 31 * result + (packingWeight != null ? packingWeight.hashCode() : 0);
         result = 31 * result + packingBomId;
+        result = 31 * result + id;
         return result;
-    }
-
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

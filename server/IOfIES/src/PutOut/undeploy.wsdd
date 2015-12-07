@@ -9,7 +9,7 @@
 <undeployment
     xmlns="http://xml.apache.org/axis/wsdd/">
 
-  <!-- Services from SB_WMS_WMS_ImportComEpuSimMatStorSrv WSDL service -->
+  <!-- Services from SB_WMS_WMS_ImportComEpuSimMatAppMStorSrv WSDL service -->
 
-  <service name="SB_WMS_WMS_ImportComEpuSimMatStorSrvPort"/>
+  <service name="SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvPort"/>
 </undeployment>

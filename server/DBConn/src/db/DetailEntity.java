@@ -3,7 +3,7 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "detail", schema = "mobile", catalog = "")
@@ -109,6 +109,16 @@ public class DetailEntity {
         this.posApplyDocCode = posApplyDocCode;
     }
 
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,6 +126,7 @@ public class DetailEntity {
 
         DetailEntity that = (DetailEntity) o;
 
+        if (id != that.id) return false;
         if (isBom != null ? !isBom.equals(that.isBom) : that.isBom != null) return false;
         if (saleBomCode != null ? !saleBomCode.equals(that.saleBomCode) : that.saleBomCode != null) return false;
         if (itemErpCode != null ? !itemErpCode.equals(that.itemErpCode) : that.itemErpCode != null) return false;
@@ -142,16 +153,7 @@ public class DetailEntity {
         result = 31 * result + (itemUnitCode != null ? itemUnitCode.hashCode() : 0);
         result = 31 * result + (expectedQuantity != null ? expectedQuantity.hashCode() : 0);
         result = 31 * result + (posApplyDocCode != null ? posApplyDocCode.hashCode() : 0);
+        result = 31 * result + id;
         return result;
-    }
-
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

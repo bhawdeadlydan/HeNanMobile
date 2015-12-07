@@ -3,7 +3,7 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "rdetail", schema = "mobile", catalog = "")
@@ -87,6 +87,16 @@ public class RdetailEntity {
         this.rposCode = rposCode;
     }
 
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,6 +104,7 @@ public class RdetailEntity {
 
         RdetailEntity that = (RdetailEntity) o;
 
+        if (id != that.id) return false;
         if (saleBomCode != null ? !saleBomCode.equals(that.saleBomCode) : that.saleBomCode != null) return false;
         if (itemErpCode != null ? !itemErpCode.equals(that.itemErpCode) : that.itemErpCode != null) return false;
         if (itemErpUnit != null ? !itemErpUnit.equals(that.itemErpUnit) : that.itemErpUnit != null) return false;
@@ -114,16 +125,7 @@ public class RdetailEntity {
         result = 31 * result + (itemUnit != null ? itemUnit.hashCode() : 0);
         result = 31 * result + (shipQuantity != null ? shipQuantity.hashCode() : 0);
         result = 31 * result + (rposCode != null ? rposCode.hashCode() : 0);
+        result = 31 * result + id;
         return result;
-    }
-
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

@@ -3,7 +3,7 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "wms_detail", schema = "mobile", catalog = "")
@@ -142,6 +142,16 @@ public class WmsDetailEntity {
         this.allocationId = allocationId;
     }
 
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -150,6 +160,7 @@ public class WmsDetailEntity {
         WmsDetailEntity that = (WmsDetailEntity) o;
 
         if (allocationId != that.allocationId) return false;
+        if (id != that.id) return false;
         if (isBom != null ? !isBom.equals(that.isBom) : that.isBom != null) return false;
         if (saleBomCode != null ? !saleBomCode.equals(that.saleBomCode) : that.saleBomCode != null) return false;
         if (packingCode != null ? !packingCode.equals(that.packingCode) : that.packingCode != null) return false;
@@ -181,16 +192,7 @@ public class WmsDetailEntity {
         result = 31 * result + (expectedQuantity != null ? expectedQuantity.hashCode() : 0);
         result = 31 * result + (asnCode != null ? asnCode.hashCode() : 0);
         result = 31 * result + allocationId;
+        result = 31 * result + id;
         return result;
-    }
-
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

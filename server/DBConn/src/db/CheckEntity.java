@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "check", schema = "mobile", catalog = "")
@@ -55,6 +55,16 @@ public class CheckEntity {
         this.time = time;
     }
 
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,6 +72,7 @@ public class CheckEntity {
 
         CheckEntity that = (CheckEntity) o;
 
+        if (id != that.id) return false;
         if (item != null ? !item.equals(that.item) : that.item != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
         if (method != null ? !method.equals(that.method) : that.method != null) return false;
@@ -76,16 +87,7 @@ public class CheckEntity {
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + (method != null ? method.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + id;
         return result;
-    }
-
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by richard on 2015/12/6.
+ * Created by richard on 2015/12/7.
  */
 @Entity
 @Table(name = "transport", schema = "mobile", catalog = "")
@@ -88,6 +88,16 @@ public class TransportEntity {
         this.latitude = latitude;
     }
 
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,6 +105,7 @@ public class TransportEntity {
 
         TransportEntity that = (TransportEntity) o;
 
+        if (id != that.id) return false;
         if (charge != null ? !charge.equals(that.charge) : that.charge != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
@@ -116,16 +127,7 @@ public class TransportEntity {
         result = 31 * result + (posApplyDocCode != null ? posApplyDocCode.hashCode() : 0);
         result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
         result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
+        result = 31 * result + id;
         return result;
-    }
-
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
