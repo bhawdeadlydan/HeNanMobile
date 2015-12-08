@@ -18,12 +18,13 @@ import sjtu.rfid.rfidsys.R;
  */
 public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListAdapter {
 
-    private Map<String,List<Map<String,String>>> mReceivingBoxesDetails;
+    private Map<String,Map<String,String>> mReceivingBoxesDetails;
     private List<String> mReceivingBoxes;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
+    private String receiveCode;
 
-    public ReceivingSheetsScanBoxExpandableAdapter(Context mContext,Map<String,List<Map<String,String>>> mReceivingBoxesDetails, List<String> mReceivingBoxes){
+    public ReceivingSheetsScanBoxExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingBoxesDetails, List<String> mReceivingBoxes){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mReceivingBoxes = mReceivingBoxes;
@@ -77,8 +78,37 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout = (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box_detail,null);
-        TextView
+
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box_detail, null);
+        receiveCode=mReceivingBoxes.get(groupPosition);
+        Map<String,String> map=mReceivingBoxesDetails.get(mReceivingBoxes.get(groupPosition));
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            if(entry.getKey().equals("isBom")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_is_bom);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("itemCode")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_item_code);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("itemName")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_item_name);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("quantity")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_quantity);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("cartonOrderNumber")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_carton_order_num);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("cartonNumber")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_carton_num);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+        }
+        return layout;
     }
 
     @Override

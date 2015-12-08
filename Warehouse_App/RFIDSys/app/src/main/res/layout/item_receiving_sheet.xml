@@ -3,7 +3,8 @@
     android:id="@+id/item_receiving_sheet"
     android:orientation = "horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,7 +13,8 @@
         android:id="@+id/text_receiving_sheet_code"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="26dp" />
+        android:layout_marginStart="26dp"
+        android:focusable="false"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -22,6 +24,7 @@
         android:id="@+id/btn_receiving_sheet"
         android:layout_marginEnd="30dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:focusable="false" />
 
 </RelativeLayout>

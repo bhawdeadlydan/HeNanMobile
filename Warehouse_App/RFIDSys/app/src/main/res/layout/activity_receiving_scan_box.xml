@@ -82,8 +82,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="收货单号：000000000000001"
-            android:id="@+id/textView6"
+            android:text="收货单号："
+            android:id="@+id/text_receiving_scan_box_code"
             android:layout_alignParentStart="true" />
 
     </LinearLayout>
