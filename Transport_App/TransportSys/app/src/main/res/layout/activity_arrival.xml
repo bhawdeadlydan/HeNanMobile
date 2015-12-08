@@ -41,12 +41,27 @@
                 android:id="@+id/textView9" />
         </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="扫描写入信息"
-            android:id="@+id/button4"
-            android:textSize="13dp"/>
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫描获取订单"
+                android:id="@+id/button4"
+                android:textSize="13dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫描写入信息"
+                android:id="@+id/button7"
+                android:textSize="13dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button

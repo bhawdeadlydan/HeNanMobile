@@ -9,30 +9,19 @@
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:text="（ERP/套）编码："
+        android:text="EPC号：000000000000000000000000"
         android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:text="应出数量："
+        android:text="（ERP/套）描述：某样物品"
         android:id="@+id/textView3"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:text="已扫到数量："
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView2"
-        android:layout_toEndOf="@+id/textView3" />
 </RelativeLayout>

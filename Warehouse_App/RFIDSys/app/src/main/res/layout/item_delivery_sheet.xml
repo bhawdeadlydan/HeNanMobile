@@ -8,11 +8,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="出库单号：ZH-VS-000000000000000"
+        android:text="申领单号："
         android:id="@+id/text_delivery_sheet_code"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="26dp" />
+        android:layout_marginStart="26dp"
+        android:layout_toStartOf="@+id/btn_delivery_sheet" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

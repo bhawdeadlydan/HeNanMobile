@@ -6,10 +6,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="货箱号：0000000000000000000001"
+        android:text="（ERP/套）编码：2510TP000009924_53009"
         android:id="@+id/text_receiving_scan_box_code"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp" />
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="货箱数量："
+        android:id="@+id/text_receiving_scan_box_count"
+        android:layout_below="@+id/text_receiving_scan_box_code"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <TextView
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="箱内物品数量："
+        android:id="@+id/text_receiving_scan_box_inner_count"
+        android:layout_below="@+id/text_receiving_scan_box_code"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_toEndOf="@+id/text_receiving_scan_box_count" />
 
 </RelativeLayout>

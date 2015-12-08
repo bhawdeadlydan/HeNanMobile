@@ -8,6 +8,6 @@ public class MoveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bind);
+        setContentView(R.layout.activity_move);
     }
 }

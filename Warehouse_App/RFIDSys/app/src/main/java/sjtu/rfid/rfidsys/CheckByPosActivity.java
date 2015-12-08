@@ -8,6 +8,6 @@ public class CheckByPosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checkByPos);
+        setContentView(R.layout.activity_check_by_pos);
     }
 }

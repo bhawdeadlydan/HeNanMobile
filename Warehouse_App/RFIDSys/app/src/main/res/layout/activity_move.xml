@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/title"
+        android:id="@+id/include6" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include6"
+        android:gravity="center"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout4">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描目标货物"
+            android:id="@+id/button4" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="扫描目标货位"
+            android:id="@+id/button5" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提交移位信息"
+        android:id="@+id/button9"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="19dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前选择货位："
+        android:id="@+id/textView2"
+        android:layout_marginStart="19dp"
+        android:layout_alignBaseline="@+id/button9"
+        android:layout_alignBottom="@+id/button9"
+        android:layout_alignParentStart="true" />
+
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableListView"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/button9" />
+
+</RelativeLayout>

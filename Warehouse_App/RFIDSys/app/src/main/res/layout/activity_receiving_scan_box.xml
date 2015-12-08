@@ -38,18 +38,30 @@
         android:gravity="center_vertical"
         android:id="@+id/linearLayout3">
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="入库单号："
-            android:id="@+id/text_receiving_scan_box_code"
-            android:layout_alignParentStart="true" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="入库单号："
+                android:id="@+id/textView"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="000000000000001"
+                android:id="@+id/text_receiving_scan_box_code" />
+        </LinearLayout>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="扫描条码"
+            android:text="扫描标签"
             android:id="@+id/button"
             android:textSize="15dp"
             android:layout_alignEnd="@+id/linearLayout3"
