@@ -1,17 +1,24 @@
 package sjtu.rfid.tools;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.rfidsys.R;
+import sjtu.rfid.rfidsys.ReceivingScanBoxActivity;
+import sjtu.rfid.rfidsys.ReceivingSheetsActivity;
 
 /**
  * Created by user on 12/6/2015.
@@ -19,11 +26,13 @@ import sjtu.rfid.rfidsys.R;
 public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter {
 
     private LayoutInflater mLayoutInflater;
-    private Map<String,List<Map<String,String>>> mReceivingCodeDetailList;
+    private Map<String,Map<String,String>> mReceivingCodeDetailList;
     private List<String> mReceivingCodeList;
     private Context mContext;
+    private  TextView codeLable;
+    String receiveCode;
 
-    public ReceivingSheetsExpandableAdapter(Context mContext,Map<String,List<Map<String,String>>> mReceivingCodeDetailList, List<String> mReceivingCodeList){
+    public ReceivingSheetsExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingCodeDetailList, List<String> mReceivingCodeList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mReceivingCodeList = mReceivingCodeList;
@@ -42,22 +51,25 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
 
     @Override
     public Object getGroup(int groupPosition) {
-        return null;
+        return mReceivingCodeList.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return null;
+        String key=mReceivingCodeList.get(groupPosition);
+        return mReceivingCodeDetailList.get(key);
+
     }
 
     @Override
     public long getGroupId(int groupPosition) {
-        return 0;
+
+        return groupPosition;
     }
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return 0;
+       return childPosition;
     }
 
     @Override
@@ -67,16 +79,63 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet,null);
-        TextView codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
+        codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
         codeLable.setText(mReceivingCodeList.get(groupPosition));
+        Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.setClass(mContext, ReceivingScanBoxActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("receiving_sheet_code",codeLable.getText().toString());
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
+        });
         return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet_detail, null);
-        TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_apply_person);
+        //receiveCode=mReceivingCodeList.get(groupPosition);
+        Map<String,String> map=mReceivingCodeDetailList.get(mReceivingCodeList.get(groupPosition));
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            if(entry.getKey().equals("projectCode")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_project_code);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("orderDate")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_order_date);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("vendorName")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_vendor_name);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("applyPerson")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_apply_person);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("relatedBill")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_related_bill);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+        }
+        //Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
+        /*button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.setClass(mContext, ReceivingScanBoxActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("receiving_sheet_code",receiveCode);
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
+        });*/
         return layout;
     }
 

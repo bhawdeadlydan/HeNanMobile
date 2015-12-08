@@ -22,6 +22,7 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
     private List<String> mReceivingBoxes;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
+    private String receiveCode;
 
     public ReceivingSheetsScanBoxExpandableAdapter(Context mContext,Map<String,List<Map<String,String>>> mReceivingBoxesDetails, List<String> mReceivingBoxes){
         this.mContext = mContext;
@@ -32,6 +33,7 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 
     @Override
     public int getGroupCount() {
+
         return mReceivingBoxes.size();
     }
 
@@ -77,8 +79,40 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout = (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box_detail,null);
-        TextView
+
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
+        receiveCode=mReceivingBoxes.get(groupPosition);
+        List<Map<String,String>> mapList=mReceivingBoxesDetails.get(receiveCode);
+        for(int i=0;i<mapList.size();i++){
+            Map<String,String> map=mapList.get(i);
+            for(Map.Entry<String,String> entry:map.entrySet()){
+                if(entry.getKey().equals("isBom")){
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+                    text1.setText(text1.getText()+entry.getValue());
+                }
+                else if(entry.getKey().equals("itemCode")){
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_code);
+                    text1.setText(text1.getText()+entry.getValue());
+                }
+                else if(entry.getKey().equals("itemName")){
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_name);
+                    text1.setText(text1.getText()+entry.getValue());
+                }
+                else if(entry.getKey().equals("quantity")){
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_quantity);
+                    text1.setText(text1.getText()+entry.getValue());
+                }
+                else if(entry.getKey().equals("cartonOrderNumber")){
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_carton_order_num);
+                    text1.setText(text1.getText()+entry.getValue());
+                }
+                else if(entry.getKey().equals("cartonNumber")){
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_carton_num);
+                    text1.setText(text1.getText()+entry.getValue());
+                }
+            }
+        }
+        return layout;
     }
 
     @Override
