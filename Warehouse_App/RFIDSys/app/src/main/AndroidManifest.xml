@@ -17,8 +17,8 @@
         </activity>
         <activity android:name=".ReceivingSheetsActivity" />
         <activity android:name=".ReceivingScanBoxActivity" />
-        <activity android:name=".BindActivity" />
-        <activity android:name=".CheckActivity" />
+        <activity android:name=".MoveActivity" />
+        <activity android:name=".CheckByPosActivity" />
         <activity android:name=".DeliveryActivity" />
         <activity android:name=".DeliveryScanBoxActivity"></activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for

@@ -16,42 +16,42 @@ import sjtu.rfid.rfidsys.R;
 /**
  * Created by user on 12/7/2015.
  */
-public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListAdapter {
+public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAdapter {
 
-    private Map<String,List<Map<String,String>>> mReceivingBoxesDetails;
-    private List<String> mReceivingBoxes;
+    private Map<String,List<Map<String,String>>> mDeliveryBoxesDetails;
+    private List<String> mDeliveryBoxes;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private String receiveCode;
+    private String deliveryCode;
 
-    public ReceivingSheetsScanBoxExpandableAdapter(Context mContext,Map<String,List<Map<String,String>>> mReceivingBoxesDetails, List<String> mReceivingBoxes){
+    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, List<Map<String, String>>> mDeliveryBoxesDetails, List<String> mDeliveryBoxes){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.mReceivingBoxes = mReceivingBoxes;
-        this.mReceivingBoxesDetails = mReceivingBoxesDetails;
+        this.mDeliveryBoxes = mDeliveryBoxes;
+        this.mDeliveryBoxesDetails = mDeliveryBoxesDetails;
     }
 
     @Override
     public int getGroupCount() {
 
-        return mReceivingBoxes.size();
+        return mDeliveryBoxes.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        String key = mReceivingBoxes.get(groupPosition);
-        return mReceivingBoxesDetails.get(key).size();
+        String key = mDeliveryBoxes.get(groupPosition);
+        return mDeliveryBoxesDetails.get(key).size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mReceivingBoxes.get(groupPosition);
+        return mDeliveryBoxes.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String key = mReceivingBoxes.get(groupPosition);
-        return mReceivingBoxesDetails.get(key);
+        String key = mDeliveryBoxes.get(groupPosition);
+        return mDeliveryBoxesDetails.get(key);
     }
 
     @Override
@@ -71,9 +71,9 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box, null);
-        TextView code = (TextView) layout.findViewById(R.id.text_receiving_scan_box_code);
-        code.setText(mReceivingBoxes.get(groupPosition));
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box, null);
+        TextView code = (TextView) layout.findViewById(R.id.text_delivery_scan_box_code);
+        code.setText(mDeliveryBoxes.get(groupPosition));
         return layout;
     }
 
@@ -81,8 +81,8 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
-        receiveCode=mReceivingBoxes.get(groupPosition);
-        List<Map<String,String>> mapList=mReceivingBoxesDetails.get(receiveCode);
+        deliveryCode=mDeliveryBoxes.get(groupPosition);
+        List<Map<String,String>> mapList=mDeliveryBoxesDetails.get(deliveryCode);
         for(int i=0;i<mapList.size();i++){
             Map<String,String> map=mapList.get(i);
             for(Map.Entry<String,String> entry:map.entrySet()){

@@ -18,8 +18,9 @@ public class ReceivingScanBoxActivity extends AppCompatActivity {
     private TextView vReceSheetCode;
     ExpandableListView sheetListView;
     ReceivingSheetsScanBoxExpandableAdapter tmpAdapter;
-    private Map<String, Map<String, String>> mReceivingBoxesDetails;
+    private Map<String, List<Map<String, String>>> mReceivingBoxesDetails;
     private List<String> mReceivingBoxes;
+    private List<Map<String, String>> mapList;
     private int prePos=-1;
 
     @Override
@@ -36,9 +37,10 @@ public class ReceivingScanBoxActivity extends AppCompatActivity {
     }
 
     public void iniListView() {
-        mReceivingBoxesDetails = new HashMap<String, Map<String, String>>();
+        mReceivingBoxesDetails=new HashMap<String, List<Map<String, String>>>();
+        mapList = new ArrayList<Map<String,String>>();
         mReceivingBoxes = new ArrayList<>();
-        sheetListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        sheetListView = (ExpandableListView) findViewById(R.id.list_receiving_box_sheets);
         mReceivingBoxes.add("201509000101501");
         mReceivingBoxes.add("201509000101502");
         mReceivingBoxes.add("201509000101503");
@@ -49,6 +51,7 @@ public class ReceivingScanBoxActivity extends AppCompatActivity {
         mReceivingBoxes.add("201509000101508");
         mReceivingBoxes.add("201509000101509");
         mReceivingBoxes.add("201509000101510");
+
         for (int i = 0; i < mReceivingBoxes.size(); i++) {
             Map<String, String> detailMap = new HashMap<>();
             detailMap.put("isBom", "Y");
@@ -57,7 +60,9 @@ public class ReceivingScanBoxActivity extends AppCompatActivity {
             detailMap.put("quantity", "1");
             detailMap.put("cartonOrderNumber", mReceivingBoxes.get(i)+"/1/1");
             detailMap.put("cartonNumber", mReceivingBoxes.get(i));
-            mReceivingBoxesDetails.put(mReceivingBoxes.get(i), detailMap);
+            mapList.clear();
+            mapList.add(detailMap);
+            mReceivingBoxesDetails.put(mReceivingBoxes.get(i), mapList);
         }
         tmpAdapter = new ReceivingSheetsScanBoxExpandableAdapter(this, mReceivingBoxesDetails, mReceivingBoxes);
         sheetListView.setAdapter(tmpAdapter);

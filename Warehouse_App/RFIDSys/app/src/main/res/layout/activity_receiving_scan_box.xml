@@ -59,12 +59,12 @@
         android:text="提交"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/expandableListView" />
+        android:layout_alignEnd="@+id/list_receiving_box_sheets" />
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
+        android:id="@+id/list_receiving_box_sheets"
         android:layout_below="@+id/textView8"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/button2" />

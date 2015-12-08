@@ -1,6 +1,5 @@
 package sjtu.rfid.tools;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,37 +10,36 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 import java.util.Map;
 
+import sjtu.rfid.rfidsys.DeliveryScanBoxActivity;
 import sjtu.rfid.rfidsys.R;
 import sjtu.rfid.rfidsys.ReceivingScanBoxActivity;
-import sjtu.rfid.rfidsys.ReceivingSheetsActivity;
 
 /**
  * Created by user on 12/6/2015.
  */
-public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter {
+public class DeliverySheetsExpandableAdapter extends BaseExpandableListAdapter {
 
     private LayoutInflater mLayoutInflater;
-    private Map<String,Map<String,String>> mReceivingCodeDetailList;
-    private List<String> mReceivingCodeList;
+    private Map<String,Map<String,String>> mDeliveryCodeDetailList;
+    private List<String> mDeliveryCodeList;
     private Context mContext;
     private  TextView codeLable;
     String receiveCode;
 
-    public ReceivingSheetsExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingCodeDetailList, List<String> mReceivingCodeList){
+    public DeliverySheetsExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryCodeDetailList, List<String> mDeliveryCodeList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.mReceivingCodeList = mReceivingCodeList;
-        this.mReceivingCodeDetailList = mReceivingCodeDetailList;
+        this.mDeliveryCodeList = mDeliveryCodeList;
+        this.mDeliveryCodeDetailList = mDeliveryCodeDetailList;
     }
 
     @Override
     public int getGroupCount() {
-        return mReceivingCodeList.size();
+        return mDeliveryCodeList.size();
     }
 
     @Override
@@ -51,13 +49,13 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mReceivingCodeList.get(groupPosition);
+        return mDeliveryCodeList.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String key=mReceivingCodeList.get(groupPosition);
-        return mReceivingCodeDetailList.get(key);
+        String key=mDeliveryCodeList.get(groupPosition);
+        return mDeliveryCodeDetailList.get(key);
 
     }
 
@@ -79,17 +77,17 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
-        codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
-        codeLable.setText(mReceivingCodeList.get(groupPosition));
-        Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_sheet, null);
+        codeLable = (TextView) layout.findViewById(R.id.text_delivery_sheet_code);
+        codeLable.setText(mDeliveryCodeList.get(groupPosition));
+        Button button = (Button) layout.findViewById(R.id.btn_delivery_sheet);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.setClass(mContext, ReceivingScanBoxActivity.class);
+                intent.setClass(mContext, DeliveryScanBoxActivity.class);
                 Bundle bundle=new Bundle();
-                bundle.putString("receiving_sheet_code",codeLable.getText().toString());
+                bundle.putString("delivery_sheet_code",codeLable.getText().toString());
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }
@@ -99,28 +97,24 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet_detail, null);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_sheet_detail, null);
         //receiveCode=mReceivingCodeList.get(groupPosition);
-        Map<String,String> map=mReceivingCodeDetailList.get(mReceivingCodeList.get(groupPosition));
+        Map<String,String> map=mDeliveryCodeDetailList.get(mDeliveryCodeList.get(groupPosition));
         for(Map.Entry<String,String> entry:map.entrySet()){
-            if(entry.getKey().equals("projectCode")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_project_code);
+            if(entry.getKey().equals("applyPerson")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_persion);
                 text1.setText(text1.getText()+entry.getValue());
             }
-            else if(entry.getKey().equals("orderDate")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_order_date);
+            else if(entry.getKey().equals("projectCode")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_project_code);
                 text1.setText(text1.getText()+entry.getValue());
             }
-            else if(entry.getKey().equals("vendorName")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_vendor_name);
+            else if(entry.getKey().equals("applyUnit")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_unit);
                 text1.setText(text1.getText()+entry.getValue());
             }
-            else if(entry.getKey().equals("applyPerson")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_apply_person);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("relatedBill")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_related_bill);
+            else if(entry.getKey().equals("applyCode")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_code);
                 text1.setText(text1.getText()+entry.getValue());
             }
         }
