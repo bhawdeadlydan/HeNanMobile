@@ -13,46 +13,6 @@
         layout="@layout/title"
         android:id="@+id/include" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_centerHorizontal="true"
-        android:weightSum="1"
-        android:id="@+id/linearLayout4">
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自动打印"
-            android:id="@+id/checkBox"
-            android:checked="false"
-            android:layout_below="@+id/linearLayout3"
-            android:layout_alignParentStart="true" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="手动打印"
-            android:id="@+id/checkBox2"
-            android:checked="false"
-            android:layout_alignTop="@+id/checkBox"
-            android:layout_toEndOf="@+id/checkBox"
-            android:layout_marginStart="19dp" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="扫描条码"
-            android:id="@+id/button"
-            android:textSize="15dp"
-            android:layout_alignEnd="@+id/linearLayout3"
-            android:layout_alignTop="@+id/checkBox2"
-            android:layout_alignBottom="@+id/checkBox2"
-            android:layout_marginLeft="70dp" />
-    </LinearLayout>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,9 +42,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="收货单号："
+            android:text="入库单号："
             android:id="@+id/text_receiving_scan_box_code"
             android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描条码"
+            android:id="@+id/button"
+            android:textSize="15dp"
+            android:layout_alignEnd="@+id/linearLayout3"
+            android:layout_alignTop="@+id/checkBox2"
+            android:layout_alignBottom="@+id/checkBox2"/>
 
     </LinearLayout>
 
@@ -93,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="货物列表"
         android:id="@+id/textView8"
-        android:layout_below="@+id/linearLayout4"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout3" />
 
 </RelativeLayout>

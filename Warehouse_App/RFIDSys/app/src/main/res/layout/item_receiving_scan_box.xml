@@ -4,33 +4,12 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="货箱号：0000000000000000000001"
         android:id="@+id/text_receiving_scan_box_code"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="打印"
-        android:id="@+id/btn_receiving_scan_box_print"
-        android:layout_marginStart="15dp"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/text_receiving_scan_box_code"
-        android:focusable="false"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="删除"
-        android:id="@+id/btn_receiving_scan_box_delete"
-        android:layout_alignTop="@+id/btn_receiving_scan_box_print"
-        android:layout_toEndOf="@+id/btn_receiving_scan_box_print"
-        android:focusable="false"/>
 
 </RelativeLayout>
