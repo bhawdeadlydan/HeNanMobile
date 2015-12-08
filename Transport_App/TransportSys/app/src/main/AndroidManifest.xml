@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ConfigActivity" />
-        <activity android:name=".ConfirmActivity"></activity>
+        <activity android:name=".ConfirmActivity" />
+        <activity android:name=".ArrivalActivity"></activity>
     </application>
 
 </manifest>

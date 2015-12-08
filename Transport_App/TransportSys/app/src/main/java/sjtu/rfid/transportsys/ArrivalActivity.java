@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import tools.ConfirmExpandableListAdapter;
 
-public class ConfirmActivity extends AppCompatActivity {
+public class ArrivalActivity extends AppCompatActivity {
 
     ExpandableListView mListView;
     ConfirmExpandableListAdapter mAdapter;
@@ -16,24 +16,30 @@ public class ConfirmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirm);
-        iniListView();
+        setContentView(R.layout.activity_arrival);
         iniActivity();
+        iniListView();
     }
 
     public void iniActivity()
     {
-        TextView tmpTitle = (TextView) findViewById(R.id.text_title_title);
-        TextView tmpcurPos = (TextView) findViewById(R.id.text_confirm_cur_pos);
         Intent intent = getIntent();
-        tmpTitle.setText("申领物料");
+        TextView title = (TextView) findViewById(R.id.text_title_title);
+        int func = intent.getIntExtra("function",0);
+        switch (func) {
+            case 0:
+                title.setText("暂存点收货");
+                break;
+            case 1:
+                title.setText("施工点收货");
+                break;
+        }
     }
 
-    public void iniListView() {
-
+    public void iniListView()
+    {
         mListView = (ExpandableListView) findViewById(R.id.listview_confirm_box);
         mAdapter = new ConfirmExpandableListAdapter(this,null,null);
         mListView.setAdapter(mAdapter);
-
     }
 }

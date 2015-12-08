@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void iniBtns() {
+
         btnConfig = (Button) findViewById(R.id.btn_main_config);
         btnApply = (Button) findViewById(R.id.btn_main_apply);
         btnArriveTmp = (Button) findViewById(R.id.btn_main_arrive_tmp);
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnApply.setOnClickListener(mBtnListener);
         btnArriveTmp.setOnClickListener(mBtnListener);
         btnArriveConstruct.setOnClickListener(mBtnListener);
+
     }
 
     private class MainButtonListener implements View.OnClickListener{
@@ -38,19 +40,17 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn_main_config:
                     intent.setClass(MainActivity.this, ConfigActivity.class);
-                    intent.putExtra("function",0);
                     break;
                 case R.id.btn_main_apply:
                     intent.setClass(MainActivity.this, ConfirmActivity.class);
-                    intent.putExtra("function", 1);
                     break;
                 case R.id.btn_main_arrive_tmp:
                     intent.setClass(MainActivity.this, ConfirmActivity.class);
-                    intent.putExtra("function", 2);
+                    intent.putExtra("function", 0);
                     break;
                 case R.id.btn_main_arrive_construct:
                     intent.setClass(MainActivity.this, ConfirmActivity.class);
-                    intent.putExtra("function", 3);
+                    intent.putExtra("function", 1);
                     break;
             }
             startActivity(intent);
