@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="（ERP/套）编码："
-            android:id="@+id/textView11" />
+            android:id="@+id/text_item_box_mat_code" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,12 +35,12 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="应收数量："
-            android:id="@+id/textView13" />
+            android:id="@+id/text_item_box_expected_count" />
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="已扫到数量:"
-            android:id="@+id/textView14" />
+            android:id="@+id/text_item_box_real_count" />
     </LinearLayout>
 </RelativeLayout>

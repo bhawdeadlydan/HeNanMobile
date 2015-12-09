@@ -18,9 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/include2"
-        android:gravity="center_vertical"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout3"
+        android:gravity="center_vertical">
 
         <LinearLayout
             android:orientation="vertical"
@@ -38,50 +38,54 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VD-OP-000000000000001"
-                android:id="@+id/textView5" />
-
+                android:id="@+id/text_confirm_order_code" />
         </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="扫描获取订单"
-            android:id="@+id/button2"
-            android:textSize="13dp"/>
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫描获取订单"
+                android:id="@+id/btn_confirm_scan_box_get_order"
+                android:textSize="13dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bnt_confirm_scan_and_write"
+                android:text="扫描写入信息"
+                android:textSize="13dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="提交"
-        android:id="@+id/button3"
+        android:id="@+id/btn_confirm_commit"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button6"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_alignParentEnd="true"
-        android:text="扫描写入信息"
-        android:textSize="13dp" />
-
-    <ExpandableListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
-        android:layout_below="@+id/button6"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/button3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="货物列表："
         android:id="@+id/textView6"
-        android:layout_above="@+id/expandableListView"
+        android:layout_below="@+id/linearLayout3"
         android:layout_alignParentStart="true" />
+
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_confirm_sheets"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btn_confirm_commit" />
 
 </RelativeLayout>
