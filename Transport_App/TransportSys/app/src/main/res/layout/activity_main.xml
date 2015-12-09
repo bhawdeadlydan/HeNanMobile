@@ -33,7 +33,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:text="复核出库"
-            android:id="@+id/btn_main_apply"
+            android:id="@+id/btn_main_check"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 

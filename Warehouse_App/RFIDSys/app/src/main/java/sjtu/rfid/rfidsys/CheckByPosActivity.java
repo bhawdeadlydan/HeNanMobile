@@ -46,7 +46,8 @@ public class CheckByPosActivity extends AppCompatActivity {
         for(int i=0;i<9;i++){
             Map<String,String> map=new HashMap<>();
             map.put("matCode","2524-PDE-OUT-201509000000"+(i+1));
-            map.put("realCount","10");
+            map.put("expectedCount","10");
+            map.put("realCount","0");
             mCheckByPosList.add(map);
 
         }
