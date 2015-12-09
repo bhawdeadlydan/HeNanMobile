@@ -13,9 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.DeliverySheetsExpandableAdapter;
-import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 
-public class DeliveryActivity extends AppCompatActivity {
+public class DeliverySheetsActivity extends AppCompatActivity {
     ExpandableListView sheetListView;
     DeliverySheetsExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mDeliveryCodeDetailList;
@@ -58,7 +57,8 @@ public class DeliveryActivity extends AppCompatActivity {
             detailMap.put("applyPerson", "苏军凯");
             detailMap.put("projectCode", "B1524011");
             detailMap.put("applyUnit", "平顶山分公司\\网络部\\工程建设中心");
-            detailMap.put("applyCode", (i==9)?("2524-REQ-20150900000"+(i+1)):("2524-REQ-201509000000"+(i+1)));
+            detailMap.put("applyDate", "2015/10/01");
+            detailMap.put("receiver", "盛来");
             mDeliveryCodeDetailList.put(mDeliveryCodeList.get(i), detailMap);
         }
         tmpAdapter = new DeliverySheetsExpandableAdapter(this, mDeliveryCodeDetailList, mDeliveryCodeList);

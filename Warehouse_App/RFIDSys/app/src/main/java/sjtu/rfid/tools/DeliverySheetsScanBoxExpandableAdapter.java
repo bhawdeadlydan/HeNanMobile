@@ -19,12 +19,11 @@ import sjtu.rfid.rfidsys.R;
 public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAdapter {
 
     private Map<String,List<Map<String,String>>> mDeliveryBoxesDetails;
-    private List<String> mDeliveryBoxes;
+    private List<Map<String,String>> mDeliveryBoxes;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private String deliveryCode;
 
-    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, List<Map<String, String>>> mDeliveryBoxesDetails, List<String> mDeliveryBoxes){
+    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, List<Map<String, String>>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDeliveryBoxes = mDeliveryBoxes;
@@ -39,7 +38,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        String key = mDeliveryBoxes.get(groupPosition);
+        String key = mDeliveryBoxes.get(groupPosition).get("matCode");
         return mDeliveryBoxesDetails.get(key).size();
     }
 
@@ -50,7 +49,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String key = mDeliveryBoxes.get(groupPosition);
+        String key = mDeliveryBoxes.get(groupPosition).get("matCode");
         return mDeliveryBoxesDetails.get(key);
     }
 
@@ -72,42 +71,37 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box, null);
-        TextView code = (TextView) layout.findViewById(R.id.text_delivery_scan_box_code);
-        code.setText(mDeliveryBoxes.get(groupPosition));
+        TextView matCode = (TextView) layout.findViewById(R.id.text_delivery_scan_mat_code);
+        TextView expectedCount = (TextView) layout.findViewById(R.id.text_delivery_scan_expected_count);
+        TextView realCount = (TextView) layout.findViewById(R.id.text_delivery_scan_real_count);
+        matCode.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matCode"));
+        expectedCount.setText(expectedCount.getText()+mDeliveryBoxes.get(groupPosition).get("expectedCount"));
+        realCount.setText(realCount.getText()+mDeliveryBoxes.get(groupPosition).get("realCount"));
         return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
-        deliveryCode=mDeliveryBoxes.get(groupPosition);
-        List<Map<String,String>> mapList=mDeliveryBoxesDetails.get(deliveryCode);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box_detail, null);
+        List<Map<String,String>> mapList=mDeliveryBoxesDetails.get(mDeliveryBoxes.get(groupPosition).get("matCode"));
         for(int i=0;i<mapList.size();i++){
             Map<String,String> map=mapList.get(i);
             for(Map.Entry<String,String> entry:map.entrySet()){
                 if(entry.getKey().equals("isBom")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_scan_box_detail_is_bom);
                     text1.setText(text1.getText()+entry.getValue());
                 }
                 else if(entry.getKey().equals("itemCode")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_code);
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_scan_box_detail_item_code);
                     text1.setText(text1.getText()+entry.getValue());
                 }
                 else if(entry.getKey().equals("itemName")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_name);
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_scan_box_detail_item_name);
                     text1.setText(text1.getText()+entry.getValue());
                 }
                 else if(entry.getKey().equals("quantity")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_quantity);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-                else if(entry.getKey().equals("cartonOrderNumber")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_carton_order_num);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-                else if(entry.getKey().equals("cartonNumber")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_carton_num);
+                    TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_scan_box_detail_quantity);
                     text1.setText(text1.getText()+entry.getValue());
                 }
             }

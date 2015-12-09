@@ -17,17 +17,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提交"
-        android:id="@+id/button2"
+        android:id="@+id/btn_receiving_scan_box_commit"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/list_receiving_box_sheets" />
+        android:layout_alignParentEnd="true" />
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_receiving_box_sheets"
+        android:id="@+id/list_receiving_scan_box_sheets"
         android:layout_below="@+id/textView8"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button2" />
+        android:layout_above="@+id/btn_receiving_scan_box_commit" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -55,14 +55,14 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="000000000000001"
-                android:id="@+id/text_receiving_scan_box_code" />
+                android:id="@+id/text_receiving_scan_box_order_number" />
         </LinearLayout>
 
         <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="扫描标签"
-            android:id="@+id/button"
+            android:id="@+id/btn_receiving_scan_box_scan"
             android:textSize="15dp"
             android:layout_alignEnd="@+id/linearLayout3"
             android:layout_alignTop="@+id/checkBox2"
