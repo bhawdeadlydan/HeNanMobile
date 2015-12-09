@@ -14,7 +14,7 @@ public class PosDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String queryString = "update PosEntity as model set model.sent = true where model.applyDocCode = ?";
+            String queryString = "update PosEntity as model set model.sent = 1 where model.applyDocCode = ?";
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, ApplyDocCode);
             queryObject.executeUpdate();

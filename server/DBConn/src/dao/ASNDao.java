@@ -36,7 +36,7 @@ public class ASNDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String queryString = "update AsnEntity as model set model.paid = true where model.code = ?";
+            String queryString = "update AsnEntity as model set model.paid = 1 where model.code = ?";
             Query query = session.createQuery(queryString);
             query.setParameter(0, Code);
             query.executeUpdate();

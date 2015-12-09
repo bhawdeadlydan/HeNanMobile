@@ -59,6 +59,8 @@ public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB
             asn.setCarrierContactFax(asnitem.getCARRIER_CONTACT_FAX());
             asn.setCarrierContactPhone(asnitem.getCARRIER_CONTACT_PHONE());
             asn.setDisposition(asnitem.getDISPOSITION());
+            asn.setApplyPerson(asnitem.getAPPLY_PERSON());
+            asn.setPaid(0);
             asndao.addEntity(asn);
             for(BOMS_Item bItem : asnitem.getBOMS_Collection()) {
                 BomEntity bom = new BomEntity();
@@ -130,11 +132,14 @@ public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB
                 wmsdetail.setPrice(wdItem.getPRICE().doubleValue());
                 wmsdetail.setCartonOrderNum(wdItem.getCARTON_ORDER_NUM());
                 wmsdetail.setCartonNum(wdItem.getCARTON_NUM());
-                wmsdetail.setItemCode(wdItem.getITEM_CODE());
+                wmsdetail.setItemCode(wdItem.getITEM_ERP_CODE());
                 wmsdetail.setItemName(wdItem.getITEM_NAME());
                 wmsdetail.setItemUnitCode(wdItem.getITEM_UNIT_CODE());
                 wmsdetail.setExpectedQuantity(wdItem.getEXPECTED_QUANTITY().intValueExact());
                 wmsdetail.setAllocationId(0);//数据库中有allocation的外键，但是此时没有，所以用0替代
+                /*设置箱号*/
+                wmsdetail.setcNum("");
+                wmsdetail.setApplyDocCode("");
                 wddao.addEntity(wmsdetail);
             }
         }
