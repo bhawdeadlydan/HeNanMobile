@@ -48,19 +48,19 @@ public class MainActivity extends AppCompatActivity {
                     intent.setClass(MainActivity.this, ReceivingSheetsActivity.class);
                     break;
                 case R.id.btn_put_in_storage:
-                    intent.setClass(MainActivity.this, MoveActivity.class);
+                    intent.setClass(MainActivity.this, PutInStorageActivity.class);
                     break;
                 case R.id.btn_move_box:
                     intent.setClass(MainActivity.this, MoveActivity.class);
                     break;
                 case R.id.btn_mat_cehck:
-                    intent.setClass(MainActivity.this, CheckByPosActivity.class);
+                    intent.setClass(MainActivity.this, CheckByMatActivity.class);
                     break;
                 case R.id.btn_loc_check:
                     intent.setClass(MainActivity.this, CheckByPosActivity.class);
                     break;
                 case R.id.btn_delivery:
-                    intent.setClass(MainActivity.this, DeliveryActivity.class);
+                    intent.setClass(MainActivity.this, DeliverySheetsActivity.class);
                     break;
             }
             startActivity(intent);

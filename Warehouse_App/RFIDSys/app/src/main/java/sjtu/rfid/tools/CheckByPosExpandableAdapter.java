@@ -1,20 +1,16 @@
 package sjtu.rfid.tools;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 import java.util.Map;
 
-import sjtu.rfid.rfidsys.DeliveryScanBoxActivity;
 import sjtu.rfid.rfidsys.R;
 
 /**
@@ -23,21 +19,22 @@ import sjtu.rfid.rfidsys.R;
 public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
 
     private LayoutInflater mLayoutInflater;
-    private Map<String,Map<String,String>> mGoodsDetailList;
-    private List<String> mGoodsList;
+    private Map<String,Map<String,String>> mCheckByPosDetailList;
+    private List<Map<String,String>> mCheckByPosList;
     private Context mContext;
     private  TextView codeLable;
+    private TextView countLable;
 
-    public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mGoodsDetailList, List<String> mGoodsList){
+    public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mCheckByPosDetailList, List<Map<String,String>> mCheckByPosList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.mGoodsList = mGoodsList;
-        this.mGoodsDetailList = mGoodsDetailList;
+        this.mCheckByPosList = mCheckByPosList;
+        this.mCheckByPosDetailList = mCheckByPosDetailList;
     }
 
     @Override
     public int getGroupCount() {
-        return mGoodsList.size();
+        return mCheckByPosList.size();
     }
 
     @Override
@@ -47,13 +44,13 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mGoodsList.get(groupPosition);
+        return mCheckByPosList.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String key=mGoodsList.get(groupPosition);
-        return mGoodsDetailList.get(key);
+        String key=mCheckByPosList.get(groupPosition).get("matCode");
+        return mCheckByPosDetailList.get(key);
 
     }
 
@@ -75,39 +72,25 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_checkByPos_scan_box, null);
-        codeLable = (TextView) layout.findViewById(R.id.text_checkByPos_scan_box_code);
-        codeLable.setText(mGoodsList.get(groupPosition));
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_by_pos_box, null);
+        codeLable = (TextView) layout.findViewById(R.id.text_check_by_pos_mat_code);
+        countLable = (TextView) layout.findViewById(R.id.text_check_by_pos_real_count);
+        codeLable.setText(mCheckByPosList.get(groupPosition).get("matCode"));
+        countLable.setText(mCheckByPosList.get(groupPosition).get("realCount"));
         return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
-        Map<String,String> map=mGoodsDetailList.get(mGoodsList.get(groupPosition));
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_box_detail, null);
+        Map<String,String> map=mCheckByPosDetailList.get(mCheckByPosList.get(groupPosition).get("matCode"));
         for(Map.Entry<String,String> entry:map.entrySet()){
             if(entry.getKey().equals("isBom")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+                TextView text1 = (TextView) layout.findViewById(R.id.text_check_box_detail_is_bom);
                 text1.setText(text1.getText()+entry.getValue());
             }
-            else if(entry.getKey().equals("itemCode")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_code);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("itemName")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_name);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("quantity")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_quantity);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("cartonOrderNumber")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_carton_order_num);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("cartonNumber")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_carton_num);
+            else if(entry.getKey().equals("matName")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_check_box_detail_mat_name);
                 text1.setText(text1.getText()+entry.getValue());
             }
         }

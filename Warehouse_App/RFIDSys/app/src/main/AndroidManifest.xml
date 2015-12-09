@@ -19,8 +19,10 @@
         <activity android:name=".ReceivingScanBoxActivity" />
         <activity android:name=".MoveActivity" />
         <activity android:name=".CheckByPosActivity" />
-        <activity android:name=".DeliveryActivity" />
+        <activity android:name=".DeliverySheetsActivity" />
         <activity android:name=".DeliveryScanBoxActivity"></activity>
+        <activity android:name=".PutInStorageActivity"></activity>
+        <activity android:name=".CheckByMatActivity"></activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data

@@ -16,7 +16,6 @@ import java.util.Map;
 
 import sjtu.rfid.rfidsys.DeliveryScanBoxActivity;
 import sjtu.rfid.rfidsys.R;
-import sjtu.rfid.rfidsys.ReceivingScanBoxActivity;
 
 /**
  * Created by user on 12/6/2015.
@@ -28,7 +27,6 @@ public class DeliverySheetsExpandableAdapter extends BaseExpandableListAdapter {
     private List<String> mDeliveryCodeList;
     private Context mContext;
     private  TextView codeLable;
-    String receiveCode;
 
     public DeliverySheetsExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryCodeDetailList, List<String> mDeliveryCodeList){
         this.mContext = mContext;
@@ -98,11 +96,10 @@ public class DeliverySheetsExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_sheet_detail, null);
-        //receiveCode=mReceivingCodeList.get(groupPosition);
         Map<String,String> map=mDeliveryCodeDetailList.get(mDeliveryCodeList.get(groupPosition));
         for(Map.Entry<String,String> entry:map.entrySet()){
             if(entry.getKey().equals("applyPerson")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_persion);
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_person);
                 text1.setText(text1.getText()+entry.getValue());
             }
             else if(entry.getKey().equals("projectCode")){
@@ -113,8 +110,12 @@ public class DeliverySheetsExpandableAdapter extends BaseExpandableListAdapter {
                 TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_unit);
                 text1.setText(text1.getText()+entry.getValue());
             }
-            else if(entry.getKey().equals("applyCode")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_code);
+            else if(entry.getKey().equals("applyDate")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_apply_date);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("receiver")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_sheet_detail_receiver);
                 text1.setText(text1.getText()+entry.getValue());
             }
         }

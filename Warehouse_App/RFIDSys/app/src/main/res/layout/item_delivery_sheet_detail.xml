@@ -58,12 +58,12 @@
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="申领时间："
-            android:id="@+id/text_delivery_scan_mat_code" />
+            android:id="@+id/text_delivery_sheet_detail_apply_date" />
 
         <TextView
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="领取人："
-            android:id="@+id/text_delivery_scan_expected_count" />
+            android:id="@+id/text_delivery_sheet_detail_receiver" />
     </LinearLayout>
 </RelativeLayout>
