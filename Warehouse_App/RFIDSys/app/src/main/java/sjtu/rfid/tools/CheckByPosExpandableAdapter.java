@@ -22,8 +22,6 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
     private Map<String,Map<String,String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
     private Context mContext;
-    private  TextView codeLable;
-    private TextView countLable;
 
     public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mCheckByPosDetailList, List<Map<String,String>> mCheckByPosList){
         this.mContext = mContext;
@@ -73,10 +71,12 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_by_pos_box, null);
-        codeLable = (TextView) layout.findViewById(R.id.text_check_by_pos_mat_code);
-        countLable = (TextView) layout.findViewById(R.id.text_check_by_pos_real_count);
+        TextView codeLable = (TextView) layout.findViewById(R.id.text_check_by_pos_mat_code);
+        TextView realCount = (TextView) layout.findViewById(R.id.text_check_by_pos_real_count);
+        TextView expectedCount = (TextView) layout.findViewById(R.id.text_check_by_pos_expected_count);
         codeLable.setText(codeLable.getText()+mCheckByPosList.get(groupPosition).get("matCode"));
-        countLable.setText(countLable.getText()+mCheckByPosList.get(groupPosition).get("realCount"));
+        realCount.setText(realCount.getText()+mCheckByPosList.get(groupPosition).get("realCount"));
+        expectedCount.setText(expectedCount.getText()+mCheckByPosList.get(groupPosition).get("expectedCount"));
         return layout;
     }
 
