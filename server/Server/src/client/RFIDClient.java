@@ -21,7 +21,7 @@ public class RFIDClient {
             TProtocol protocol = new TBinaryProtocol(transport);
             RFIDService.Client client = new RFIDService.Client(protocol);
             String code = client.getCodeByCNum("123123123");
-            System.out.println(code);
+            System.out.println(code == null);
             transport.close();
         } catch (TTransportException e) {
             e.printStackTrace();

@@ -20,10 +20,12 @@ public class DetailDao extends BaseDao{
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, ApplyDocCode);
             tx.commit();
-            String isbom = (String)queryObject.list().get(0);
-            return isbom.toUpperCase() == "Y";
+            if(!queryObject.list().isEmpty())
+                return ((String)queryObject.list().get(0)).toUpperCase().equals("Y");
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();
@@ -42,6 +44,10 @@ public class DetailDao extends BaseDao{
             return query.list();
         }catch (HibernateException e){
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }
@@ -58,6 +64,10 @@ public class DetailDao extends BaseDao{
             return query.list();
         }catch (HibernateException e){
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }

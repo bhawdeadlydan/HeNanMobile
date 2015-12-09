@@ -1,10 +1,12 @@
 package rfid.service;
 
 import dao.*;
-import db.*;
+import db.AsnEntity;
+import db.CheckEntity;
+import db.PosEntity;
+import db.TransportEntity;
 import org.apache.thrift.TException;
 
-import java.sql.Array;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

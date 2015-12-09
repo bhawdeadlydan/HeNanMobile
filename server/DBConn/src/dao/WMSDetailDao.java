@@ -20,14 +20,18 @@ public class WMSDetailDao extends BaseDao{
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, CNum);
             tx.commit();
-            return (String)queryObject.list().get(0);
+            if(!queryObject.list().isEmpty())
+                return (String)queryObject.list().get(0);
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
-        }finally {
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
             session.close();
         }
-        return null;
+        return "";
     }
 
     public Object[] getGoodByCNum(String CNum) {
@@ -39,9 +43,12 @@ public class WMSDetailDao extends BaseDao{
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, CNum);
             tx.commit();
-            return (Object[]) queryObject.list().get(0);
+            if(!queryObject.list().isEmpty())
+                return (Object[]) queryObject.list().get(0);
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();
@@ -58,9 +65,12 @@ public class WMSDetailDao extends BaseDao{
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, CNum);
             tx.commit();
-            return (String)queryObject.list().get(0);
+            if(!queryObject.list().isEmpty())
+                return (String)queryObject.list().get(0);
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();
@@ -82,6 +92,8 @@ public class WMSDetailDao extends BaseDao{
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
         }finally {
             session.close();
         }
@@ -96,10 +108,12 @@ public class WMSDetailDao extends BaseDao{
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, Code);
             tx.commit();
-            String isbom = (String)queryObject.list().get(0);
-            return isbom.toUpperCase() == "Y";
+            if(!queryObject.list().isEmpty())
+                return ((String)queryObject.list().get(0)).toUpperCase().equals("Y");
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();
@@ -119,6 +133,10 @@ public class WMSDetailDao extends BaseDao{
             return query.list();
         }catch (HibernateException e){
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }
@@ -135,6 +153,10 @@ public class WMSDetailDao extends BaseDao{
             return query.list();
         }catch (HibernateException e){
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }
@@ -168,6 +190,10 @@ public class WMSDetailDao extends BaseDao{
             return bomlist;
         }catch (HibernateException e){
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }
@@ -185,6 +211,10 @@ public class WMSDetailDao extends BaseDao{
             return erplist;
         }catch (HibernateException e){
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }

@@ -19,11 +19,13 @@ public class ASNDao extends BaseDao{
             String queryString = "select model.saleBomName, model.saleBomUnit from SaleBomEntity as model where model.saleBomCode = ?";
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, SaleBomCode);
-            str = (String[])queryObject.list().get(0);
             tx.commit();
-            return str;
+            if(!queryObject.list().isEmpty())
+                return (String[])queryObject.list().get(0);
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();
@@ -43,6 +45,8 @@ public class ASNDao extends BaseDao{
             tx.commit();
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();

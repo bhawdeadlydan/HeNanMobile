@@ -34,6 +34,8 @@ public class BaseDao {
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
         }finally {
             session.close();
         }
@@ -51,6 +53,8 @@ public class BaseDao {
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
         }finally {
             session.close();
         }
@@ -67,6 +71,8 @@ public class BaseDao {
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
         }finally {
             session.close();
         }
@@ -81,6 +87,8 @@ public class BaseDao {
             tx.commit();
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();
@@ -100,6 +108,8 @@ public class BaseDao {
             return queryObject.list();
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             session.close();

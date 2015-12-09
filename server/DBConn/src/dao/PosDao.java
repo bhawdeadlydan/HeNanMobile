@@ -22,6 +22,8 @@ public class PosDao extends BaseDao{
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
         }finally {
             session.close();
         }
