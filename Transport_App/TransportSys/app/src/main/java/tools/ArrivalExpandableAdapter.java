@@ -14,26 +14,26 @@ import java.util.Map;
 import sjtu.rfid.transportsys.R;
 
 /**
- * Created by user on 12/7/2015.
+ * Created by user on 12/6/2015.
  */
-public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
+public class ArrivalExpandableAdapter extends BaseExpandableListAdapter {
 
     private LayoutInflater mLayoutInflater;
-    private Map<String,Map<String,String>> mBoxDetailList;
-    private List<Map<String,String>> mBoxList;
+    private Map<String,Map<String,String>> mArrivalDetailList;
+    private List<Map<String,String>> mArrivalList;
     private Context mContext;
 
-    public ConfirmExpandableListAdapter(Context mContext, Map<String,Map<String,String>> mBoxDetailList, List<Map<String,String>> mBoxList)
-    {
+    public ArrivalExpandableAdapter(Context mContext, Map<String, Map<String, String>> mArrivalDetailList, List<Map<String, String>> mArrivalList){
         this.mContext = mContext;
-        this.mBoxDetailList = mBoxDetailList;
-        this.mBoxList = mBoxList;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mArrivalList = mArrivalList;
+        this.mArrivalDetailList = mArrivalDetailList;
     }
 
     @Override
     public int getGroupCount() {
-        return mBoxList.size();
+//        return mArrivalList.size();
+    return 1;
     }
 
     @Override
@@ -43,13 +43,15 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mBoxList.get(groupPosition);
+//        return mArrivalList.get(groupPosition);
+        return null;
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String key=mBoxList.get(groupPosition).get("matCode");
-        return mBoxDetailList.get(key);
+//        String key=mArrivalList.get(groupPosition).get("matCode");
+//        return mArrivalDetailList.get(key);
+        return null;
 
     }
 
@@ -61,7 +63,7 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
+       return childPosition;
     }
 
     @Override
@@ -71,20 +73,20 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box, null);
-        TextView codeLable = (TextView) layout.findViewById(R.id.text_item_box_mat_code);
-        TextView realCount = (TextView) layout.findViewById(R.id.text_item_box_real_count);
-        TextView expectedCount = (TextView) layout.findViewById(R.id.text_item_box_expected_count);
-        codeLable.setText(codeLable.getText()+mBoxList.get(groupPosition).get("matCode"));
-        realCount.setText(realCount.getText()+mBoxList.get(groupPosition).get("realCount"));
-        expectedCount.setText(expectedCount.getText()+mBoxList.get(groupPosition).get("expectedCount"));
-        return layout;
+        //RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box, null);
+//        TextView codeLable = (TextView) layout.findViewById(R.id.text_item_box_mat_code);
+//        TextView realCount = (TextView) layout.findViewById(R.id.text_item_box_real_count);
+//        TextView expectedCount = (TextView) layout.findViewById(R.id.text_item_box_expected_count);
+//        codeLable.setText(codeLable.getText()+mArrivalList.get(groupPosition).get("matCode"));
+//        realCount.setText(realCount.getText()+mArrivalList.get(groupPosition).get("realCount"));
+//        expectedCount.setText(expectedCount.getText()+mArrivalList.get(groupPosition).get("expectedCount"));
+        return new RelativeLayout(mContext);
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
-//        //Map<String,String> map=mBoxDetailList.get(mBoxList.get(groupPosition).get("matCode"));
+        //RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
+//        Map<String,String> map=mArrivalDetailList.get(mArrivalList.get(groupPosition).get("matCode"));
 //        for(Map.Entry<String,String> entry:map.entrySet()){
 //            if(entry.getKey().equals("isBom")){
 //                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
@@ -99,7 +101,8 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
 //                text1.setText(text1.getText()+entry.getValue());
 //            }
 //        }
-        return layout;
+
+        return new RelativeLayout(mContext);
     }
 
     @Override
@@ -107,4 +110,3 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
         return false;
     }
 }
-
