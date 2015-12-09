@@ -43,16 +43,13 @@
       <file leaf-file-name="RFIDServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48459384">
-              <caret line="242" column="53" selection-start-line="242" selection-start-column="53" selection-end-line="242" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.32492998">
+              <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getCodeByCNum#0;class#RFIDServiceImpl#0" expanded="false" />
                 <element signature="method#bindLocationAndGoods#0;class#RFIDServiceImpl#0" expanded="false" />
-                <element signature="method#getApplySheets#0;class#RFIDServiceImpl#0" expanded="false" />
                 <element signature="method#getGoodsListByApplyDocCode#0;class#RFIDServiceImpl#0" expanded="false" />
-                <element signature="method#confirmRetrieval#0;class#RFIDServiceImpl#0" expanded="false" />
-                <element signature="method#confirmReceiving#0;class#RFIDServiceImpl#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,11 +122,11 @@
         <option value="$PROJECT_DIR$/DBConn/src/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/DBConn/src/Main.java" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/DetailDao.java" />
-        <option value="$PROJECT_DIR$/DBConn/src/dao/PosDao.java" />
-        <option value="$PROJECT_DIR$/DBConn/src/dao/ASNDao.java" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java" />
         <option value="$PROJECT_DIR$/DBConn/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java" />
+        <option value="$PROJECT_DIR$/DBConn/src/dao/PosDao.java" />
+        <option value="$PROJECT_DIR$/DBConn/src/dao/ASNDao.java" />
       </list>
     </option>
   </component>
@@ -1020,12 +1017,12 @@
       <workItem from="1449545496409" duration="3295000" />
       <workItem from="1449550485457" duration="4614000" />
       <workItem from="1449625099011" duration="2830000" />
-      <workItem from="1449629427698" duration="22623000" />
+      <workItem from="1449629427698" duration="23298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93002000" />
+    <option name="totallyTimeSpent" value="93677000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1037,7 +1034,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1099,13 +1096,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/TransportDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16106443">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBConn/src/dao/RPosDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16106443">
@@ -3139,16 +3129,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/PosDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74229693">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBConn/src/dao/DetailDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3167,16 +3147,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getERPDistinctGoods#0;class#WMSDetailDao#0" expanded="false" />
             <element signature="method#getLocationIDsByItemERPCode#0;class#WMSDetailDao#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/ASNDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3205,18 +3175,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/db/AsnEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36134455">
+          <caret line="409" column="24" selection-start-line="409" selection-start-column="20" selection-end-line="409" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/PosDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42016807">
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/ASNDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48319328">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48459384">
-          <caret line="242" column="53" selection-start-line="242" selection-start-column="53" selection-end-line="242" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.32492998">
+          <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getCodeByCNum#0;class#RFIDServiceImpl#0" expanded="false" />
             <element signature="method#bindLocationAndGoods#0;class#RFIDServiceImpl#0" expanded="false" />
-            <element signature="method#getApplySheets#0;class#RFIDServiceImpl#0" expanded="false" />
             <element signature="method#getGoodsListByApplyDocCode#0;class#RFIDServiceImpl#0" expanded="false" />
-            <element signature="method#confirmRetrieval#0;class#RFIDServiceImpl#0" expanded="false" />
-            <element signature="method#confirmReceiving#0;class#RFIDServiceImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>

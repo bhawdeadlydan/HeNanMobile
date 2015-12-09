@@ -19,7 +19,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<ASN> getReceivingSheets() throws TException {
         ASNDao dao = new ASNDao();
-        List list = dao.findByProperty("ASNEntity", "Paid", "0");
+        List list = dao.findByProperty("ASNEntity", "paid", "0");
         ArrayList<ASN> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();) {
             AsnEntity entity = (AsnEntity) it.next();
@@ -93,7 +93,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<POS> getApplySheets() throws TException {
         PosDao dao = new PosDao();
-        List list = dao.findByProperty("PosEntity", "sent", "false");
+        List list = dao.findByProperty("PosEntity", "sent", "0");
         ArrayList<POS> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();) {
             PosEntity entity = (PosEntity) it.next();
