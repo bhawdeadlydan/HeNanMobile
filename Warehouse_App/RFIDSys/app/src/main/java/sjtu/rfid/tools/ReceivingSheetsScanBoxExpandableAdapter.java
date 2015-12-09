@@ -72,7 +72,7 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box, null);
-        TextView code = (TextView) layout.findViewById(R.id.text_receiving_scan_box_code);
+        TextView code = (TextView) layout.findViewById(R.id.text_receiving_scan_box_mat_code);
         code.setText(mReceivingBoxes.get(groupPosition));
         return layout;
     }

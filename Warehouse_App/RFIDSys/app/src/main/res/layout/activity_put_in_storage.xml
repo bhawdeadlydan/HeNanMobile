@@ -27,21 +27,21 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="货位：A12"
-            android:id="@+id/textView9"
+            android:id="@+id/text_put_in_storage_loc"
             android:textSize="25dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="扫描货位"
-            android:id="@+id/button6"
+            android:id="@+id/btn_put_in_storage_scan_loc"
             android:layout_margin="0dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="扫描货物"
-            android:id="@+id/button4" />
+            android:id="@+id/btn_put_in_storage_scan_box" />
     </LinearLayout>
 
     <TextView
@@ -55,26 +55,26 @@
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView2"
+        android:id="@+id/list_put_in_storage_sheets"
         android:layout_below="@+id/textView12"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button7" />
+        android:layout_above="@+id/btn_put_in_storage_bind" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="绑定"
-        android:id="@+id/button7"
+        android:id="@+id/btn_put_in_storage_bind"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/expandableListView2" />
+        android:layout_alignEnd="@+id/list_put_in_storage_sheets" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="清空"
-        android:id="@+id/button8"
+        android:id="@+id/btn_put_in_storage_clear"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/textView12" />
 

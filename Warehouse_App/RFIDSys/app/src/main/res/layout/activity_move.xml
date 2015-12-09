@@ -20,21 +20,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="扫描目标货物"
-            android:id="@+id/button4" />
+            android:id="@+id/btn_move_scan_target_box" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:text="扫描目标货位"
-            android:id="@+id/button5" />
+            android:id="@+id/btn_move_scan_target_loc" />
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提交移位信息"
-        android:id="@+id/button9"
+        android:id="@+id/btn_move_commit"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="19dp"
@@ -44,18 +44,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="当前选择货位："
-        android:id="@+id/textView2"
+        android:id="@+id/text_move_cur_loc"
         android:layout_marginStart="19dp"
-        android:layout_alignBaseline="@+id/button9"
-        android:layout_alignBottom="@+id/button9"
+        android:layout_alignBaseline="@+id/btn_move_commit"
+        android:layout_alignBottom="@+id/btn_move_commit"
         android:layout_alignParentStart="true" />
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
+        android:id="@+id/lsit_move_sheets"
         android:layout_below="@+id/linearLayout4"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button9" />
+        android:layout_above="@+id/btn_move_commit" />
 
 </RelativeLayout>

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="货位："
-            android:id="@+id/textView13" />
+            android:id="@+id/text_check_by_pos_loc" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -40,13 +40,13 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="扫描需盘点货位"
-                android:id="@+id/button12" />
+                android:id="@+id/btn_check_by_pos_scan_loc" />
 
             <Button
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="扫描货物盘点"
-                android:id="@+id/button4"
+                android:id="@+id/btn_check_by_pos_scan_box"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
     </LinearLayout>
@@ -62,16 +62,16 @@
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/expandableListView3"
+        android:id="@+id/list_check_by_pos_sheets"
         android:layout_below="@+id/textView15"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button13" />
+        android:layout_above="@+id/btn_check_by_pos_commit" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="绑定"
-        android:id="@+id/button13"
+        android:text="提交盘点信息"
+        android:id="@+id/btn_check_by_pos_commit"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/expandableListView3" />
+        android:layout_alignEnd="@+id/list_check_by_pos_sheets" />
 </RelativeLayout>

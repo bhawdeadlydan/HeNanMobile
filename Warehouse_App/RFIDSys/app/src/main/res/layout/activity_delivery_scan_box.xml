@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="申领单号："
-            android:id="@+id/text_delivery_scan_box_code" />
+            android:id="@+id/text_delivery_scan_box_order_code" />
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="扫描"
-        android:id="@+id/button14"
+        android:id="@+id/btn_delivery_scan_box_scan"
         android:layout_below="@+id/linearLayout5"
         android:layout_alignEnd="@+id/linearLayout5"
         android:layout_alignParentStart="true" />
@@ -41,16 +41,16 @@
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_delivery_box_sheets"
-        android:layout_below="@+id/button14"
+        android:id="@+id/list_delivery_scan_box_sheets"
+        android:layout_below="@+id/btn_delivery_scan_box_scan"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/button15" />
+        android:layout_above="@+id/btn_delivery_scan_box_commit" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="完成出库"
-        android:id="@+id/button15"
+        android:id="@+id/btn_delivery_scan_box_commit"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 

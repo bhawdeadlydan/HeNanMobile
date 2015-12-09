@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 import sjtu.rfid.tools.ReceivingSheetsScanBoxExpandableAdapter;
 
 public class ReceivingScanBoxActivity extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class ReceivingScanBoxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiving_scan_box);
 
-        vReceSheetCode=(TextView)findViewById(R.id.text_receiving_scan_box_code);
+        vReceSheetCode=(TextView)findViewById(R.id.text_receiving_scan_box_mat_code);
         Bundle bundle=this.getIntent().getExtras();
         String receiving_sheet_code=bundle.getString("receiving_sheet_code");
         vReceSheetCode.setText(vReceSheetCode.getText()+receiving_sheet_code);
