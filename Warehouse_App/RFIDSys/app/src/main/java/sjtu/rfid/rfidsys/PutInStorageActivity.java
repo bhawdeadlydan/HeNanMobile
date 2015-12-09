@@ -3,6 +3,7 @@ package sjtu.rfid.rfidsys;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -70,6 +71,9 @@ public class PutInStorageActivity extends AppCompatActivity {
                 }
             }
         });
+
+        TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
+        vGoodsPos.setText(vGoodsPos.getText()+"A12");
 
     }
 }

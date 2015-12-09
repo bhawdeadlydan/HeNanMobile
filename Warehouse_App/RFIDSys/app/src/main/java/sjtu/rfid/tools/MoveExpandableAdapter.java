@@ -82,7 +82,7 @@ public class MoveExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_move_box_detail, null);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_move_box, null);
         Map<String,String> map=mMoveDetailList.get(mMoveList.get(groupPosition).get("boxCode"));
         for(Map.Entry<String,String> entry:map.entrySet()){
             if(entry.getKey().equals("boxCode")){
