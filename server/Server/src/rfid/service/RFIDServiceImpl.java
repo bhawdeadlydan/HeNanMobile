@@ -110,7 +110,38 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
     @Override
     public List<Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws TException {
-        return null;
+        DetailDao ddao = new DetailDao();
+        ASNDao adao = new ASNDao();
+        boolean isbom = ddao.isBom(ApplyDocCode);
+        ArrayList<Good> l = new ArrayList<>();
+        if(isbom) {
+            List list = ddao.getBomDistinctGoods(ApplyDocCode);
+            for(Iterator it = list.iterator(); it.hasNext();){
+                Object[] objs = (Object[]) it.next();
+                Good good = new Good();
+                good.setCode((String)objs[0]);
+                good.setNum((Integer)objs[1]);
+                good.setIs_Bom(true);
+                String[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+                good.setDetail(str[0]);
+                good.setUnit(str[1]);
+                l.add(good);
+            }
+        }
+        else{
+            List list = ddao.getERPDistinctGoods(ApplyDocCode);
+            for(Iterator it = list.iterator();it.hasNext();){
+                Object[] objs = (Object[])it.next();
+                Good good = new Good();
+                good.setCode((String)objs[0]);
+                good.setNum((Integer)objs[1]);
+                good.setIs_Bom(false);
+                good.setDetail((String)objs[2]);
+                good.setUnit((String)objs[3]);
+                l.add(good);
+            }
+        }
+        return l;
     }
 
     @Override
@@ -133,12 +164,33 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
     @Override
     public Good getGoodByCNum(String CNum) throws TException {
-        return null;
+        WMSDetailDao dao = new WMSDetailDao();
+        ASNDao adao = new ASNDao();
+        Object[] objs = dao.getGoodByCNum(CNum);
+        Good good = new Good();
+        String salebomcode = (String) objs[0];
+        String itemcode = (String) objs[1];
+        String isbom = (String) objs[2];
+        String itemname = (String) objs[3];
+        boolean bom = isbom.toUpperCase().equals("Y");
+        if(bom) {
+            good.setCode(salebomcode);
+            String[] str = adao.getDesAndUnitBySaleBomCode(salebomcode);
+            good.setDetail(str[0]);
+            good.setIs_Bom(true);
+        }
+        else{
+            good.setCode(itemcode);
+            good.setDetail(itemname);
+            good.setIs_Bom(false);
+        }
+        return good;
     }
 
     @Override
     public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws TException {
-        ArrayList<Integer> l = new ArrayList<>();
+        WMSDetailDao dao = new WMSDetailDao();
+        List l = dao.getLocationIDsByItemERPCode(ItemERPCode);
         return l;
     }
 

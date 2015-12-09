@@ -30,6 +30,25 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
+    public Object[] getGoodByCNum(String CNum) {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "select model.saleBomCode, model.itemCode, model.isBom, model.itemName from WmsDetailEntity as model where model.cNum = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, CNum);
+            tx.commit();
+            return (Object[]) queryObject.list().get(0);
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
     public String getApplyDocCodeByCNum(String CNum){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
@@ -112,6 +131,22 @@ public class WMSDetailDao extends BaseDao{
             String hql = "select model.itemCode, count(*), sum(model.expectedQuantity), model.itemName, model.itemUnitCode from WmsDetailEntity as model where asnCode = ? group by model.itemCode";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String> getLocationIDsByItemERPCode(String ItemERPCode){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select allocationId from WmsDetailEntity as model where itemCode = ? group by model.itemCode";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, ItemERPCode);
             tx.commit();
             return query.list();
         }catch (HibernateException e){
