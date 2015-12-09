@@ -10,6 +10,7 @@ package PutOut;
 import dao.DetailDao;
 import dao.PosDao;
 import db.DetailEntity;
+import db.PosEntity;
 
 import java.sql.Timestamp;
 
@@ -37,6 +38,7 @@ public class SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvBindingImpl implements PutO
             pos.setExpectedShipDate(new Timestamp(positem.getEXPECTED_SHIP_DATE().getTimeInMillis()));
             pos.setDockCode(positem.getDOCK_CODE());
             pos.setDisposition(positem.getDISPOSITION());
+            pos.setSent(0);
             pdao.addEntity(pos);
             for(DETAILS_Item dItem : positem.getDETAILS_Collection()) {
                 DetailEntity detail = new DetailEntity();
