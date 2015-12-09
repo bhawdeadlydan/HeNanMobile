@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public void iniBtns() {
 
         btnConfig = (Button) findViewById(R.id.btn_main_config);
-        btnApply = (Button) findViewById(R.id.btn_main_apply);
+        btnApply = (Button) findViewById(R.id.btn_main_check);
         btnArriveTmp = (Button) findViewById(R.id.btn_main_arrive_tmp);
         btnArriveConstruct = (Button) findViewById(R.id.btn_main_arrive_construct);
 
@@ -41,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_main_config:
                     intent.setClass(MainActivity.this, ConfigActivity.class);
                     break;
-                case R.id.btn_main_apply:
+                case R.id.btn_main_check:
                     intent.setClass(MainActivity.this, ConfirmActivity.class);
                     break;
                 case R.id.btn_main_arrive_tmp:
-                    intent.setClass(MainActivity.this, ConfirmActivity.class);
+                    intent.setClass(MainActivity.this, ArrivalActivity.class);
                     intent.putExtra("function", 0);
                     break;
                 case R.id.btn_main_arrive_construct:
-                    intent.setClass(MainActivity.this, ConfirmActivity.class);
+                    intent.setClass(MainActivity.this, ArrivalActivity.class);
                     intent.putExtra("function", 1);
                     break;
             }
