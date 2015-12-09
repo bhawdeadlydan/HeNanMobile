@@ -35,7 +35,7 @@ public class ArrivalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arrival);
         iniActivity();
-        //iniListView();
+        iniListView();
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -60,7 +60,7 @@ public class ArrivalActivity extends AppCompatActivity {
 
         mArrivalDetailList = new HashMap<String, Map<String, String>>();
         mArrivalList = new ArrayList<>();
-        sheetListView = (ExpandableListView) findViewById(R.id.list_confirm_sheets);
+        sheetListView = (ExpandableListView) findViewById(R.id.list_arrive_sheets);
         for(int i=0;i<9;i++){
             Map<String,String> map=new HashMap<>();
             map.put("matCode","2524-PDE-OUT-201509000000"+(i+1));
@@ -89,7 +89,7 @@ public class ArrivalActivity extends AppCompatActivity {
                 }
             }
         });
-        TextView vApplyCode=(TextView)findViewById(R.id.text_activity_arrival_apply_code);
+        TextView vApplyCode=(TextView)findViewById(R.id.text_arrival_order_code);
         vApplyCode.setText("VS-DH-0000000000000000001");
 
     }

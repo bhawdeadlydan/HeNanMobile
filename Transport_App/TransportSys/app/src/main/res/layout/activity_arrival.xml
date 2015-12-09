@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="VS-DH-0000000000000000001"
-                android:id="@+id/text_activity_arrival_apply_code" />
+                android:id="@+id/text_arrival_order_code" />
         </LinearLayout>
 
         <LinearLayout

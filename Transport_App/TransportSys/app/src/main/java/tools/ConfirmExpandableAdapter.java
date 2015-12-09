@@ -14,26 +14,25 @@ import java.util.Map;
 import sjtu.rfid.transportsys.R;
 
 /**
- * Created by user on 12/7/2015.
+ * Created by user on 12/6/2015.
  */
-public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
+public class ConfirmExpandableAdapter extends BaseExpandableListAdapter {
 
     private LayoutInflater mLayoutInflater;
-    private Map<String,Map<String,String>> mBoxDetailList;
-    private List<Map<String,String>> mBoxList;
+    private Map<String,Map<String,String>> mConfirmDetailList;
+    private List<Map<String,String>> mConfirmList;
     private Context mContext;
 
-    public ConfirmExpandableListAdapter(Context mContext, Map<String,Map<String,String>> mBoxDetailList, List<Map<String,String>> mBoxList)
-    {
+    public ConfirmExpandableAdapter(Context mContext, Map<String, Map<String, String>> mConfirmDetailList, List<Map<String, String>> mConfirmList){
         this.mContext = mContext;
-        this.mBoxDetailList = mBoxDetailList;
-        this.mBoxList = mBoxList;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mConfirmList = mConfirmList;
+        this.mConfirmDetailList = mConfirmDetailList;
     }
 
     @Override
     public int getGroupCount() {
-        return mBoxList.size();
+        return mConfirmList.size();
     }
 
     @Override
@@ -43,13 +42,13 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mBoxList.get(groupPosition);
+        return mConfirmList.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String key=mBoxList.get(groupPosition).get("matCode");
-        return mBoxDetailList.get(key);
+        String key=mConfirmList.get(groupPosition).get("matCode");
+        return mConfirmDetailList.get(key);
 
     }
 
@@ -61,7 +60,7 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
+       return childPosition;
     }
 
     @Override
@@ -75,30 +74,31 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
         TextView codeLable = (TextView) layout.findViewById(R.id.text_item_box_mat_code);
         TextView realCount = (TextView) layout.findViewById(R.id.text_item_box_real_count);
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_item_box_expected_count);
-        codeLable.setText(codeLable.getText()+mBoxList.get(groupPosition).get("matCode"));
-        realCount.setText(realCount.getText()+mBoxList.get(groupPosition).get("realCount"));
-        expectedCount.setText(expectedCount.getText()+mBoxList.get(groupPosition).get("expectedCount"));
+        codeLable.setText(codeLable.getText()+mConfirmList.get(groupPosition).get("matCode"));
+        realCount.setText(realCount.getText()+mConfirmList.get(groupPosition).get("realCount"));
+        expectedCount.setText(expectedCount.getText()+mConfirmList.get(groupPosition).get("expectedCount"));
         return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
-//        //Map<String,String> map=mBoxDetailList.get(mBoxList.get(groupPosition).get("matCode"));
-//        for(Map.Entry<String,String> entry:map.entrySet()){
-//            if(entry.getKey().equals("isBom")){
-//                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
-//                text1.setText(text1.getText()+entry.getValue());
-//            }
-//            else if(entry.getKey().equals("matName")){
-//                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_name);
-//                text1.setText(text1.getText()+entry.getValue());
-//            }
-//            else if(entry.getKey().equals("unit")){
-//                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
-//                text1.setText(text1.getText()+entry.getValue());
-//            }
-//        }
+        Map<String,String> map=mConfirmDetailList.get(mConfirmList.get(groupPosition).get("matCode"));
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            if(entry.getKey().equals("isBom")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("matName")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_name);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("unit")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+        }
+
         return layout;
     }
 
@@ -107,4 +107,3 @@ public class ConfirmExpandableListAdapter extends BaseExpandableListAdapter {
         return false;
     }
 }
-

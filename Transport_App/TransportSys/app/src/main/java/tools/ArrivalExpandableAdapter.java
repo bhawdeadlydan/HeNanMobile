@@ -32,8 +32,7 @@ public class ArrivalExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-//        return mArrivalList.size();
-    return 1;
+        return mArrivalList.size();
     }
 
     @Override
@@ -43,15 +42,13 @@ public class ArrivalExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-//        return mArrivalList.get(groupPosition);
-        return null;
+        return mArrivalList.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-//        String key=mArrivalList.get(groupPosition).get("matCode");
-//        return mArrivalDetailList.get(key);
-        return null;
+        String key=mArrivalList.get(groupPosition).get("matCode");
+        return mArrivalDetailList.get(key);
 
     }
 
@@ -73,36 +70,36 @@ public class ArrivalExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        //RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box, null);
-//        TextView codeLable = (TextView) layout.findViewById(R.id.text_item_box_mat_code);
-//        TextView realCount = (TextView) layout.findViewById(R.id.text_item_box_real_count);
-//        TextView expectedCount = (TextView) layout.findViewById(R.id.text_item_box_expected_count);
-//        codeLable.setText(codeLable.getText()+mArrivalList.get(groupPosition).get("matCode"));
-//        realCount.setText(realCount.getText()+mArrivalList.get(groupPosition).get("realCount"));
-//        expectedCount.setText(expectedCount.getText()+mArrivalList.get(groupPosition).get("expectedCount"));
-        return new RelativeLayout(mContext);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box, null);
+        TextView codeLable = (TextView) layout.findViewById(R.id.text_item_box_mat_code);
+        TextView realCount = (TextView) layout.findViewById(R.id.text_item_box_real_count);
+        TextView expectedCount = (TextView) layout.findViewById(R.id.text_item_box_expected_count);
+        codeLable.setText(codeLable.getText()+mArrivalList.get(groupPosition).get("matCode"));
+        realCount.setText(realCount.getText()+mArrivalList.get(groupPosition).get("realCount"));
+        expectedCount.setText(expectedCount.getText()+mArrivalList.get(groupPosition).get("expectedCount"));
+        return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        //RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
-//        Map<String,String> map=mArrivalDetailList.get(mArrivalList.get(groupPosition).get("matCode"));
-//        for(Map.Entry<String,String> entry:map.entrySet()){
-//            if(entry.getKey().equals("isBom")){
-//                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
-//                text1.setText(text1.getText()+entry.getValue());
-//            }
-//            else if(entry.getKey().equals("matName")){
-//                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_name);
-//                text1.setText(text1.getText()+entry.getValue());
-//            }
-//            else if(entry.getKey().equals("unit")){
-//                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
-//                text1.setText(text1.getText()+entry.getValue());
-//            }
-//        }
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
+        Map<String,String> map=mArrivalDetailList.get(mArrivalList.get(groupPosition).get("matCode"));
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            if(entry.getKey().equals("isBom")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("matName")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_name);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+            else if(entry.getKey().equals("unit")){
+                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
+                text1.setText(text1.getText()+entry.getValue());
+            }
+        }
 
-        return new RelativeLayout(mContext);
+        return layout;
     }
 
     @Override
