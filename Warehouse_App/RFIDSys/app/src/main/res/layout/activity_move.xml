@@ -53,7 +53,7 @@
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lsit_move_sheets"
+        android:id="@+id/list_move_sheets"
         android:layout_below="@+id/linearLayout4"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_move_commit" />

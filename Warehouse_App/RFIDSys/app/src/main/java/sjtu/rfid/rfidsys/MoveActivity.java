@@ -13,12 +13,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import sjtu.rfid.tools.CheckByPosExpandableAdapter;
+import sjtu.rfid.tools.MoveExpandableAdapter;
 
 public class MoveActivity extends AppCompatActivity {
 
     ExpandableListView sheetListView;
-    CheckByPosExpandableAdapter tmpAdapter;
+    MoveExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mMoveDetailList;
     private List<Map<String,String>> mMoveList;
 
@@ -42,7 +42,7 @@ public class MoveActivity extends AppCompatActivity {
 
         mMoveDetailList = new HashMap<String, Map<String, String>>();
         mMoveList = new ArrayList<>();
-        sheetListView = (ExpandableListView) findViewById(R.id.lsit_move_sheets);
+        sheetListView = (ExpandableListView) findViewById(R.id.list_move_sheets);
         for(int i=0;i<9;i++){
             Map<String,String> map=new HashMap<>();
             map.put("boxCode","000000000"+(i+1));
@@ -58,7 +58,7 @@ public class MoveActivity extends AppCompatActivity {
             detailMap.put("originLoc","A11");
             mMoveDetailList.put(mMoveList.get(i).get("boxCode"), detailMap);
         }
-        tmpAdapter = new CheckByPosExpandableAdapter(this,mMoveDetailList,mMoveList);
+        tmpAdapter = new MoveExpandableAdapter(this,mMoveDetailList,mMoveList);
         sheetListView.setAdapter(tmpAdapter);
 
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {

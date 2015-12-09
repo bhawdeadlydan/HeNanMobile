@@ -72,17 +72,17 @@ public class MoveExpandableAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_move_box, null);
         TextView vboxCode = (TextView) layout.findViewById(R.id.text_move_box_code);
-        TextView vmatNmae = (TextView) layout.findViewById(R.id.text_move_box_mat_name);
+        TextView vmatName = (TextView) layout.findViewById(R.id.text_move_box_mat_name);
         TextView voriginLoc = (TextView) layout.findViewById(R.id.text_move_box_origin_loc);
         vboxCode.setText(mMoveList.get(groupPosition).get("boxCode"));
-        vmatNmae.setText(mMoveList.get(groupPosition).get("matName"));
+        vmatName.setText(mMoveList.get(groupPosition).get("matName"));
         voriginLoc.setText(mMoveList.get(groupPosition).get("originLoc"));
         return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_move_box, null);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_move_box_detail, null);
         Map<String,String> map=mMoveDetailList.get(mMoveList.get(groupPosition).get("boxCode"));
         for(Map.Entry<String,String> entry:map.entrySet()){
             if(entry.getKey().equals("boxCode")){
