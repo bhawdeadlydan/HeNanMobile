@@ -11,7 +11,6 @@ import java.sql.Timestamp;
 public class CheckEntity {
     private String materialCode;
     private String position;
-    private Integer expectedNum;
     private Timestamp time;
     private int id;
     private Integer realNum;
@@ -34,16 +33,6 @@ public class CheckEntity {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    @Basic
-    @Column(name = "ExpectedNum")
-    public Integer getExpectedNum() {
-        return expectedNum;
-    }
-
-    public void setExpectedNum(Integer expectedNum) {
-        this.expectedNum = expectedNum;
     }
 
     @Basic
@@ -86,7 +75,6 @@ public class CheckEntity {
         if (id != that.id) return false;
         if (materialCode != null ? !materialCode.equals(that.materialCode) : that.materialCode != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
-        if (expectedNum != null ? !expectedNum.equals(that.expectedNum) : that.expectedNum != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
         if (realNum != null ? !realNum.equals(that.realNum) : that.realNum != null) return false;
 
@@ -97,7 +85,6 @@ public class CheckEntity {
     public int hashCode() {
         int result = materialCode != null ? materialCode.hashCode() : 0;
         result = 31 * result + (position != null ? position.hashCode() : 0);
-        result = 31 * result + (expectedNum != null ? expectedNum.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
         result = 31 * result + id;
         result = 31 * result + (realNum != null ? realNum.hashCode() : 0);

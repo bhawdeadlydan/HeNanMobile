@@ -25,7 +25,7 @@ public class PosEntity {
     private Timestamp expectedShipDate;
     private String dockCode;
     private String disposition;
-    private Byte sent;
+    private Integer sent;
 
     @Basic
     @Column(name = "COMPANY")
@@ -189,11 +189,11 @@ public class PosEntity {
 
     @Basic
     @Column(name = "Sent")
-    public Byte getSent() {
+    public Integer getSent() {
         return sent;
     }
 
-    public void setSent(Byte sent) {
+    public void setSent(Integer sent) {
         this.sent = sent;
     }
 

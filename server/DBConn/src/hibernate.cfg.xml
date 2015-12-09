@@ -34,14 +34,14 @@
         <mapping resource="db/DetailEntity.hbm.xml"/>
         <mapping resource="db/WmsDetailEntity.hbm.xml"/>
         <mapping class="db.WmsDetailEntity"/>
-        <mapping resource="db/CheckEntity.hbm.xml"/>
-        <mapping class="db.CheckEntity"/>
-        <mapping resource="db/PosEntity.hbm.xml"/>
-        <mapping class="db.PosEntity"/>
-        <mapping resource="db/AsnEntity.hbm.xml"/>
-        <mapping class="db.AsnEntity"/>
         <mapping resource="db/TransportEntity.hbm.xml"/>
         <mapping class="db.TransportEntity"/>
+        <mapping resource="db/AsnEntity.hbm.xml"/>
+        <mapping class="db.AsnEntity"/>
+        <mapping resource="db/PosEntity.hbm.xml"/>
+        <mapping class="db.PosEntity"/>
+        <mapping resource="db/CheckEntity.hbm.xml"/>
+        <mapping class="db.CheckEntity"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

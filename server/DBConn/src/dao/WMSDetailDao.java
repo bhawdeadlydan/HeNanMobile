@@ -139,7 +139,7 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
-    public List<String> getLocationIDsByItemERPCode(String ItemERPCode){
+    public List<Integer> getLocationIDsByItemERPCode(String ItemERPCode){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
         try{
@@ -154,4 +154,39 @@ public class WMSDetailDao extends BaseDao{
         }
         return null;
     }
+
+    public List<Object[]> getBomGoodsByLocation(int lid){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.saleBomCode,sum(model.expectedQuantity)  from WmsDetailEntity as model where allocationId = ? and isBom = 'Y' group by model.saleBomCode ";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, lid);
+            List bomlist = query.list();
+            tx.commit();
+            return bomlist;
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Object[]> getERPGoodsByLocation(int lid){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.itemCode, sum(model.expectedQuantity), model.itemName, model.itemUnitCode from WmsDetailEntity as model where allocationId = ? and isBom = 'N' group by model.itemCode";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, lid);
+            List erplist = query.list();
+            tx.commit();
+            return erplist;
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

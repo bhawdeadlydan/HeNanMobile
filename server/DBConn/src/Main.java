@@ -1,6 +1,5 @@
 import dao.BaseDao;
 import dao.LogDao;
-import db.CheckEntity;
 import db.LogEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

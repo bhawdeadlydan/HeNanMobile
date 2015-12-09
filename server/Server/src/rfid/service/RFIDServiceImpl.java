@@ -4,6 +4,7 @@ import dao.*;
 import db.*;
 import org.apache.thrift.TException;
 
+import java.sql.Array;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<ASN> getReceivingSheets() throws TException {
         ASNDao dao = new ASNDao();
-        List list = dao.findByProperty("ASNEntity", "Paid", "false");
+        List list = dao.findByProperty("ASNEntity", "Paid", "0");
         ArrayList<ASN> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();) {
             AsnEntity entity = (AsnEntity) it.next();
@@ -190,13 +191,38 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws TException {
         WMSDetailDao dao = new WMSDetailDao();
-        List l = dao.getLocationIDsByItemERPCode(ItemERPCode);
+        List<Integer> l = dao.getLocationIDsByItemERPCode(ItemERPCode);
         return l;
     }
 
     @Override
     public List<Good> getGoodsByLocation(int Location) throws TException {
-        return null;
+        WMSDetailDao wdao = new WMSDetailDao();
+        ASNDao adao = new ASNDao();
+        ArrayList<Good> l = new ArrayList<>();
+        List bomlist = wdao.getBomGoodsByLocation(Location), erplist = wdao.getERPGoodsByLocation(Location);
+        for(Iterator it = bomlist.iterator();it.hasNext();){
+            Good good = new Good();
+            good.setIs_Bom(true);
+            Object[] objs = (Object[])it.next();
+            good.setCode((String)objs[0]);
+            good.setNum((Integer)objs[1]);
+            String[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+            good.setDetail(str[0]);
+            good.setUnit(str[1]);
+            l.add(good);
+        }
+        for(Iterator it = erplist.iterator(); it.hasNext();){
+            Good good = new Good();
+            Object[] objs = (Object[])it.next();
+            good.setCode((String)objs[0]);
+            good.setNum((Integer)objs[1]);
+            good.setIs_Bom(false);
+            good.setDetail((String)objs[2]);
+            good.setUnit((String)objs[3]);
+            l.add(good);
+        }
+        return l;
     }
 
     @Override
@@ -221,7 +247,6 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             e.printStackTrace();
         }
         check.setTime(timestamp);
-        check.setExpectedNum();
         CheckDao dao = new CheckDao();
         dao.addEntity(check);
         return true;

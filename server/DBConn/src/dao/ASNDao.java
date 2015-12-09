@@ -9,10 +9,6 @@ import org.hibernate.Transaction;
  * Created by richard on 2015/12/7.
  */
 public class ASNDao extends BaseDao{
-    public int getCartonNumByCode(String Code){
-        int num = 0;
-        return num;
-    }
 
     public String[] getDesAndUnitBySaleBomCode(String SaleBomCode){
         String str[];
