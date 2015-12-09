@@ -1,9 +1,11 @@
 package sjtu.rfid.rfidsys;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.ExpandableListView;
 
 import com.google.android.gms.appindexing.Action;
@@ -17,7 +19,7 @@ import java.util.Map;
 
 import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 
-public class ReceivingSheetsActivity extends AppCompatActivity {
+public class ReceivingSheetsActivity extends Activity {
     ExpandableListView sheetListView;
     ReceivingSheetsExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mReceivingCodeDetailList;
@@ -31,6 +33,7 @@ public class ReceivingSheetsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiving_sheets);
         iniListView();

@@ -77,7 +77,8 @@ public class DeliverySheetsExpandableAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_sheet, null);
         codeLable = (TextView) layout.findViewById(R.id.text_delivery_sheet_code);
-        codeLable.setText(codeLable.getText()+mDeliveryCodeList.get(groupPosition));
+        //codeLable.setText(codeLable.getText()+mDeliveryCodeList.get(groupPosition));
+        codeLable.setText(mDeliveryCodeList.get(groupPosition));
         Button button = (Button) layout.findViewById(R.id.btn_delivery_sheet);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

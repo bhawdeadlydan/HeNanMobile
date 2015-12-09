@@ -1,5 +1,6 @@
 package sjtu.rfid.rfidsys;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckByMatActivity extends AppCompatActivity {
+public class CheckByMatActivity extends Activity {
 
     ListView sheetListView;
 

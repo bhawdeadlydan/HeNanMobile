@@ -1,5 +1,6 @@
 package sjtu.rfid.rfidsys;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 import sjtu.rfid.tools.ReceivingSheetsScanBoxExpandableAdapter;
 
-public class ReceivingScanBoxActivity extends AppCompatActivity {
+public class ReceivingScanBoxActivity extends Activity {
 
     private TextView vReceSheetCode;
     ExpandableListView sheetListView;
