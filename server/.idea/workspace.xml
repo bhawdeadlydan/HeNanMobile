@@ -43,10 +43,11 @@
       <file leaf-file-name="RFIDServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6704871">
-              <caret line="186" column="33" selection-start-line="186" selection-start-column="33" selection-end-line="186" selection-end-column="33" />
+            <state vertical-scroll-proportion="-0.021489972">
+              <caret line="37" column="40" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getReceivingSheets#0;class#RFIDServiceImpl#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,9 +57,10 @@
         <entry file="file://$PROJECT_DIR$/DBConn/src/dao/ASNDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Receiving#0;class#ASNDao#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,20 +70,10 @@
         <entry file="file://$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+              <caret line="106" column="45" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBConn/src/dao/BaseDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -154,9 +146,9 @@
         <option value="$PROJECT_DIR$/DBConn/src/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/DBConn/src/Main.java" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/PosDao.java" />
+        <option value="$PROJECT_DIR$/DBConn/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/ASNDao.java" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java" />
-        <option value="$PROJECT_DIR$/DBConn/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java" />
       </list>
     </option>
@@ -470,7 +462,7 @@
     <property name="JPA.DatabaseSchemaImportDialog" value="27ccc35b-2382-45f3-943e-3ce6916ad3ae" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/DBConn/src" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="asnen&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/db/AsnEntity.java&#10;asnda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;wms&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/WMSDetailDao.java&#10;pos&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;base&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/BaseDao.java&#10;posda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;asn&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;posen&#9;PSI&#9;JAVA://db.PosEntity&#10;wmsdetaildao&#9;PSI&#9;JAVA://dao.WMSDetailDao&#10;good&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/src/rfid/service/Good.java&#10;asndao&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;data&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/data.thrift&#10;allo&#9;PSI&#9;JAVA://dao.AllocationDao&#10;binding&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/IOfIES/src/PutIn/SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl.java&#10;ASN&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java" />
+    <property name="SearchEverywhereHistoryKey" value="asnda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;asnen&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/db/AsnEntity.java&#10;base&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/BaseDao.java&#10;wms&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/WMSDetailDao.java&#10;pos&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;posda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;asn&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;posen&#9;PSI&#9;JAVA://db.PosEntity&#10;wmsdetaildao&#9;PSI&#9;JAVA://dao.WMSDetailDao&#10;good&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/src/rfid/service/Good.java&#10;asndao&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;data&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/data.thrift&#10;allo&#9;PSI&#9;JAVA://dao.AllocationDao&#10;binding&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/IOfIES/src/PutIn/SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl.java&#10;ASN&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="left" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/ClientInHouse/lib" />
   </component>
@@ -1123,12 +1115,12 @@
       <workItem from="1449545496409" duration="3295000" />
       <workItem from="1449550485457" duration="4614000" />
       <workItem from="1449625099011" duration="2830000" />
-      <workItem from="1449629427698" duration="12939000" />
+      <workItem from="1449629427698" duration="17585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83318000" />
+    <option name="totallyTimeSpent" value="87964000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1159,7 +1151,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.76891893" sideWeight="0.4845222" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21722364" sideWeight="0.5179283" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23586118" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.30012855" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="558" y="140" width="483" height="533" />
@@ -1202,13 +1194,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/AllocationDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3216783">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBConn/src/dao/RASNDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3231,46 +3216,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBConn/src/db/AsnEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4169054">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBConn/src/dao/PosDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62750715">
           <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/ASNDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3285,12 +3234,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/BaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6704871">
-          <caret line="186" column="33" selection-start-line="186" selection-start-column="33" selection-end-line="186" selection-end-column="33" />
+        <state vertical-scroll-proportion="1.691977">
+          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/db/SaleBomEntity.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/db/SaleBomEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/db/AsnEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9340974">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/AllocationDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="45" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConn/src/dao/ASNDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Receiving#0;class#ASNDao#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.021489972">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getReceivingSheets#0;class#RFIDServiceImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>

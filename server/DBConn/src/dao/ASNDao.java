@@ -14,14 +14,25 @@ public class ASNDao extends BaseDao{
         return num;
     }
 
-    public String getDescribeByCode(String Code){
-        String str = "";
-        return str;
-    }
-
-    public String getUnitByCode(String Code){
-        String str = "";
-        return str;
+    public String[] getDesAndUnitBySaleBomCode(String SaleBomCode){
+        String str[];
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "select model.saleBomName, model.saleBomUnit from SaleBomEntity as model where model.saleBomCode = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, SaleBomCode);
+            str = (String[])queryObject.list().get(0);
+            tx.commit();
+            return str;
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 
     public void Receiving(String Code){
@@ -41,4 +52,5 @@ public class ASNDao extends BaseDao{
             session.close();
         }
     }
+
 }

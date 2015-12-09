@@ -5,6 +5,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 /**
  * Created by richard on 2015/12/7.
  */
@@ -64,5 +66,57 @@ public class WMSDetailDao extends BaseDao{
         }finally {
             session.close();
         }
+    }
+
+    public boolean isBom(String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "select model.isBom from WmsDetailEntity as model where model.asnCode = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, Code);
+            tx.commit();
+            String isbom = (String)queryObject.list().get(0);
+            return isbom.toUpperCase() == "Y";
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return false;
+    }
+
+    public List<Object[]> getBomDistinctGoods(String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "select model.saleBomCode, count(*),sum(model.expectedQuantity) from WmsDetailEntity as model where asnCode = ? group by model.saleBomCode";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Object[]> getERPDistinctGoods(String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.itemCode, count(*), sum(model.expectedQuantity), model.itemName, model.itemUnitCode from WmsDetailEntity as model where asnCode = ? group by model.itemCode";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

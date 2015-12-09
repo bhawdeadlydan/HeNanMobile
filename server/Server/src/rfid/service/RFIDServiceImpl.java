@@ -2,7 +2,6 @@ package rfid.service;
 
 import dao.*;
 import db.*;
-import javafx.geometry.Pos;
 import org.apache.thrift.TException;
 
 import java.sql.Timestamp;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.locks.ReadWriteLock;
 
 /**
  * Created by richard on 2015/12/9.
@@ -40,22 +38,35 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     public List<Good> getGoodsListByCode(String Code) throws TException {
         WMSDetailDao wdao = new WMSDetailDao();
         ASNDao adao = new ASNDao();
-        List list = wdao.findByProperty("WmsDetailEntity", "asnCode",Code);
+        boolean isbom = wdao.isBom(Code);
         ArrayList<Good> l = new ArrayList<>();
-        int num = adao.getCartonNumByCode(Code);
-        for(Iterator it = list.iterator(); it.hasNext();){
-            WmsDetailEntity entity = (WmsDetailEntity)it.next();
-            Good good = new Good();
-            good.setIs_Bom(entity.getIsBom().toUpperCase() == "Y");
-            if(good.Is_Bom){
-                good.setCode(entity.getSaleBomCode());
-                good.setNum(num);
-                good.setDetail(adao.getDescribeByCode(Code));
-                good.setUnit(adao.getUnitByCode(Code));
-                good.setExpected_Quantity();
+        if(isbom){
+            List list = wdao.getBomDistinctGoods(Code);
+            for(Iterator it = list.iterator(); it.hasNext();){
+                Object[] objs = (Object[]) it.next();
+                Good good = new Good();
+                good.setCode((String)objs[0]);
+                good.setNum((Integer)objs[1]);
+                good.setExpected_Quantity((Integer)objs[2]);
+                good.setIs_Bom(true);
+                String[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+                good.setDetail(str[0]);
+                good.setUnit(str[1]);
+                l.add(good);
             }
-            else{
-                good.
+        }
+        else{
+            List list = wdao.getERPDistinctGoods(Code);
+            for(Iterator it = list.iterator();it.hasNext();){
+                Object[] objs = (Object[])it.next();
+                Good good = new Good();
+                good.setCode((String)objs[0]);
+                good.setNum((Integer)objs[1]);
+                good.setExpected_Quantity((Integer)objs[2]);
+                good.setIs_Bom(false);
+                good.setDetail((String)objs[3]);
+                good.setUnit((String)objs[4]);
+                l.add(good);
             }
         }
         return l;
