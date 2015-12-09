@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -37,6 +38,12 @@ public class CheckByMatActivity extends AppCompatActivity {
 
         sheetListView=(ListView)findViewById(R.id.list_check_by_mat_sheets);
         sheetListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getData()));
+        TextView vmatCode=(TextView)findViewById(R.id.text_check_by_mat_mat_code);
+        vmatCode.setText(vmatCode.getText() + "光交箱");
+        TextView vmatName=(TextView)findViewById(R.id.text_check_by_mat_mat_name);
+        vmatName.setText(vmatName.getText()+"1111111");
+        TextView visBom=(TextView)findViewById(R.id.text_check_by_mat_is_bom);
+        visBom.setText(visBom.getText()+"Y");
     }
     private List<String> getData(){
 

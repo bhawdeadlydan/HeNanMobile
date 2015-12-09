@@ -72,6 +72,6 @@ public class MoveActivity extends AppCompatActivity {
             }
         });
         TextView vcurLoc=(TextView)findViewById(R.id.text_move_cur_loc);
-        vcurLoc.setText("B11");
+        vcurLoc.setText(vcurLoc.getText()+"B11");
     }
 }

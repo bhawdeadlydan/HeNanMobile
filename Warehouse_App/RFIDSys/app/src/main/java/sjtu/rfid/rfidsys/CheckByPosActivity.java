@@ -3,6 +3,7 @@ package sjtu.rfid.rfidsys;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -68,6 +69,8 @@ public class CheckByPosActivity extends AppCompatActivity {
                 }
             }
         });
+        TextView vGoosdPos=(TextView)findViewById(R.id.text_check_by_pos_loc);
+        vGoosdPos.setText(vGoosdPos.getText()+"A22");
 
     }
 }
