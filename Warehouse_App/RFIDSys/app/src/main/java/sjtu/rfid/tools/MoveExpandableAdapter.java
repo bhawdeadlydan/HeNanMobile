@@ -74,9 +74,9 @@ public class MoveExpandableAdapter extends BaseExpandableListAdapter {
         TextView vboxCode = (TextView) layout.findViewById(R.id.text_move_box_code);
         TextView vmatName = (TextView) layout.findViewById(R.id.text_move_box_mat_name);
         TextView voriginLoc = (TextView) layout.findViewById(R.id.text_move_box_origin_loc);
-        vboxCode.setText(mMoveList.get(groupPosition).get("boxCode"));
-        vmatName.setText(mMoveList.get(groupPosition).get("matName"));
-        voriginLoc.setText(mMoveList.get(groupPosition).get("originLoc"));
+        vboxCode.setText(vboxCode.getText()+mMoveList.get(groupPosition).get("boxCode"));
+        vmatName.setText(vmatName.getText()+mMoveList.get(groupPosition).get("matName"));
+        voriginLoc.setText(voriginLoc.getText()+mMoveList.get(groupPosition).get("originLoc"));
         return layout;
     }
 

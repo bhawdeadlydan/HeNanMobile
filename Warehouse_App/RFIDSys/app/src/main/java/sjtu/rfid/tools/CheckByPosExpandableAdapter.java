@@ -75,8 +75,8 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_by_pos_box, null);
         codeLable = (TextView) layout.findViewById(R.id.text_check_by_pos_mat_code);
         countLable = (TextView) layout.findViewById(R.id.text_check_by_pos_real_count);
-        codeLable.setText(mCheckByPosList.get(groupPosition).get("matCode"));
-        countLable.setText(mCheckByPosList.get(groupPosition).get("realCount"));
+        codeLable.setText(codeLable.getText()+mCheckByPosList.get(groupPosition).get("matCode"));
+        countLable.setText(countLable.getText()+mCheckByPosList.get(groupPosition).get("realCount"));
         return layout;
     }
 

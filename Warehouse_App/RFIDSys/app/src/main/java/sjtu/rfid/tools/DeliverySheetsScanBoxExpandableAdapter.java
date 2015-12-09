@@ -74,9 +74,9 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
         TextView matCode = (TextView) layout.findViewById(R.id.text_delivery_scan_mat_code);
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_delivery_scan_expected_count);
         TextView realCount = (TextView) layout.findViewById(R.id.text_delivery_scan_real_count);
-        matCode.setText(mDeliveryBoxes.get(groupPosition).get("matCode"));
-        expectedCount.setText(mDeliveryBoxes.get(groupPosition).get("expectedCount"));
-        realCount.setText(mDeliveryBoxes.get(groupPosition).get("realCount"));
+        matCode.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matCode"));
+        expectedCount.setText(expectedCount.getText()+mDeliveryBoxes.get(groupPosition).get("expectedCount"));
+        realCount.setText(realCount.getText()+mDeliveryBoxes.get(groupPosition).get("realCount"));
         return layout;
     }
 

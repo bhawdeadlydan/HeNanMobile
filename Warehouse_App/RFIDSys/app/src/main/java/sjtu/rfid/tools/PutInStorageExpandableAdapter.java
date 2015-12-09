@@ -74,8 +74,8 @@ public class PutInStorageExpandableAdapter extends BaseExpandableListAdapter {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_put_in_storage_box, null);
         TextView vboxCode = (TextView) layout.findViewById(R.id.text_put_in_storage_box_code);
         TextView vmatName = (TextView) layout.findViewById(R.id.text_put_in_storage_mat_name);
-        vboxCode.setText(mPutInStorageList.get(groupPosition).get("boxCode"));
-        vmatName.setText(mPutInStorageList.get(groupPosition).get("matName"));
+        vboxCode.setText(vboxCode.getText()+mPutInStorageList.get(groupPosition).get("boxCode"));
+        vmatName.setText(vmatName.getText()+mPutInStorageList.get(groupPosition).get("matName"));
         return layout;
     }
 

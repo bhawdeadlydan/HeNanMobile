@@ -26,7 +26,6 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
     private List<String> mReceivingCodeList;
     private Context mContext;
     private  TextView codeLable;
-    String receiveCode;
 
     public ReceivingSheetsExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingCodeDetailList, List<String> mReceivingCodeList){
         this.mContext = mContext;
@@ -77,7 +76,7 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
         codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
-        codeLable.setText(mReceivingCodeList.get(groupPosition));
+        codeLable.setText(codeLable.getText()+mReceivingCodeList.get(groupPosition));
         Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +95,6 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet_detail, null);
-        //receiveCode=mReceivingCodeList.get(groupPosition);
         Map<String,String> map=mReceivingCodeDetailList.get(mReceivingCodeList.get(groupPosition));
         for(Map.Entry<String,String> entry:map.entrySet()){
             if(entry.getKey().equals("projectCode")){
