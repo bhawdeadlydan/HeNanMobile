@@ -1,98 +1,44 @@
 package dao;
 
-import db.AsnEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.List;
-
 /**
  * Created by richard on 2015/12/7.
  */
 public class ASNDao extends BaseDao{
-
-    public void addASN(AsnEntity asn){
-        Session session = ourSessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.save(asn);
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
+    public int getCartonNumByCode(String Code){
+        int num = 0;
+        return num;
     }
 
-    public void saveASN(AsnEntity asn) {
-        Session session = ourSessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.update(asn);
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
+    public String getDescribeByCode(String Code){
+        String str = "";
+        return str;
     }
 
-    public void deleteASN(AsnEntity asn) {
-        Session session = ourSessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.delete(asn);
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
+    public String getUnitByCode(String Code){
+        String str = "";
+        return str;
     }
 
-    public List findByProperty(String key, Object value) {
+    public void Receiving(String Code){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String queryString = "from AsnEntity as model where model."
-                    + key + "= ?";
-            Query queryObject = session.createQuery(queryString);
-            queryObject.setParameter(0, value);
+            String queryString = "update AsnEntity as model set model.paid = true where model.code = ?";
+            Query query = session.createQuery(queryString);
+            query.setParameter(0, Code);
+            query.executeUpdate();
             tx.commit();
-            return queryObject.list();
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
         }finally {
             session.close();
         }
-        return null;
-    }
-
-    public List findAll(){
-        Session session = ourSessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            String queryString = "from AsnEntity ";
-            Query queryObject = session.createQuery(queryString);
-            tx.commit();
-            return queryObject.list();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
-        return null;
     }
 }

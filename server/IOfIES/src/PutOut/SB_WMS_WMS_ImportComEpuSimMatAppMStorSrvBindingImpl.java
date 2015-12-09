@@ -10,7 +10,6 @@ package PutOut;
 import dao.DetailDao;
 import dao.PosDao;
 import db.DetailEntity;
-import db.PosEntity;
 
 import java.sql.Timestamp;
 

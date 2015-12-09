@@ -1,9 +1,6 @@
 package dao;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
@@ -58,5 +55,55 @@ public class BaseDao {
             session.close();
         }
         return result;
+    }
+
+    public void deleteEntity(Object entity) {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.delete(entity);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
+
+    public void saveASN(Object entity) {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.update(entity);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
+    public List findByProperty(String entity, String key, Object value) {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "from ? as model where model."
+                    + key + "= ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, entity);
+            queryObject.setParameter(1, value);
+            tx.commit();
+            return queryObject.list();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 }

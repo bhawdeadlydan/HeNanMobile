@@ -3,7 +3,7 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/7.
+ * Created by richard on 2015/12/9.
  */
 @Entity
 @Table(name = "wms_detail", schema = "mobile", catalog = "")
@@ -21,6 +21,8 @@ public class WmsDetailEntity {
     private String asnCode;
     private Integer allocationId;
     private int id;
+    private String cNum;
+    private String applyDocCode;
 
     @Basic
     @Column(name = "IS_BOM")
@@ -152,6 +154,26 @@ public class WmsDetailEntity {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "CartonNum")
+    public String getcNum() {
+        return cNum;
+    }
+
+    public void setcNum(String cNum) {
+        this.cNum = cNum;
+    }
+
+    @Basic
+    @Column(name = "ApplyDocCode")
+    public String getApplyDocCode() {
+        return applyDocCode;
+    }
+
+    public void setApplyDocCode(String applyDocCode) {
+        this.applyDocCode = applyDocCode;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -174,6 +196,8 @@ public class WmsDetailEntity {
             return false;
         if (asnCode != null ? !asnCode.equals(that.asnCode) : that.asnCode != null) return false;
         if (allocationId != null ? !allocationId.equals(that.allocationId) : that.allocationId != null) return false;
+        if (cNum != null ? !cNum.equals(that.cNum) : that.cNum != null) return false;
+        if (applyDocCode != null ? !applyDocCode.equals(that.applyDocCode) : that.applyDocCode != null) return false;
 
         return true;
     }
@@ -193,6 +217,8 @@ public class WmsDetailEntity {
         result = 31 * result + (asnCode != null ? asnCode.hashCode() : 0);
         result = 31 * result + (allocationId != null ? allocationId.hashCode() : 0);
         result = 31 * result + id;
+        result = 31 * result + (cNum != null ? cNum.hashCode() : 0);
+        result = 31 * result + (applyDocCode != null ? applyDocCode.hashCode() : 0);
         return result;
     }
 }

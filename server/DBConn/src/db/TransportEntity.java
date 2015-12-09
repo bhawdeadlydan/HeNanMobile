@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by richard on 2015/12/7.
+ * Created by richard on 2015/12/9.
  */
 @Entity
 @Table(name = "transport", schema = "mobile", catalog = "")
@@ -12,7 +12,7 @@ public class TransportEntity {
     private String charge;
     private Timestamp time;
     private String position;
-    private Integer type;
+    private String type;
     private String posApplyDocCode;
     private Double longitude;
     private Double latitude;
@@ -50,11 +50,11 @@ public class TransportEntity {
 
     @Basic
     @Column(name = "TYPE")
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 

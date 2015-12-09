@@ -7,8 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 

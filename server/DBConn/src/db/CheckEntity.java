@@ -4,29 +4,30 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by richard on 2015/12/7.
+ * Created by richard on 2015/12/9.
  */
 @Entity
 @Table(name = "check", schema = "mobile", catalog = "")
 public class CheckEntity {
-    private String item;
+    private String materialCode;
     private String position;
-    private String method;
+    private Integer expectedNum;
     private Timestamp time;
     private int id;
+    private Integer realNum;
 
     @Basic
-    @Column(name = "ITEM")
-    public String getItem() {
-        return item;
+    @Column(name = "MaterialCode")
+    public String getMaterialCode() {
+        return materialCode;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setMaterialCode(String materialCode) {
+        this.materialCode = materialCode;
     }
 
     @Basic
-    @Column(name = "POSITION")
+    @Column(name = "Position")
     public String getPosition() {
         return position;
     }
@@ -36,13 +37,13 @@ public class CheckEntity {
     }
 
     @Basic
-    @Column(name = "METHOD")
-    public String getMethod() {
-        return method;
+    @Column(name = "ExpectedNum")
+    public Integer getExpectedNum() {
+        return expectedNum;
     }
 
-    public void setMethod(String method) {
-        this.method = method;
+    public void setExpectedNum(Integer expectedNum) {
+        this.expectedNum = expectedNum;
     }
 
     @Basic
@@ -65,6 +66,16 @@ public class CheckEntity {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "RealNum")
+    public Integer getRealNum() {
+        return realNum;
+    }
+
+    public void setRealNum(Integer realNum) {
+        this.realNum = realNum;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,21 +84,23 @@ public class CheckEntity {
         CheckEntity that = (CheckEntity) o;
 
         if (id != that.id) return false;
-        if (item != null ? !item.equals(that.item) : that.item != null) return false;
+        if (materialCode != null ? !materialCode.equals(that.materialCode) : that.materialCode != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
-        if (method != null ? !method.equals(that.method) : that.method != null) return false;
+        if (expectedNum != null ? !expectedNum.equals(that.expectedNum) : that.expectedNum != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
+        if (realNum != null ? !realNum.equals(that.realNum) : that.realNum != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = item != null ? item.hashCode() : 0;
+        int result = materialCode != null ? materialCode.hashCode() : 0;
         result = 31 * result + (position != null ? position.hashCode() : 0);
-        result = 31 * result + (method != null ? method.hashCode() : 0);
+        result = 31 * result + (expectedNum != null ? expectedNum.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
         result = 31 * result + id;
+        result = 31 * result + (realNum != null ? realNum.hashCode() : 0);
         return result;
     }
 }

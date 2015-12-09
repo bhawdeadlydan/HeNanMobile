@@ -4,15 +4,4 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="db.SaleBomDetailEntity" table=" sale_bom_detail" schema="mobile">
-        <id name="id" column="ID"/>
-        <property name="itemErpCode" column="ITEM_ERP_CODE"/>
-        <property name="itemErpName" column="ITEM_ERP_NAME"/>
-        <property name="itemErpQuantity" column="ITEM_ERP_QUANTITY"/>
-        <property name="itemErpUnit" column="ITEM_ERP_UNIT"/>
-        <property name="itemCode" column="ITEM_CODE"/>
-        <property name="itemName" column="ITEM_NAME"/>
-        <property name="configQuantity" column="CONFIG_QUANTITY"/>
-        <property name="saleBomsId" column="SALE_BOMS_ID"/>
-    </class>
 </hibernate-mapping>

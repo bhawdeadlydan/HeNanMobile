@@ -18,5 +18,7 @@
         <property name="expectedQuantity" column="EXPECTED_QUANTITY"/>
         <property name="asnCode" column="ASN_CODE"/>
         <property name="allocationId" column="ALLOCATION_id"/>
+        <property name="cNum" column="CartonNum"/>
+        <property name="applyDocCode" column="ApplyDocCode"/>
     </class>
 </hibernate-mapping>

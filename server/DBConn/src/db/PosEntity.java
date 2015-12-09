@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by richard on 2015/12/7.
+ * Created by richard on 2015/12/9.
  */
 @Entity
 @Table(name = "pos", schema = "mobile", catalog = "")
@@ -25,6 +25,7 @@ public class PosEntity {
     private Timestamp expectedShipDate;
     private String dockCode;
     private String disposition;
+    private Byte sent;
 
     @Basic
     @Column(name = "COMPANY")
@@ -186,6 +187,16 @@ public class PosEntity {
         this.disposition = disposition;
     }
 
+    @Basic
+    @Column(name = "Sent")
+    public Byte getSent() {
+        return sent;
+    }
+
+    public void setSent(Byte sent) {
+        this.sent = sent;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -218,6 +229,7 @@ public class PosEntity {
         if (dockCode != null ? !dockCode.equals(posEntity.dockCode) : posEntity.dockCode != null) return false;
         if (disposition != null ? !disposition.equals(posEntity.disposition) : posEntity.disposition != null)
             return false;
+        if (sent != null ? !sent.equals(posEntity.sent) : posEntity.sent != null) return false;
 
         return true;
     }
@@ -240,6 +252,7 @@ public class PosEntity {
         result = 31 * result + (expectedShipDate != null ? expectedShipDate.hashCode() : 0);
         result = 31 * result + (dockCode != null ? dockCode.hashCode() : 0);
         result = 31 * result + (disposition != null ? disposition.hashCode() : 0);
+        result = 31 * result + (sent != null ? sent.hashCode() : 0);
         return result;
     }
 }

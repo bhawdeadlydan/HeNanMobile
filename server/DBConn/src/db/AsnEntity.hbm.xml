@@ -38,5 +38,7 @@
         <property name="carrierContactFax" column="CARRIER_CONTACT_FAX"/>
         <property name="carrierContactPhone" column="CARRIER_CONTACT_PHONE"/>
         <property name="disposition" column="DISPOSITION"/>
+        <property name="paid" column="Paid"/>
+        <property name="applyPerson" column="Apply_Person"/>
     </class>
 </hibernate-mapping>

@@ -6,9 +6,10 @@
 
     <class name="db.CheckEntity" table="check" schema="mobile">
         <id name="id" column="ID"/>
-        <property name="item" column="ITEM"/>
-        <property name="position" column="POSITION"/>
-        <property name="method" column="METHOD"/>
+        <property name="materialCode" column="MaterialCode"/>
+        <property name="position" column="Position"/>
+        <property name="expectedNum" column="ExpectedNum"/>
         <property name="time" column="TIME"/>
+        <property name="realNum" column="RealNum"/>
     </class>
 </hibernate-mapping>
