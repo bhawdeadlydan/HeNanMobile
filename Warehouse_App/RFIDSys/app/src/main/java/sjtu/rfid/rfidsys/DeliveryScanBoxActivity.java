@@ -12,16 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.DeliverySheetsScanBoxExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class DeliveryScanBoxActivity extends Activity {
 
     private TextView vDeliverySheetCode;
-    ExpandableListView sheetListView;
-    DeliverySheetsScanBoxExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private DeliverySheetsScanBoxExpandableAdapter tmpAdapter;
     private Map<String, List<Map<String, String>>> mDeliveryBoxesDetails;
     private List<Map<String,String>> mDeliveryBoxes;
     private List<Map<String, String>> mapList;
-    private int prePos=-1;
+    private TitleBar mTitleBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +30,13 @@ public class DeliveryScanBoxActivity extends Activity {
         vDeliverySheetCode=(TextView)findViewById(R.id.text_delivery_scan_box_order_code);
         Bundle bundle=this.getIntent().getExtras();
         String delivery_sheet_code=bundle.getString("delivery_sheet_code");
-        vDeliverySheetCode.setText(vDeliverySheetCode.getText()+delivery_sheet_code);
-
+        vDeliverySheetCode.setText(delivery_sheet_code);
+        iniActivity();
         iniListView();
+    }
+
+    public void iniActivity() {
+        mTitleBar = new TitleBar(this,"申领出库");
     }
 
     public void iniListView() {

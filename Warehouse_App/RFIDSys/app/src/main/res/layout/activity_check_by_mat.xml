@@ -26,24 +26,20 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="货物信息：" />
+                android:text="（ERP/套）编码："
+                android:id="@+id/textView5" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="（ERP/套）编码："
+                android:text="New Text"
                 android:id="@+id/text_check_by_mat_mat_code" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:text="物料名称："
                 android:id="@+id/text_check_by_mat_mat_name" />
 
@@ -51,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="是否套设备："
                 android:id="@+id/text_check_by_mat_is_bom" />

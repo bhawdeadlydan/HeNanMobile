@@ -15,10 +15,14 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.ArrayList;
 import java.util.List;
 
+import sjtu.rfid.tools.CheckByMatAdapter;
+import sjtu.rfid.tools.TitleBar;
+
 public class CheckByMatActivity extends Activity {
 
-    ListView sheetListView;
-
+    private ListView sheetListView;
+    private TitleBar mTitleBar;
+    private CheckByMatAdapter mAdapter;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -28,6 +32,7 @@ public class CheckByMatActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_by_mat);
+        iniActivity();
         iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -35,16 +40,22 @@ public class CheckByMatActivity extends Activity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    public void iniActivity() {
+        mTitleBar = new TitleBar(this,"货物盘点");
+    }
+
     public void iniListView() {
 
         sheetListView=(ListView)findViewById(R.id.list_check_by_mat_sheets);
-        sheetListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getData()));
+//        sheetListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getData()));
         TextView vmatCode=(TextView)findViewById(R.id.text_check_by_mat_mat_code);
-        vmatCode.setText(vmatCode.getText() + "光交箱");
+        vmatCode.setText("1111111");
         TextView vmatName=(TextView)findViewById(R.id.text_check_by_mat_mat_name);
-        vmatName.setText(vmatName.getText()+"1111111");
+        vmatName.setText(vmatName.getText()+"光交箱");
         TextView visBom=(TextView)findViewById(R.id.text_check_by_mat_is_bom);
         visBom.setText(visBom.getText()+"Y");
+        mAdapter = new CheckByMatAdapter(this,null);
+        sheetListView.setAdapter(mAdapter);
     }
     private List<String> getData(){
 

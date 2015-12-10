@@ -82,22 +82,22 @@ public class MoveExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_move_box, null);
-        Map<String,String> map=mMoveDetailList.get(mMoveList.get(groupPosition).get("boxCode"));
-        for(Map.Entry<String,String> entry:map.entrySet()){
-            if(entry.getKey().equals("boxCode")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_move_box_code);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("matName")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_move_box_mat_name);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("originLoc")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_move_box_origin_loc);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-        }
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
+//        Map<String,String> map=mMoveDetailList.get(mMoveList.get(groupPosition).get("boxCode"));
+//        for(Map.Entry<String,String> entry:map.entrySet()){
+//            if(entry.getKey().equals("boxCode")){
+//                TextView text1 = (TextView) layout.findViewById(R.id.text_move_box_code);
+//                text1.setText(text1.getText()+entry.getValue());
+//            }
+//            else if(entry.getKey().equals("matName")){
+//                TextView text1 = (TextView) layout.findViewById(R.id.text_move_box_mat_name);
+//                text1.setText(text1.getText()+entry.getValue());
+//            }
+//            else if(entry.getKey().equals("originLoc")){
+//                TextView text1 = (TextView) layout.findViewById(R.id.text_move_box_origin_loc);
+//                text1.setText(text1.getText()+entry.getValue());
+//            }
+//        }
 
         return layout;
     }

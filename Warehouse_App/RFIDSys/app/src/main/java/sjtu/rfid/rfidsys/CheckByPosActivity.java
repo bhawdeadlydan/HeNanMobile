@@ -15,14 +15,15 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class CheckByPosActivity extends Activity {
 
-    ExpandableListView sheetListView;
-    CheckByPosExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private CheckByPosExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
-
+    private TitleBar mTitleBar;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -32,11 +33,16 @@ public class CheckByPosActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_by_pos);
+        iniActivity();
         iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void iniActivity(){
+        mTitleBar = new TitleBar(this,"货位盘点");
     }
 
     public void iniListView() {

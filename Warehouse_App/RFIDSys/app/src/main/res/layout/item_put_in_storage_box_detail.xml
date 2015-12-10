@@ -8,7 +8,6 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:text="（ERP/套）编码："
         android:id="@+id/text_put_in_storage_box_detail_mat_code"
         android:layout_alignParentTop="true"/>
@@ -17,8 +16,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:text="数量："
         android:id="@+id/text_put_in_storage_box_detail_count"
         android:layout_below="@+id/text_put_in_storage_box_detail_mat_code"/>
@@ -26,11 +23,43 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:text="计量单位："
         android:id="@+id/text_put_in_storage_box_detail_unit"
         android:layout_below="@+id/text_put_in_storage_box_detail_mat_code"
         android:layout_toRightOf="@+id/text_put_in_storage_box_detail_count"
         android:layout_toEndOf="@+id/text_put_in_storage_box_detail_mat_code" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/text_put_in_storage_box_detail_count"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="入库单号："
+            android:id="@+id/text_put_in_storage_box_detail_order_code" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@+id/linearLayout20"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="项目编号："
+            android:id="@+id/text_put_in_storage_box_detail_project_code" />
+    </LinearLayout>
 </RelativeLayout>
