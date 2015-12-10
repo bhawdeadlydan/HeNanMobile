@@ -70,8 +70,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 Object[] objs = (Object[])it.next();
                 Good good = new Good();
                 good.setCode((String)objs[0]);
-                good.setNum((Integer)objs[1]);
-                good.setExpected_Quantity((Integer)objs[2]);
+                good.setNum(Integer.parseInt(objs[1].toString()));
+                good.setExpected_Quantity(Integer.parseInt(objs[2].toString()));
                 good.setIs_Bom(false);
                 good.setDetail((String)objs[3]);
                 good.setUnit((String)objs[4]);

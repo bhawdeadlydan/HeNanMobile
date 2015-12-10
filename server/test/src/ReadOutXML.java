@@ -85,6 +85,6 @@ public class ReadOutXML {
     }
     public static void main(String args[]) {
         ReadOutXML read = new ReadOutXML();
-        read.parserXml("test/src/xml/2524-REQ-2015090000059_IES.xml");
+        read.parserXml("test/src/xml/2524-REQ-2015100000297_IES.xml");
     }
 }
