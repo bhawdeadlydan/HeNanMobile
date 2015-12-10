@@ -15,7 +15,7 @@ public class AddressComponent {
     private String direction;
     private String distance;
 
-    public AddressComponent(String country, String province, String city, String street, String district, String street_number, String country_code, String direction, String distance) {
+    public AddressComponent(String country, String province, String city, String district, String street, String street_number, String country_code, String direction, String distance) {
         this.country = country;
         this.province = province;
         this.city = city;

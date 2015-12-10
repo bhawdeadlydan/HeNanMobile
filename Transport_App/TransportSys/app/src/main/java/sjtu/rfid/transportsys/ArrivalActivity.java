@@ -15,7 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import tools.AddressComponent;
 import tools.ArrivalExpandableAdapter;
+import tools.GeoCoder;
 
 public class ArrivalActivity extends AppCompatActivity {
 
@@ -41,6 +43,12 @@ public class ArrivalActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        GeoCoder geoCoder=new GeoCoder(120.558957,31.325152);
+        AddressComponent addressComponent=geoCoder.getAddress();
+        if(addressComponent!=null)
+            System.out.println(addressComponent.getCity());
+        System.out.println("ERROR");
     }
     public void iniActivity()
     {
