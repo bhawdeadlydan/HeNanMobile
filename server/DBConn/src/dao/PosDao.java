@@ -5,6 +5,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 /**
  * Created by richard on 2015/12/7.
  */
@@ -27,5 +29,25 @@ public class PosDao extends BaseDao{
         }finally {
             session.close();
         }
+    }
+
+    public List findUnSent() {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "from PosEntity as model where model.sent = 0";
+            Query queryObject = session.createQuery(queryString);
+            tx.commit();
+            return queryObject.list();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 }

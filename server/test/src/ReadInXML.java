@@ -91,7 +91,6 @@ public class ReadInXML {
                     BomEntity bom = new BomEntity();
                     bom.setAsnCode(asn.getCode());
                     Integer bomid = (Integer) bomdao.addEntity(bom);
-                    System.out.println(bom.getId());
                     Element PackingBoms = bItem.element("PACKING_BOMS_Collection");
                     for(Iterator i3 = PackingBoms.elementIterator(); i3.hasNext();){
                         PackingBomEntity packingbom = new PackingBomEntity();

@@ -21,7 +21,9 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<ASN> getReceivingSheets() throws TException {
         ASNDao dao = new ASNDao();
-        List list = dao.findByProperty("ASNEntity", "paid", "0");
+        List list = dao.findUnPaid();
+        if(list == null)
+            return null;
         ArrayList<ASN> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();) {
             AsnEntity entity = (AsnEntity) it.next();
@@ -45,21 +47,25 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         ArrayList<Good> l = new ArrayList<>();
         if(isbom){
             List list = wdao.getBomDistinctGoods(Code);
+            if(list == null)
+                return null;
             for(Iterator it = list.iterator(); it.hasNext();){
                 Object[] objs = (Object[]) it.next();
                 Good good = new Good();
                 good.setCode((String)objs[0]);
-                good.setNum((Integer)objs[1]);
-                good.setExpected_Quantity((Integer)objs[2]);
+                good.setNum(Integer.parseInt(objs[1].toString()));
+                good.setExpected_Quantity(Integer.parseInt(objs[2].toString()));
                 good.setIs_Bom(true);
-                String[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
-                good.setDetail(str[0]);
-                good.setUnit(str[1]);
+                Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+                good.setDetail(str[0].toString());
+                good.setUnit(str[1].toString());
                 l.add(good);
             }
         }
         else{
             List list = wdao.getERPDistinctGoods(Code);
+            if(list == null)
+                return null;
             for(Iterator it = list.iterator();it.hasNext();){
                 Object[] objs = (Object[])it.next();
                 Good good = new Good();
@@ -95,7 +101,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<POS> getApplySheets() throws TException {
         PosDao dao = new PosDao();
-        List list = dao.findByProperty("PosEntity", "sent", "0");
+        List list = dao.findUnSent();
         ArrayList<POS> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();) {
             PosEntity entity = (PosEntity) it.next();
@@ -123,11 +129,11 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 Object[] objs = (Object[]) it.next();
                 Good good = new Good();
                 good.setCode((String)objs[0]);
-                good.setNum((Integer)objs[1]);
+                good.setNum(Integer.parseInt(objs[1].toString()));
                 good.setIs_Bom(true);
-                String[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
-                good.setDetail(str[0]);
-                good.setUnit(str[1]);
+                Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+                good.setDetail(str[0].toString());
+                good.setUnit(str[1].toString());
                 l.add(good);
             }
         }
@@ -137,7 +143,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 Object[] objs = (Object[])it.next();
                 Good good = new Good();
                 good.setCode((String)objs[0]);
-                good.setNum((Integer)objs[1]);
+                good.setNum(Integer.parseInt(objs[1].toString()));
                 good.setIs_Bom(false);
                 good.setDetail((String)objs[2]);
                 good.setUnit((String)objs[3]);
@@ -178,8 +184,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         boolean bom = isbom.toUpperCase().equals("Y");
         if(bom) {
             good.setCode(salebomcode);
-            String[] str = adao.getDesAndUnitBySaleBomCode(salebomcode);
-            good.setDetail(str[0]);
+            Object[] str = adao.getDesAndUnitBySaleBomCode(salebomcode);
+            good.setDetail(str[0].toString());
             good.setIs_Bom(true);
         }
         else{
@@ -208,17 +214,17 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             good.setIs_Bom(true);
             Object[] objs = (Object[])it.next();
             good.setCode((String)objs[0]);
-            good.setNum((Integer)objs[1]);
-            String[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
-            good.setDetail(str[0]);
-            good.setUnit(str[1]);
+            good.setNum(Integer.parseInt(objs[1].toString()));
+            Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+            good.setDetail(str[0].toString());
+            good.setUnit(str[1].toString());
             l.add(good);
         }
         for(Iterator it = erplist.iterator(); it.hasNext();){
             Good good = new Good();
             Object[] objs = (Object[])it.next();
             good.setCode((String)objs[0]);
-            good.setNum((Integer)objs[1]);
+            good.setNum(Integer.parseInt(objs[1].toString()));
             good.setIs_Bom(false);
             good.setDetail((String)objs[2]);
             good.setUnit((String)objs[3]);

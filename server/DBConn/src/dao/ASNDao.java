@@ -5,12 +5,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 /**
  * Created by richard on 2015/12/7.
  */
 public class ASNDao extends BaseDao{
 
-    public String[] getDesAndUnitBySaleBomCode(String SaleBomCode){
+    public Object[] getDesAndUnitBySaleBomCode(String SaleBomCode){
         String str[];
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
@@ -21,7 +23,7 @@ public class ASNDao extends BaseDao{
             queryObject.setParameter(0, SaleBomCode);
             tx.commit();
             if(!queryObject.list().isEmpty())
-                return (String[])queryObject.list().get(0);
+                return (Object[]) queryObject.list().get(0);
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
@@ -51,6 +53,26 @@ public class ASNDao extends BaseDao{
         }finally {
             session.close();
         }
+    }
+
+    public List findUnPaid() {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "from AsnEntity as model where model.paid = 0";
+            Query queryObject = session.createQuery(queryString);
+            tx.commit();
+            return queryObject.list();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
 
 }

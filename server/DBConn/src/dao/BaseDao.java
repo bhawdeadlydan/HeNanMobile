@@ -94,26 +94,4 @@ public class BaseDao {
             session.close();
         }
     }
-    public List findByProperty(String entity, String key, Object value) {
-        Session session = ourSessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            String queryString = "from ? as model where model."
-                    + key + "= ?";
-            Query queryObject = session.createQuery(queryString);
-            queryObject.setParameter(0, entity);
-            queryObject.setParameter(1, value);
-            tx.commit();
-            return queryObject.list();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }
-        return null;
-    }
 }

@@ -75,7 +75,7 @@ public class WMSDetailDao extends BaseDao{
         }finally {
             session.close();
         }
-        return null;
+        return "";
     }
 
     public void bind(int locationID, String CNum){

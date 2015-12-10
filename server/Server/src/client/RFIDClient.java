@@ -7,6 +7,8 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
 import rfid.service.ASN;
+import rfid.service.Good;
+import rfid.service.POS;
 import rfid.service.RFIDService;
 
 import java.util.Iterator;
@@ -25,10 +27,21 @@ public class RFIDClient {
             TProtocol protocol = new TBinaryProtocol(transport);
             RFIDService.Client client = new RFIDService.Client(protocol);
             List<ASN> list = client.getReceivingSheets();
-            for(Iterator it = list.iterator();it.hasNext();){
-                ASN asn = (ASN)it.next();
-                System.out.println(asn.getCode());
+            for(Iterator it = list.iterator();it.hasNext();) {
+                ASN pos = (ASN) it.next();
+                System.out.println(pos.getCode());
             }
+//            client.confirmReceiving("VD-SH-2015090000006");
+//            List<Good> l2 = client.getGoodsListByApplyDocCode("2524-REQ-2015090000059");
+            /*List<POS> list = client.getApplySheets();
+            for(Iterator it = list.iterator();it.hasNext();){
+                POS pos = (POS)it.next();
+                System.out.println(pos.getApply_Doc_Code());
+            }*/
+            /*for(Iterator it = l2.iterator();it.hasNext();){
+                Good g = (Good)it.next();
+                System.out.println(g.getCode() + "+" + g.getNum());
+            }*/
             transport.close();
         } catch (TTransportException e) {
             e.printStackTrace();
