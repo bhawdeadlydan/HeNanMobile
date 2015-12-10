@@ -73,44 +73,44 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box, null);
         TextView matCode = (TextView) layout.findViewById(R.id.text_delivery_scan_mat_code);
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_delivery_scan_expected_count);
-        TextView realCount = (TextView) layout.findViewById(R.id.text_delivery_scan_real_count);
+        //TextView realCount = (TextView) layout.findViewById(R.id.text_delivery_scan_real_count);
         matCode.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matCode"));
         expectedCount.setText(expectedCount.getText()+mDeliveryBoxes.get(groupPosition).get("expectedCount"));
-        realCount.setText(realCount.getText()+mDeliveryBoxes.get(groupPosition).get("realCount"));
+        //realCount.setText(realCount.getText()+mDeliveryBoxes.get(groupPosition).get("realCount"));
         return layout;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box_detail, null);
         List<Map<String,String>> mapList=mDeliveryBoxesDetails.get(mDeliveryBoxes.get(groupPosition).get("matCode"));
-        for(int i=0;i<mapList.size();i++){
-            Map<String,String> map=mapList.get(i);
-            for(Map.Entry<String,String> entry:map.entrySet()){
-                if(entry.getKey().equals("isBom")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-                else if(entry.getKey().equals("itemCode")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_code);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-                else if(entry.getKey().equals("itemName")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_name);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-                else if(entry.getKey().equals("quantity")){
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_quantity);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-                else if(entry.getKey().equals("unit")){
-                    //TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_unit);
-                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
-                    text1.setText(text1.getText()+entry.getValue());
-                }
-            }
-        }
+//        for(int i=0;i<mapList.size();i++){
+//            Map<String,String> map=mapList.get(i);
+//            for(Map.Entry<String,String> entry:map.entrySet()){
+//                if(entry.getKey().equals("isBom")){
+//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+//                    text1.setText(text1.getText()+entry.getValue());
+//                }
+//                else if(entry.getKey().equals("itemCode")){
+//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_code);
+//                    text1.setText(text1.getText()+entry.getValue());
+//                }
+//                else if(entry.getKey().equals("itemName")){
+//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_name);
+//                    text1.setText(text1.getText()+entry.getValue());
+//                }
+//                else if(entry.getKey().equals("quantity")){
+//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_quantity);
+//                    text1.setText(text1.getText()+entry.getValue());
+//                }
+//                else if(entry.getKey().equals("unit")){
+//                    //TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_unit);
+//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
+//                    text1.setText(text1.getText()+entry.getValue());
+//                }
+//            }
+//        }
         return layout;
     }
 

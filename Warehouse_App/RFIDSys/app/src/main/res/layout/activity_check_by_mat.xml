@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="New Text"
+                android:text=""
                 android:id="@+id/text_check_by_mat_mat_code" />
 
             <TextView
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:text="提交盘点结果"
         android:id="@+id/btn_check_by_mat_commit"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
     <ListView
         android:layout_width="wrap_content"

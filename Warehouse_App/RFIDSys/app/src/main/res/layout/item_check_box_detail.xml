@@ -19,7 +19,7 @@
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:text="（ERP/套）描述："
+        android:text="物料名称："
         android:id="@+id/text_check_box_detail_mat_name"
         android:layout_below="@+id/text_check_box_detail_is_bom"/>
 </RelativeLayout>

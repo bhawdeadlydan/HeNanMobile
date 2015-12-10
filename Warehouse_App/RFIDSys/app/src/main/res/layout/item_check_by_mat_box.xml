@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="扫描该货位上的货物"
             android:id="@+id/btn_check_by_mat_scan_box"
+            android:focusable="false"
             android:textSize="12dp" />
     </LinearLayout>
 </RelativeLayout>

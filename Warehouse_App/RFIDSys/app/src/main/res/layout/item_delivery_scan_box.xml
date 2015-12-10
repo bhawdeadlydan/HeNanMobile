@@ -13,16 +13,18 @@
         android:layout_alignParentTop="true"/>
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:paddingLeft="40dp"
         android:paddingBottom="5dp"
         android:text="应出数量："
         android:id="@+id/text_delivery_scan_expected_count"
-        android:layout_below="@+id/text_delivery_scan_mat_code"/>
+        android:layout_below="@+id/text_delivery_scan_mat_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="已扫到数量："
         android:paddingBottom="5dp"
@@ -30,4 +32,27 @@
         android:layout_alignTop="@+id/text_delivery_scan_expected_count"
         android:layout_toRightOf="@+id/text_delivery_scan_expected_count"
         android:textColor="#0099FF"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="物料名称："
+        android:paddingLeft="40dp"
+        android:id="@+id/text_delivery_scan_mat_name"
+        android:layout_below="@+id/text_delivery_scan_mat_code"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:inputType="number"
+        android:gravity="center_vertical"
+        android:ems="7"
+        android:id="@+id/edittext_delivery_scan_box_scan_count"
+        android:layout_alignTop="@+id/text_delivery_scan_real_count"
+        android:layout_toRightOf="@+id/text_delivery_scan_real_count"
+        android:layout_toEndOf="@+id/text_delivery_scan_real_count"
+        android:text="15"
+        android:textSize="12dp"/>
 </RelativeLayout>

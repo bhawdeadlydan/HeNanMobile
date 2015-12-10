@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
                     intent.setClass(MainActivity.this, PutInStorageActivity.class);
                     break;
                 case R.id.btn_move_box:
-                    intent.setClass(MainActivity.this, MoveActivity.class);
+                    intent.setClass(MainActivity.this, MoveOrderListActivity.class);
                     break;
                 case R.id.btn_mat_cehck:
                     intent.setClass(MainActivity.this, CheckByMatActivity.class);

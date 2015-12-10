@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="货箱列表："
-            android:id="@+id/textView6" />
+            android:id="@+id/text_receiving_scan_box_detail_box_list" />
     </LinearLayout>
 
 
