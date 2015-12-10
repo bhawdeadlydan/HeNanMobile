@@ -48,6 +48,7 @@
         android:layout_height="30dp"
         android:inputType="number"
         android:gravity="center_vertical"
+        android:focusable="false"
         android:ems="7"
         android:id="@+id/edittext_delivery_scan_box_scan_count"
         android:layout_alignTop="@+id/text_delivery_scan_real_count"

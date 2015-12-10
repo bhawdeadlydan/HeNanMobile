@@ -3,10 +3,13 @@ package sjtu.rfid.rfidsys;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -17,15 +20,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.RFIDService;
+import sjtu.rfid.thread.FetchReceivingSheetsThread;
 import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
 public class ReceivingSheetsActivity extends Activity {
-    ExpandableListView sheetListView;
-    ReceivingSheetsExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private ReceivingSheetsExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mReceivingCodeDetailList;
     private List<String> mReceivingCodeList;
-    TitleBar mTitleBar;
+    private TitleBar mTitleBar;
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Toast.makeText(getApplicationContext(),msg.obj.toString(),Toast.LENGTH_LONG).show();
+        }
+    };
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -49,6 +60,8 @@ public class ReceivingSheetsActivity extends Activity {
     public void iniActivity()
     {
         mTitleBar = new TitleBar(this,"收货贴标");
+        FetchReceivingSheetsThread t = new FetchReceivingSheetsThread(mHandler);
+        t.start();
     }
 
     public void iniListView() {
