@@ -10,12 +10,15 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -55,28 +58,24 @@ public class TestThread extends Thread{
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
-        try{
-
-            // 设置调用的服务地址为本地，端口为 7777
-            System.out.println("1111111111");
-            TTransport transport = new TSocket("192.168.1.178", 7777);
-            System.out.println("1111111111");
-            transport.open();
-            System.out.println("1111111111");
-            // 设置传输协议为 TBinaryProtocol
-            TProtocol protocol = new TBinaryProtocol(transport);
-            RFIDService.Client client = new RFIDService.Client(protocol);
-            String s = client.getApplyDocCodeByCNum("123");
-            System.out.println("#"+s+"#");
-            transport.close();
-            msg.obj="#"+s+"#";
-            System.out.println(msg.obj.toString());
-            handler.sendMessage(msg);
-            System.out.println(msg.obj.toString());
-        } catch (TTransportException e) {
-            e.printStackTrace();
-        } catch (TException e) {
-            e.printStackTrace();
-        }
+//        try{
+//
+//            // 设置调用的服务地址为本地，端口为 7777
+//            TTransport transport = new TSocket("192.168.1.178", 7777);
+//            // 设置传输协议为 TBinaryProtocol
+//            transport.open();
+//            TProtocol protocol = new TBinaryProtocol(transport);
+//            RFIDService.Client client = new RFIDService.Client(protocol);
+//            String s = client.getApplyDocCodeByCNum("123");
+//            transport.close();
+//            msg.obj="#"+s+"#";
+//            handler.sendMessage(msg);
+//        } catch (TTransportException e) {
+//            e.printStackTrace();
+//        } catch (TException e) {
+//            e.printStackTrace();
+//        }
+        msg.obj="123";
+        handler.sendMessage(msg);
     }
 }

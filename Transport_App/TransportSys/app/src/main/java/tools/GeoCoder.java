@@ -1,5 +1,6 @@
 package tools;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -9,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -28,28 +28,47 @@ public class GeoCoder {
     public String getURL(){
         return this.path;
     }
-//    public String getJson(String path){
-//        String json="";
-//        try {
-//            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-//            byte[] data = new byte[2048];
-//            int len = 0;
-//            URL url = new URL(path);
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            InputStream inStream = conn.getInputStream();
-//            while ((len = inStream.read(data)) != -1) {
-//                outStream.write(data, 0, len);
-//            }
-//            inStream.close();
-//            json= new String(outStream.toByteArray());
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return json;
-//
-//    }
+
+    public  String doGet() throws Exception {
+        URL localURL = new URL(path);
+        URLConnection connection = localURL.openConnection();
+        HttpURLConnection httpURLConnection = (HttpURLConnection)connection;
+
+        httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+        httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+        InputStream inputStream = null;
+        InputStreamReader inputStreamReader = null;
+        BufferedReader reader = null;
+        StringBuffer resultBuffer = new StringBuffer();
+        String tempLine = null;
+
+        if (httpURLConnection.getResponseCode() >= 300) {
+            throw new Exception("HTTP Request is not success, Response code is " + httpURLConnection.getResponseCode());
+        }
+
+        try {
+            inputStream = httpURLConnection.getInputStream();
+            inputStreamReader = new InputStreamReader(inputStream);
+            reader = new BufferedReader(inputStreamReader);
+
+            while ((tempLine = reader.readLine()) != null) {
+                resultBuffer.append(tempLine);
+            }
+        } finally {
+            if (reader != null) {
+                reader.close();
+            }
+            if (inputStreamReader != null) {
+                inputStreamReader.close();
+            }
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        }
+        return resultBuffer.toString();
+    }
+
     public AddressComponent getAddress(String json){
 
         AddressComponent addressComponent=null;
@@ -58,7 +77,6 @@ public class GeoCoder {
                 return null;
             if(json.toString().contains("renderReverse")) {
                 String s=json.substring(json.indexOf("(") + 1, json.length() - 1);
-                System.out.println(s);
                 JSONObject jsonObj = new JSONObject(s);
                 Integer status = jsonObj.getInt("status");
                 if (status.equals(0)) {
@@ -73,9 +91,4 @@ public class GeoCoder {
         return addressComponent;
 
     }
-
-//    public static void main(String[] args){
-//        GeoCoder geoCoder=new GeoCoder(120.558957,31.325152);
-//        geoCoder.getAddress();
-//    }
 }

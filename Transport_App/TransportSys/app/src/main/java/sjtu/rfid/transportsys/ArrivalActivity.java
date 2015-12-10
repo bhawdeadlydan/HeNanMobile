@@ -1,11 +1,18 @@
 package sjtu.rfid.transportsys;
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +43,7 @@ import java.util.Map;
 
 import rfid.service.POS;
 import rfid.service.RFIDService;
+import sjtu.rfid.thread.GeoCoderThread;
 import sjtu.rfid.thread.TestThread;
 import tools.ArrivalExpandableAdapter;
 import tools.GeoCoder;
@@ -48,7 +56,9 @@ public class ArrivalActivity extends AppCompatActivity {
     private Map<String, Map<String, String>> mArrivalDetailList;
     private List<Map<String,String>> mArrivalList;
 
-    private TestThread thread;
+    private GeoCoderThread geoCoderThread;
+    private double latitude=0.0;
+    private double longitude =0.0;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -57,6 +67,14 @@ public class ArrivalActivity extends AppCompatActivity {
     private GoogleApiClient client;
 
 
+    private Handler geoHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            //Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
+            TextView vAddress=(TextView)findViewById(R.id.text_arrival_address);
+            vAddress.setText(msg.obj.toString());
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +82,11 @@ public class ArrivalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_arrival);
         iniActivity();
         iniListView();
+        iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-
 
     }
     public void iniActivity()
@@ -120,6 +138,22 @@ public class ArrivalActivity extends AppCompatActivity {
         });
         TextView vApplyCode=(TextView)findViewById(R.id.text_arrival_order_code);
         vApplyCode.setText("VS-DH-0000000000000000001");
+
+    }
+
+    public void iniEvent(){
+        Button btnPos=(Button)findViewById(R.id.btn_arrival_position);
+        btnPos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                longitude=120.55895699681;
+                latitude=31.325151869135;
+                geoCoderThread=new GeoCoderThread(longitude,latitude,geoHandler);
+                geoCoderThread.start();
+            }
+        });
 
     }
 
