@@ -1,5 +1,6 @@
 package sjtu.rfid.rfidsys;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ExpandableListView;
@@ -16,7 +17,7 @@ import java.util.Map;
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
 import sjtu.rfid.tools.PutInStorageExpandableAdapter;
 
-public class PutInStorageActivity extends AppCompatActivity {
+public class PutInStorageActivity extends Activity {
 
     ExpandableListView sheetListView;
     PutInStorageExpandableAdapter tmpAdapter;

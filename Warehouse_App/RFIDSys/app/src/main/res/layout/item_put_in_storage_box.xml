@@ -6,22 +6,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
+        android:paddingLeft="40dp"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:text="箱号："
         android:id="@+id/text_put_in_storage_box_code"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"
+        android:paddingLeft="40dp"
         android:paddingBottom="5dp"
         android:text="物料名称："
         android:id="@+id/text_put_in_storage_mat_name"
-        android:layout_below="@+id/text_put_in_storage_box_code"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/text_put_in_storage_box_code"/>
 </RelativeLayout>

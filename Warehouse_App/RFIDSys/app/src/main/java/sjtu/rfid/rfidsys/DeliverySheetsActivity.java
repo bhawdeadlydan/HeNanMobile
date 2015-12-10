@@ -1,5 +1,6 @@
 package sjtu.rfid.rfidsys;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 import sjtu.rfid.tools.DeliverySheetsExpandableAdapter;
 
-public class DeliverySheetsActivity extends AppCompatActivity {
+public class DeliverySheetsActivity extends Activity {
     ExpandableListView sheetListView;
     DeliverySheetsExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mDeliveryCodeDetailList;

@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="sjtu.rfid.rfidsys.ReceivingScanBoxActivity">
 
     <include
@@ -14,11 +10,12 @@
         android:id="@+id/include" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="提交"
         android:id="@+id/btn_receiving_scan_box_commit"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <ExpandableListView
@@ -26,30 +23,32 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_receiving_scan_box_sheets"
         android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_receiving_scan_box_commit" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/include"
         android:layout_below="@+id/include"
         android:gravity="center_vertical"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout3"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:layout_weight="0.8">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="入库单号："
-                android:id="@+id/textView"
-                android:layout_alignParentStart="true" />
+                android:textSize="20dp"
+                android:id="@+id/textView"/>
 
             <TextView
                 android:layout_width="250dp"
@@ -64,18 +63,20 @@
             android:text="扫描标签"
             android:id="@+id/btn_receiving_scan_box_scan"
             android:textSize="15dp"
-            android:layout_alignEnd="@+id/linearLayout3"
             android:layout_alignTop="@+id/checkBox2"
-            android:layout_alignBottom="@+id/checkBox2"/>
+            android:layout_alignBottom="@+id/checkBox2"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.2"/>
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="货物列表"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
+        android:text="货物列表："
         android:id="@+id/textView8"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout3" />
 
 </RelativeLayout>

@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".PutInStorageActivity">
 
     <include
@@ -16,11 +12,14 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:id="@+id/linearLayout"
         android:layout_below="@+id/include4"
-        android:layout_alignParentStart="true">
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="160dp"
@@ -28,54 +27,70 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="货位："
             android:id="@+id/text_put_in_storage_loc"
-            android:textSize="25dp" />
+            android:textSize="20dp"
+            android:layout_weight="0.1"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="扫描货位"
             android:id="@+id/btn_put_in_storage_scan_loc"
-            android:layout_margin="0dp" />
+            android:layout_weight="0.3"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="扫描货物"
-            android:id="@+id/btn_put_in_storage_scan_box" />
+            android:id="@+id/btn_put_in_storage_scan_box"
+            android:layout_weight="0.5"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
         android:text="货物列表"
         android:id="@+id/textView12"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/linearLayout"/>
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list_put_in_storage_sheets"
         android:layout_below="@+id/textView12"
+        android:layout_above="@+id/linearLayout18" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btn_put_in_storage_bind" />
+        android:id="@+id/linearLayout18"
+        android:weightSum="1">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="绑定"
-        android:id="@+id/btn_put_in_storage_bind"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/list_put_in_storage_sheets" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清空"
+            android:id="@+id/btn_put_in_storage_clear"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="0.5"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="清空"
-        android:id="@+id/btn_put_in_storage_clear"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/textView12" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绑定"
+            android:id="@+id/btn_put_in_storage_bind"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="0.5"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

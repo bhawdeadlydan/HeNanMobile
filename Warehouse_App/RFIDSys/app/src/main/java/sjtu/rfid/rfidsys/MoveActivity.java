@@ -1,5 +1,6 @@
 package sjtu.rfid.rfidsys;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 import sjtu.rfid.tools.MoveExpandableAdapter;
 
-public class MoveActivity extends AppCompatActivity {
+public class MoveActivity extends Activity {
 
     ExpandableListView sheetListView;
     MoveExpandableAdapter tmpAdapter;
