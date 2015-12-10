@@ -187,7 +187,6 @@ public class ReadInXML {
     }
     public static void main(String argv[]) {
         ReadInXML read = new ReadInXML();
-        ASNDao d = new ASNDao();
         read.parserXml("test/src/xml/VD-SH-2015090000006_IES.xml");
     }
 }

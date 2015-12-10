@@ -1,7 +1,8 @@
-<ns2:SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvRequest xmlns:ns2="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatAppMStorSrv">
+<ns2:SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvRequest
+        xmlns:ns2="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatAppMStorSrv">
     <ns2:MsgHeader>
         <ns1:SOURCE_SYSTEM_ID xmlns:ns1="http://mss.cmcc.com/MsgHeader">IES</ns1:SOURCE_SYSTEM_ID>
-        <ns1:SOURCE_SYSTEM_NAME xmlns:ns1="http://mss.cmcc.com/MsgHeader">�����ƶ�����ƽ̨</ns1:SOURCE_SYSTEM_NAME>
+        <ns1:SOURCE_SYSTEM_NAME xmlns:ns1="http://mss.cmcc.com/MsgHeader">河南移动物流平台</ns1:SOURCE_SYSTEM_NAME>
         <ns1:USER_ID xmlns:ns1="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns1:USER_ID>
         <ns1:USER_NAME xmlns:ns1="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns1:USER_NAME>
         <ns1:SUBMIT_DATE xmlns:ns1="http://mss.cmcc.com/MsgHeader">2015-09-09T09:51:14.018+08:00</ns1:SUBMIT_DATE>
@@ -19,14 +20,14 @@
             <ns2:CODE>2524-PDE-OUT-2015090000045</ns2:CODE>
             <ns2:APPLY_DOC_CODE>2524-REQ-2015090000059</ns2:APPLY_DOC_CODE>
             <ns2:PROJECT_CODE>B1524011</ns2:PROJECT_CODE>
-            <ns2:APPLY_UNIT>ƽ��ɽ�ֹ�˾\���粿\���̽�������</ns2:APPLY_UNIT>
-            <ns2:APPLY_PERSON>�վ���</ns2:APPLY_PERSON>
+            <ns2:APPLY_UNIT>平顶山分公司\网络部\工程建设中心</ns2:APPLY_UNIT>
+            <ns2:APPLY_PERSON>苏军凯</ns2:APPLY_PERSON>
             <ns2:APPLY_DATE>2015-09-09T00:00:00.000+08:00</ns2:APPLY_DATE>
             <ns2:REQUEST_DATE>2015-09-09T00:00:00.000+08:00</ns2:REQUEST_DATE>
-            <ns2:CONSTRUCTION_UNIT>ƽ��ɽ�ֹ�˾\���粿\���̽�������</ns2:CONSTRUCTION_UNIT>
-            <ns2:RECEIVER>ʢ��</ns2:RECEIVER>
+            <ns2:CONSTRUCTION_UNIT>平顶山分公司\网络部\工程建设中心</ns2:CONSTRUCTION_UNIT>
+            <ns2:RECEIVER>盛来</ns2:RECEIVER>
             <ns2:RECEIVER_UID_CODE></ns2:RECEIVER_UID_CODE>
-            <ns2:APPLY_DOC_DESC>�������ר��</ns2:APPLY_DOC_DESC>
+            <ns2:APPLY_DOC_DESC>舞钢寺坡专线</ns2:APPLY_DOC_DESC>
             <ns2:EXPECTED_SHIP_DATE>2015-09-09T00:00:00.000+08:00</ns2:EXPECTED_SHIP_DATE>
             <ns2:DOCK_CODE></ns2:DOCK_CODE>
             <ns2:DISPOSITION></ns2:DISPOSITION>
