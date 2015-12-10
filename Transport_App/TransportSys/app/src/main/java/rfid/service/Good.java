@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package sjtu.rfid.service;
+package rfid.service;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -637,11 +637,11 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
@@ -695,14 +695,14 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (Code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Code' was not present! Struct: " + toString());
     }
     // alas, we cannot check 'Is_Bom' because it's a primitive and you chose the non-beans generator.
     if (Detail == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Detail' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Detail' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
   }
@@ -710,7 +710,7 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -720,7 +720,7 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
       // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
       __isset_bitfield = 0;
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -733,7 +733,7 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
 
   private static class GoodStandardScheme extends StandardScheme<Good> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, Good struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, Good struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -800,12 +800,12 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
 
       // check for required fields of primitive type, which can't be checked in the validate method
       if (!struct.isSetIs_Bom()) {
-        throw new org.apache.thrift.protocol.TProtocolException("Required field 'Is_Bom' was not found in serialized data! Struct: " + toString());
+        throw new TProtocolException("Required field 'Is_Bom' was not found in serialized data! Struct: " + toString());
       }
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, Good struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, Good struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -854,7 +854,7 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
   private static class GoodTupleScheme extends TupleScheme<Good> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, Good struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, Good struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.Code);
       oprot.writeBool(struct.Is_Bom);
@@ -882,7 +882,7 @@ public class Good implements org.apache.thrift.TBase<Good, Good._Fields>, java.i
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, Good struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, Good struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.Code = iprot.readString();
       struct.setCodeIsSet(true);

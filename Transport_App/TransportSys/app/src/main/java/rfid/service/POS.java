@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package sjtu.rfid.service;
+package rfid.service;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -635,11 +635,11 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
     return _Fields.findByThriftId(fieldId);
   }
 
-  public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+  public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
     schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
   }
 
-  public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+  public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
     schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
   }
 
@@ -699,25 +699,25 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
     return sb.toString();
   }
 
-  public void validate() throws org.apache.thrift.TException {
+  public void validate() throws TException {
     // check for required fields
     if (Apply_Doc_Code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Apply_Doc_Code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Apply_Doc_Code' was not present! Struct: " + toString());
     }
     if (Apply_Person == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Apply_Person' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Apply_Person' was not present! Struct: " + toString());
     }
     if (Apply_Unit == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Apply_Unit' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Apply_Unit' was not present! Struct: " + toString());
     }
     if (Project_Code == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Project_Code' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Project_Code' was not present! Struct: " + toString());
     }
     if (Apply_Date == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Apply_Date' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Apply_Date' was not present! Struct: " + toString());
     }
     if (Receiver == null) {
-      throw new org.apache.thrift.protocol.TProtocolException("Required field 'Receiver' was not present! Struct: " + toString());
+      throw new TProtocolException("Required field 'Receiver' was not present! Struct: " + toString());
     }
     // check for sub-struct validity
   }
@@ -725,7 +725,7 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
   private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
     try {
       write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -733,7 +733,7 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-    } catch (org.apache.thrift.TException te) {
+    } catch (TException te) {
       throw new java.io.IOException(te);
     }
   }
@@ -746,7 +746,7 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
 
   private static class POSStandardScheme extends StandardScheme<POS> {
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot, POS struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot, POS struct) throws TException {
       org.apache.thrift.protocol.TField schemeField;
       iprot.readStructBegin();
       while (true)
@@ -815,7 +815,7 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
       struct.validate();
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot, POS struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot, POS struct) throws TException {
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
@@ -864,7 +864,7 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
   private static class POSTupleScheme extends TupleScheme<POS> {
 
     @Override
-    public void write(org.apache.thrift.protocol.TProtocol prot, POS struct) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol prot, POS struct) throws TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       oprot.writeString(struct.Apply_Doc_Code);
       oprot.writeString(struct.Apply_Person);
@@ -875,7 +875,7 @@ public class POS implements org.apache.thrift.TBase<POS, POS._Fields>, java.io.S
     }
 
     @Override
-    public void read(org.apache.thrift.protocol.TProtocol prot, POS struct) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol prot, POS struct) throws TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
       struct.Apply_Doc_Code = iprot.readString();
       struct.setApply_Doc_CodeIsSet(true);

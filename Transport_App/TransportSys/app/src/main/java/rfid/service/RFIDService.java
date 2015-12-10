@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package sjtu.rfid.service;
+package rfid.service;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -39,65 +39,65 @@ public class RFIDService {
 
   public interface Iface {
 
-    public List<rfid.service.ASN> getReceivingSheets() throws org.apache.thrift.TException;
+    public List<rfid.service.ASN> getReceivingSheets() throws TException;
 
-    public List<rfid.service.Good> getGoodsListByCode(String Code) throws org.apache.thrift.TException;
+    public List<rfid.service.Good> getGoodsListByCode(String Code) throws TException;
 
-    public String getCodeByCNum(String CNum) throws org.apache.thrift.TException;
+    public String getCodeByCNum(String CNum) throws TException;
 
-    public boolean bindLocationAndGoods(int LocationID, List<String> CNums) throws org.apache.thrift.TException;
+    public boolean bindLocationAndGoods(int LocationID, List<String> CNums) throws TException;
 
-    public List<rfid.service.POS> getApplySheets() throws org.apache.thrift.TException;
+    public List<rfid.service.POS> getApplySheets() throws TException;
 
-    public List<rfid.service.Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws org.apache.thrift.TException;
+    public List<rfid.service.Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws TException;
 
-    public boolean confirmRetrieval(String ApplyDocCode, List<String> CNums) throws org.apache.thrift.TException;
+    public boolean confirmRetrieval(String ApplyDocCode, List<String> CNums) throws TException;
 
-    public boolean confirmReceiving(String Code) throws org.apache.thrift.TException;
+    public boolean confirmReceiving(String Code) throws TException;
 
-    public rfid.service.Good getGoodByCNum(String CNum) throws org.apache.thrift.TException;
+    public rfid.service.Good getGoodByCNum(String CNum) throws TException;
 
-    public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws org.apache.thrift.TException;
+    public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws TException;
 
-    public List<rfid.service.Good> getGoodsByLocation(int Location) throws org.apache.thrift.TException;
+    public List<rfid.service.Good> getGoodsByLocation(int Location) throws TException;
 
-    public String getApplyDocCodeByCNum(String CNum) throws org.apache.thrift.TException;
+    public String getApplyDocCodeByCNum(String CNum) throws TException;
 
-    public boolean confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws org.apache.thrift.TException;
+    public boolean confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws TException;
 
-    public boolean confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws org.apache.thrift.TException;
+    public boolean confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws TException;
 
   }
 
   public interface AsyncIface {
 
-    public void getReceivingSheets(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getReceivingSheets(AsyncMethodCallback resultHandler) throws TException;
 
-    public void getGoodsListByCode(String Code, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getGoodsListByCode(String Code, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getCodeByCNum(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getCodeByCNum(String CNum, AsyncMethodCallback resultHandler) throws TException;
 
-    public void bindLocationAndGoods(int LocationID, List<String> CNums, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void bindLocationAndGoods(int LocationID, List<String> CNums, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getApplySheets(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getApplySheets(AsyncMethodCallback resultHandler) throws TException;
 
-    public void getGoodsListByApplyDocCode(String ApplyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getGoodsListByApplyDocCode(String ApplyDocCode, AsyncMethodCallback resultHandler) throws TException;
 
-    public void confirmRetrieval(String ApplyDocCode, List<String> CNums, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void confirmRetrieval(String ApplyDocCode, List<String> CNums, AsyncMethodCallback resultHandler) throws TException;
 
-    public void confirmReceiving(String Code, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void confirmReceiving(String Code, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getGoodByCNum(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getGoodByCNum(String CNum, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getLocationListByItemErpCode(String ItemERPCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getLocationListByItemErpCode(String ItemERPCode, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getGoodsByLocation(int Location, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getGoodsByLocation(int Location, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getApplyDocCodeByCNum(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getApplyDocCodeByCNum(String CNum, AsyncMethodCallback resultHandler) throws TException;
 
-    public void confirmInventory(String Location, String MaterialCode, int RealNum, String Time, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void confirmInventory(String Location, String MaterialCode, int RealNum, String Time, AsyncMethodCallback resultHandler) throws TException;
 
-    public void confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude, AsyncMethodCallback resultHandler) throws TException;
 
   }
 
@@ -121,19 +121,19 @@ public class RFIDService {
       super(iprot, oprot);
     }
 
-    public List<rfid.service.ASN> getReceivingSheets() throws org.apache.thrift.TException
+    public List<rfid.service.ASN> getReceivingSheets() throws TException
     {
       send_getReceivingSheets();
       return recv_getReceivingSheets();
     }
 
-    public void send_getReceivingSheets() throws org.apache.thrift.TException
+    public void send_getReceivingSheets() throws TException
     {
       getReceivingSheets_args args = new getReceivingSheets_args();
       sendBase("getReceivingSheets", args);
     }
 
-    public List<rfid.service.ASN> recv_getReceivingSheets() throws org.apache.thrift.TException
+    public List<rfid.service.ASN> recv_getReceivingSheets() throws TException
     {
       getReceivingSheets_result result = new getReceivingSheets_result();
       receiveBase(result, "getReceivingSheets");
@@ -143,20 +143,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getReceivingSheets failed: unknown result");
     }
 
-    public List<rfid.service.Good> getGoodsListByCode(String Code) throws org.apache.thrift.TException
+    public List<rfid.service.Good> getGoodsListByCode(String Code) throws TException
     {
       send_getGoodsListByCode(Code);
       return recv_getGoodsListByCode();
     }
 
-    public void send_getGoodsListByCode(String Code) throws org.apache.thrift.TException
+    public void send_getGoodsListByCode(String Code) throws TException
     {
       getGoodsListByCode_args args = new getGoodsListByCode_args();
       args.setCode(Code);
       sendBase("getGoodsListByCode", args);
     }
 
-    public List<rfid.service.Good> recv_getGoodsListByCode() throws org.apache.thrift.TException
+    public List<rfid.service.Good> recv_getGoodsListByCode() throws TException
     {
       getGoodsListByCode_result result = new getGoodsListByCode_result();
       receiveBase(result, "getGoodsListByCode");
@@ -166,20 +166,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getGoodsListByCode failed: unknown result");
     }
 
-    public String getCodeByCNum(String CNum) throws org.apache.thrift.TException
+    public String getCodeByCNum(String CNum) throws TException
     {
       send_getCodeByCNum(CNum);
       return recv_getCodeByCNum();
     }
 
-    public void send_getCodeByCNum(String CNum) throws org.apache.thrift.TException
+    public void send_getCodeByCNum(String CNum) throws TException
     {
       getCodeByCNum_args args = new getCodeByCNum_args();
       args.setCNum(CNum);
       sendBase("getCodeByCNum", args);
     }
 
-    public String recv_getCodeByCNum() throws org.apache.thrift.TException
+    public String recv_getCodeByCNum() throws TException
     {
       getCodeByCNum_result result = new getCodeByCNum_result();
       receiveBase(result, "getCodeByCNum");
@@ -189,13 +189,13 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getCodeByCNum failed: unknown result");
     }
 
-    public boolean bindLocationAndGoods(int LocationID, List<String> CNums) throws org.apache.thrift.TException
+    public boolean bindLocationAndGoods(int LocationID, List<String> CNums) throws TException
     {
       send_bindLocationAndGoods(LocationID, CNums);
       return recv_bindLocationAndGoods();
     }
 
-    public void send_bindLocationAndGoods(int LocationID, List<String> CNums) throws org.apache.thrift.TException
+    public void send_bindLocationAndGoods(int LocationID, List<String> CNums) throws TException
     {
       bindLocationAndGoods_args args = new bindLocationAndGoods_args();
       args.setLocationID(LocationID);
@@ -203,7 +203,7 @@ public class RFIDService {
       sendBase("bindLocationAndGoods", args);
     }
 
-    public boolean recv_bindLocationAndGoods() throws org.apache.thrift.TException
+    public boolean recv_bindLocationAndGoods() throws TException
     {
       bindLocationAndGoods_result result = new bindLocationAndGoods_result();
       receiveBase(result, "bindLocationAndGoods");
@@ -213,19 +213,19 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "bindLocationAndGoods failed: unknown result");
     }
 
-    public List<rfid.service.POS> getApplySheets() throws org.apache.thrift.TException
+    public List<rfid.service.POS> getApplySheets() throws TException
     {
       send_getApplySheets();
       return recv_getApplySheets();
     }
 
-    public void send_getApplySheets() throws org.apache.thrift.TException
+    public void send_getApplySheets() throws TException
     {
       getApplySheets_args args = new getApplySheets_args();
       sendBase("getApplySheets", args);
     }
 
-    public List<rfid.service.POS> recv_getApplySheets() throws org.apache.thrift.TException
+    public List<rfid.service.POS> recv_getApplySheets() throws TException
     {
       getApplySheets_result result = new getApplySheets_result();
       receiveBase(result, "getApplySheets");
@@ -235,20 +235,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getApplySheets failed: unknown result");
     }
 
-    public List<rfid.service.Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws org.apache.thrift.TException
+    public List<rfid.service.Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws TException
     {
       send_getGoodsListByApplyDocCode(ApplyDocCode);
       return recv_getGoodsListByApplyDocCode();
     }
 
-    public void send_getGoodsListByApplyDocCode(String ApplyDocCode) throws org.apache.thrift.TException
+    public void send_getGoodsListByApplyDocCode(String ApplyDocCode) throws TException
     {
       getGoodsListByApplyDocCode_args args = new getGoodsListByApplyDocCode_args();
       args.setApplyDocCode(ApplyDocCode);
       sendBase("getGoodsListByApplyDocCode", args);
     }
 
-    public List<rfid.service.Good> recv_getGoodsListByApplyDocCode() throws org.apache.thrift.TException
+    public List<rfid.service.Good> recv_getGoodsListByApplyDocCode() throws TException
     {
       getGoodsListByApplyDocCode_result result = new getGoodsListByApplyDocCode_result();
       receiveBase(result, "getGoodsListByApplyDocCode");
@@ -258,13 +258,13 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getGoodsListByApplyDocCode failed: unknown result");
     }
 
-    public boolean confirmRetrieval(String ApplyDocCode, List<String> CNums) throws org.apache.thrift.TException
+    public boolean confirmRetrieval(String ApplyDocCode, List<String> CNums) throws TException
     {
       send_confirmRetrieval(ApplyDocCode, CNums);
       return recv_confirmRetrieval();
     }
 
-    public void send_confirmRetrieval(String ApplyDocCode, List<String> CNums) throws org.apache.thrift.TException
+    public void send_confirmRetrieval(String ApplyDocCode, List<String> CNums) throws TException
     {
       confirmRetrieval_args args = new confirmRetrieval_args();
       args.setApplyDocCode(ApplyDocCode);
@@ -272,7 +272,7 @@ public class RFIDService {
       sendBase("confirmRetrieval", args);
     }
 
-    public boolean recv_confirmRetrieval() throws org.apache.thrift.TException
+    public boolean recv_confirmRetrieval() throws TException
     {
       confirmRetrieval_result result = new confirmRetrieval_result();
       receiveBase(result, "confirmRetrieval");
@@ -282,20 +282,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "confirmRetrieval failed: unknown result");
     }
 
-    public boolean confirmReceiving(String Code) throws org.apache.thrift.TException
+    public boolean confirmReceiving(String Code) throws TException
     {
       send_confirmReceiving(Code);
       return recv_confirmReceiving();
     }
 
-    public void send_confirmReceiving(String Code) throws org.apache.thrift.TException
+    public void send_confirmReceiving(String Code) throws TException
     {
       confirmReceiving_args args = new confirmReceiving_args();
       args.setCode(Code);
       sendBase("confirmReceiving", args);
     }
 
-    public boolean recv_confirmReceiving() throws org.apache.thrift.TException
+    public boolean recv_confirmReceiving() throws TException
     {
       confirmReceiving_result result = new confirmReceiving_result();
       receiveBase(result, "confirmReceiving");
@@ -305,20 +305,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "confirmReceiving failed: unknown result");
     }
 
-    public rfid.service.Good getGoodByCNum(String CNum) throws org.apache.thrift.TException
+    public rfid.service.Good getGoodByCNum(String CNum) throws TException
     {
       send_getGoodByCNum(CNum);
       return recv_getGoodByCNum();
     }
 
-    public void send_getGoodByCNum(String CNum) throws org.apache.thrift.TException
+    public void send_getGoodByCNum(String CNum) throws TException
     {
       getGoodByCNum_args args = new getGoodByCNum_args();
       args.setCNum(CNum);
       sendBase("getGoodByCNum", args);
     }
 
-    public rfid.service.Good recv_getGoodByCNum() throws org.apache.thrift.TException
+    public rfid.service.Good recv_getGoodByCNum() throws TException
     {
       getGoodByCNum_result result = new getGoodByCNum_result();
       receiveBase(result, "getGoodByCNum");
@@ -328,20 +328,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getGoodByCNum failed: unknown result");
     }
 
-    public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws org.apache.thrift.TException
+    public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws TException
     {
       send_getLocationListByItemErpCode(ItemERPCode);
       return recv_getLocationListByItemErpCode();
     }
 
-    public void send_getLocationListByItemErpCode(String ItemERPCode) throws org.apache.thrift.TException
+    public void send_getLocationListByItemErpCode(String ItemERPCode) throws TException
     {
       getLocationListByItemErpCode_args args = new getLocationListByItemErpCode_args();
       args.setItemERPCode(ItemERPCode);
       sendBase("getLocationListByItemErpCode", args);
     }
 
-    public List<Integer> recv_getLocationListByItemErpCode() throws org.apache.thrift.TException
+    public List<Integer> recv_getLocationListByItemErpCode() throws TException
     {
       getLocationListByItemErpCode_result result = new getLocationListByItemErpCode_result();
       receiveBase(result, "getLocationListByItemErpCode");
@@ -351,20 +351,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getLocationListByItemErpCode failed: unknown result");
     }
 
-    public List<rfid.service.Good> getGoodsByLocation(int Location) throws org.apache.thrift.TException
+    public List<rfid.service.Good> getGoodsByLocation(int Location) throws TException
     {
       send_getGoodsByLocation(Location);
       return recv_getGoodsByLocation();
     }
 
-    public void send_getGoodsByLocation(int Location) throws org.apache.thrift.TException
+    public void send_getGoodsByLocation(int Location) throws TException
     {
       getGoodsByLocation_args args = new getGoodsByLocation_args();
       args.setLocation(Location);
       sendBase("getGoodsByLocation", args);
     }
 
-    public List<rfid.service.Good> recv_getGoodsByLocation() throws org.apache.thrift.TException
+    public List<rfid.service.Good> recv_getGoodsByLocation() throws TException
     {
       getGoodsByLocation_result result = new getGoodsByLocation_result();
       receiveBase(result, "getGoodsByLocation");
@@ -374,20 +374,20 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getGoodsByLocation failed: unknown result");
     }
 
-    public String getApplyDocCodeByCNum(String CNum) throws org.apache.thrift.TException
+    public String getApplyDocCodeByCNum(String CNum) throws TException
     {
       send_getApplyDocCodeByCNum(CNum);
       return recv_getApplyDocCodeByCNum();
     }
 
-    public void send_getApplyDocCodeByCNum(String CNum) throws org.apache.thrift.TException
+    public void send_getApplyDocCodeByCNum(String CNum) throws TException
     {
       getApplyDocCodeByCNum_args args = new getApplyDocCodeByCNum_args();
       args.setCNum(CNum);
       sendBase("getApplyDocCodeByCNum", args);
     }
 
-    public String recv_getApplyDocCodeByCNum() throws org.apache.thrift.TException
+    public String recv_getApplyDocCodeByCNum() throws TException
     {
       getApplyDocCodeByCNum_result result = new getApplyDocCodeByCNum_result();
       receiveBase(result, "getApplyDocCodeByCNum");
@@ -397,13 +397,13 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getApplyDocCodeByCNum failed: unknown result");
     }
 
-    public boolean confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws org.apache.thrift.TException
+    public boolean confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws TException
     {
       send_confirmInventory(Location, MaterialCode, RealNum, Time);
       return recv_confirmInventory();
     }
 
-    public void send_confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws org.apache.thrift.TException
+    public void send_confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws TException
     {
       confirmInventory_args args = new confirmInventory_args();
       args.setLocation(Location);
@@ -413,7 +413,7 @@ public class RFIDService {
       sendBase("confirmInventory", args);
     }
 
-    public boolean recv_confirmInventory() throws org.apache.thrift.TException
+    public boolean recv_confirmInventory() throws TException
     {
       confirmInventory_result result = new confirmInventory_result();
       receiveBase(result, "confirmInventory");
@@ -423,13 +423,13 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "confirmInventory failed: unknown result");
     }
 
-    public boolean confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws org.apache.thrift.TException
+    public boolean confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws TException
     {
       send_confirmArrive(charge, Time, Position, Type, PosApplyDocCode, longitude, latitude);
       return recv_confirmArrive();
     }
 
-    public void send_confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws org.apache.thrift.TException
+    public void send_confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws TException
     {
       confirmArrive_args args = new confirmArrive_args();
       args.setCharge(charge);
@@ -442,7 +442,7 @@ public class RFIDService {
       sendBase("confirmArrive", args);
     }
 
-    public boolean recv_confirmArrive() throws org.apache.thrift.TException
+    public boolean recv_confirmArrive() throws TException
     {
       confirmArrive_result result = new confirmArrive_result();
       receiveBase(result, "confirmArrive");
@@ -470,7 +470,7 @@ public class RFIDService {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void getReceivingSheets(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getReceivingSheets(AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getReceivingSheets_call method_call = new getReceivingSheets_call(resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -478,19 +478,19 @@ public class RFIDService {
     }
 
     public static class getReceivingSheets_call extends org.apache.thrift.async.TAsyncMethodCall {
-      public getReceivingSheets_call(org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getReceivingSheets_call(AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getReceivingSheets", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getReceivingSheets_args args = new getReceivingSheets_args();
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.ASN> getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public List<rfid.service.ASN> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -499,7 +499,7 @@ public class RFIDService {
       }
     }
 
-    public void getGoodsListByCode(String Code, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getGoodsListByCode(String Code, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getGoodsListByCode_call method_call = new getGoodsListByCode_call(Code, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -508,12 +508,12 @@ public class RFIDService {
 
     public static class getGoodsListByCode_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String Code;
-      public getGoodsListByCode_call(String Code, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getGoodsListByCode_call(String Code, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.Code = Code;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getGoodsListByCode", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getGoodsListByCode_args args = new getGoodsListByCode_args();
         args.setCode(Code);
@@ -521,8 +521,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.Good> getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public List<rfid.service.Good> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -531,7 +531,7 @@ public class RFIDService {
       }
     }
 
-    public void getCodeByCNum(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getCodeByCNum(String CNum, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getCodeByCNum_call method_call = new getCodeByCNum_call(CNum, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -540,12 +540,12 @@ public class RFIDService {
 
     public static class getCodeByCNum_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String CNum;
-      public getCodeByCNum_call(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getCodeByCNum_call(String CNum, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.CNum = CNum;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getCodeByCNum", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getCodeByCNum_args args = new getCodeByCNum_args();
         args.setCNum(CNum);
@@ -553,8 +553,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public String getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public String getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -563,7 +563,7 @@ public class RFIDService {
       }
     }
 
-    public void bindLocationAndGoods(int LocationID, List<String> CNums, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void bindLocationAndGoods(int LocationID, List<String> CNums, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       bindLocationAndGoods_call method_call = new bindLocationAndGoods_call(LocationID, CNums, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -573,13 +573,13 @@ public class RFIDService {
     public static class bindLocationAndGoods_call extends org.apache.thrift.async.TAsyncMethodCall {
       private int LocationID;
       private List<String> CNums;
-      public bindLocationAndGoods_call(int LocationID, List<String> CNums, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public bindLocationAndGoods_call(int LocationID, List<String> CNums, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.LocationID = LocationID;
         this.CNums = CNums;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("bindLocationAndGoods", org.apache.thrift.protocol.TMessageType.CALL, 0));
         bindLocationAndGoods_args args = new bindLocationAndGoods_args();
         args.setLocationID(LocationID);
@@ -588,8 +588,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public boolean getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public boolean getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -598,7 +598,7 @@ public class RFIDService {
       }
     }
 
-    public void getApplySheets(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getApplySheets(AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getApplySheets_call method_call = new getApplySheets_call(resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -606,19 +606,19 @@ public class RFIDService {
     }
 
     public static class getApplySheets_call extends org.apache.thrift.async.TAsyncMethodCall {
-      public getApplySheets_call(org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getApplySheets_call(AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getApplySheets", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getApplySheets_args args = new getApplySheets_args();
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.POS> getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public List<rfid.service.POS> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -627,7 +627,7 @@ public class RFIDService {
       }
     }
 
-    public void getGoodsListByApplyDocCode(String ApplyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getGoodsListByApplyDocCode(String ApplyDocCode, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getGoodsListByApplyDocCode_call method_call = new getGoodsListByApplyDocCode_call(ApplyDocCode, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -636,12 +636,12 @@ public class RFIDService {
 
     public static class getGoodsListByApplyDocCode_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String ApplyDocCode;
-      public getGoodsListByApplyDocCode_call(String ApplyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getGoodsListByApplyDocCode_call(String ApplyDocCode, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.ApplyDocCode = ApplyDocCode;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getGoodsListByApplyDocCode", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getGoodsListByApplyDocCode_args args = new getGoodsListByApplyDocCode_args();
         args.setApplyDocCode(ApplyDocCode);
@@ -649,8 +649,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.Good> getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public List<rfid.service.Good> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -659,7 +659,7 @@ public class RFIDService {
       }
     }
 
-    public void confirmRetrieval(String ApplyDocCode, List<String> CNums, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void confirmRetrieval(String ApplyDocCode, List<String> CNums, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       confirmRetrieval_call method_call = new confirmRetrieval_call(ApplyDocCode, CNums, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -669,13 +669,13 @@ public class RFIDService {
     public static class confirmRetrieval_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String ApplyDocCode;
       private List<String> CNums;
-      public confirmRetrieval_call(String ApplyDocCode, List<String> CNums, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public confirmRetrieval_call(String ApplyDocCode, List<String> CNums, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.ApplyDocCode = ApplyDocCode;
         this.CNums = CNums;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("confirmRetrieval", org.apache.thrift.protocol.TMessageType.CALL, 0));
         confirmRetrieval_args args = new confirmRetrieval_args();
         args.setApplyDocCode(ApplyDocCode);
@@ -684,8 +684,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public boolean getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public boolean getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -694,7 +694,7 @@ public class RFIDService {
       }
     }
 
-    public void confirmReceiving(String Code, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void confirmReceiving(String Code, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       confirmReceiving_call method_call = new confirmReceiving_call(Code, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -703,12 +703,12 @@ public class RFIDService {
 
     public static class confirmReceiving_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String Code;
-      public confirmReceiving_call(String Code, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public confirmReceiving_call(String Code, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.Code = Code;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("confirmReceiving", org.apache.thrift.protocol.TMessageType.CALL, 0));
         confirmReceiving_args args = new confirmReceiving_args();
         args.setCode(Code);
@@ -716,8 +716,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public boolean getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public boolean getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -726,7 +726,7 @@ public class RFIDService {
       }
     }
 
-    public void getGoodByCNum(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getGoodByCNum(String CNum, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getGoodByCNum_call method_call = new getGoodByCNum_call(CNum, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -735,12 +735,12 @@ public class RFIDService {
 
     public static class getGoodByCNum_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String CNum;
-      public getGoodByCNum_call(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getGoodByCNum_call(String CNum, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.CNum = CNum;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getGoodByCNum", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getGoodByCNum_args args = new getGoodByCNum_args();
         args.setCNum(CNum);
@@ -748,8 +748,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public rfid.service.Good getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public rfid.service.Good getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -758,7 +758,7 @@ public class RFIDService {
       }
     }
 
-    public void getLocationListByItemErpCode(String ItemERPCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getLocationListByItemErpCode(String ItemERPCode, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getLocationListByItemErpCode_call method_call = new getLocationListByItemErpCode_call(ItemERPCode, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -767,12 +767,12 @@ public class RFIDService {
 
     public static class getLocationListByItemErpCode_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String ItemERPCode;
-      public getLocationListByItemErpCode_call(String ItemERPCode, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getLocationListByItemErpCode_call(String ItemERPCode, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.ItemERPCode = ItemERPCode;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getLocationListByItemErpCode", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getLocationListByItemErpCode_args args = new getLocationListByItemErpCode_args();
         args.setItemERPCode(ItemERPCode);
@@ -780,8 +780,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<Integer> getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public List<Integer> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -790,7 +790,7 @@ public class RFIDService {
       }
     }
 
-    public void getGoodsByLocation(int Location, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getGoodsByLocation(int Location, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getGoodsByLocation_call method_call = new getGoodsByLocation_call(Location, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -799,12 +799,12 @@ public class RFIDService {
 
     public static class getGoodsByLocation_call extends org.apache.thrift.async.TAsyncMethodCall {
       private int Location;
-      public getGoodsByLocation_call(int Location, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getGoodsByLocation_call(int Location, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.Location = Location;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getGoodsByLocation", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getGoodsByLocation_args args = new getGoodsByLocation_args();
         args.setLocation(Location);
@@ -812,8 +812,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.Good> getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public List<rfid.service.Good> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -822,7 +822,7 @@ public class RFIDService {
       }
     }
 
-    public void getApplyDocCodeByCNum(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getApplyDocCodeByCNum(String CNum, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       getApplyDocCodeByCNum_call method_call = new getApplyDocCodeByCNum_call(CNum, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -831,12 +831,12 @@ public class RFIDService {
 
     public static class getApplyDocCodeByCNum_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String CNum;
-      public getApplyDocCodeByCNum_call(String CNum, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getApplyDocCodeByCNum_call(String CNum, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.CNum = CNum;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getApplyDocCodeByCNum", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getApplyDocCodeByCNum_args args = new getApplyDocCodeByCNum_args();
         args.setCNum(CNum);
@@ -844,8 +844,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public String getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public String getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -854,7 +854,7 @@ public class RFIDService {
       }
     }
 
-    public void confirmInventory(String Location, String MaterialCode, int RealNum, String Time, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void confirmInventory(String Location, String MaterialCode, int RealNum, String Time, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       confirmInventory_call method_call = new confirmInventory_call(Location, MaterialCode, RealNum, Time, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -866,7 +866,7 @@ public class RFIDService {
       private String MaterialCode;
       private int RealNum;
       private String Time;
-      public confirmInventory_call(String Location, String MaterialCode, int RealNum, String Time, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public confirmInventory_call(String Location, String MaterialCode, int RealNum, String Time, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.Location = Location;
         this.MaterialCode = MaterialCode;
@@ -874,7 +874,7 @@ public class RFIDService {
         this.Time = Time;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("confirmInventory", org.apache.thrift.protocol.TMessageType.CALL, 0));
         confirmInventory_args args = new confirmInventory_args();
         args.setLocation(Location);
@@ -885,8 +885,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public boolean getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public boolean getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -895,7 +895,7 @@ public class RFIDService {
       }
     }
 
-    public void confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude, AsyncMethodCallback resultHandler) throws TException {
       checkReady();
       confirmArrive_call method_call = new confirmArrive_call(charge, Time, Position, Type, PosApplyDocCode, longitude, latitude, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -910,7 +910,7 @@ public class RFIDService {
       private String PosApplyDocCode;
       private double longitude;
       private double latitude;
-      public confirmArrive_call(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public confirmArrive_call(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.charge = charge;
         this.Time = Time;
@@ -921,7 +921,7 @@ public class RFIDService {
         this.latitude = latitude;
       }
 
-      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("confirmArrive", org.apache.thrift.protocol.TMessageType.CALL, 0));
         confirmArrive_args args = new confirmArrive_args();
         args.setCharge(charge);
@@ -935,8 +935,8 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public boolean getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+      public boolean getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -988,7 +988,7 @@ public class RFIDService {
         return false;
       }
 
-      public getReceivingSheets_result getResult(I iface, getReceivingSheets_args args) throws org.apache.thrift.TException {
+      public getReceivingSheets_result getResult(I iface, getReceivingSheets_args args) throws TException {
         getReceivingSheets_result result = new getReceivingSheets_result();
         result.success = iface.getReceivingSheets();
         return result;
@@ -1008,7 +1008,7 @@ public class RFIDService {
         return false;
       }
 
-      public getGoodsListByCode_result getResult(I iface, getGoodsListByCode_args args) throws org.apache.thrift.TException {
+      public getGoodsListByCode_result getResult(I iface, getGoodsListByCode_args args) throws TException {
         getGoodsListByCode_result result = new getGoodsListByCode_result();
         result.success = iface.getGoodsListByCode(args.Code);
         return result;
@@ -1028,7 +1028,7 @@ public class RFIDService {
         return false;
       }
 
-      public getCodeByCNum_result getResult(I iface, getCodeByCNum_args args) throws org.apache.thrift.TException {
+      public getCodeByCNum_result getResult(I iface, getCodeByCNum_args args) throws TException {
         getCodeByCNum_result result = new getCodeByCNum_result();
         result.success = iface.getCodeByCNum(args.CNum);
         return result;
@@ -1048,7 +1048,7 @@ public class RFIDService {
         return false;
       }
 
-      public bindLocationAndGoods_result getResult(I iface, bindLocationAndGoods_args args) throws org.apache.thrift.TException {
+      public bindLocationAndGoods_result getResult(I iface, bindLocationAndGoods_args args) throws TException {
         bindLocationAndGoods_result result = new bindLocationAndGoods_result();
         result.success = iface.bindLocationAndGoods(args.LocationID, args.CNums);
         result.setSuccessIsSet(true);
@@ -1069,7 +1069,7 @@ public class RFIDService {
         return false;
       }
 
-      public getApplySheets_result getResult(I iface, getApplySheets_args args) throws org.apache.thrift.TException {
+      public getApplySheets_result getResult(I iface, getApplySheets_args args) throws TException {
         getApplySheets_result result = new getApplySheets_result();
         result.success = iface.getApplySheets();
         return result;
@@ -1089,7 +1089,7 @@ public class RFIDService {
         return false;
       }
 
-      public getGoodsListByApplyDocCode_result getResult(I iface, getGoodsListByApplyDocCode_args args) throws org.apache.thrift.TException {
+      public getGoodsListByApplyDocCode_result getResult(I iface, getGoodsListByApplyDocCode_args args) throws TException {
         getGoodsListByApplyDocCode_result result = new getGoodsListByApplyDocCode_result();
         result.success = iface.getGoodsListByApplyDocCode(args.ApplyDocCode);
         return result;
@@ -1109,7 +1109,7 @@ public class RFIDService {
         return false;
       }
 
-      public confirmRetrieval_result getResult(I iface, confirmRetrieval_args args) throws org.apache.thrift.TException {
+      public confirmRetrieval_result getResult(I iface, confirmRetrieval_args args) throws TException {
         confirmRetrieval_result result = new confirmRetrieval_result();
         result.success = iface.confirmRetrieval(args.ApplyDocCode, args.CNums);
         result.setSuccessIsSet(true);
@@ -1130,7 +1130,7 @@ public class RFIDService {
         return false;
       }
 
-      public confirmReceiving_result getResult(I iface, confirmReceiving_args args) throws org.apache.thrift.TException {
+      public confirmReceiving_result getResult(I iface, confirmReceiving_args args) throws TException {
         confirmReceiving_result result = new confirmReceiving_result();
         result.success = iface.confirmReceiving(args.Code);
         result.setSuccessIsSet(true);
@@ -1151,7 +1151,7 @@ public class RFIDService {
         return false;
       }
 
-      public getGoodByCNum_result getResult(I iface, getGoodByCNum_args args) throws org.apache.thrift.TException {
+      public getGoodByCNum_result getResult(I iface, getGoodByCNum_args args) throws TException {
         getGoodByCNum_result result = new getGoodByCNum_result();
         result.success = iface.getGoodByCNum(args.CNum);
         return result;
@@ -1171,7 +1171,7 @@ public class RFIDService {
         return false;
       }
 
-      public getLocationListByItemErpCode_result getResult(I iface, getLocationListByItemErpCode_args args) throws org.apache.thrift.TException {
+      public getLocationListByItemErpCode_result getResult(I iface, getLocationListByItemErpCode_args args) throws TException {
         getLocationListByItemErpCode_result result = new getLocationListByItemErpCode_result();
         result.success = iface.getLocationListByItemErpCode(args.ItemERPCode);
         return result;
@@ -1191,7 +1191,7 @@ public class RFIDService {
         return false;
       }
 
-      public getGoodsByLocation_result getResult(I iface, getGoodsByLocation_args args) throws org.apache.thrift.TException {
+      public getGoodsByLocation_result getResult(I iface, getGoodsByLocation_args args) throws TException {
         getGoodsByLocation_result result = new getGoodsByLocation_result();
         result.success = iface.getGoodsByLocation(args.Location);
         return result;
@@ -1211,7 +1211,7 @@ public class RFIDService {
         return false;
       }
 
-      public getApplyDocCodeByCNum_result getResult(I iface, getApplyDocCodeByCNum_args args) throws org.apache.thrift.TException {
+      public getApplyDocCodeByCNum_result getResult(I iface, getApplyDocCodeByCNum_args args) throws TException {
         getApplyDocCodeByCNum_result result = new getApplyDocCodeByCNum_result();
         result.success = iface.getApplyDocCodeByCNum(args.CNum);
         return result;
@@ -1231,7 +1231,7 @@ public class RFIDService {
         return false;
       }
 
-      public confirmInventory_result getResult(I iface, confirmInventory_args args) throws org.apache.thrift.TException {
+      public confirmInventory_result getResult(I iface, confirmInventory_args args) throws TException {
         confirmInventory_result result = new confirmInventory_result();
         result.success = iface.confirmInventory(args.Location, args.MaterialCode, args.RealNum, args.Time);
         result.setSuccessIsSet(true);
@@ -1252,7 +1252,7 @@ public class RFIDService {
         return false;
       }
 
-      public confirmArrive_result getResult(I iface, confirmArrive_args args) throws org.apache.thrift.TException {
+      public confirmArrive_result getResult(I iface, confirmArrive_args args) throws TException {
         confirmArrive_result result = new confirmArrive_result();
         result.success = iface.confirmArrive(args.charge, args.Time, args.Position, args.Type, args.PosApplyDocCode, args.longitude, args.latitude);
         result.setSuccessIsSet(true);
@@ -1336,7 +1336,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getReceivingSheets_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.ASN>> resultHandler) throws TException {
+      public void start(I iface, getReceivingSheets_args args, AsyncMethodCallback<List<rfid.service.ASN>> resultHandler) throws TException {
         iface.getReceivingSheets(resultHandler);
       }
     }
@@ -1387,7 +1387,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getGoodsListByCode_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.Good>> resultHandler) throws TException {
+      public void start(I iface, getGoodsListByCode_args args, AsyncMethodCallback<List<rfid.service.Good>> resultHandler) throws TException {
         iface.getGoodsListByCode(args.Code,resultHandler);
       }
     }
@@ -1438,7 +1438,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getCodeByCNum_args args, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler) throws TException {
+      public void start(I iface, getCodeByCNum_args args, AsyncMethodCallback<String> resultHandler) throws TException {
         iface.getCodeByCNum(args.CNum,resultHandler);
       }
     }
@@ -1490,7 +1490,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, bindLocationAndGoods_args args, org.apache.thrift.async.AsyncMethodCallback<Boolean> resultHandler) throws TException {
+      public void start(I iface, bindLocationAndGoods_args args, AsyncMethodCallback<Boolean> resultHandler) throws TException {
         iface.bindLocationAndGoods(args.LocationID, args.CNums,resultHandler);
       }
     }
@@ -1541,7 +1541,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getApplySheets_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.POS>> resultHandler) throws TException {
+      public void start(I iface, getApplySheets_args args, AsyncMethodCallback<List<rfid.service.POS>> resultHandler) throws TException {
         iface.getApplySheets(resultHandler);
       }
     }
@@ -1592,7 +1592,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getGoodsListByApplyDocCode_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.Good>> resultHandler) throws TException {
+      public void start(I iface, getGoodsListByApplyDocCode_args args, AsyncMethodCallback<List<rfid.service.Good>> resultHandler) throws TException {
         iface.getGoodsListByApplyDocCode(args.ApplyDocCode,resultHandler);
       }
     }
@@ -1644,7 +1644,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, confirmRetrieval_args args, org.apache.thrift.async.AsyncMethodCallback<Boolean> resultHandler) throws TException {
+      public void start(I iface, confirmRetrieval_args args, AsyncMethodCallback<Boolean> resultHandler) throws TException {
         iface.confirmRetrieval(args.ApplyDocCode, args.CNums,resultHandler);
       }
     }
@@ -1696,7 +1696,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, confirmReceiving_args args, org.apache.thrift.async.AsyncMethodCallback<Boolean> resultHandler) throws TException {
+      public void start(I iface, confirmReceiving_args args, AsyncMethodCallback<Boolean> resultHandler) throws TException {
         iface.confirmReceiving(args.Code,resultHandler);
       }
     }
@@ -1747,7 +1747,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getGoodByCNum_args args, org.apache.thrift.async.AsyncMethodCallback<rfid.service.Good> resultHandler) throws TException {
+      public void start(I iface, getGoodByCNum_args args, AsyncMethodCallback<rfid.service.Good> resultHandler) throws TException {
         iface.getGoodByCNum(args.CNum,resultHandler);
       }
     }
@@ -1798,7 +1798,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getLocationListByItemErpCode_args args, org.apache.thrift.async.AsyncMethodCallback<List<Integer>> resultHandler) throws TException {
+      public void start(I iface, getLocationListByItemErpCode_args args, AsyncMethodCallback<List<Integer>> resultHandler) throws TException {
         iface.getLocationListByItemErpCode(args.ItemERPCode,resultHandler);
       }
     }
@@ -1849,7 +1849,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getGoodsByLocation_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.Good>> resultHandler) throws TException {
+      public void start(I iface, getGoodsByLocation_args args, AsyncMethodCallback<List<rfid.service.Good>> resultHandler) throws TException {
         iface.getGoodsByLocation(args.Location,resultHandler);
       }
     }
@@ -1900,7 +1900,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getApplyDocCodeByCNum_args args, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler) throws TException {
+      public void start(I iface, getApplyDocCodeByCNum_args args, AsyncMethodCallback<String> resultHandler) throws TException {
         iface.getApplyDocCodeByCNum(args.CNum,resultHandler);
       }
     }
@@ -1952,7 +1952,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, confirmInventory_args args, org.apache.thrift.async.AsyncMethodCallback<Boolean> resultHandler) throws TException {
+      public void start(I iface, confirmInventory_args args, AsyncMethodCallback<Boolean> resultHandler) throws TException {
         iface.confirmInventory(args.Location, args.MaterialCode, args.RealNum, args.Time,resultHandler);
       }
     }
@@ -2004,7 +2004,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, confirmArrive_args args, org.apache.thrift.async.AsyncMethodCallback<Boolean> resultHandler) throws TException {
+      public void start(I iface, confirmArrive_args args, AsyncMethodCallback<Boolean> resultHandler) throws TException {
         iface.confirmArrive(args.charge, args.Time, args.Position, args.Type, args.PosApplyDocCode, args.longitude, args.latitude,resultHandler);
       }
     }
@@ -2161,11 +2161,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -2178,7 +2178,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -2186,7 +2186,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2194,7 +2194,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2207,7 +2207,7 @@ public class RFIDService {
 
     private static class getReceivingSheets_argsStandardScheme extends StandardScheme<getReceivingSheets_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getReceivingSheets_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getReceivingSheets_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -2228,7 +2228,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getReceivingSheets_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getReceivingSheets_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2247,12 +2247,12 @@ public class RFIDService {
     private static class getReceivingSheets_argsTupleScheme extends TupleScheme<getReceivingSheets_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
       }
     }
@@ -2509,11 +2509,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -2533,7 +2533,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -2541,7 +2541,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2549,7 +2549,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2562,7 +2562,7 @@ public class RFIDService {
 
     private static class getReceivingSheets_resultStandardScheme extends StandardScheme<getReceivingSheets_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getReceivingSheets_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getReceivingSheets_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -2602,7 +2602,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getReceivingSheets_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getReceivingSheets_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -2633,7 +2633,7 @@ public class RFIDService {
     private static class getReceivingSheets_resultTupleScheme extends TupleScheme<getReceivingSheets_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -2652,7 +2652,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getReceivingSheets_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -2904,11 +2904,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -2928,7 +2928,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -2936,7 +2936,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2944,7 +2944,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -2957,7 +2957,7 @@ public class RFIDService {
 
     private static class getGoodsListByCode_argsStandardScheme extends StandardScheme<getGoodsListByCode_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByCode_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByCode_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -2986,7 +2986,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByCode_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByCode_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -3010,7 +3010,7 @@ public class RFIDService {
     private static class getGoodsListByCode_argsTupleScheme extends TupleScheme<getGoodsListByCode_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetCode()) {
@@ -3023,7 +3023,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -3285,11 +3285,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -3309,7 +3309,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -3317,7 +3317,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -3325,7 +3325,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -3338,7 +3338,7 @@ public class RFIDService {
 
     private static class getGoodsListByCode_resultStandardScheme extends StandardScheme<getGoodsListByCode_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByCode_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByCode_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -3378,7 +3378,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByCode_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByCode_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -3409,7 +3409,7 @@ public class RFIDService {
     private static class getGoodsListByCode_resultTupleScheme extends TupleScheme<getGoodsListByCode_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -3428,7 +3428,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByCode_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -3680,11 +3680,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -3704,7 +3704,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -3712,7 +3712,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -3720,7 +3720,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -3733,7 +3733,7 @@ public class RFIDService {
 
     private static class getCodeByCNum_argsStandardScheme extends StandardScheme<getCodeByCNum_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getCodeByCNum_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -3762,7 +3762,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getCodeByCNum_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -3786,7 +3786,7 @@ public class RFIDService {
     private static class getCodeByCNum_argsTupleScheme extends TupleScheme<getCodeByCNum_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetCNum()) {
@@ -3799,7 +3799,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -4041,11 +4041,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -4065,7 +4065,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -4073,7 +4073,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -4081,7 +4081,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -4094,7 +4094,7 @@ public class RFIDService {
 
     private static class getCodeByCNum_resultStandardScheme extends StandardScheme<getCodeByCNum_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getCodeByCNum_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -4123,7 +4123,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getCodeByCNum_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -4147,7 +4147,7 @@ public class RFIDService {
     private static class getCodeByCNum_resultTupleScheme extends TupleScheme<getCodeByCNum_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -4160,7 +4160,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getCodeByCNum_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -4495,11 +4495,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -4523,7 +4523,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -4531,7 +4531,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -4541,7 +4541,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -4554,7 +4554,7 @@ public class RFIDService {
 
     private static class bindLocationAndGoods_argsStandardScheme extends StandardScheme<bindLocationAndGoods_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, bindLocationAndGoods_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, bindLocationAndGoods_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -4601,7 +4601,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, bindLocationAndGoods_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, bindLocationAndGoods_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -4635,7 +4635,7 @@ public class RFIDService {
     private static class bindLocationAndGoods_argsTupleScheme extends TupleScheme<bindLocationAndGoods_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetLocationID()) {
@@ -4660,7 +4660,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(2);
         if (incoming.get(0)) {
@@ -4917,11 +4917,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -4937,7 +4937,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -4945,7 +4945,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -4955,7 +4955,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -4968,7 +4968,7 @@ public class RFIDService {
 
     private static class bindLocationAndGoods_resultStandardScheme extends StandardScheme<bindLocationAndGoods_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, bindLocationAndGoods_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, bindLocationAndGoods_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -4997,7 +4997,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, bindLocationAndGoods_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, bindLocationAndGoods_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -5021,7 +5021,7 @@ public class RFIDService {
     private static class bindLocationAndGoods_resultTupleScheme extends TupleScheme<bindLocationAndGoods_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -5034,7 +5034,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, bindLocationAndGoods_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -5196,11 +5196,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -5213,7 +5213,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -5221,7 +5221,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -5229,7 +5229,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -5242,7 +5242,7 @@ public class RFIDService {
 
     private static class getApplySheets_argsStandardScheme extends StandardScheme<getApplySheets_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplySheets_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplySheets_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -5263,7 +5263,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplySheets_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplySheets_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -5282,12 +5282,12 @@ public class RFIDService {
     private static class getApplySheets_argsTupleScheme extends TupleScheme<getApplySheets_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getApplySheets_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getApplySheets_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getApplySheets_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getApplySheets_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
       }
     }
@@ -5544,11 +5544,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -5568,7 +5568,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -5576,7 +5576,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -5584,7 +5584,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -5597,7 +5597,7 @@ public class RFIDService {
 
     private static class getApplySheets_resultStandardScheme extends StandardScheme<getApplySheets_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplySheets_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplySheets_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -5637,7 +5637,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplySheets_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplySheets_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -5668,7 +5668,7 @@ public class RFIDService {
     private static class getApplySheets_resultTupleScheme extends TupleScheme<getApplySheets_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getApplySheets_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getApplySheets_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -5687,7 +5687,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getApplySheets_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getApplySheets_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -5939,11 +5939,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -5963,7 +5963,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -5971,7 +5971,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -5979,7 +5979,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -5992,7 +5992,7 @@ public class RFIDService {
 
     private static class getGoodsListByApplyDocCode_argsStandardScheme extends StandardScheme<getGoodsListByApplyDocCode_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByApplyDocCode_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByApplyDocCode_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -6021,7 +6021,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByApplyDocCode_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByApplyDocCode_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -6045,7 +6045,7 @@ public class RFIDService {
     private static class getGoodsListByApplyDocCode_argsTupleScheme extends TupleScheme<getGoodsListByApplyDocCode_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetApplyDocCode()) {
@@ -6058,7 +6058,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -6320,11 +6320,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -6344,7 +6344,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -6352,7 +6352,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -6360,7 +6360,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -6373,7 +6373,7 @@ public class RFIDService {
 
     private static class getGoodsListByApplyDocCode_resultStandardScheme extends StandardScheme<getGoodsListByApplyDocCode_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByApplyDocCode_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsListByApplyDocCode_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -6413,7 +6413,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByApplyDocCode_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsListByApplyDocCode_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -6444,7 +6444,7 @@ public class RFIDService {
     private static class getGoodsListByApplyDocCode_resultTupleScheme extends TupleScheme<getGoodsListByApplyDocCode_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -6463,7 +6463,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsListByApplyDocCode_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -6806,11 +6806,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -6838,7 +6838,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -6846,7 +6846,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -6854,7 +6854,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -6867,7 +6867,7 @@ public class RFIDService {
 
     private static class confirmRetrieval_argsStandardScheme extends StandardScheme<confirmRetrieval_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmRetrieval_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmRetrieval_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -6914,7 +6914,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmRetrieval_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmRetrieval_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -6950,7 +6950,7 @@ public class RFIDService {
     private static class confirmRetrieval_argsTupleScheme extends TupleScheme<confirmRetrieval_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetApplyDocCode()) {
@@ -6975,7 +6975,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(2);
         if (incoming.get(0)) {
@@ -7232,11 +7232,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -7252,7 +7252,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -7260,7 +7260,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -7270,7 +7270,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -7283,7 +7283,7 @@ public class RFIDService {
 
     private static class confirmRetrieval_resultStandardScheme extends StandardScheme<confirmRetrieval_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmRetrieval_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmRetrieval_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -7312,7 +7312,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmRetrieval_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmRetrieval_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -7336,7 +7336,7 @@ public class RFIDService {
     private static class confirmRetrieval_resultTupleScheme extends TupleScheme<confirmRetrieval_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -7349,7 +7349,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmRetrieval_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -7591,11 +7591,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -7615,7 +7615,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -7623,7 +7623,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -7631,7 +7631,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -7644,7 +7644,7 @@ public class RFIDService {
 
     private static class confirmReceiving_argsStandardScheme extends StandardScheme<confirmReceiving_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmReceiving_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmReceiving_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -7673,7 +7673,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmReceiving_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmReceiving_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -7697,7 +7697,7 @@ public class RFIDService {
     private static class confirmReceiving_argsTupleScheme extends TupleScheme<confirmReceiving_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetCode()) {
@@ -7710,7 +7710,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -7954,11 +7954,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -7974,7 +7974,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -7982,7 +7982,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -7992,7 +7992,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -8005,7 +8005,7 @@ public class RFIDService {
 
     private static class confirmReceiving_resultStandardScheme extends StandardScheme<confirmReceiving_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmReceiving_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmReceiving_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -8034,7 +8034,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmReceiving_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmReceiving_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -8058,7 +8058,7 @@ public class RFIDService {
     private static class confirmReceiving_resultTupleScheme extends TupleScheme<confirmReceiving_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -8071,7 +8071,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmReceiving_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -8313,11 +8313,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -8337,7 +8337,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -8345,7 +8345,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -8353,7 +8353,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -8366,7 +8366,7 @@ public class RFIDService {
 
     private static class getGoodByCNum_argsStandardScheme extends StandardScheme<getGoodByCNum_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodByCNum_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodByCNum_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -8395,7 +8395,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodByCNum_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodByCNum_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -8419,7 +8419,7 @@ public class RFIDService {
     private static class getGoodByCNum_argsTupleScheme extends TupleScheme<getGoodByCNum_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetCNum()) {
@@ -8432,7 +8432,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -8674,11 +8674,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -8698,7 +8698,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
       if (success != null) {
@@ -8709,7 +8709,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -8717,7 +8717,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -8730,7 +8730,7 @@ public class RFIDService {
 
     private static class getGoodByCNum_resultStandardScheme extends StandardScheme<getGoodByCNum_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodByCNum_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodByCNum_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -8760,7 +8760,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodByCNum_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodByCNum_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -8784,7 +8784,7 @@ public class RFIDService {
     private static class getGoodByCNum_resultTupleScheme extends TupleScheme<getGoodByCNum_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -8797,7 +8797,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodByCNum_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -9040,11 +9040,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -9064,7 +9064,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -9072,7 +9072,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -9080,7 +9080,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -9093,7 +9093,7 @@ public class RFIDService {
 
     private static class getLocationListByItemErpCode_argsStandardScheme extends StandardScheme<getLocationListByItemErpCode_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getLocationListByItemErpCode_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getLocationListByItemErpCode_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -9122,7 +9122,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getLocationListByItemErpCode_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getLocationListByItemErpCode_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -9146,7 +9146,7 @@ public class RFIDService {
     private static class getLocationListByItemErpCode_argsTupleScheme extends TupleScheme<getLocationListByItemErpCode_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetItemERPCode()) {
@@ -9159,7 +9159,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -9418,11 +9418,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -9442,7 +9442,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -9450,7 +9450,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -9458,7 +9458,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -9471,7 +9471,7 @@ public class RFIDService {
 
     private static class getLocationListByItemErpCode_resultStandardScheme extends StandardScheme<getLocationListByItemErpCode_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getLocationListByItemErpCode_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getLocationListByItemErpCode_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -9510,7 +9510,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getLocationListByItemErpCode_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getLocationListByItemErpCode_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -9541,7 +9541,7 @@ public class RFIDService {
     private static class getLocationListByItemErpCode_resultTupleScheme extends TupleScheme<getLocationListByItemErpCode_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -9560,7 +9560,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getLocationListByItemErpCode_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -9813,11 +9813,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -9833,7 +9833,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -9841,7 +9841,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -9851,7 +9851,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -9864,7 +9864,7 @@ public class RFIDService {
 
     private static class getGoodsByLocation_argsStandardScheme extends StandardScheme<getGoodsByLocation_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsByLocation_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsByLocation_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -9893,7 +9893,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsByLocation_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsByLocation_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -9915,7 +9915,7 @@ public class RFIDService {
     private static class getGoodsByLocation_argsTupleScheme extends TupleScheme<getGoodsByLocation_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetLocation()) {
@@ -9928,7 +9928,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -10190,11 +10190,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -10214,7 +10214,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -10222,7 +10222,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -10230,7 +10230,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -10243,7 +10243,7 @@ public class RFIDService {
 
     private static class getGoodsByLocation_resultStandardScheme extends StandardScheme<getGoodsByLocation_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsByLocation_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getGoodsByLocation_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -10283,7 +10283,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsByLocation_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getGoodsByLocation_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -10314,7 +10314,7 @@ public class RFIDService {
     private static class getGoodsByLocation_resultTupleScheme extends TupleScheme<getGoodsByLocation_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -10333,7 +10333,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getGoodsByLocation_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -10585,11 +10585,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -10609,7 +10609,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -10617,7 +10617,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -10625,7 +10625,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -10638,7 +10638,7 @@ public class RFIDService {
 
     private static class getApplyDocCodeByCNum_argsStandardScheme extends StandardScheme<getApplyDocCodeByCNum_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplyDocCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplyDocCodeByCNum_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -10667,7 +10667,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplyDocCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplyDocCodeByCNum_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -10691,7 +10691,7 @@ public class RFIDService {
     private static class getApplyDocCodeByCNum_argsTupleScheme extends TupleScheme<getApplyDocCodeByCNum_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetCNum()) {
@@ -10704,7 +10704,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -10946,11 +10946,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -10970,7 +10970,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -10978,7 +10978,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -10986,7 +10986,7 @@ public class RFIDService {
     private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -10999,7 +10999,7 @@ public class RFIDService {
 
     private static class getApplyDocCodeByCNum_resultStandardScheme extends StandardScheme<getApplyDocCodeByCNum_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplyDocCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getApplyDocCodeByCNum_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -11028,7 +11028,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplyDocCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getApplyDocCodeByCNum_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -11052,7 +11052,7 @@ public class RFIDService {
     private static class getApplyDocCodeByCNum_resultTupleScheme extends TupleScheme<getApplyDocCodeByCNum_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -11065,7 +11065,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, getApplyDocCodeByCNum_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -11531,11 +11531,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -11575,7 +11575,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -11583,7 +11583,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -11593,7 +11593,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -11606,7 +11606,7 @@ public class RFIDService {
 
     private static class confirmInventory_argsStandardScheme extends StandardScheme<confirmInventory_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmInventory_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmInventory_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -11659,7 +11659,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmInventory_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmInventory_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -11696,7 +11696,7 @@ public class RFIDService {
     private static class confirmInventory_argsTupleScheme extends TupleScheme<confirmInventory_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmInventory_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmInventory_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetLocation()) {
@@ -11727,7 +11727,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmInventory_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmInventory_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(4);
         if (incoming.get(0)) {
@@ -11983,11 +11983,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -12003,7 +12003,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -12011,7 +12011,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -12021,7 +12021,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -12034,7 +12034,7 @@ public class RFIDService {
 
     private static class confirmInventory_resultStandardScheme extends StandardScheme<confirmInventory_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmInventory_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmInventory_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -12063,7 +12063,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmInventory_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmInventory_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -12087,7 +12087,7 @@ public class RFIDService {
     private static class confirmInventory_resultTupleScheme extends TupleScheme<confirmInventory_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmInventory_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmInventory_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -12100,7 +12100,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmInventory_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmInventory_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -12788,11 +12788,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
     }
 
@@ -12852,7 +12852,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -12860,7 +12860,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -12870,7 +12870,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -12883,7 +12883,7 @@ public class RFIDService {
 
     private static class confirmArrive_argsStandardScheme extends StandardScheme<confirmArrive_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmArrive_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmArrive_args struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -12960,7 +12960,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmArrive_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmArrive_args struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -13010,7 +13010,7 @@ public class RFIDService {
     private static class confirmArrive_argsTupleScheme extends TupleScheme<confirmArrive_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmArrive_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmArrive_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetCharge()) {
@@ -13059,7 +13059,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmArrive_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmArrive_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(7);
         if (incoming.get(0)) {
@@ -13327,11 +13327,11 @@ public class RFIDService {
       return _Fields.findByThriftId(fieldId);
     }
 
-    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
       schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
     }
 
-    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
       schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
       }
 
@@ -13347,7 +13347,7 @@ public class RFIDService {
       return sb.toString();
     }
 
-    public void validate() throws org.apache.thrift.TException {
+    public void validate() throws TException {
       // check for required fields
       // check for sub-struct validity
     }
@@ -13355,7 +13355,7 @@ public class RFIDService {
     private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
       try {
         write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -13365,7 +13365,7 @@ public class RFIDService {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
-      } catch (org.apache.thrift.TException te) {
+      } catch (TException te) {
         throw new java.io.IOException(te);
       }
     }
@@ -13378,7 +13378,7 @@ public class RFIDService {
 
     private static class confirmArrive_resultStandardScheme extends StandardScheme<confirmArrive_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmArrive_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, confirmArrive_result struct) throws TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -13407,7 +13407,7 @@ public class RFIDService {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmArrive_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, confirmArrive_result struct) throws TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -13431,7 +13431,7 @@ public class RFIDService {
     private static class confirmArrive_resultTupleScheme extends TupleScheme<confirmArrive_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, confirmArrive_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, confirmArrive_result struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
         if (struct.isSetSuccess()) {
@@ -13444,7 +13444,7 @@ public class RFIDService {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, confirmArrive_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, confirmArrive_result struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {

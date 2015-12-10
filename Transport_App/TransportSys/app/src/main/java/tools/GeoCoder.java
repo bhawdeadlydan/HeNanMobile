@@ -25,50 +25,34 @@ public class GeoCoder {
         this.lng=lng;
         this.path+="&location="+lat+","+lng;
     }
-    /**
-     * 把输入流转换成字符数组
-     * @param inputStream   输入流
-     * @return  字符数组
-     * @throws Exception
-     */
-    public static byte[] readStream(InputStream inputStream) throws Exception {
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
-        int len = 0;
-        while ((len = inputStream.read(buffer)) != -1) {
-            bout.write(buffer, 0, len);
-        }
-        bout.close();
-        inputStream.close();
-
-        return bout.toByteArray();
+    public String getURL(){
+        return this.path;
     }
-    public String getJson(String path){
-        String json="";
-        try {
-            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-            byte[] data = new byte[1024];
-            int len = 0;
-            URL url = new URL(path);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            InputStream inStream = conn.getInputStream();
-            while ((len = inStream.read(data)) != -1) {
-                outStream.write(data, 0, len);
-            }
-            inStream.close();
-            json= new String(outStream.toByteArray());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        return json;
-
-    }
-    public AddressComponent getAddress(){
+//    public String getJson(String path){
+//        String json="";
+//        try {
+//            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+//            byte[] data = new byte[2048];
+//            int len = 0;
+//            URL url = new URL(path);
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            InputStream inStream = conn.getInputStream();
+//            while ((len = inStream.read(data)) != -1) {
+//                outStream.write(data, 0, len);
+//            }
+//            inStream.close();
+//            json= new String(outStream.toByteArray());
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return json;
+//
+//    }
+    public AddressComponent getAddress(String json){
 
         AddressComponent addressComponent=null;
-        String json=getJson(path);
         try{
             if(json.equals(null)||json.length()==0)
                 return null;
@@ -90,8 +74,8 @@ public class GeoCoder {
 
     }
 
-    public static void main(String[] args){
-        GeoCoder geoCoder=new GeoCoder(120.558957,31.325152);
-        geoCoder.getAddress();
-    }
+//    public static void main(String[] args){
+//        GeoCoder geoCoder=new GeoCoder(120.558957,31.325152);
+//        geoCoder.getAddress();
+//    }
 }
