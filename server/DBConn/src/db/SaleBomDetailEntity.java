@@ -3,10 +3,10 @@ package db;
 import javax.persistence.*;
 
 /**
- * Created by richard on 2015/12/7.
+ * Created by richard on 2015/12/10.
  */
 @Entity
-@Table(name = " sale_bom_detail", schema = "mobile", catalog = "")
+@Table(name = "sale_bom_detail", schema = "mobile", catalog = "")
 public class SaleBomDetailEntity {
     private String itemErpCode;
     private String itemErpName;

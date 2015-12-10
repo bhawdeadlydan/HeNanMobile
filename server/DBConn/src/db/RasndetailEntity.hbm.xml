@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="db.RasndetailEntity" table="rasndetail" schema="mobile">
-        <id name="id" column="ID"/>
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
         <property name="cartonOrderNum" column="CARTON_ORDER_NUM"/>
         <property name="receiveDate" column="RECEIVE_DATE"/>
         <property name="itemCode" column="ITEM_CODE"/>

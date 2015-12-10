@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="db.TransportEntity" table="transport" schema="mobile">
-        <id name="id" column="ID"/>
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
         <property name="charge" column="CHARGE"/>
         <property name="time" column="TIME"/>
         <property name="position" column="POSITION"/>

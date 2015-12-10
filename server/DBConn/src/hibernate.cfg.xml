@@ -8,7 +8,6 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">rfid</property>
         <property name="connection.password">rfid</property>
-        <mapping class="db.SaleBomDetailEntity"/>
         <mapping class="db.AllocationEntity"/>
         <mapping class="db.BomEntity"/>
         <mapping class="db.ItemEntity"/>
@@ -19,7 +18,6 @@
         <mapping class="db.RdetailEntity"/>
         <mapping class="db.RposEntity"/>
         <mapping class="db.SaleBomEntity"/>
-        <mapping resource="db/SaleBomDetailEntity.hbm.xml"/>
         <mapping resource="db/BomEntity.hbm.xml"/>
         <mapping resource="db/ItemEntity.hbm.xml"/>
         <mapping resource="db/LogEntity.hbm.xml"/>
@@ -44,6 +42,8 @@
         <mapping class="db.PosEntity"/>
         <mapping resource="db/CheckEntity.hbm.xml"/>
         <mapping class="db.CheckEntity"/>
+        <mapping class="db.SaleBomDetailEntity"/>
+        <mapping resource="db/SaleBomDetailEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="db.LogEntity" table="log" schema="mobile">
-        <id name="id" column="ID"/>
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
         <property name="time" column="TIME"/>
         <property name="operation" column="OPERATION"/>
         <property name="note" column="NOTE"/>

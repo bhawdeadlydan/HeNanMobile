@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="db.PackingBomEntity" table="packing_bom" schema="mobile">
-        <id name="id" column="ID"/>
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
         <property name="packingBomCode" column="PACKING_BOM_CODE"/>
         <property name="packingType" column="PACKING_TYPE"/>
         <property name="vendorCode" column="VENDOR_CODE"/>
