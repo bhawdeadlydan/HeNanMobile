@@ -12,16 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.ReceivingSheetsScanBoxExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class ReceivingScanBoxActivity extends Activity {
 
     private TextView vReceSheetCode;
-    ExpandableListView sheetListView;
-    ReceivingSheetsScanBoxExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private ReceivingSheetsScanBoxExpandableAdapter tmpAdapter;
     private Map<String, List<Map<String, String>>> mReceivingBoxesDetails;
     private List<Map<String,String>> mReceivingBoxes;
     private List<Map<String, String>> mapList;
-    private int prePos=-1;
+    private TitleBar mTitleBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,12 @@ public class ReceivingScanBoxActivity extends Activity {
         //Bundle bundle=this.getIntent().getExtras();
         //String receiving_sheet_code=bundle.getString("receiving_sheet_code");
         //vReceSheetCode.setText(vReceSheetCode.getText()+receiving_sheet_code);
-
+        iniActivity();
         iniListView();
+    }
+
+    public void iniActivity(){
+        mTitleBar = new TitleBar(this,"收货贴标");
     }
 
     public void iniListView() {
@@ -67,16 +72,6 @@ public class ReceivingScanBoxActivity extends Activity {
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
-                /*
-                if(prePos==-1) {
-                    sheetListView.expandGroup(groupPosition);
-                    prePos=groupPosition;
-                }
-                else{
-                    sheetListView.collapseGroup(prePos);
-                    sheetListView.expandGroup(groupPosition);
-                }
-                */
                 for (int i = 0; i < tmpAdapter.getGroupCount(); i++) {
                     if (groupPosition != i) {
                         sheetListView.collapseGroup(i);

@@ -19,13 +19,32 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="货位："
-            android:id="@+id/text_check_by_pos_loc"
-            android:textSize="20dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="货位："
+                android:id="@+id/text_check_by_pos_loc"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="货物列表："
+                android:id="@+id/textView15"
+                android:layout_below="@+id/linearLayout2"/>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
@@ -47,20 +66,12 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="货物列表："
-        android:id="@+id/textView15"
-        android:layout_below="@+id/linearLayout2"/>
-
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list_check_by_pos_sheets"
-        android:layout_below="@+id/textView15"
-        android:layout_above="@+id/btn_check_by_pos_commit" />
+        android:layout_above="@+id/btn_check_by_pos_commit"
+        android:layout_below="@+id/linearLayout2" />
 
     <Button
         android:layout_width="match_parent"

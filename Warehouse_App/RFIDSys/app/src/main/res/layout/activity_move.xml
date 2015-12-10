@@ -38,7 +38,6 @@
         android:layout_height="wrap_content"
         android:text="提交移位信息"
         android:id="@+id/btn_move_commit"
-        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -49,7 +48,11 @@
         android:text="当前选择货位："
         android:id="@+id/text_move_cur_loc"
         android:layout_alignBaseline="@+id/btn_move_commit"
-        android:layout_alignBottom="@+id/btn_move_commit"/>
+        android:layout_alignBottom="@+id/btn_move_commit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="35dp"
+        android:textColor="#0099FF"/>
 
     <ExpandableListView
         android:layout_width="wrap_content"

@@ -15,13 +15,15 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.MoveExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class MoveActivity extends Activity {
 
-    ExpandableListView sheetListView;
-    MoveExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private MoveExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mMoveDetailList;
     private List<Map<String,String>> mMoveList;
+    private TitleBar mTitleBar;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -32,11 +34,17 @@ public class MoveActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_move);
+        iniActivity();
         iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void iniActivity()
+    {
+        mTitleBar = new TitleBar(this,"货物移位");
     }
 
     public void iniListView() {

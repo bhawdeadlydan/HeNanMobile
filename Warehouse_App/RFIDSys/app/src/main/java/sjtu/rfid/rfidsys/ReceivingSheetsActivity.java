@@ -18,12 +18,14 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class ReceivingSheetsActivity extends Activity {
     ExpandableListView sheetListView;
     ReceivingSheetsExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mReceivingCodeDetailList;
     private List<String> mReceivingCodeList;
+    TitleBar mTitleBar;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -36,11 +38,17 @@ public class ReceivingSheetsActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiving_sheets);
+        iniActivity();
         iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void iniActivity()
+    {
+        mTitleBar = new TitleBar(this,"收货贴标");
     }
 
     public void iniListView() {

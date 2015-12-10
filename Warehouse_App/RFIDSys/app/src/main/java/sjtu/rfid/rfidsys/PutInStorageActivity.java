@@ -16,13 +16,15 @@ import java.util.Map;
 
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
 import sjtu.rfid.tools.PutInStorageExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class PutInStorageActivity extends Activity {
 
-    ExpandableListView sheetListView;
-    PutInStorageExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private PutInStorageExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mPutInStorageDetailList;
     private List<Map<String,String>> mPutInStorageList;
+    private TitleBar mTitleBar;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -33,11 +35,16 @@ public class PutInStorageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_put_in_storage);
+        iniActivity();
         iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void iniActivity() {
+        mTitleBar = new TitleBar(this,"入库上架");
     }
 
     public void iniListView() {

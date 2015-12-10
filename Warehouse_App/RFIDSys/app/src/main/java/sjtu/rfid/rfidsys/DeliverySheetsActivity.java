@@ -14,12 +14,14 @@ import java.util.List;
 import java.util.Map;
 
 import sjtu.rfid.tools.DeliverySheetsExpandableAdapter;
+import sjtu.rfid.tools.TitleBar;
 
 public class DeliverySheetsActivity extends Activity {
-    ExpandableListView sheetListView;
-    DeliverySheetsExpandableAdapter tmpAdapter;
+    private ExpandableListView sheetListView;
+    private DeliverySheetsExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mDeliveryCodeDetailList;
     private List<String> mDeliveryCodeList;
+    private TitleBar mTitleBar;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -31,11 +33,16 @@ public class DeliverySheetsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_sheets);
+        iniActivity();
         iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void iniActivity() {
+        mTitleBar = new TitleBar(this,"申领出库");
     }
 
     public void iniListView() {
