@@ -1,4 +1,5 @@
 import dao.*;
+import db.DetailEntity;
 import db.PosEntity;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -51,17 +52,32 @@ public class ReadOutXML {
                 pos.setReceiverUidCode(positem.element("RECEIVER_UID_CODE").getText());
                 pos.setApplyDocDesc(positem.element("APPLY_DOC_DESC").getText());
                 try{
-                    Date date = dateFormat.parse(positem.element("ExpectedShipDate").getText());
+                    Date date = dateFormat.parse(positem.element("EXPECTED_SHIP_DATE").getText());
                     timestamp1 = new java.sql.Timestamp(date.getTime());
                 }catch(Exception e){//this generic but you can control another types of exception
-                    //e.printStackTrace();
-                    System.err.println(e.getMessage());
+                    e.printStackTrace();
+//                    System.err.println(e.getMessage());
                 }
                 pos.setExpectedShipDate(timestamp1);
                 pos.setDockCode(positem.element("DOCK_CODE").getText());
                 pos.setDisposition(positem.element("DISPOSITION").getText());
                 pos.setSent(0);
                 pdao.addEntity(pos);
+                Element dCollection = positem.element("DETAILS_Collection");
+                for(Iterator i2 = dCollection.elementIterator();i2.hasNext();){
+                    Element dItem = (Element)i2.next();
+                    DetailEntity detail = new DetailEntity();
+                    detail.setIsBom(dItem.element("IS_BOM").getText());
+                    detail.setSaleBomCode(dItem.element("SALE_BOM_CODE").getText());
+                    detail.setItemErpCode(dItem.element("ITEM_ERP_CODE").getText());
+                    detail.setItemErpUnit(dItem.element("ITEM_ERP_UNIT").getText());
+                    detail.setItemCode(dItem.element("ITEM_CODE").getText());
+                    detail.setItemName(dItem.element("ITEM_NAME").getText());
+                    detail.setItemUnitCode(dItem.element("ITEM_UNIT_CODE").getText());
+                    detail.setExpectedQuantity(Integer.parseInt(dItem.element("EXPECTED_QUANTITY").getText()));
+                    detail.setPosApplyDocCode(pos.getApplyDocCode());
+                    ddao.addEntity(detail);
+                }
             }
         } catch (DocumentException e) {
             System.err.println(e.getMessage());
