@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +54,7 @@ public class DeliveryScanBoxActivity extends Activity {
         String sheetCode=bundle.getString("delivery_sheet_code");
         vDeliverySheetCode.setText(sheetCode);
         iniActivity();
+        iniEvent();
 
         deliveryScanBoxThread=new DeliveryScanBoxThread(handler,sheetCode);
         deliveryScanBoxThread.start();
@@ -98,6 +101,24 @@ public class DeliveryScanBoxActivity extends Activity {
                         sheetListView.collapseGroup(i);
                     }
                 }
+            }
+        });
+    }
+
+    public void iniEvent(){
+        Button btnScan=(Button)findViewById(R.id.btn_delivery_scan_box_scan);
+        Button btnCommit=(Button)findViewById(R.id.btn_delivery_scan_box_commit);
+
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

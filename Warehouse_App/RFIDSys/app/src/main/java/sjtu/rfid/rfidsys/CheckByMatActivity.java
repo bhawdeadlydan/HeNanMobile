@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +61,7 @@ public class CheckByMatActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_by_mat);
         iniActivity();
+        iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -134,5 +137,24 @@ public class CheckByMatActivity extends Activity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+
+    public void iniEvent(){
+
+        Button btnScanGetInfo=(Button)findViewById(R.id.btn_check_by_mat_scan_box_get_info);
+        Button btnCommit=(Button)findViewById(R.id.btn_check_by_mat_commit);
+
+        btnScanGetInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

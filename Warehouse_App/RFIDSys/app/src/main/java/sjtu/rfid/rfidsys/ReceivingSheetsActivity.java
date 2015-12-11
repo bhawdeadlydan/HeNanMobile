@@ -61,7 +61,7 @@ public class ReceivingSheetsActivity extends Activity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         receivingSheetsThread=new ReceivingSheetsThread(handler);
-        receivingSheetsThread.start();
+        receivingSheetsThread.start();;
     }
 
     public void iniActivity()

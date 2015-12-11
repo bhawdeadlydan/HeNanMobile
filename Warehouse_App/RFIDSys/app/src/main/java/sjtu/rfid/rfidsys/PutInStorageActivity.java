@@ -3,6 +3,8 @@ package sjtu.rfid.rfidsys;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -37,6 +39,7 @@ public class PutInStorageActivity extends Activity {
         setContentView(R.layout.activity_put_in_storage);
         iniActivity();
         iniListView();
+        iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -82,6 +85,39 @@ public class PutInStorageActivity extends Activity {
 
         TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
         vGoodsPos.setText("A12");
+    }
+
+    public void iniEvent(){
+        Button btnScanLoc=(Button)findViewById(R.id.btn_put_in_storage_scan_loc);
+        Button btnScanBox=(Button)findViewById(R.id.btn_put_in_storage_scan_box);
+        Button btnClear=(Button)findViewById(R.id.btn_put_in_storage_clear);
+        Button btnBind=(Button)findViewById(R.id.btn_put_in_storage_bind);
+
+        btnScanLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnScanBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnBind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
     }
 }

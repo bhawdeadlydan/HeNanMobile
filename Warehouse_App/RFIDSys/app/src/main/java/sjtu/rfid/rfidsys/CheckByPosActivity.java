@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +56,7 @@ public class CheckByPosActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_by_pos);
         iniActivity();
+        iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -99,5 +102,30 @@ public class CheckByPosActivity extends Activity {
         TextView vGoosdPos=(TextView)findViewById(R.id.text_check_by_pos_loc);
         vGoosdPos.setText(vGoosdPos.getText()+"A22");
 
+    }
+
+    public void iniEvent(){
+        Button btnScanLoc=(Button)findViewById(R.id.btn_check_by_pos_scan_loc);
+        Button btnScanBox=(Button)findViewById(R.id.btn_check_by_pos_scan_box);
+        Button btnCommit=(Button)findViewById(R.id.btn_check_by_pos_commit);
+
+        btnScanLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnScanBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

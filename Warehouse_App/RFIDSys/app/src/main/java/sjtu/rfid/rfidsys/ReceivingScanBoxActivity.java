@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +56,7 @@ public class ReceivingScanBoxActivity extends Activity {
         sheetCode=bundle.getString("receiving_sheet_code");
         vReceSheetCode.setText(sheetCode);
         iniActivity();
+        iniEvent();
 
         receivingScanBoxThread=new ReceivingScanBoxThread(handler,sheetCode);
         receivingScanBoxThread.start();
@@ -97,6 +100,26 @@ public class ReceivingScanBoxActivity extends Activity {
                 }
             }
         });
+
+    }
+
+    public void iniEvent(){
+        Button btnScan=(Button)findViewById(R.id.btn_receiving_scan_box_scan);
+        Button btnCommit=(Button)findViewById(R.id.btn_receiving_scan_box_commit);
+
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
     }
 }
