@@ -78,6 +78,27 @@ public class WMSDetailDao extends BaseDao{
         return "";
     }
 
+    public void bindGoodAndApplyDocCode(String CNum, String ApplyDocCode){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "update WmsDetailEntity as model set model.applyDocCode = ? where model.cNum = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, ApplyDocCode);
+            queryObject.setParameter(1, CNum);
+            queryObject.executeUpdate();
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
+
     public void bind(int locationID, String CNum){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;

@@ -162,7 +162,9 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         pdao.Retrieval(ApplyDocCode);
         WMSDetailDao wdao = new WMSDetailDao();
         for(Iterator<String> it = CNums.iterator(); it.hasNext();){
-            wdao.bind(-1, it.next());
+            String CNum = it.next();
+            wdao.bind(-1, CNum);
+            wdao.bindGoodAndApplyDocCode(CNum,ApplyDocCode);
         }
         return true;
     }
