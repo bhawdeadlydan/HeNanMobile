@@ -22,13 +22,13 @@ import sjtu.rfid.rfidsys.R;
  */
 public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAdapter {
 
-    private Map<String,List<Map<String,String>>> mDeliveryBoxesDetails;
+    private Map<String,Map<String,String>> mDeliveryBoxesDetails;
     private List<Map<String,String>> mDeliveryBoxes;
     private List<Integer> mRealCountList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
-    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, List<Map<String, String>>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes){
+    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDeliveryBoxes = mDeliveryBoxes;
@@ -83,11 +83,12 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box, null);
         TextView matCode = (TextView) layout.findViewById(R.id.text_delivery_scan_mat_code);
+        TextView matName = (TextView) layout.findViewById(R.id.text_delivery_scan_mat_name);
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_delivery_scan_expected_count);
-        //TextView realCount = (TextView) layout.findViewById(R.id.text_delivery_scan_real_count);
         matCode.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matCode"));
+        matName.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matName"));
         expectedCount.setText(expectedCount.getText()+mDeliveryBoxes.get(groupPosition).get("expectedCount"));
-        //realCount.setText(realCount.getText()+mDeliveryBoxes.get(groupPosition).get("realCount"));
+
         return layout;
     }
 
@@ -95,33 +96,16 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box_detail, null);
-        List<Map<String,String>> mapList=mDeliveryBoxesDetails.get(mDeliveryBoxes.get(groupPosition).get("matCode"));
-//        for(int i=0;i<mapList.size();i++){
-//            Map<String,String> map=mapList.get(i);
-//            for(Map.Entry<String,String> entry:map.entrySet()){
-//                if(entry.getKey().equals("isBom")){
-//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
-//                    text1.setText(text1.getText()+entry.getValue());
-//                }
-//                else if(entry.getKey().equals("itemCode")){
-//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_code);
-//                    text1.setText(text1.getText()+entry.getValue());
-//                }
-//                else if(entry.getKey().equals("itemName")){
-//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_item_name);
-//                    text1.setText(text1.getText()+entry.getValue());
-//                }
-//                else if(entry.getKey().equals("quantity")){
-//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_quantity);
-//                    text1.setText(text1.getText()+entry.getValue());
-//                }
-//                else if(entry.getKey().equals("unit")){
-//                    //TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_unit);
-//                    TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
-//                    text1.setText(text1.getText()+entry.getValue());
-//                }
-//            }
-//        }
+
+        Map<String,String> map=mDeliveryBoxesDetails.get(mDeliveryBoxes.get(groupPosition).get("matCode"));
+
+        TextView text1 = (TextView) layout.findViewById(R.id.text_delivery_scan_box_detail_is_bom);
+        text1.setText(text1.getText()+map.get("isBom"));
+
+
+        TextView text2 = (TextView) layout.findViewById(R.id.text_delivery_scan_box_detail_box_list);
+        text2.setText(text2.getText()+map.get("cartonList"));
+
         EditText realCount = (EditText) layout.findViewById(R.id.edittext_delivery_scan_box_scan_count);
         Integer t = mRealCountList.get(groupPosition);
 
