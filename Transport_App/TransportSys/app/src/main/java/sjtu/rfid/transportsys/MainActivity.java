@@ -14,26 +14,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.Poi;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.apache.thrift.TException;
-import org.apache.thrift.protocol.TBinaryProtocol;
-import org.apache.thrift.protocol.TProtocol;
-import org.apache.thrift.transport.THttpClient;
-import org.apache.thrift.transport.TServerSocket;
-import org.apache.thrift.transport.TServerTransport;
-import org.apache.thrift.transport.TSocket;
-import org.apache.thrift.transport.TTransport;
-
-import java.net.InetSocketAddress;
-import java.util.Iterator;
-import java.util.List;
-
-import rfid.service.POS;
-import rfid.service.RFIDService;
-import sjtu.rfid.thread.GeoCoderThread;
+import baidu.poistion.service.LocationListener;
 import sjtu.rfid.thread.TestThread;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TestThread testThread;
     private String ret="";
+
+    public LocationClient mLocationClient = null;
+    public BDLocationListener myListener = LocationListener.getInstance();
 
 
     private Handler TestHandler = new Handler() {
@@ -62,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        mLocationClient = new LocationClient(getApplicationContext());
+        mLocationClient.registerLocationListener(myListener);
+
+        mLocationClient.start();
+        mLocationClient.requestLocation();
+
         iniBtns();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.

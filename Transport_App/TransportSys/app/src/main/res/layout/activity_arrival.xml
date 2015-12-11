@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="VS-DH-0000000000000000001"
+                android:text=""
                 android:id="@+id/text_arrival_order_code" />
         </LinearLayout>
 
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="扫描获取订单"
-                android:id="@+id/button4"
+                android:id="@+id/btn_arrival_scan_box_get_order"
                 android:textSize="13dp"/>
 
             <Button

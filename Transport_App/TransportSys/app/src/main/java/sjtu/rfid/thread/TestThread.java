@@ -56,7 +56,12 @@ public class TestThread extends Thread{
             RFIDService.Client client= connectServe.openConnect();
             if(client==null)
                 return;
-            String s=client.getApplyDocCodeByCNum("123");
+            String s="";
+            List<POS> list = client.getApplySheets();
+            for(Iterator it = list.iterator();it.hasNext();){
+                POS pos = (POS)it.next();
+                s+=pos.getApply_Doc_Code();
+            }
             connectServe.closeConnect();
             msg.obj="#"+s+"#";
             handler.sendMessage(msg);

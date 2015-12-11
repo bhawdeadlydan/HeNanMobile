@@ -84,20 +84,13 @@ public class ConfirmExpandableAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_box_detail, null);
         Map<String,String> map=mConfirmDetailList.get(mConfirmList.get(groupPosition).get("matCode"));
-        for(Map.Entry<String,String> entry:map.entrySet()){
-            if(entry.getKey().equals("isBom")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("matName")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_name);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("unit")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-        }
+
+        TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+        text1.setText(text1.getText()+map.get("isBom"));
+        TextView text2 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+        text2.setText(text2.getText()+map.get("matName"));
+        TextView text3 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+        text3.setText(text3.getText()+map.get("unit"));
 
         return layout;
     }

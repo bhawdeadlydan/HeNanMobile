@@ -1,52 +1,39 @@
 package sjtu.rfid.transportsys;
 
-import android.content.Context;
+
 import android.content.Intent;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.apache.thrift.TException;
-import org.apache.thrift.protocol.TBinaryProtocol;
-import org.apache.thrift.protocol.TProtocol;
-import org.apache.thrift.transport.TSocket;
-import org.apache.thrift.transport.TTransport;
-import org.apache.thrift.transport.TTransportException;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import rfid.service.POS;
-import rfid.service.RFIDService;
+import baidu.poistion.service.LocationListener;
+import rfid.service.Good;
+
+import sjtu.rfid.entity.ArrivalEntity;
+
+import sjtu.rfid.thread.ArrivalThread;
 import sjtu.rfid.thread.GeoCoderThread;
-import sjtu.rfid.thread.TestThread;
 import tools.ArrivalExpandableAdapter;
-import tools.GeoCoder;
+
 
 
 public class ArrivalActivity extends AppCompatActivity {
@@ -60,13 +47,22 @@ public class ArrivalActivity extends AppCompatActivity {
     private double latitude=0.0;
     private double longitude =0.0;
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    private String CNum="";
+    private ArrivalEntity arrivalEntity;
 
+    public BDLocationListener myListener = LocationListener.getInstance();
 
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
+            arrivalEntity=(ArrivalEntity)msg.obj;
+            TextView vApplyCode=(TextView)findViewById(R.id.text_arrival_order_code);
+            vApplyCode.setText(arrivalEntity.getApplyCode());
+            iniListView(arrivalEntity.getGoodsList());
+        }
+    };
     private Handler geoHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -75,18 +71,28 @@ public class ArrivalActivity extends AppCompatActivity {
             vAddress.setText(msg.obj.toString());
         }
     };
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arrival);
+
         iniActivity();
-        iniListView();
         iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        LocationListener listener=(LocationListener)myListener;
+        geoCoderThread=new GeoCoderThread(listener.getLongitude(),listener.getLatitude(),geoHandler);
+        geoCoderThread.start();
 
     }
     public void iniActivity()
@@ -103,25 +109,24 @@ public class ArrivalActivity extends AppCompatActivity {
                 break;
         }
     }
-    public void iniListView() {
+
+    public void iniListView(List<Good> goodsList) {
 
         mArrivalDetailList = new HashMap<String, Map<String, String>>();
         mArrivalList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_arrive_sheets);
-        for(int i=0;i<9;i++){
+        for(Good good:goodsList){
             Map<String,String> map=new HashMap<>();
-            map.put("matCode","2524-PDE-OUT-201509000000"+(i+1));
-            map.put("expectedCount","10");
+            map.put("matCode",good.getCode());
+            map.put("expectedCount",String.valueOf(good.getNum()));
             map.put("realCount","0");
             mArrivalList.add(map);
 
-        }
-        for (int i = 0; i < mArrivalList.size(); i++) {
             Map<String, String> detailMap = new HashMap<>();
-            detailMap.put("isBom", "Y");
-            detailMap.put("matName", "B1524011");
-            detailMap.put("unit", "公里");
-            mArrivalDetailList.put(mArrivalList.get(i).get("matCode"), detailMap);
+            detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
+            detailMap.put("matName", good.getDetail());
+            detailMap.put("unit", good.getUnit());
+            mArrivalDetailList.put(good.getCode(), detailMap);
         }
         tmpAdapter = new ArrivalExpandableAdapter(this,mArrivalDetailList,mArrivalList);
         sheetListView.setAdapter(tmpAdapter);
@@ -136,9 +141,6 @@ public class ArrivalActivity extends AppCompatActivity {
                 }
             }
         });
-        TextView vApplyCode=(TextView)findViewById(R.id.text_arrival_order_code);
-        vApplyCode.setText("VS-DH-0000000000000000001");
-
     }
 
     public void iniEvent(){
@@ -148,10 +150,19 @@ public class ArrivalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                longitude=120.55895699681;
-                latitude=31.325151869135;
-                geoCoderThread=new GeoCoderThread(longitude,latitude,geoHandler);
+                LocationListener listener=(LocationListener)myListener;
+                geoCoderThread=new GeoCoderThread(listener.getLongitude(),listener.getLatitude(),geoHandler);
                 geoCoderThread.start();
+            }
+        });
+
+        Button btnGetOrder=(Button)findViewById(R.id.btn_arrival_scan_box_get_order);
+        btnGetOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrivalThread thread=new ArrivalThread(handler,CNum);
+                thread.start();
+
             }
         });
 

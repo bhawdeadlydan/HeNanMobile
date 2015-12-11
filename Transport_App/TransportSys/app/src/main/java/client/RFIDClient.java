@@ -27,8 +27,8 @@ public class RFIDClient {
             RFIDService.Client client = new RFIDService.Client(protocol);
             List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
-                POS asn = (POS)it.next();
-                System.out.println(asn.getApply_Doc_Code());
+                POS pos = (POS)it.next();
+                System.out.println(pos.getApply_Doc_Code());
             }
             System.out.println(client.getApplyDocCodeByCNum("123"));
             transport.close();
