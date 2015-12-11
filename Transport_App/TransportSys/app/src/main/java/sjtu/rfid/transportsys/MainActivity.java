@@ -18,14 +18,20 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.THttpClient;
 import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
+import org.apache.thrift.transport.TSocket;
+import org.apache.thrift.transport.TTransport;
 
 import java.net.InetSocketAddress;
+import java.util.Iterator;
 import java.util.List;
 
+import rfid.service.POS;
 import rfid.service.RFIDService;
 import sjtu.rfid.thread.GeoCoderThread;
 import sjtu.rfid.thread.TestThread;
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private MainButtonListener mBtnListener = new MainButtonListener();
 
     private TestThread testThread;
+    private String ret="";
 
 
     private Handler TestHandler = new Handler() {
