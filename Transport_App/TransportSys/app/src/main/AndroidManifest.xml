@@ -7,15 +7,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@android:style/Theme.Light.NoTitleBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConfigActivity" />
+        <activity android:name=".ConfigActivity"
+            android:windowSoftInputMode="adjustPan|stateUnchanged"/>
         <activity android:name=".ArrivalActivity"/>
         <activity android:name=".ConfirmActivity"/>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for

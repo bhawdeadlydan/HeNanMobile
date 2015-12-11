@@ -1,6 +1,7 @@
 package sjtu.rfid.transportsys;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -36,7 +37,7 @@ import tools.ArrivalExpandableAdapter;
 
 
 
-public class ArrivalActivity extends AppCompatActivity {
+public class ArrivalActivity extends Activity {
 
     ExpandableListView sheetListView;
     ArrivalExpandableAdapter tmpAdapter;
@@ -98,7 +99,7 @@ public class ArrivalActivity extends AppCompatActivity {
     public void iniActivity()
     {
         Intent intent = getIntent();
-        TextView title = (TextView) findViewById(R.id.text_title_title);
+        TextView title = (TextView) findViewById(R.id.text_title);
         int func = intent.getIntExtra("function",0);
         switch (func) {
             case 0:
@@ -108,6 +109,14 @@ public class ArrivalActivity extends AppCompatActivity {
                 title.setText("施工点收货");
                 break;
         }
+
+        Button btnBack = (Button) findViewById(R.id.btn_title_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void iniListView(List<Good> goodsList) {

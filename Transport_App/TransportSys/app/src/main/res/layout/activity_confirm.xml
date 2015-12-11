@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="sjtu.rfid.transportsys.ConfirmActivity">
 
     <include
@@ -18,17 +14,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/include2"
-        android:layout_alignParentStart="true"
         android:id="@+id/linearLayout3"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_weight="1">
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="申领单号："
                 android:id="@+id/textView4"
@@ -44,7 +42,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp">
 
             <Button
                 android:layout_width="wrap_content"
@@ -54,7 +53,6 @@
                 android:textSize="13dp"/>
 
             <Button
-                style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bnt_confirm_scan_and_write"
@@ -70,22 +68,24 @@
         android:text="提交"
         android:id="@+id/btn_confirm_commit"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="货物列表："
         android:id="@+id/textView6"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/linearLayout3"/>
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list_confirm_sheets"
         android:layout_below="@+id/textView6"
-        android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_confirm_commit" />
 
 </RelativeLayout>

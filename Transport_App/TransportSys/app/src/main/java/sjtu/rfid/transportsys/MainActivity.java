@@ -1,5 +1,6 @@
 package sjtu.rfid.transportsys;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -25,7 +26,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import baidu.poistion.service.LocationListener;
 import sjtu.rfid.thread.TestThread;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private Button btnConfig, btnApply, btnArriveTmp, btnArriveConstruct;
     private MainButtonListener mBtnListener = new MainButtonListener();

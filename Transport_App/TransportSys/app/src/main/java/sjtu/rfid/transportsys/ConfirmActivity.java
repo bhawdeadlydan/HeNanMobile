@@ -1,5 +1,6 @@
 package sjtu.rfid.transportsys;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,7 +25,7 @@ import sjtu.rfid.entity.ConfirmEntity;
 import sjtu.rfid.thread.ConfirmThread;
 import tools.ConfirmExpandableAdapter;
 
-public class ConfirmActivity extends AppCompatActivity {
+public class ConfirmActivity extends Activity {
 
     ExpandableListView sheetListView;
     ConfirmExpandableAdapter tmpAdapter;
@@ -67,8 +68,16 @@ public class ConfirmActivity extends AppCompatActivity {
     public void iniActivity()
     {
         Intent intent = getIntent();
-        TextView title = (TextView) findViewById(R.id.text_title_title);
+        TextView title = (TextView) findViewById(R.id.text_title);
         title.setText("复核出库");
+        Button btnBack = (Button) findViewById(R.id.btn_title_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
     public void iniListView(List<Good> goodsList) {
 
