@@ -1,6 +1,8 @@
 package sjtu.rfid.tools;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +27,7 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 
     private Map<String,List<Map<String,String>>> mReceivingBoxesDetails;
     private List<Map<String,String>> mReceivingBoxes;
+    private List<Integer> mRealCountList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
@@ -31,58 +36,79 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mReceivingBoxes = mReceivingBoxes;
         this.mReceivingBoxesDetails = mReceivingBoxesDetails;
+        this.mRealCountList = new ArrayList<>();
+
+        for( int i = 0; i < mReceivingBoxes.size(); i++ ) {
+            mRealCountList.add(0);
+        }
+
     }
 
     @Override
     public int getGroupCount() {
 
         return mReceivingBoxes.size();
+
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
+
         String key = mReceivingBoxes.get(groupPosition).get("matCode");
         return mReceivingBoxesDetails.get(key).size();
+
     }
 
     @Override
     public Object getGroup(int groupPosition) {
+
         return mReceivingBoxes.get(groupPosition);
+
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
+
         String key = mReceivingBoxes.get(groupPosition).get("matCode");
         return mReceivingBoxesDetails.get(key);
+
     }
 
     @Override
     public long getGroupId(int groupPosition) {
+
         return groupPosition;
+
     }
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
+
         return childPosition;
+
     }
 
     @Override
     public boolean hasStableIds() {
+
         return false;
+
     }
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box, null);
         TextView matCode = (TextView) layout.findViewById(R.id.text_receiving_scan_box_mat_code);
         TextView boxCount = (TextView) layout.findViewById(R.id.text_receiving_scan_box_count);
         matCode.setText(matCode.getText()+mReceivingBoxes.get(groupPosition).get("matCode"));
         boxCount.setText(boxCount.getText()+mReceivingBoxes.get(groupPosition).get("boxCount"));
         return layout;
+
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         //RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box_detail, null);
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box_detail, null);
@@ -112,8 +138,30 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 //                }
             }
         }
-//        TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_mat_code);
-//        text1.setText(text1.getText()+mReceivingBoxes.get(groupPosition).get("matCode"));
+        EditText realCount = (EditText) layout.findViewById(R.id.edittext_receiving_scan_box_count_count);
+        Integer t = mRealCountList.get(groupPosition);
+
+        realCount.setText(String.valueOf(t));
+        realCount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if( !s.toString().equals("") ) {
+                    mRealCountList.set(groupPosition, Integer.valueOf(s.toString()));
+                } else {
+                    mRealCountList.set(groupPosition, 0);
+                }
+            }
+        });
         return layout;
     }
 

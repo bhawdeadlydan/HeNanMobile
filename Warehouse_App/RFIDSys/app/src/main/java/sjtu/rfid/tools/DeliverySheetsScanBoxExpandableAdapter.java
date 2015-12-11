@@ -1,13 +1,17 @@
 package sjtu.rfid.tools;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +24,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
     private Map<String,List<Map<String,String>>> mDeliveryBoxesDetails;
     private List<Map<String,String>> mDeliveryBoxes;
+    private List<Integer> mRealCountList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
@@ -28,6 +33,12 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDeliveryBoxes = mDeliveryBoxes;
         this.mDeliveryBoxesDetails = mDeliveryBoxesDetails;
+
+        this.mRealCountList = new ArrayList<>();
+
+        for( int i = 0; i < mDeliveryBoxes.size(); i++ ) {
+            mRealCountList.add(0);
+        }
     }
 
     @Override
@@ -81,7 +92,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_delivery_scan_box_detail, null);
         List<Map<String,String>> mapList=mDeliveryBoxesDetails.get(mDeliveryBoxes.get(groupPosition).get("matCode"));
@@ -111,6 +122,30 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 //                }
 //            }
 //        }
+        EditText realCount = (EditText) layout.findViewById(R.id.edittext_delivery_scan_box_scan_count);
+        Integer t = mRealCountList.get(groupPosition);
+
+        realCount.setText(String.valueOf(t));
+        realCount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if( !s.toString().equals("") ) {
+                    mRealCountList.set(groupPosition, Integer.valueOf(s.toString()));
+                } else {
+                    mRealCountList.set(groupPosition, 0);
+                }
+            }
+        });
         return layout;
     }
 
