@@ -70,16 +70,6 @@ public class DeliveryScanBoxActivity extends Activity {
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
-                /*
-                if(prePos==-1) {
-                    sheetListView.expandGroup(groupPosition);
-                    prePos=groupPosition;
-                }
-                else{
-                    sheetListView.collapseGroup(prePos);
-                    sheetListView.expandGroup(groupPosition);
-                }
-                */
                 for (int i = 0; i < tmpAdapter.getGroupCount(); i++) {
                     if (groupPosition != i) {
                         sheetListView.collapseGroup(i);

@@ -81,7 +81,7 @@ public class PutInStorageActivity extends Activity {
         });
 
         TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
-        vGoodsPos.setText(vGoodsPos.getText()+"A12");
+        vGoodsPos.setText("A12");
 
     }
 }

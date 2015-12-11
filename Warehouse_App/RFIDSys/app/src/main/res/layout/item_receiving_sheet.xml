@@ -47,11 +47,11 @@
             android:layout_height="50dp"
             android:text="收货"
             android:id="@+id/btn_receiving_sheet"
-            android:focusable="false"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="5dp"/>
+            android:layout_marginRight="5dp"
+            android:focusable="false"/>
 
     </LinearLayout>
 

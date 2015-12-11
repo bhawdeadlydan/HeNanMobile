@@ -55,7 +55,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_delivery_scan_box_sheets"
         android:layout_above="@+id/btn_delivery_scan_box_commit"
-        android:layout_below="@+id/textView4" />
+        android:layout_below="@+id/textView4"
+        android:focusable="false"/>
 
     <Button
         android:layout_width="match_parent"

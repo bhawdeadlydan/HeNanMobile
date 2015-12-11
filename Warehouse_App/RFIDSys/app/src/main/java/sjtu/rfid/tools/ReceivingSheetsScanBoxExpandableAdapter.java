@@ -2,11 +2,14 @@ package sjtu.rfid.tools;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Map;
@@ -72,10 +75,8 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_scan_box, null);
         TextView matCode = (TextView) layout.findViewById(R.id.text_receiving_scan_box_mat_code);
-        //TextView innerCount = (TextView) layout.findViewById(R.id.text_receiving_scan_box_inner_count);
         TextView boxCount = (TextView) layout.findViewById(R.id.text_receiving_scan_box_count);
         matCode.setText(matCode.getText()+mReceivingBoxes.get(groupPosition).get("matCode"));
-        //innerCount.setText(innerCount.getText()+mReceivingBoxes.get(groupPosition).get("innerCount"));
         boxCount.setText(boxCount.getText()+mReceivingBoxes.get(groupPosition).get("boxCount"));
         return layout;
     }

@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_receiving_scan_box_sheets"
         android:layout_below="@+id/textView8"
-        android:layout_above="@+id/btn_receiving_scan_box_commit" />
+        android:layout_above="@+id/btn_receiving_scan_box_commit"/>
 
     <LinearLayout
         android:orientation="horizontal"

@@ -14,7 +14,7 @@
         android:id="@+id/linearLayout8">
 
         <TextView
-            android:layout_width="175dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="是否套设备："
             android:id="@+id/text_receiving_scan_box_detail_is_bom" />
@@ -25,10 +25,11 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout8"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:id="@+id/linearLayout9"
+        android:layout_below="@+id/linearLayout14"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -37,6 +38,36 @@
             android:layout_height="wrap_content"
             android:text="货箱列表："
             android:id="@+id/text_receiving_scan_box_detail_box_list" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout14"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="实收数量："
+            android:id="@+id/textView9"
+            android:textColor="#0099FF"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:ems="7"
+            android:id="@+id/edittext_receiving_scan_box_count_count"
+            android:text="15"
+            android:textSize="14dp"
+            android:textColor="#0099FF"/>
     </LinearLayout>
 
 

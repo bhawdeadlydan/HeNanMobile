@@ -9,12 +9,13 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:id="@+id/linearLayout10">
 
         <TextView
             android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:text="申领人    ："
+            android:text="申领人："
             android:id="@+id/text_delivery_sheet_detail_apply_person" />
 
         <TextView
@@ -28,8 +29,10 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout10"
         android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@+id/linearLayout10"
         android:id="@+id/linearLayout11">
 
         <TextView
@@ -45,7 +48,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout11"
-        android:paddingLeft="20dp">
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
         <TextView
             android:layout_width="175dp"

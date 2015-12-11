@@ -1,7 +1,6 @@
 package sjtu.rfid.rfidsys;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -30,9 +29,6 @@ public class ReceivingScanBoxActivity extends Activity {
         setContentView(R.layout.activity_receiving_scan_box);
 
         vReceSheetCode=(TextView)findViewById(R.id.text_receiving_scan_box_mat_code);
-        //Bundle bundle=this.getIntent().getExtras();
-        //String receiving_sheet_code=bundle.getString("receiving_sheet_code");
-        //vReceSheetCode.setText(vReceSheetCode.getText()+receiving_sheet_code);
         iniActivity();
         iniListView();
     }
@@ -68,7 +64,6 @@ public class ReceivingScanBoxActivity extends Activity {
         tmpAdapter = new ReceivingSheetsScanBoxExpandableAdapter(this, mReceivingBoxesDetails, mReceivingBoxes);
         sheetListView.setAdapter(tmpAdapter);
 
-
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
@@ -79,5 +74,6 @@ public class ReceivingScanBoxActivity extends Activity {
                 }
             }
         });
+
     }
 }
