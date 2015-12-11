@@ -39,7 +39,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String queryString = "select model.saleBomCode, model.itemCode, model.isBom, model.itemName from WmsDetailEntity as model where model.cNum = ?";
+            String queryString = "select model.saleBomCode, model.itemCode, model.isBom, model.itemName, model.expectedQuantity, model.itemUnitCode, model.asnCode from WmsDetailEntity as model where model.cNum = ?";
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, CNum);
             tx.commit();
@@ -126,9 +126,51 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "select model.saleBomCode, count(*),sum(model.expectedQuantity) from WmsDetailEntity as model where asnCode = ? group by model.saleBomCode";
+            String hql = "select model.saleBomCode, count(*),sum(model.expectedQuantity) from WmsDetailEntity as model where asnCode = ? and allocationId != -1 group by model.saleBomCode";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public List getBomCartonNumsBySaleBomCode(String saleBomCode, String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cartonNum from WmsDetailEntity as model where asnCode = ? and saleBomCode = ?  and allocationId != -1";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
+            query.setParameter(1, saleBomCode);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public List getERPCartonNumsBySaleBomCode(String itemCode, String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cartonNum from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
+            query.setParameter(1, itemCode);
             tx.commit();
             return query.list();
         }catch (HibernateException e){
@@ -146,7 +188,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select model.itemCode, count(*), sum(model.expectedQuantity), model.itemName, model.itemUnitCode from WmsDetailEntity as model where asnCode = ? group by model.itemCode";
+            String hql = "select model.itemCode, count(*), sum(model.expectedQuantity), model.itemName, model.itemUnitCode from WmsDetailEntity as model where asnCode = ?  and allocationId != -1 group by model.itemCode";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             tx.commit();
@@ -161,12 +203,12 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
-    public List<Integer> getLocationIDsByItemERPCode(String ItemERPCode){
+    public List<Object[]> getLocationIDsByItemERPCode(String ItemERPCode){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select allocationId from WmsDetailEntity as model where itemCode = ? group by model.itemCode";
+            String hql = "select allocationId, sum(expectedQuantity) from WmsDetailEntity as model where itemCode = ? and allocationId != -1 group by model.allocationId";
             Query query = session.createQuery(hql);
             query.setParameter(0, ItemERPCode);
             tx.commit();

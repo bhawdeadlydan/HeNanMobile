@@ -12,9 +12,9 @@ list<data.Good> getGoodsListByApplyDocCode(1:string ApplyDocCode);
 bool confirmRetrieval(1:string ApplyDocCode, 2:list<string> CNums);
 bool confirmReceiving(1:string Code);//入库单号
 data.Good getGoodByCNum(1:string CNum);
-list<i32> getLocationListByItemErpCode(1:string ItemERPCode);
+list<data.LocationInfo> getLocationListByItemErpCode(1:string ItemERPCode);
 list<data.Good> getGoodsByLocation(1:i32 Location);
 string getApplyDocCodeByCNum(1:string CNum);
-bool confirmInventory(1:string Location,2:string MaterialCode, 3:i32 RealNum, 4:string Time);
+bool confirmInventory(1:list<data.check> checks);
 bool confirmArrive(1:string charge, 2:string Time, 3:string Position,4: string Type, 5:string PosApplyDocCode, 6:double longitude, 7:double latitude);
 }

@@ -59,6 +59,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
                 good.setDetail(str[0].toString());
                 good.setUnit(str[1].toString());
+                good.setCartonNums(wdao.getBomCartonNumsBySaleBomCode((String)objs[0], Code));
                 l.add(good);
             }
         }
@@ -75,6 +76,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 good.setIs_Bom(false);
                 good.setDetail((String)objs[3]);
                 good.setUnit((String)objs[4]);
+                good.setCartonNums(wdao.getERPCartonNumsBySaleBomCode((String)objs[0], Code));
                 l.add(good);
             }
         }
@@ -121,6 +123,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     public List<Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws TException {
         DetailDao ddao = new DetailDao();
         ASNDao adao = new ASNDao();
+        WMSDetailDao wdao = new WMSDetailDao();
         boolean isbom = ddao.isBom(ApplyDocCode);
         ArrayList<Good> l = new ArrayList<>();
         if(isbom) {
@@ -159,7 +162,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         pdao.Retrieval(ApplyDocCode);
         WMSDetailDao wdao = new WMSDetailDao();
         for(Iterator<String> it = CNums.iterator(); it.hasNext();){
-            wdao.bind(0, it.next());
+            wdao.bind(-1, it.next());
         }
         return true;
     }
@@ -177,30 +180,47 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         ASNDao adao = new ASNDao();
         Object[] objs = dao.getGoodByCNum(CNum);
         Good good = new Good();
-        String salebomcode = (String) objs[0];
-        String itemcode = (String) objs[1];
-        String isbom = (String) objs[2];
-        String itemname = (String) objs[3];
+        String salebomcode = objs[0].toString();
+        String itemcode = objs[1].toString();
+        String isbom = objs[2].toString();
+        String itemname = objs[3].toString();
+        Integer num = Integer.parseInt(objs[4].toString());
+        String asncode = objs[6].toString();
+        good.setNum(num);
+        good.setInCode(asncode);
+        good.setProjectCode(adao.getProjectCodeByCode(asncode));
         boolean bom = isbom.toUpperCase().equals("Y");
         if(bom) {
             good.setCode(salebomcode);
             Object[] str = adao.getDesAndUnitBySaleBomCode(salebomcode);
             good.setDetail(str[0].toString());
+            good.setUnit(str[1].toString());
             good.setIs_Bom(true);
         }
         else{
             good.setCode(itemcode);
             good.setDetail(itemname);
             good.setIs_Bom(false);
+            good.setUnit(objs[5].toString());
         }
         return good;
     }
 
     @Override
-    public List<Integer> getLocationListByItemErpCode(String ItemERPCode) throws TException {
+    public List<LocationInfo> getLocationListByItemErpCode(String ItemERPCode) throws TException {
         WMSDetailDao dao = new WMSDetailDao();
-        List<Integer> l = dao.getLocationIDsByItemERPCode(ItemERPCode);
-        return l;
+        List<Object[]> l = dao.getLocationIDsByItemERPCode(ItemERPCode);
+        if(l == null)
+            return null;
+        ArrayList<LocationInfo> list = new ArrayList<>();
+        for(Iterator it = list.iterator(); it.hasNext();){
+            Object[] objs = (Object[])it.next();
+            LocationInfo linfo = new LocationInfo();
+            linfo.setID(Integer.parseInt(objs[0].toString()));
+            linfo.setNum(Integer.parseInt(objs[1].toString()));
+            list.add(linfo);
+        }
+        return list;
     }
 
     @Override
@@ -240,23 +260,30 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     }
 
     @Override
-    public boolean confirmInventory(String Location, String MaterialCode, int RealNum, String Time) throws TException {
-        CheckEntity check = new CheckEntity();
-        check.setMaterialCode(MaterialCode);
-        check.setPosition(Location);
-        check.setRealNum(RealNum);
-        Timestamp timestamp = new Timestamp(new Date().getTime());
-        try{
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-            Date parsedDate = dateFormat.parse(Time);
-            timestamp = new java.sql.Timestamp(parsedDate.getTime());
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        check.setTime(timestamp);
+    public boolean confirmInventory(List<check> checks) throws TException {
+        if(checks.isEmpty())
+            return true;
         CheckDao dao = new CheckDao();
-        dao.addEntity(check);
+        for(Iterator it = checks.iterator();it.hasNext();){
+            check c = (check)it.next();
+            CheckEntity ch = new CheckEntity();
+            ch.setMaterialCode(c.getMaterialCode());
+            ch.setPosition(c.getLocation());
+            ch.setRealNum(c.getRealNum());
+            Timestamp timestamp = new Timestamp(new Date().getTime());
+            try{
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+                Date parsedDate = dateFormat.parse(c.getTime());
+                timestamp = new java.sql.Timestamp(parsedDate.getTime());
+
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+//                e.printStackTrace();
+                return false;
+            }
+            ch.setTime(timestamp);
+            dao.addEntity(ch);
+        }
         return true;
     }
 

@@ -75,4 +75,25 @@ public class ASNDao extends BaseDao{
         return null;
     }
 
+    public String getProjectCodeByCode(String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.projectCode from AsnEntity as model where model.code = ?";
+            Query query = session.createQuery(hql);
+            tx.commit();
+            if(!query.list().isEmpty())
+                return query.list().get(0).toString();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return "";
+    }
+
 }
