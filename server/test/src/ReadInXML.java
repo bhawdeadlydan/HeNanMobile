@@ -10,11 +10,32 @@ import org.dom4j.io.SAXReader;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 
 public class ReadInXML {
+    public String GenerateCNum(String prefix){
+        WMSDetailDao dao = new WMSDetailDao();
+        String lastCNum = dao.getLastCNum(prefix);
+        String suffix = "00000001";
+        if(lastCNum != ""){
+            suffix = lastCNum.substring(8);
+            Long num = Long.parseLong(suffix, 16);
+            num++;
+            suffix  = Long.toHexString(num);
+            StringBuilder sb = new StringBuilder();
+            for (int toPrepend=8-suffix.length(); toPrepend>0; toPrepend--) {
+                sb.append('0');
+            }
+            sb.append(suffix);
+            suffix = sb.toString();
+        }
+        return suffix;
+    }
+
     public void parserXml(String fileName) {
         File inputXml = new File(fileName);
         SAXReader saxReader = new SAXReader();
@@ -177,7 +198,10 @@ public class ReadInXML {
                     wmsdetail.setExpectedQuantity(Integer.parseInt(wdItem.element("EXPECTED_QUANTITY").getText()));
                     wmsdetail.setAllocationId(0);//数据库中有allocation的外键，但是此时没有，所以用0替代
                 /*设置箱号*/
-                    wmsdetail.setcNum("");
+                    DateFormat df = new SimpleDateFormat("yyyyMMdd");
+                    Date today = Calendar.getInstance().getTime();
+                    String reportDate = df.format(today);
+                    wmsdetail.setcNum(reportDate + GenerateCNum(reportDate));
                     wmsdetail.setApplyDocCode("");
                     wddao.addEntity(wmsdetail);
                 }
@@ -188,6 +212,8 @@ public class ReadInXML {
     }
     public static void main(String argv[]) {
         ReadInXML read = new ReadInXML();
-        read.parserXml("test/src/xml/VD-SH-2015090000006_IES.xml");
+//        read.parserXml("test/src/xml/VD-SH-2015090000006_IES.xml");
+        String s = new ReadInXML().GenerateCNum("20151212");
+        System.out.println(s);
     }
 }

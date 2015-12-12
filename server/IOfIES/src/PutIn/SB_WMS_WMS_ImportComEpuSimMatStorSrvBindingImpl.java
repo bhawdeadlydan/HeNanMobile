@@ -11,9 +11,31 @@ import dao.*;
 import db.*;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrv_PortType{
+    public String GenerateCNum(String prefix){
+        WMSDetailDao dao = new WMSDetailDao();
+        String lastCNum = dao.getLastCNum(prefix);
+        String suffix = "00000001";
+        if(lastCNum != ""){
+            suffix = lastCNum.substring(8);
+            Long num = Long.parseLong(suffix, 16);
+            num++;
+            suffix  = Long.toHexString(num);
+            StringBuilder sb = new StringBuilder();
+            for (int toPrepend=8-suffix.length(); toPrepend>0; toPrepend--) {
+                sb.append('0');
+            }
+            sb.append(suffix);
+            suffix = sb.toString();
+        }
+        return suffix;
+    }
+
     public PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse process(PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest payload) throws java.rmi.RemoteException {
         System.out.println("入库");
         SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse r = new SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse();
@@ -141,7 +163,10 @@ public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB
                 wmsdetail.setExpectedQuantity(wdItem.getEXPECTED_QUANTITY().intValueExact());
                 wmsdetail.setAllocationId(0);//数据库中有allocation的外键，但是此时没有，所以用0替代
                 /*设置箱号*/
-                wmsdetail.setcNum("");
+                DateFormat df = new SimpleDateFormat("yyyyMMdd");
+                Date today = Calendar.getInstance().getTime();
+                String reportDate = df.format(today);
+                wmsdetail.setcNum(reportDate + GenerateCNum(reportDate));
                 wmsdetail.setApplyDocCode("");
                 wddao.addEntity(wmsdetail);
             }

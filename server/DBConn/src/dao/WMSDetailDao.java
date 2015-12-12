@@ -11,6 +11,30 @@ import java.util.List;
  * Created by richard on 2015/12/7.
  */
 public class WMSDetailDao extends BaseDao{
+
+    public String getLastCNum(String prefix){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "select model.cNum from WmsDetailEntity as model where model.cNum like ? order by id desc ";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, prefix+"%");
+            tx.commit();
+            if(!queryObject.list().isEmpty())
+                return (String)queryObject.list().get(0);
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return "";
+    }
+
     public String getCodeByCNum(String CNum){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
