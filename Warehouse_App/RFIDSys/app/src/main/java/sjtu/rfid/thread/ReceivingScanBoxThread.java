@@ -33,7 +33,7 @@ public class ReceivingScanBoxThread extends Thread {
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            goodList=client.getGoodsListByCode(sheetCode);
+            goodList=client.getGoodsListByCode(sheetCode,true);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();

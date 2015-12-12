@@ -1,4 +1,4 @@
-﻿package sjtu.rfid.rfidsys;
+package sjtu.rfid.rfidsys;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import sjtu.rfid.tools.TitleBar;
 public class ConfigActivity extends Activity {
 
     private TitleBar mTitleBar;
-    private Properties properties;
+    private Properties properties;// 保存登录配置信息
     private EditText vIP;
     private EditText vPort;
 
@@ -53,8 +53,6 @@ public class ConfigActivity extends Activity {
 
                 ConfigData.ip=vIP.getText().toString();
                 ConfigData.port=Integer.parseInt(vPort.getText().toString());
-                vIP.setText(vIP.getText().toString());
-                vPort.setText(vPort.getText().toString());
                 Toast.makeText(ConfigActivity.this,"保存成功",Toast.LENGTH_LONG).show();
 
             }
