@@ -18,6 +18,7 @@ import java.util.Map;
 import rfid.service.ASN;
 import rfid.service.Good;
 import sjtu.rfid.thread.ReceivingScanBoxThread;
+import sjtu.rfid.thread.ReceivingSubmitThread;
 import sjtu.rfid.tools.ReceivingSheetsScanBoxExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -34,7 +35,9 @@ public class ReceivingScanBoxActivity extends Activity {
 
 
     private ReceivingScanBoxThread receivingScanBoxThread;
+    private ReceivingSubmitThread receivingSubmitThread;
     private List<Good> goodList;
+    private boolean receivingResult;
 
     private Handler handler=new Handler(){
         @Override
@@ -43,6 +46,18 @@ public class ReceivingScanBoxActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             goodList=(List<Good>)msg.obj;
             iniListView(goodList);
+        }
+    };
+    private Handler handlerReceiving=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            receivingResult=(boolean)msg.obj;
+            if(receivingResult)
+                Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
         }
     };
     @Override
@@ -110,12 +125,16 @@ public class ReceivingScanBoxActivity extends Activity {
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货物标签线程
 
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                receivingSubmitThread=new ReceivingSubmitThread(sheetCode,handlerReceiving);
+                receivingSubmitThread.start();
 
             }
         });

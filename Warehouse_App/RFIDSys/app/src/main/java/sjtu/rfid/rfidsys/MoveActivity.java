@@ -94,12 +94,14 @@ public class MoveActivity extends Activity {
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货位标签线程
 
             }
         });
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货物标签线程
 
             }
         });

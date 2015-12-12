@@ -7,47 +7,39 @@ import org.apache.thrift.TException;
 
 import java.util.List;
 
-import rfid.service.Good;
-import rfid.service.LocationInfo;
 import rfid.service.RFIDService;
-import sjtu.rfid.entity.CheckByMatEntity;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
- * Created by shao on 2015/12/11.
+ * Created by shao on 2015/12/12.
  */
-public class CheckByMatThread extends Thread {
+public class DeliverySubmitThread extends Thread {
 
-    private String CNum;
+    private String applyCode;
+    private List<String> CNums;
     private Handler handler;
 
-    private Good good;
-    private List<LocationInfo> locationInfoList;
-    private CheckByMatEntity checkByMatEntity;
+    private boolean result;
 
-    public CheckByMatThread(String CNum,Handler handler){
-        this.CNum=CNum;
+    public DeliverySubmitThread(String applyCode,List<String> CNums,Handler handler){
+        this.CNums=CNums;
+        this.applyCode=applyCode;
         this.handler=handler;
     }
 
     @Override
     public void run() {
-
         Message msg=handler.obtainMessage();
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            good=client.getGoodByCNum(CNum);
-
-            locationInfoList=client.getLocationListByItemErpCode(good.getCode());
-            checkByMatEntity=new CheckByMatEntity(good,locationInfoList);
+            result=client.confirmRetrieval(applyCode,CNums);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();
         }
         msg.what=1;
-        msg.obj=checkByMatEntity;
+        msg.obj=result;
         handler.sendMessage(msg);
-
     }
 }

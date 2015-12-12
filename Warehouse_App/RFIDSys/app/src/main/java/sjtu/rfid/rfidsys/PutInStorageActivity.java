@@ -21,6 +21,7 @@ import java.util.Map;
 
 import rfid.service.ASN;
 import rfid.service.Good;
+import sjtu.rfid.thread.BindThread;
 import sjtu.rfid.thread.PutInStorageThread;
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
 import sjtu.rfid.tools.PutInStorageExpandableAdapter;
@@ -41,11 +42,25 @@ public class PutInStorageActivity extends Activity {
     private GoogleApiClient client;
 
     private PutInStorageThread putInStorageThread;
+    private BindThread bindThread;
     private String CNum="EPC201509000000";
     private Good good;
-    public String goodPos="";
+    public int goodPos=-1;
+    private boolean bindResult;
 
     private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            bindResult=(boolean)msg.obj;
+            if(bindResult)
+                Toast.makeText(getApplicationContext(), "绑定成功", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "绑定失败", Toast.LENGTH_SHORT).show();
+        }
+    };
+    private Handler handlerBind=new Handler(){
         @Override
         public void handleMessage(Message msg) {
             if(msg.what==0||msg.obj==null)
@@ -113,6 +128,7 @@ public class PutInStorageActivity extends Activity {
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货位标签线程
                 TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
                 vGoodsPos.setText("A11");
             }
@@ -120,6 +136,7 @@ public class PutInStorageActivity extends Activity {
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货物标签线程
 
                 putInStorageThread=new PutInStorageThread(handler,CNum);
                 putInStorageThread.start();
@@ -135,6 +152,13 @@ public class PutInStorageActivity extends Activity {
         btnBind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<String> CNumList=new ArrayList<String>();
+                for(Map.Entry<String,Map<String,String>> entry:mPutInStorageDetailList.entrySet()){
+                    String cartonNum=entry.getKey();
+                    CNumList.add(cartonNum);
+                }
+                bindThread=new BindThread(CNumList,goodPos,handlerBind);
+                bindThread.start();
 
             }
         });

@@ -18,6 +18,7 @@ import java.util.Map;
 
 import rfid.service.Good;
 import sjtu.rfid.thread.DeliveryScanBoxThread;
+import sjtu.rfid.thread.DeliverySubmitThread;
 import sjtu.rfid.tools.DeliverySheetsScanBoxExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -31,8 +32,12 @@ public class DeliveryScanBoxActivity extends Activity {
 
     private TitleBar mTitleBar;
 
+    private String cartonList="\n";
     private DeliveryScanBoxThread deliveryScanBoxThread;
+    private DeliverySubmitThread deliverySubmitThread;
     private List<Good> goodList;
+    private String applyCode;
+    private boolean deliveryResult;
 
     private Handler handler=new Handler(){
         @Override
@@ -44,18 +49,31 @@ public class DeliveryScanBoxActivity extends Activity {
         }
     };
 
+    private Handler handlerDelivery=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            deliveryResult=(boolean)msg.obj;
+            if(deliveryResult)
+                Toast.makeText(getApplicationContext(), "数据提交成功", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "数据提交失败", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_scan_box);
         vDeliverySheetCode=(TextView)findViewById(R.id.text_delivery_scan_box_order_code);
         Bundle bundle=this.getIntent().getExtras();
-        String sheetCode=bundle.getString("delivery_sheet_code");
-        vDeliverySheetCode.setText(sheetCode);
+        applyCode=bundle.getString("delivery_sheet_code");
+        vDeliverySheetCode.setText(applyCode);
         iniActivity();
         iniEvent();
 
-        deliveryScanBoxThread=new DeliveryScanBoxThread(handler,sheetCode);
+        deliveryScanBoxThread=new DeliveryScanBoxThread(handler,applyCode);
         deliveryScanBoxThread.start();
     }
 
@@ -76,10 +94,9 @@ public class DeliveryScanBoxActivity extends Activity {
             mDeliveryBoxes.add(map);
 
             Map<String, String> detailMap = new HashMap<>();
-            String cartonList="\n";
             detailMap.put("isBom", good.isIs_Bom() ? "Y" : "N");
 //            for(String cartonNum:good.getCartonNums()){
-//                cartonList+=cartonNum+"\n";
+//                cartonList+=cartonNum+"，";
 //            }
 //            detailMap.put("cartonList",cartonList);
             detailMap.put("cartonList","");
@@ -110,12 +127,22 @@ public class DeliveryScanBoxActivity extends Activity {
             @Override
             public void onClick(View v) {
 
+                //读货物标签线程
+
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                List<String> CNums=new ArrayList<String>();
+                String[] CNumString;
+                cartonList=cartonList.trim();
+                CNumString=cartonList.split(",");
+                for(int i=0;i<CNumString.length;i++){
+                    CNums.add(CNumString[i]);
+                }
+                deliverySubmitThread=new DeliverySubmitThread(applyCode,CNums,handlerDelivery);
+                deliverySubmitThread.start();;
             }
         });
     }
