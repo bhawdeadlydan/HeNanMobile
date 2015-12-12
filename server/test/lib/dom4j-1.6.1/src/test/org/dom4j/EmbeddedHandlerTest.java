@@ -23,7 +23,7 @@ public class EmbeddedHandlerTest extends AbstractTestCase {
 
     private static final int ON_END_READER = 1;
 
-    protected String[] testDocuments = {"xml/test/FranzBeilMain.xml"};
+    protected String[] testDocuments = {"lib/xml/test/FranzBeilMain.xml"};
 
     private StringBuffer[] results = {new StringBuffer(), new StringBuffer()};
 

@@ -42,7 +42,7 @@ public class SortByTest extends AbstractTestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        document = new SAXReader().read(new File("xml/much_ado.xml"));
+        document = new SAXReader().read(new File("lib/xml/much_ado.xml"));
     }
 }
 

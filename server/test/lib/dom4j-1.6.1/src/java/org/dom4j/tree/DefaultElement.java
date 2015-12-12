@@ -203,7 +203,7 @@ public class DefaultElement extends AbstractElement {
 
         if (prefix.equals(getNamespacePrefix())) {
             return getNamespace();
-        } else if (prefix.equals("xml")) {
+        } else if (prefix.equals("lib/xml")) {
             return Namespace.XML_NAMESPACE;
         } else {
             final Object contentShadow = content;

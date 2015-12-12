@@ -27,13 +27,13 @@ public class ManualSchemaTest extends AutoSchemaTest {
     // Implementation methods
     // -------------------------------------------------------------------------
     protected String getDocumentURI() {
-        return "/xml/test/schema/personal.xml";
+        return "/lib/xml/test/schema/personal.xml";
     }
 
     protected DocumentFactory loadDocumentFactory() throws Exception {
         DatatypeDocumentFactory factory = new DatatypeDocumentFactory();
 
-        Document schemaDocument = getDocument("/xml/test/schema/personal.xsd");
+        Document schemaDocument = getDocument("/lib/xml/test/schema/personal.xsd");
         factory.loadSchema(schemaDocument);
 
         return factory;

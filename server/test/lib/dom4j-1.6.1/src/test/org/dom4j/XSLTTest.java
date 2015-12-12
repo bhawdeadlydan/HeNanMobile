@@ -33,7 +33,7 @@ public class XSLTTest extends AbstractTestCase {
     // Test case(s)
     // -------------------------------------------------------------------------
     public void testTransform() throws Exception {
-        Document transformedDoc = transform("/xml/nitf/ashtml.xsl");
+        Document transformedDoc = transform("/lib/xml/nitf/ashtml.xsl");
 
         // log( transformedDoc.asXML() );
         assertTrue("Transformed Document is not null", transformedDoc != null);
@@ -51,7 +51,7 @@ public class XSLTTest extends AbstractTestCase {
     // -------------------------------------------------------------------------
     protected void setUp() throws Exception {
         super.setUp();
-        document = getDocument("/xml/nitf/sample.xml");
+        document = getDocument("/lib/xml/nitf/sample.xml");
     }
 
     protected Document transform(String xsl) throws Exception {

@@ -48,7 +48,7 @@ public class StaxTest extends AbstractTestCase {
         }
 
         try {
-            File file = getFile("/xml/russArticle.xml");
+            File file = getFile("/lib/xml/russArticle.xml");
             STAXEventReader xmlReader = new STAXEventReader();
             Document doc = xmlReader.readDocument(new FileReader(file));
 

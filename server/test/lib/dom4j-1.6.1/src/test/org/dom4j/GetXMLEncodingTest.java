@@ -43,10 +43,10 @@ public class GetXMLEncodingTest extends AbstractTestCase {
     }
 
     public void testXMLEncodingFromURL() throws Exception {
-        Document doc = getDocument("/xml/test/encode.xml");
+        Document doc = getDocument("/lib/xml/test/encode.xml");
         assertEquals("UTF-8", doc.getXMLEncoding());
 
-        doc = getDocument("/xml/russArticle.xml");
+        doc = getDocument("/lib/xml/russArticle.xml");
         assertEquals("koi8-r", doc.getXMLEncoding());
     }
 

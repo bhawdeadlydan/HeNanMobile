@@ -22,7 +22,7 @@ import org.dom4j.util.UserDataElement;
  */
 public class UserDataTest extends AbstractTestCase {
     /** Input XML file to read */
-    private static final String INPUT_XML_FILE = "/xml/web.xml";
+    private static final String INPUT_XML_FILE = "/lib/xml/web.xml";
 
     private Object userData = new Double(1.23456);
 

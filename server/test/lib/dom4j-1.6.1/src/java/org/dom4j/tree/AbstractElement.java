@@ -1326,7 +1326,7 @@ public abstract class AbstractElement extends AbstractBranch implements
 
         if (prefix.equals(getNamespacePrefix())) {
             return getNamespace();
-        } else if (prefix.equals("xml")) {
+        } else if (prefix.equals("lib/xml")) {
             return Namespace.XML_NAMESPACE;
         } else {
             List list = contentList();

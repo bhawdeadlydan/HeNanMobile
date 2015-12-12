@@ -28,7 +28,7 @@ public class SelectSingleNodeTest extends AbstractTestCase {
     // Test case(s)
     // -------------------------------------------------------------------------
     public void testSelectSingleNode() throws Exception {
-        Document document = getDocument("/xml/test/jimBrain.xml");
+        Document document = getDocument("/lib/xml/test/jimBrain.xml");
         Node node = document.selectSingleNode("/properties/client/threadsafe");
         assertTrue("Found a valid node", node != null);
 
@@ -56,7 +56,7 @@ public class SelectSingleNodeTest extends AbstractTestCase {
      *             DOCUMENT ME!
      */
     public void testSteensBug() throws Exception {
-        Document document = getDocument("/xml/schema/personal.xsd");
+        Document document = getDocument("/lib/xml/schema/personal.xsd");
 
         String xpath = "/xs:schema/xs:element[@name='person']";
         assertNotNull("element is null", document.selectSingleNode(xpath));

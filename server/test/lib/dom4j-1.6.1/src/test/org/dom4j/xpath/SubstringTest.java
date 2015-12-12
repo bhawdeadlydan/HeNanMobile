@@ -62,7 +62,7 @@ public class SubstringTest extends AbstractTestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        document = new SAXReader().read(new File("xml/test/fields.xml"));
+        document = new SAXReader().read(new File("lib/xml/test/fields.xml"));
     }
 }
 

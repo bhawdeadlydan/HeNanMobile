@@ -54,7 +54,7 @@ public class JAXBDemo {
 
     public void demoRead() {
         try {
-            File inputFile = new File("xml/jaxb/primer.xml");
+            File inputFile = new File("lib/xml/jaxb/primer.xml");
 
             JAXBReader jaxbReader = new JAXBReader("org.dom4j.test.primer");
 
@@ -84,7 +84,7 @@ public class JAXBDemo {
 
     public void demoReadPrune() {
         try {
-            File inputFile = new File("xml/jaxb/primer.xml");
+            File inputFile = new File("lib/xml/jaxb/primer.xml");
 
             JAXBReader jaxbReader = new JAXBReader("org.dom4j.test.primer");
 
@@ -185,7 +185,7 @@ public class JAXBDemo {
 
     public void demoModify() {
         try {
-            File inputFile = new File("xml/jaxb/primer.xml");
+            File inputFile = new File("lib/xml/jaxb/primer.xml");
 
             JAXBModifier jaxbReader = new JAXBModifier("org.dom4j.test.primer");
             jaxbReader.addObjectModifier("/purchaseOrders/purchaseOrder",
@@ -202,7 +202,7 @@ public class JAXBDemo {
 
     public void demoModifyWrite() {
         try {
-            File inputFile = new File("xml/jaxb/primer.xml");
+            File inputFile = new File("lib/xml/jaxb/primer.xml");
 
             File outputFile = new File(outputDir, "testModifyWrite.xml");
 

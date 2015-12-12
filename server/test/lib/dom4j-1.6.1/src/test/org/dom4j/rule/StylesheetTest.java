@@ -62,7 +62,7 @@ public class StylesheetTest extends AbstractTestCase {
         for (int i = 0, size = templates2.length; i < size; i++) {
             addTemplate(templates2[i]);
         }
-        Document doc = getDocument("/xml/test/littledoc.xml");
+        Document doc = getDocument("/lib/xml/test/littledoc.xml");
 
         stylesheet = new Stylesheet();
         stylesheet.setValueOfAction(new Action() {

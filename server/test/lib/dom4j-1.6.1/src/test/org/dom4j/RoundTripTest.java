@@ -33,9 +33,9 @@ import org.dom4j.io.XMLWriter;
  * @version $Revision: 1.4 $
  */
 public class RoundTripTest extends AbstractTestCase {
-    protected String[] testDocuments = {"/xml/test/encode.xml",
-            "/xml/fibo.xml", "/xml/test/schema/personal-prefix.xsd",
-            "/xml/test/soap2.xml", "/xml/test/test_schema.xml"};
+    protected String[] testDocuments = {"/lib/xml/test/encode.xml",
+            "/lib/xml/fibo.xml", "/lib/xml/test/schema/personal-prefix.xsd",
+            "/lib/xml/test/soap2.xml", "/lib/xml/test/test_schema.xml"};
 
     public static void main(String[] args) {
         TestRunner.run(RoundTripTest.class);
@@ -79,7 +79,7 @@ public class RoundTripTest extends AbstractTestCase {
     }
 
     public void testRoundTrip() throws Exception {
-        Document document = getDocument("/xml/xmlspec.xml");
+        Document document = getDocument("/lib/xml/xmlspec.xml");
 
         // Document doc1 = roundTripText( document );
         Document doc1 = roundTripSAX(document);

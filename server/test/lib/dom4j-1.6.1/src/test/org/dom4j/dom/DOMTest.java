@@ -131,7 +131,7 @@ public class DOMTest extends AbstractTestCase {
         super.setUp();
 
         SAXReader reader = new SAXReader(DOMDocumentFactory.getInstance());
-        document = getDocument("/xml/contents.xml", reader);
+        document = getDocument("/lib/xml/contents.xml", reader);
     }
 
     /**

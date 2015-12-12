@@ -17,7 +17,7 @@ import junit.textui.TestRunner;
  */
 public class ElementByIDTest extends AbstractTestCase {
     /** Input XML file to read */
-    protected static final String INPUT_XML_FILE = "xml/test/elementByID.xml";
+    protected static final String INPUT_XML_FILE = "lib/xml/test/elementByID.xml";
 
     public static void main(String[] args) {
         TestRunner.run(ElementByIDTest.class);

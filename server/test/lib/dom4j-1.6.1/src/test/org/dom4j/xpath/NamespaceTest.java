@@ -77,7 +77,7 @@ public class NamespaceTest extends AbstractTestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        document = new SAXReader().read(new File("xml/testNamespaces.xml"));
+        document = new SAXReader().read(new File("lib/xml/testNamespaces.xml"));
     }
 }
 

@@ -40,7 +40,7 @@ public class SAXReaderTest extends AbstractTestCase {
      *             DOCUMENT ME!
      */
     public void testReadFile() throws Exception {
-        File file = getFile("/xml/#.xml");
+        File file = getFile("/lib/xml/#.xml");
         new SAXReader().read(file);
     }
     
@@ -54,7 +54,7 @@ public class SAXReaderTest extends AbstractTestCase {
     }
 
     public void testRussian() throws Exception {
-        Document doc = getDocument("/xml/russArticle.xml");
+        Document doc = getDocument("/lib/xml/russArticle.xml");
 
         assertEquals("encoding not correct", "koi8-r", doc.getXMLEncoding());
 
@@ -69,7 +69,7 @@ public class SAXReaderTest extends AbstractTestCase {
     }
 
     public void testRussian2() throws Exception {
-        Document doc = getDocument("/xml/russArticle.xml");
+        Document doc = getDocument("/lib/xml/russArticle.xml");
         XMLWriter xmlWriter = new XMLWriter(new OutputFormat("", false,
                 "koi8-r"));
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -83,11 +83,11 @@ public class SAXReaderTest extends AbstractTestCase {
     public void testBug833765() throws Exception {
         SAXReader reader = new SAXReader();
         reader.setIncludeExternalDTDDeclarations(true);
-        getDocument("/xml/dtd/external.xml", reader);
+        getDocument("/lib/xml/dtd/external.xml", reader);
     }
 
     public void testBug527062() throws Exception {
-        Document doc = getDocument("/xml/test/test.xml");
+        Document doc = getDocument("/lib/xml/test/test.xml");
         List l = doc.selectNodes("//broked/junk");
 
         for (int i = 0; i < l.size(); i++) {

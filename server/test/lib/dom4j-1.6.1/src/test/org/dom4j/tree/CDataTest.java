@@ -32,7 +32,7 @@ public class CDataTest extends AbstractTestCase {
     }
     
     public void testLongCData() throws Exception {
-        getDocument("xml/test/longCDATA.xml");
+        getDocument("lib/xml/test/longCDATA.xml");
     }
 }
 

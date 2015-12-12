@@ -14,7 +14,7 @@ import org.dom4j.Document;
 import org.dom4j.io.SAXReader;
 
 /**
- * Tests the SchemaParser based on a test case provided by Luis Peña Sánchez
+ * Tests the SchemaParser based on a test case provided by Luis Peï¿½a Sï¿½nchez
  * 
  * @author <a href="mailto:jstrachan@apache.org">James Strachan </a>
  * @version $Revision: 1.4 $
@@ -32,7 +32,7 @@ public class SchemaParseTest extends AbstractTestCase {
         SAXReader reader = new SAXReader();
         reader.setDocumentFactory(factory);
 
-        Document schema = getDocument("/xml/test/LuisSchema.xsd", reader);
+        Document schema = getDocument("/lib/xml/test/LuisSchema.xsd", reader);
         factory.loadSchema(schema);
 
         log("Loaded the schema");

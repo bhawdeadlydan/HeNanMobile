@@ -9,6 +9,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,19 @@ import java.util.Date;
 import java.util.Iterator;
 
 public class ReadInXML {
+    public void batchLoad(String path){
+        File dir = new File(path);
+        File[] files = dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".xml");
+            }
+        });
+        for (File file : files) {
+            parserXml(file);
+        }
+    }
+
     public String GenerateCNum(String prefix){
         WMSDetailDao dao = new WMSDetailDao();
         String lastCNum = dao.getLastCNum(prefix);
@@ -36,8 +50,7 @@ public class ReadInXML {
         return suffix;
     }
 
-    public void parserXml(String fileName) {
-        File inputXml = new File(fileName);
+    public void parserXml(File inputXml) {
         SAXReader saxReader = new SAXReader();
         ASNDao asndao = new ASNDao();
         PackingBomDao pbdao = new PackingBomDao();
@@ -212,8 +225,7 @@ public class ReadInXML {
     }
     public static void main(String argv[]) {
         ReadInXML read = new ReadInXML();
-//        read.parserXml("test/src/xml/VD-SH-2015090000006_IES.xml");
-        String s = new ReadInXML().GenerateCNum("20151212");
-        System.out.println(s);
+//        read.parserXml("test/xml/VD-SH-2015090000006_IES.xml");
+        read.batchLoad("test/xml/in");
     }
 }

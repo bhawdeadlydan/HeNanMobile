@@ -25,7 +25,7 @@ public class XPathBugTest extends AbstractTestCase {
     // Test case(s)
     // -------------------------------------------------------------------------
     public void testXPaths() throws Exception {
-        Document document = getDocument("/xml/rabo1ae.xml");
+        Document document = getDocument("/lib/xml/rabo1ae.xml");
         Element root = (Element) document
                 .selectSingleNode("/m:Msg/m:Contents/m:Content");
 

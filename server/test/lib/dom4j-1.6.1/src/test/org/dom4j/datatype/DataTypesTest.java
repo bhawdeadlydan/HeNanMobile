@@ -146,7 +146,7 @@ public class DataTypesTest extends AbstractDataTypeTestCase {
 
         DocumentFactory factory = DatatypeDocumentFactory.getInstance();
         SAXReader reader = new SAXReader(factory);
-        document = getDocument("/xml/test/schema/test.xml", reader);
+        document = getDocument("/lib/xml/test/schema/test.xml", reader);
     }
 }
 

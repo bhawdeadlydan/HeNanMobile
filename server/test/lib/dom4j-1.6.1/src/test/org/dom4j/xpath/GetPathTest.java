@@ -77,7 +77,7 @@ public class GetPathTest extends AbstractTestCase {
     }
 
     public void testDefaultNamespace() throws Exception {
-        Document doc = getDocument("/xml/test/defaultNamespace.xml");
+        Document doc = getDocument("/lib/xml/test/defaultNamespace.xml");
         Element root = doc.getRootElement();
         testPath(root, "/*[name()='a']");
 

@@ -24,7 +24,7 @@ import org.dom4j.io.SAXReader;
  */
 public class NamespaceTest extends AbstractTestCase {
     /** Input XML file to read */
-    private static final String INPUT_XML_FILE = "/xml/namespaces.xml";
+    private static final String INPUT_XML_FILE = "/lib/xml/namespaces.xml";
 
     /** Namespace to use in tests */
     private static final Namespace XSL_NAMESPACE = Namespace.get("xsl",
@@ -106,7 +106,7 @@ public class NamespaceTest extends AbstractTestCase {
         SAXReader reader = new SAXReader();
         reader.setDocumentFactory(factory);
 
-        Document doc = getDocument("/xml/test/nestedNamespaces.xml", reader);
+        Document doc = getDocument("/lib/xml/test/nestedNamespaces.xml", reader);
 
         // evaluate XPath using registered namespace prefixes
         // which do not appear in the document (though the URIs do!)

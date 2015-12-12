@@ -40,7 +40,7 @@ public class XPathExamplesTest extends AbstractTestCase {
     // Test case(s)
     // -------------------------------------------------------------------------
     public void testXPaths() throws Exception {
-        Document document = getDocument("/xml/test/xpath/tests.xml");
+        Document document = getDocument("/lib/xml/test/xpath/tests.xml");
         Element root = document.getRootElement();
 
         Iterator iter = root.elementIterator("document");

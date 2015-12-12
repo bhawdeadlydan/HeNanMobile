@@ -64,7 +64,7 @@ public class AutoSchemaTest extends AbstractDataTypeTestCase {
     }
 
     protected String getDocumentURI() {
-        return "/xml/test/schema/personal-schema.xml";
+        return "/lib/xml/test/schema/personal-schema.xml";
     }
 
     protected DocumentFactory loadDocumentFactory() throws Exception {

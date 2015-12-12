@@ -123,7 +123,7 @@ public class NamespacesTest extends AbstractTestCase {
     }
 
     public void testNamespaceForDefaultPrefix() throws Exception {
-        Document document = getDocument("/xml/test/defaultNamespace.xml");
+        Document document = getDocument("/lib/xml/test/defaultNamespace.xml");
 
         testNamespaceForDefaultPrefix(document);
         testNamespaceForDefaultPrefix(saxRoundTrip(document));
@@ -145,7 +145,7 @@ public class NamespacesTest extends AbstractTestCase {
     }
 
     public void testAttributeDefaultPrefix() throws Exception {
-        Document document = getDocument("/xml/test/soap3.xml");
+        Document document = getDocument("/lib/xml/test/soap3.xml");
 
         testAttributeDefaultPrefix(document);
         testAttributeDefaultPrefix(saxRoundTrip(document));
@@ -202,7 +202,7 @@ public class NamespacesTest extends AbstractTestCase {
     }
 
     public void testRedeclareNamespaces() throws Exception {
-        Document document = getDocument("/xml/test/soap2.xml");
+        Document document = getDocument("/lib/xml/test/soap2.xml");
         testRedeclareNamespaces(document);
         testRedeclareNamespaces(saxRoundTrip(document));
         testRedeclareNamespaces(domRoundTrip(document));
@@ -225,7 +225,7 @@ public class NamespacesTest extends AbstractTestCase {
     }
 
     public void testDefaultNamespaceIssue() throws Exception {
-        Document document = getDocument("/xml/test/defaultNamespaceIssue.xsd");
+        Document document = getDocument("/lib/xml/test/defaultNamespaceIssue.xsd");
         testDefaultNamespaceIssue(document);
         testDefaultNamespaceIssue(saxRoundTrip(document));
         testDefaultNamespaceIssue(domRoundTrip(document));
@@ -282,7 +282,7 @@ public class NamespacesTest extends AbstractTestCase {
     // -------------------------------------------------------------------------
     protected void setUp() throws Exception {
         super.setUp();
-        document = getDocument("/xml/test/test_schema.xml");
+        document = getDocument("/lib/xml/test/test_schema.xml");
     }
 
     protected Document saxRoundTrip(Document document) throws Exception {

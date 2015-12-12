@@ -25,7 +25,7 @@ public class Namespace extends AbstractNode {
     protected static final NamespaceCache CACHE = new NamespaceCache();
 
     /** XML Namespace */
-    public static final Namespace XML_NAMESPACE = CACHE.get("xml",
+    public static final Namespace XML_NAMESPACE = CACHE.get("lib/xml",
             "http://www.w3.org/XML/1998/namespace");
 
     /** No Namespace present */

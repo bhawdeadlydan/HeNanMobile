@@ -986,7 +986,7 @@ public class XMLWriter extends XMLFilterImpl implements LexicalHandler {
         boolean preserveFound = preserve; // default to global state
 
         if (attr != null) {
-            if ("xml".equals(attr.getNamespacePrefix())
+            if ("lib/xml".equals(attr.getNamespacePrefix())
                     && "preserve".equals(attr.getText())) {
                 preserveFound = true;
             } else {

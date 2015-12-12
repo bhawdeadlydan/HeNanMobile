@@ -21,9 +21,9 @@ import org.xml.sax.XMLReader;
 public class SAXContentHandlerTest extends AbstractTestCase {
     private XMLReader xmlReader;
 
-    protected String[] testDocuments = {"/xml/test/test_schema.xml",
-            "/xml/test/encode.xml", "/xml/fibo.xml",
-            "/xml/test/schema/personal-prefix.xsd", "/xml/test/soap2.xml"};
+    protected String[] testDocuments = {"/lib/xml/test/test_schema.xml",
+            "/lib/xml/test/encode.xml", "/lib/xml/fibo.xml",
+            "/lib/xml/test/schema/personal-prefix.xsd", "/lib/xml/test/soap2.xml"};
 
     public static void main(String[] args) {
         TestRunner.run(SAXContentHandlerTest.class);
@@ -62,7 +62,7 @@ public class SAXContentHandlerTest extends AbstractTestCase {
     }
 
     public void testBug926713() throws Exception {
-        Document doc = getDocument("/xml/test/cdata.xml");
+        Document doc = getDocument("/lib/xml/test/cdata.xml");
         Element foo = doc.getRootElement();
         Element bar = foo.element("bar");
         List content = bar.content();

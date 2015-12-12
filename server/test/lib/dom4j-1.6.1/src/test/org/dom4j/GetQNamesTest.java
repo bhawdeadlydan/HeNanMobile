@@ -31,7 +31,7 @@ public class GetQNamesTest extends AbstractTestCase {
 
         SAXReader reader = new SAXReader();
         reader.setDocumentFactory(factory);
-        getDocument("/xml/test/soap2.xml", reader);
+        getDocument("/lib/xml/test/soap2.xml", reader);
 
         List qnames = factory.getQNames();
         assertEquals("Number of QNames not correct", 15, qnames.size());

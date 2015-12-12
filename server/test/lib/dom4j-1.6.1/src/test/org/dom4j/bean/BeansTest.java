@@ -26,7 +26,7 @@ public class BeansTest extends AbstractTestCase {
     // -------------------------------------------------------------------------
     public void testReadXML() throws Exception {
         SAXReader reader = new SAXReader(BeanDocumentFactory.getInstance());
-        getDocument("/xml/bean/gui.xml", reader);
+        getDocument("/lib/xml/bean/gui.xml", reader);
     }
 }
 

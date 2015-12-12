@@ -48,7 +48,7 @@ public class UriMapTest extends AbstractTestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        document = new SAXReader().read(new File("xml/soap.xml"));
+        document = new SAXReader().read(new File("lib/xml/soap.xml"));
     }
 }
 

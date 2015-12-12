@@ -7,6 +7,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,8 +17,19 @@ import java.util.Iterator;
  * Created by richard on 2015/12/10.
  */
 public class ReadOutXML {
-    public void parserXml(String fileName) {
-        File inputXml = new File(fileName);
+    public void batchLoad(String path){
+        File dir = new File(path);
+        File[] files = dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".xml");
+            }
+        });
+        for (File file : files) {
+            parserXml(file);
+        }
+    }
+    public void parserXml(File inputXml) {
         SAXReader saxReader = new SAXReader();
         PosDao pdao = new PosDao();
         DetailDao ddao = new DetailDao();
@@ -87,6 +99,7 @@ public class ReadOutXML {
     }
     public static void main(String args[]) {
         ReadOutXML read = new ReadOutXML();
-        read.parserXml("test/src/xml/2524-REQ-2015100000297_IES.xml");
+//        read.parserXml("test/xml/out/2524-REQ-2015100000297_IES.xml");
+        read.batchLoad("test/xml/out");
     }
 }

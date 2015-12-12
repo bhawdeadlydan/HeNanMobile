@@ -391,7 +391,7 @@ public class XMLWriterTest extends AbstractTestCase {
     }
 
     public void testBug868408() throws Exception {
-        Document doc = getDocument("/xml/web.xml");
+        Document doc = getDocument("/lib/xml/web.xml");
         Document doc2 = DocumentHelper.parseText(doc.asXML());
         assertEquals(doc.asXML(), doc2.asXML());
     }

@@ -61,7 +61,7 @@ public class MatrixConcatTest extends AbstractTestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        document = new SAXReader().read(new File("xml/test/product.xml"));
+        document = new SAXReader().read(new File("lib/xml/test/product.xml"));
     }
 }
 

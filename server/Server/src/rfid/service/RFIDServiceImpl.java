@@ -7,6 +7,7 @@ import db.PosEntity;
 import db.TransportEntity;
 import org.apache.thrift.TException;
 
+import java.io.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,12 +40,23 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         return l;
     }
 
+    /*
+    *项目编号
+    *入库单号
+    *物料名称
+    *物料编码
+    *数量
+    *单位
+    *epc，箱号
+    *VENDOR_NAME厂商名称
+    * */
     @Override
-    public List<Good> getGoodsListByCode(String Code) throws TException {
+    public List<Good> getGoodsListByCode(String Code, boolean printable) throws TException {
         WMSDetailDao wdao = new WMSDetailDao();
         ASNDao adao = new ASNDao();
         boolean isbom = wdao.isBom(Code);
         ArrayList<Good> l = new ArrayList<>();
+        ArrayList<String[]> goods = new ArrayList<>();
         if(isbom){
             List list = wdao.getBomDistinctGoods(Code);
             if(list == null)
@@ -61,6 +73,21 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 good.setUnit(str[1].toString());
                 good.setCartonNums(wdao.getBomCartonNumsBySaleBomCode((String)objs[0], Code));
                 l.add(good);
+
+                //print
+                if(printable){
+                    List<Object[]> goodlist = wdao.getBomCartonsByItemCode((String)objs[0], Code);
+                    for(Iterator i = goodlist.iterator();i.hasNext();){
+                        Object[] os = (Object[])i.next();
+                        String[] gooditem = new String[5];
+                        gooditem[0] = good.getDetail();
+                        gooditem[1] = good.getCode();
+                        gooditem[2] = os[1].toString();
+                        gooditem[3] = good.getUnit();
+                        gooditem[4] = os[0].toString();
+                        goods.add(gooditem);
+                    }
+                }
             }
         }
         else{
@@ -78,7 +105,26 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 good.setUnit((String)objs[4]);
                 good.setCartonNums(wdao.getERPCartonNumsBySaleBomCode((String)objs[0], Code));
                 l.add(good);
+
+                //print
+                if(printable){
+                    List<Object[]> goodlist = wdao.getERPCartonsByItemCode((String)objs[0], Code);
+                    for(Iterator i = goodlist.iterator();i.hasNext();){
+                        Object[] os = (Object[])i.next();
+                        String[] gooditem = new String[5];
+                        gooditem[0] = good.getDetail();
+                        gooditem[1] = good.getCode();
+                        gooditem[2] = os[1].toString();
+                        gooditem[3] = good.getUnit();
+                        gooditem[4] = os[0].toString();
+                        goods.add(gooditem);
+                    }
+                }
             }
+        }
+        if(printable){
+            Object[] info = adao.getASNInfo(Code);
+            printTag(info[0].toString(), Code, info[1].toString(), goods);
         }
         return l;
     }
@@ -321,5 +367,53 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         TransportDao dao = new TransportDao();
         dao.addEntity(transport);
         return true;
+    }
+    /*
+    *项目编号
+    *入库单号
+    *物料名称
+    *物料编码
+    *数量
+    *单位
+    *epc，箱号
+    *VENDOR_NAME厂商名称
+    * */
+    public void printTag(String ProjectCode, String Code, String VendorName, List<String[]> goods){
+        for(Iterator it = goods.iterator();it.hasNext();){
+            String [] good = (String[]) it.next();
+            printOne(ProjectCode, Code, good[0], good[1], good[2], good[3],good[4],VendorName);
+            trigger(good[4]);
+        }
+    }
+    public void printOne(String ProjectCode, String Code, String ItemName, String ItemCode, String ItemNum, String ItemUnit, String EPC,
+                         String VendorName) {
+        try {
+            File file1 = new File(Config.DATAPATH,"epc.txt");
+            BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file1,false),"UTF-8"));
+            fw.write(ProjectCode + "," + Code + "," + ItemName + "," + ItemCode + ","+ ItemNum + ","
+                + ItemUnit + "," + EPC + "," + VendorName);
+            fw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void trigger(String EPC){
+        try {
+            File file1 = new File(Config.DETECTPATH,EPC + ".txt");
+            BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file1,false),"UTF-8"));
+            fw.write(EPC);
+            fw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

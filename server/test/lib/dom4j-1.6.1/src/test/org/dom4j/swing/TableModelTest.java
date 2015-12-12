@@ -26,7 +26,7 @@ public class TableModelTest extends AbstractTestCase {
     }
 
     public void testServletTable() throws Exception {
-        Document document = getDocument("/xml/web.xml");
+        Document document = getDocument("/lib/xml/web.xml");
 
         XMLTableDefinition tableDefinition = new XMLTableDefinition();
         tableDefinition.setRowExpression("/web-app/servlet");
@@ -55,8 +55,8 @@ public class TableModelTest extends AbstractTestCase {
     }
 
     public void testServletTableViaXMLDescription() throws Exception {
-        Document definition = getDocument("/xml/swing/tableForWeb.xml");
-        Document document = getDocument("/xml/web.xml");
+        Document definition = getDocument("/lib/xml/swing/tableForWeb.xml");
+        Document document = getDocument("/lib/xml/web.xml");
 
         XMLTableModel tableModel = new XMLTableModel(definition, document);
 

@@ -32,15 +32,15 @@ public class SerializeTest extends AbstractTestCase {
     // Test case(s)
     // -------------------------------------------------------------------------
     public void testSerializePeriodicTable() throws Exception {
-        testSerialize("/xml/periodic_table.xml");
+        testSerialize("/lib/xml/periodic_table.xml");
     }
 
     public void testSerializeMuchAdo() throws Exception {
-        testSerialize("/xml/much_ado.xml");
+        testSerialize("/lib/xml/much_ado.xml");
     }
 
     public void testSerializeTestSchema() throws Exception {
-        testSerialize("/xml/test/schema/personal.xsd");
+        testSerialize("/lib/xml/test/schema/personal.xsd");
     }
 
     public void testSerializeXPath() throws Exception {
@@ -55,7 +55,7 @@ public class SerializeTest extends AbstractTestCase {
         SAXReader reader = new SAXReader();
         reader.setDocumentFactory(factory);
 
-        Document doc = getDocument("/xml/soap.xml", reader);
+        Document doc = getDocument("/lib/xml/soap.xml", reader);
 
         // now lets use the prefixes
         String expr = "/SOAP-ENV:Envelope/SOAP-ENV:Body/m:BabelFish";

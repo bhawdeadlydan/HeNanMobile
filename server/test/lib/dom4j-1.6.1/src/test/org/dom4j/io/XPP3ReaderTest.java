@@ -31,7 +31,7 @@ public class XPP3ReaderTest extends AbstractTestCase {
     // Test case(s)
     // -------------------------------------------------------------------------
     public void testRussian() throws Exception {
-        File file = getFile("/xml/russArticle.xml");
+        File file = getFile("/lib/xml/russArticle.xml");
         XPP3Reader xmlReader = new XPP3Reader();
         Document doc = xmlReader.read(file);
         Element el = doc.getRootElement();
@@ -45,7 +45,7 @@ public class XPP3ReaderTest extends AbstractTestCase {
     }
 
     public void testRussian2() throws Exception {
-        File file = getFile("/xml/russArticle.xml");
+        File file = getFile("/lib/xml/russArticle.xml");
         XPP3Reader xmlReader = new XPP3Reader();
         Document doc = xmlReader.read(file);
         XMLWriter xmlWriter = new XMLWriter(new OutputFormat("", false,

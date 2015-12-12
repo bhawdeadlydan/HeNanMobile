@@ -44,7 +44,7 @@ public class DefaultElementTest extends AbstractTestCase {
         }
 
     public void testGetStringValue() throws Exception {
-        Document doc = getDocument("xml/test/test_text.xml");
+        Document doc = getDocument("lib/xml/test/test_text.xml");
         Element message = doc.getRootElement();
         
         String text = message.getStringValue();

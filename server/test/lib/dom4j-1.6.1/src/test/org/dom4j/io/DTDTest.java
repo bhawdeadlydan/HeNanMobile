@@ -48,7 +48,7 @@ public class DTDTest extends AbstractTestCase {
      * Input XML file to read <code>xml/dtd/internal.xml</code>- document
      * using internal DTD subset, but no external DTD subset.
      */
-    private static final String XML_INTERNAL_FILE = "xml/dtd/internal.xml";
+    private static final String XML_INTERNAL_FILE = "lib/xml/dtd/internal.xml";
 
     /**
      * Input XML file to read <code>xml/dtd/external.xml</code>- document
@@ -57,7 +57,7 @@ public class DTDTest extends AbstractTestCase {
      * testing harness should use an appropriate EntityResolver to locate the
      * external entity as a local resource (no internet access).
      */
-    private static final String XML_EXTERNAL_FILE = "xml/dtd/external.xml";
+    private static final String XML_EXTERNAL_FILE = "lib/xml/dtd/external.xml";
 
     /**
      * Input XML file to read <code>xml/dtd/mixed.xml</code>- document using
@@ -66,7 +66,7 @@ public class DTDTest extends AbstractTestCase {
      * should use an appropriate EntityResolver to locate the external entity as
      * a local resource (no internet access).
      */
-    private static final String XML_MIXED = "xml/dtd/mixed.xml";
+    private static final String XML_MIXED = "lib/xml/dtd/mixed.xml";
 
     /**
      * Input XML file to for {@linkEntityResolver}
@@ -74,7 +74,7 @@ public class DTDTest extends AbstractTestCase {
      * external DTD subset for test cases that need one. The SYSTEM identifier
      * for this external entity is given by {@link#DTD_SYSTEM_ID}.
      */
-    private static final String DTD_FILE = "xml/dtd/sample.dtd";
+    private static final String DTD_FILE = "lib/xml/dtd/sample.dtd";
 
     /**
      * The PUBLIC identifier, which is <code>-//dom4j//DTD sample</code>, for

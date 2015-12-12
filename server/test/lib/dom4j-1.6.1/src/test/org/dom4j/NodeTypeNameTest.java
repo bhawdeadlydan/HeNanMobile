@@ -29,20 +29,20 @@ public class NodeTypeNameTest extends AbstractTestCase {
     }
 
     public void testCDATA() throws Exception {
-        testDocument("/xml/cdata.xml");
+        testDocument("/lib/xml/cdata.xml");
     }
 
     public void testNamespaces() throws Exception {
-        testDocument("/xml/namespaces.xml");
-        testDocument("/xml/testNamespaces.xml");
+        testDocument("/lib/xml/namespaces.xml");
+        testDocument("/lib/xml/testNamespaces.xml");
     }
 
     public void testPI() throws Exception {
-        testDocument("/xml/testPI.xml");
+        testDocument("/lib/xml/testPI.xml");
     }
 
     public void testInline() throws Exception {
-        testDocument("/xml/inline.xml");
+        testDocument("/lib/xml/inline.xml");
     }
 
     // Implementation methods

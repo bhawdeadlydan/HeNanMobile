@@ -26,7 +26,7 @@ public class DOMWriterTest extends AbstractTestCase {
     }
 
     public void testNamespaceBug() throws Exception {
-        org.dom4j.Document doc = getDocument("/xml/namespaces.xml");
+        org.dom4j.Document doc = getDocument("/lib/xml/namespaces.xml");
         DOMWriter writer = new DOMWriter(org.dom4j.dom.DOMDocument.class);
         org.w3c.dom.Document result = writer.write(doc);
 
@@ -39,7 +39,7 @@ public class DOMWriterTest extends AbstractTestCase {
     }
 
     public void testBug905745() throws Exception {
-        org.dom4j.Document doc = getDocument("/xml/namespaces.xml");
+        org.dom4j.Document doc = getDocument("/lib/xml/namespaces.xml");
         DOMWriter writer = new DOMWriter();
         org.w3c.dom.Document result = writer.write(doc);
 
@@ -52,7 +52,7 @@ public class DOMWriterTest extends AbstractTestCase {
     }
 
     public void testBug926752() throws Exception {
-        org.dom4j.Document doc = getDocument("/xml/test/defaultNamespace.xml");
+        org.dom4j.Document doc = getDocument("/lib/xml/test/defaultNamespace.xml");
         DOMWriter writer = new DOMWriter(org.dom4j.dom.DOMDocument.class);
         org.w3c.dom.Document result = writer.write(doc);
 

@@ -30,7 +30,7 @@ public class ManualSchemaPrefixTest extends AutoSchemaTest {
         DatatypeDocumentFactory factory = new DatatypeDocumentFactory();
 
         Document schemaDocument = 
-                getDocument("/xml/test/schema/personal-prefix.xsd");
+                getDocument("/lib/xml/test/schema/personal-prefix.xsd");
         factory.loadSchema(schemaDocument);
 
         return factory;

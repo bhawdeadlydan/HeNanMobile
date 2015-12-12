@@ -119,7 +119,7 @@ public class HTMLWriterTest extends AbstractTestCase {
     }
 
     public void testBug619415() throws Exception {
-        Document doc = getDocument("/xml/test/dosLineFeeds.xml");
+        Document doc = getDocument("/lib/xml/test/dosLineFeeds.xml");
 
         StringWriter wr = new StringWriter();
         HTMLWriter writer = new HTMLWriter(wr, new OutputFormat("", false));

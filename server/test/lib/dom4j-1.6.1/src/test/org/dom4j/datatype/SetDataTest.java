@@ -154,7 +154,7 @@ public class SetDataTest extends AbstractTestCase {
     protected void setUp() throws Exception {
         super.setUp();
 
-        Document schema = getDocument("/xml/test/schema/personal.xsd");
+        Document schema = getDocument("/lib/xml/test/schema/personal.xsd");
         factory.loadSchema(schema);
 
         Namespace ns = new Namespace("t", "urn://testing");

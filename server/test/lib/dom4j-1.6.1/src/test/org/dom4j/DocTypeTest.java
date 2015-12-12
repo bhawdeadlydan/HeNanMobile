@@ -22,7 +22,7 @@ import org.dom4j.io.SAXReader;
  */
 public class DocTypeTest extends AbstractTestCase {
     /** Input XML file to read */
-    protected static final String INPUT_XML_FILE = "/xml/dtd/internal.xml";
+    protected static final String INPUT_XML_FILE = "/lib/xml/dtd/internal.xml";
 
     public static void main(String[] args) {
         TestRunner.run(DocTypeTest.class);

@@ -21,7 +21,7 @@ import org.dom4j.io.SAXReader;
  */
 public class MergeTextTest extends AbstractTestCase {
     /** Input XML file to read */
-    private static final String INPUT_XML_FILE = "/xml/test/mergetext.xml";
+    private static final String INPUT_XML_FILE = "/lib/xml/test/mergetext.xml";
 
     public static void main(String[] args) {
         TestRunner.run(MergeTextTest.class);
