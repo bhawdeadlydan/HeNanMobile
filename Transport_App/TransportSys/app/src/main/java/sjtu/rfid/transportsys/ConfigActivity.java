@@ -21,6 +21,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
+import tools.Data;
+
 public class ConfigActivity extends Activity {
 
     private CheckBox checkBoxApply;
@@ -28,11 +30,8 @@ public class ConfigActivity extends Activity {
     private CheckBox checkBoxConstructCharge;
     private CheckBoxOnClickListener mCheckBoxListener;
     private Button btnSave;
-    private int checked = 0;
-    private String name;
-    private String phone;
-    private String company;
-    private String role;
+    private Data data;
+    public int checked;
 
     class CheckBoxOnClickListener implements CompoundButton.OnCheckedChangeListener {
         @Override
@@ -61,6 +60,27 @@ public class ConfigActivity extends Activity {
         iniInfo();
     }
 
+    private void iniInfo() {
+        data = (Data)getApplication();
+        ((EditText) findViewById(R.id.editext_config_name)).setText(data.getName().toCharArray(),0,data.getName().length());
+        ((EditText) findViewById(R.id.edittext_config_phone)).setText(data.getPhone().toCharArray(),0,data.getPhone().length());
+        ((EditText) findViewById(R.id.edittext_config_company)).setText(data.getCompany().toCharArray(),0,data.getCompany().length());
+        switch (Integer.valueOf(data.getRole())) {
+            case 0:
+                break;
+            case 1:
+                checkBoxApply.setChecked(true);
+                break;
+            case 2:
+                checkBoxTempCharge.setChecked(true);
+                break;
+            case 3:
+                checkBoxConstructCharge.setChecked(true);
+                break;
+        }
+        Toast.makeText(getApplicationContext(),"请您完成基本信息的填选！",Toast.LENGTH_SHORT).show();
+    }
+
     public void iniBtns() {
         final Button btnBack = (Button) findViewById(R.id.btn_title_back);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -79,19 +99,23 @@ public class ConfigActivity extends Activity {
                 if (name.equals("") || phone.equals("") || company.equals("") || checked == 0)
                     Toast.makeText(getApplicationContext(), "您未完成全部信息的填选！", Toast.LENGTH_SHORT).show();
                 else {
-                    String role = "";
+                    data.setName(name);
+                    data.setCompany(company);
+                    data.setPhone(phone);
                     switch (checked) {
                         case R.id.checkbox_config_apply:
-                            role = "1";
+                            data.setRole("1");
                             break;
                         case R.id.checkbox_config_temporary:
-                            role = "2";
+                            data.setRole("2");
                             break;
                         case R.id.checkbox_config_construct:
-                            role = "3";
+                            data.setRole("3");
                             break;
                     }
                 }
+                data.saveData();
+                Toast.makeText(getApplicationContext(), "信息保存成功！", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -106,40 +130,5 @@ public class ConfigActivity extends Activity {
         checkBoxConstructCharge.setOnCheckedChangeListener(mCheckBoxListener);
     }
 
-    public void iniInfo() {
-        InputStream inputStream = getResources().openRawResource(R.raw.info);
-        InputStreamReader inputStreamReader = null;
-        try{
-            inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-            String line;
-            if( (line = reader.readLine()) != null ) {
-                name = line;
-                phone = reader.readLine();
-                company = reader.readLine();
-                role = reader.readLine();
-                ((EditText)findViewById(R.id.editext_config_name)).setText(name.toCharArray(),0,name.length());
-                ((EditText)findViewById(R.id.edittext_config_phone)).setText(phone.toCharArray(),0,phone.length());
-                ((EditText)findViewById(R.id.edittext_config_company)).setText(company.toCharArray(),0,company.length());
-                switch (role) {
-                    case "1":
-                        checkBoxApply.setChecked(true);
-                        checked = checkBoxApply.getId();
-                        break;
-                    case "2":
-                        checkBoxTempCharge.setChecked(true);
-                        checked = checkBoxTempCharge.getId();
-                        break;
-                    case "3":
-                        checkBoxConstructCharge.setChecked(true);
-                        checked = checkBoxConstructCharge.getId();
-                        break;
-                }
-            }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }
