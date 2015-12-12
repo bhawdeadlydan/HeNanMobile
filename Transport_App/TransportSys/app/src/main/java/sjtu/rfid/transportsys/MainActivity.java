@@ -45,21 +45,11 @@ public class MainActivity extends Activity {
     private Button btnConfig, btnApply, btnArriveTmp, btnArriveConstruct;
     private MainButtonListener mBtnListener = new MainButtonListener();
 
-    private TestThread testThread;
-    private String ret="";
 
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = LocationListener.getInstance();
 
     private Data data;
-
-
-    private Handler TestHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
-        }
-    };
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -186,8 +176,6 @@ public class MainActivity extends Activity {
             switch (v.getId()) {
                 case R.id.btn_main_config:
                     intent.setClass(MainActivity.this, ConfigActivity.class);
-                    testThread=new TestThread(TestHandler);
-                    testThread.start();
                     break;
                 case R.id.btn_main_check:
                     intent.setClass(MainActivity.this, ConfirmActivity.class);

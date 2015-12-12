@@ -21,7 +21,10 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,9 +35,10 @@ import rfid.service.Good;
 import sjtu.rfid.entity.ArrivalEntity;
 
 import sjtu.rfid.thread.ArrivalThread;
+import sjtu.rfid.thread.CommitTransInfoThread;
 import sjtu.rfid.thread.GeoCoderThread;
 import tools.ArrivalExpandableAdapter;
-
+import tools.Data;
 
 
 public class ArrivalActivity extends Activity {
@@ -45,11 +49,21 @@ public class ArrivalActivity extends Activity {
     private List<Map<String,String>> mArrivalList;
 
     private GeoCoderThread geoCoderThread;
-    private double latitude=0.0;
-    private double longitude =0.0;
+    private ArrivalThread arrivalThread;
+    private CommitTransInfoThread commitTransInfoThread;
+
+    private String charge;
+    private String time;
+    private String position;
+    private String type;
+    private String applyCode;
+    private double lng=0.0;
+    private double lat=0.0;
+
 
     private String CNum="";
     private ArrivalEntity arrivalEntity;
+    private boolean commitResult;
 
     public BDLocationListener myListener = LocationListener.getInstance();
 
@@ -68,8 +82,26 @@ public class ArrivalActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             //Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(),"获取地址失败\"",Toast.LENGTH_SHORT).show();
             TextView vAddress=(TextView)findViewById(R.id.text_arrival_address);
+            position=msg.obj.toString();
             vAddress.setText(msg.obj.toString());
+        }
+    };
+
+    private Handler commitHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            //Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
+            commitResult=(boolean)msg.obj;
+            if(commitResult)
+                Toast.makeText(getApplicationContext(),"提交成功",Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(),"提交失败",Toast.LENGTH_SHORT).show();
+
         }
     };
     /**
@@ -154,26 +186,60 @@ public class ArrivalActivity extends Activity {
 
     public void iniEvent(){
         Button btnPos=(Button)findViewById(R.id.btn_arrival_position);
+        Button btnGetOrder=(Button)findViewById(R.id.btn_arrival_scan_box_get_order);
+        Button btnScanWrite=(Button)findViewById(R.id.btn_arrival_scan_and_write);
+        Button btnCommit=(Button)findViewById(R.id.btn_arrival_commit);
+
         btnPos.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 LocationListener listener=(LocationListener)myListener;
+                lng=listener.getLongitude();
+                lat=listener.getLatitude();
                 geoCoderThread=new GeoCoderThread(listener.getLongitude(),listener.getLatitude(),geoHandler);
                 geoCoderThread.start();
             }
         });
 
-        Button btnGetOrder=(Button)findViewById(R.id.btn_arrival_scan_box_get_order);
         btnGetOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrivalThread thread=new ArrivalThread(handler,CNum);
-                thread.start();
+                //扫描货物标签线程
+                applyCode="";
+                arrivalThread=new ArrivalThread(handler,CNum);
+                arrivalThread.start();
 
             }
         });
+        btnScanWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //扫描货物标签并写入相关数据线程
+
+
+            }
+        });
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Data data= (Data)getApplication();
+                charge=data.getName();
+                Date date=new Date();
+                DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                time=format.format(date);
+                //position
+                Intent intent = getIntent();
+                int func = intent.getIntExtra("function",0);
+                type=func+"";//0:暂存点，1：施工点
+                //applyCode
+
+                commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,handler);
+                commitTransInfoThread.start();
+            }
+        });
+
 
     }
 

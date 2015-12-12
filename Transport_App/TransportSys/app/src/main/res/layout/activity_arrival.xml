@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="扫描写入信息"
-                android:id="@+id/button7"
+                android:id="@+id/btn_arrival_scan_and_write"
                 android:textSize="13dp" />
         </LinearLayout>
 
@@ -67,7 +67,7 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="提交"
-        android:id="@+id/button5"
+        android:id="@+id/btn_arrival_commit"
         android:layout_alignTop="@+id/btn_arrival_position"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/list_arrive_sheets"
         android:layout_below="@+id/textView10"
-        android:layout_above="@+id/button5" />
+        android:layout_above="@+id/btn_arrival_commit" />
 
     <TextView
         android:layout_width="220dp"
@@ -114,8 +114,8 @@
         android:text="定位"
         android:id="@+id/btn_arrival_position"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button5"
-        android:layout_toStartOf="@+id/button5"
+        android:layout_toLeftOf="@+id/btn_arrival_commit"
+        android:layout_toStartOf="@+id/btn_arrival_commit"
         android:layout_marginBottom="17dp" />
 
 </RelativeLayout>

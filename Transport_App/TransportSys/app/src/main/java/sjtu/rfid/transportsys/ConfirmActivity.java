@@ -34,6 +34,7 @@ public class ConfirmActivity extends Activity {
 
     private String CNum="";
     private ConfirmEntity confirmEntity;
+
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -116,14 +117,35 @@ public class ConfirmActivity extends Activity {
     private void initEvent(){
 
         Button btnGetOrder=(Button)findViewById(R.id.btn_confirm_scan_box_get_order);
+        Button btnScanWrite=(Button)findViewById(R.id.bnt_confirm_scan_and_write);
+        Button btnCommit=(Button)findViewById(R.id.btn_confirm_commit);
         btnGetOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //扫描货物标签线程
+
                 ConfirmThread thread=new ConfirmThread(handler,CNum);
                 thread.start();
 
             }
         });
+
+        btnScanWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //扫描货物标签并写入相关信息县城
+
+            }
+        });
+
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //暂不知做何操作
+
+            }
+        });
+
     }
 }
 

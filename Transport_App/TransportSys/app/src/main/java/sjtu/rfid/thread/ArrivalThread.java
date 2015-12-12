@@ -38,7 +38,6 @@ public class ArrivalThread extends Thread {
         RFIDService.Client client = connectServer.openConnect();
         try{
             applyOrder=client.getApplyDocCodeByCNum(CNum);
-            //applyOrder="2524-REQ-2015090000059";
             goodsList=client.getGoodsListByApplyDocCode(applyOrder);
             arrivalEntity=new ArrivalEntity(applyOrder,goodsList);
         }catch(TException e){
@@ -47,7 +46,6 @@ public class ArrivalThread extends Thread {
         }
 
         msg.what=1;
-        //applyOrder="123";
         msg.obj=arrivalEntity;
         handler.sendMessage(msg);
     }
