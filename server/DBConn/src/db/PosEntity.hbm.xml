@@ -22,5 +22,6 @@
         <property name="dockCode" column="DOCK_CODE"/>
         <property name="disposition" column="DISPOSITION"/>
         <property name="sent" column="Sent"/>
+        <property name="sentDate" column="Sent_Date"/>
     </class>
 </hibernate-mapping>

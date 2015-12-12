@@ -11,6 +11,7 @@ import dao.*;
 import db.*;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrv_PortType{
     public PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrvResponse process(PutIn.SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest payload) throws java.rmi.RemoteException {
@@ -61,6 +62,8 @@ public class SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl implements PutIn.SB
             asn.setDisposition(asnitem.getDISPOSITION());
             asn.setApplyPerson(asnitem.getAPPLY_PERSON());
             asn.setPaid(0);
+            Timestamp time = new Timestamp(new Date().getTime());
+            asn.setPaidDate(time);
             asndao.addEntity(asn);
             for(BOMS_Item bItem : asnitem.getBOMS_Collection()) {
                 BomEntity bom = new BomEntity();

@@ -1,9 +1,7 @@
 package rfid.service;
 
 import dao.*;
-import db.AsnEntity;
 import db.CheckEntity;
-import db.PosEntity;
 import db.TransportEntity;
 import org.apache.thrift.TException;
 

@@ -13,6 +13,7 @@ import db.DetailEntity;
 import db.PosEntity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvBindingImpl implements PutOut.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrv_PortType{
     public PutOut.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvResponse process(PutOut.SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvRequest payload) throws java.rmi.RemoteException {
@@ -39,6 +40,8 @@ public class SB_WMS_WMS_ImportComEpuSimMatAppMStorSrvBindingImpl implements PutO
             pos.setDockCode(positem.getDOCK_CODE());
             pos.setDisposition(positem.getDISPOSITION());
             pos.setSent(0);
+            Timestamp time = new Timestamp(new Date().getTime());
+            pos.setSentDate(time);
             pdao.addEntity(pos);
             for(DETAILS_Item dItem : positem.getDETAILS_Collection()) {
                 DetailEntity detail = new DetailEntity();

@@ -36,15 +36,14 @@
         <mapping class="db.WmsDetailEntity"/>
         <mapping resource="db/TransportEntity.hbm.xml"/>
         <mapping class="db.TransportEntity"/>
-        <mapping resource="db/AsnEntity.hbm.xml"/>
-        <mapping class="db.AsnEntity"/>
-        <mapping resource="db/PosEntity.hbm.xml"/>
-        <mapping class="db.PosEntity"/>
         <mapping resource="db/CheckEntity.hbm.xml"/>
         <mapping class="db.CheckEntity"/>
         <mapping class="db.SaleBomDetailEntity"/>
         <mapping resource="db/SaleBomDetailEntity.hbm.xml"/>
+        <mapping class="db.AsnEntity"/>
+        <mapping resource="db/AsnEntity.hbm.xml"/>
+        <mapping class="db.PosEntity"/>
+        <mapping resource="db/PosEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

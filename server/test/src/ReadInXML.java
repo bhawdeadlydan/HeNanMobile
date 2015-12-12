@@ -84,6 +84,8 @@ public class ReadInXML {
                 asn.setDisposition(iItem.element("DISPOSITION").getText());
                 asn.setApplyPerson(iItem.element("APPLY_PERSON").getText());
                 asn.setPaid(0);
+                Timestamp time = new Timestamp(new Date().getTime());
+                asn.setPaidDate(time);
                 asndao.addEntity(asn);
                 Element Boms = iItem.element("BOMS_Collection");
                 for (Iterator i2 = Boms.elementIterator(); i2.hasNext();) {
@@ -186,6 +188,6 @@ public class ReadInXML {
     }
     public static void main(String argv[]) {
         ReadInXML read = new ReadInXML();
-        read.parserXml("test/src/xml/VD-SH-2015100000634_IES.xml");
+        read.parserXml("test/src/xml/VD-SH-2015090000006_IES.xml");
     }
 }

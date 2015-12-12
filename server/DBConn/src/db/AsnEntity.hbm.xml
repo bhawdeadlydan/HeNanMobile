@@ -40,5 +40,6 @@
         <property name="disposition" column="DISPOSITION"/>
         <property name="paid" column="Paid"/>
         <property name="applyPerson" column="Apply_Person"/>
+        <property name="paidDate" column="Paid_Date"/>
     </class>
 </hibernate-mapping>

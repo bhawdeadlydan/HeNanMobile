@@ -62,6 +62,8 @@ public class ReadOutXML {
                 pos.setDockCode(positem.element("DOCK_CODE").getText());
                 pos.setDisposition(positem.element("DISPOSITION").getText());
                 pos.setSent(0);
+                Timestamp time = new Timestamp(new Date().getTime());
+                pos.setSentDate(time);
                 pdao.addEntity(pos);
                 Element dCollection = positem.element("DETAILS_Collection");
                 for(Iterator i2 = dCollection.elementIterator();i2.hasNext();){
