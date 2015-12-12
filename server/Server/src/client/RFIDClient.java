@@ -6,10 +6,7 @@ import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
-import rfid.service.ASN;
-import rfid.service.Good;
-import rfid.service.POS;
-import rfid.service.RFIDService;
+import rfid.service.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -32,15 +29,20 @@ public class RFIDClient {
                 System.out.println(pos.getCode());
             }*/
 //            client.confirmReceiving("VD-SH-2015090000006");
-            List<Good> l2 = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
+//            List<Good> l2 = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
             /*List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
                 POS pos = (POS)it.next();
                 System.out.println(pos.getApply_Doc_Code());
             }*/
-            for(Iterator it = l2.iterator();it.hasNext();){
-                Good g = (Good)it.next();
-                System.out.println(g.getCode() + "+" + g.getNum());
+            List<LocationInfo> list = client.getLocationListByItemErpCode("10041645");
+//            for(Iterator it = l2.iterator();it.hasNext();){
+//                Good g = (Good)it.next();
+//                System.out.println(g.getCode() + "+" + g.getNum() + "+"+g.getDetail());
+//            }
+            for(Iterator it = list.iterator();it.hasNext();){
+                LocationInfo linfo  = (LocationInfo) it.next();
+                System.out.println(linfo.getID() + "," +linfo.getArea() + "," + linfo.getLocation());
             }
             transport.close();
         } catch (TTransportException e) {

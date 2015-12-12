@@ -229,7 +229,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select allocationId, sum(expectedQuantity) from WmsDetailEntity as model where itemCode = ? and allocationId != -1 group by model.allocationId";
+            String hql = "select model.allocationId, sum(model.expectedQuantity) from WmsDetailEntity as model where model.itemCode = ? and model.allocationId != -1 group by model.allocationId";
             Query query = session.createQuery(hql);
             query.setParameter(0, ItemERPCode);
             tx.commit();
@@ -238,6 +238,28 @@ public class WMSDetailDao extends BaseDao{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public String getERPDetailByERPCode(String code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "select model.itemName from WmsDetailEntity as model where model.itemCode = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, code);
+            tx.commit();
+            if(!queryObject.list().isEmpty())
+                return (String)queryObject.list().get(0);
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return "";
     }
 
     public List<Object[]> getBomGoodsByLocation(int lid){

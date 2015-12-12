@@ -33,6 +33,8 @@ struct POS{
 struct LocationInfo {
 1:required i32 ID;
 2:required i32 Num;
+3:required string Area;
+4:required i32 Location;
 }
 
 struct check {

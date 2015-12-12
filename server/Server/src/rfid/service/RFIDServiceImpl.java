@@ -142,13 +142,15 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         }
         else{
             List list = ddao.getERPDistinctGoods(ApplyDocCode);
+            String detail = "";
             for(Iterator it = list.iterator();it.hasNext();){
                 Object[] objs = (Object[])it.next();
                 Good good = new Good();
                 good.setCode((String)objs[0]);
                 good.setNum(Integer.parseInt(objs[1].toString()));
                 good.setIs_Bom(false);
-                good.setDetail((String)objs[2]);
+                detail = wdao.getERPDetailByERPCode((String)objs[0]);
+                good.setDetail(detail);
                 good.setUnit((String)objs[3]);
                 l.add(good);
             }
@@ -211,15 +213,23 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<LocationInfo> getLocationListByItemErpCode(String ItemERPCode) throws TException {
         WMSDetailDao dao = new WMSDetailDao();
+        AllocationDao adao = new AllocationDao();
         List<Object[]> l = dao.getLocationIDsByItemERPCode(ItemERPCode);
         if(l == null)
             return null;
         ArrayList<LocationInfo> list = new ArrayList<>();
-        for(Iterator it = list.iterator(); it.hasNext();){
+        for(Iterator it = l.iterator(); it.hasNext();){
             Object[] objs = (Object[])it.next();
             LocationInfo linfo = new LocationInfo();
             linfo.setID(Integer.parseInt(objs[0].toString()));
             linfo.setNum(Integer.parseInt(objs[1].toString()));
+            Object[] obs = adao.getLocationInfoByID(linfo.getID());
+            linfo.setArea("");
+            linfo.setLocation(0);
+            if(obs != null){
+                linfo.setArea(obs[0].toString());
+                linfo.setLocation(Integer.parseInt(obs[1].toString()));
+            }
             list.add(linfo);
         }
         return list;
