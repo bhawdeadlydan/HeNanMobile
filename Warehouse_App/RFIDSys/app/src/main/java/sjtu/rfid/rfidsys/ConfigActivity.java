@@ -53,6 +53,8 @@ public class ConfigActivity extends Activity {
 
                 ConfigData.ip=vIP.getText().toString();
                 ConfigData.port=Integer.parseInt(vPort.getText().toString());
+                vIP.setText(vIP.getText().toString());
+                vPort.setText(vPort.getText().toString());
                 Toast.makeText(ConfigActivity.this,"保存成功",Toast.LENGTH_LONG).show();
 
             }

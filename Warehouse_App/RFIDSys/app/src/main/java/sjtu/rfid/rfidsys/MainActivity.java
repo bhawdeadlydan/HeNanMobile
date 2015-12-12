@@ -31,10 +31,12 @@ public class MainActivity extends Activity {
         }
 
         Properties properties=PropertiesUtil.loadConfig(getApplicationContext());
-        Toast.makeText(getApplicationContext(),properties.get("ip").toString(),Toast.LENGTH_LONG).show();
-        ConfigData.ip=properties.get("ip").toString();
-        ConfigData.port=Integer.valueOf(properties.get("port").toString());
-;
+        if( properties.get("ip") == null || properties.get("port") == null )
+            Toast.makeText(getApplicationContext(),"请您先配置服务器信息！",Toast.LENGTH_LONG).show();
+        else {
+            ConfigData.ip=properties.get("ip").toString();
+            ConfigData.port=Integer.valueOf(properties.get("port").toString());
+;       }
     }
 
     public void iniBtns() {
