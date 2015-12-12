@@ -49,8 +49,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        String key = mDeliveryBoxes.get(groupPosition).get("matCode");
-        return mDeliveryBoxesDetails.get(key).size();
+        return 1;
     }
 
     @Override
@@ -86,7 +85,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
         TextView matName = (TextView) layout.findViewById(R.id.text_delivery_scan_mat_name);
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_delivery_scan_expected_count);
         matCode.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matCode"));
-        matName.setText(matCode.getText()+mDeliveryBoxes.get(groupPosition).get("matName"));
+        matName.setText(matName.getText() + mDeliveryBoxes.get(groupPosition).get("matName"));
         expectedCount.setText(expectedCount.getText()+mDeliveryBoxes.get(groupPosition).get("expectedCount"));
 
         return layout;

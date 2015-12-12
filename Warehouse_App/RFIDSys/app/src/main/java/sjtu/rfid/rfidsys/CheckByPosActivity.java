@@ -76,7 +76,7 @@ public class CheckByPosActivity extends Activity {
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
             map.put("matCode",good.getCode());
-            map.put("expectedCount",String.valueOf(good.getExpected_Quantity()));
+            map.put("expectedCount",String.valueOf(good.getNum()));
             map.put("realCount","0");
             mCheckByPosList.add(map);
 

@@ -71,7 +71,10 @@ public class PutInStorageExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_put_in_storage_box, null);
+        if(mPutInStorageList.size()==0||mPutInStorageList==null)
+            return layout;
         TextView vboxCode = (TextView) layout.findViewById(R.id.text_put_in_storage_box_code);
         TextView vmatName = (TextView) layout.findViewById(R.id.text_put_in_storage_mat_name);
         vboxCode.setText(mPutInStorageList.get(groupPosition).get("boxCode"));
@@ -82,6 +85,8 @@ public class PutInStorageExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_put_in_storage_box_detail, null);
+        if(mPutInStorageDetailList.size()==0||mPutInStorageDetailList==null)
+            return layout;
         Map<String,String> map=mPutInStorageDetailList.get(mPutInStorageList.get(groupPosition).get("boxCode"));
         for(Map.Entry<String,String> entry:map.entrySet()){
             if(entry.getKey().equals("matCode")){
@@ -103,5 +108,10 @@ public class PutInStorageExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 }

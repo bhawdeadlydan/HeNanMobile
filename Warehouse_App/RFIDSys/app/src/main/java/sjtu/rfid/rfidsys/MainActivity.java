@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import sjtu.rfid.tools.ConnectServer;
 
 public class MainActivity extends Activity {
 
@@ -17,8 +20,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         iniBtns();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        ConnectServer connectServer=new ConnectServer();
+        if(!connectServer.isNetworkAvailable(this)){
+            Toast.makeText(getApplicationContext(),"网络连接不可用",Toast.LENGTH_SHORT).show();
+        }
+;
     }
 
     public void iniBtns() {

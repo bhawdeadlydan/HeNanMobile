@@ -32,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A12"
+            android:text=""
             android:id="@+id/text_put_in_storage_loc"
             android:textSize="20dp"
             android:layout_weight="0.8"/>

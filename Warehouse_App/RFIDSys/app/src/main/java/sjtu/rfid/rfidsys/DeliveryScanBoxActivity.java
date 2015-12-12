@@ -18,7 +18,6 @@ import java.util.Map;
 
 import rfid.service.Good;
 import sjtu.rfid.thread.DeliveryScanBoxThread;
-import sjtu.rfid.thread.DeliverySheetsThread;
 import sjtu.rfid.tools.DeliverySheetsScanBoxExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -65,27 +64,25 @@ public class DeliveryScanBoxActivity extends Activity {
     }
 
     public void iniListView(List<Good> goodList) {
-        System.out.println("11111111");
         mDeliveryBoxesDetails=new HashMap<String, Map<String, String>>();
         mDeliveryBoxes = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_scan_box_sheets);
 
-        System.out.println("22222222");
-        Toast.makeText(getApplicationContext(),goodList.size(),Toast.LENGTH_LONG).show();
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
             map.put("matCode",good.getCode());
             map.put("matName", good.getDetail());
-            map.put("boxCount", String.valueOf(good.getNum()));
+            map.put("expectedCount", String.valueOf(good.getNum()));
             mDeliveryBoxes.add(map);
 
             Map<String, String> detailMap = new HashMap<>();
             String cartonList="\n";
             detailMap.put("isBom", good.isIs_Bom() ? "Y" : "N");
-            for(String cartonNum:good.getCartonNums()){
-                cartonList+=cartonNum+"\n";
-            }
-            detailMap.put("cartonList",cartonList);
+//            for(String cartonNum:good.getCartonNums()){
+//                cartonList+=cartonNum+"\n";
+//            }
+//            detailMap.put("cartonList",cartonList);
+            detailMap.put("cartonList","");
             mDeliveryBoxesDetails.put(good.getCode(), detailMap);
         }
 
