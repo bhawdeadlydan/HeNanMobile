@@ -93,4 +93,25 @@
             android:layout_weight="0.5"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout15"
+        android:layout_marginTop="120dp"
+        android:id="@+id/linearLayout16">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="货物移位"
+            android:id="@+id/btn_config"
+            android:layout_alignParentTop="true"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+
+
 </RelativeLayout>

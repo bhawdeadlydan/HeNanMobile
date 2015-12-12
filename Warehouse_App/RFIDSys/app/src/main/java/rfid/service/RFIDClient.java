@@ -32,16 +32,16 @@ public class RFIDClient {
                 System.out.println(pos.getCode());
             }*/
 //            client.confirmReceiving("VD-SH-2015090000006");
-            List<Good> l2 = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
-            /*List<POS> list = client.getApplySheets();
+            //List<Good> l2 = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
+            List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
                 POS pos = (POS)it.next();
                 System.out.println(pos.getApply_Doc_Code());
-            }*/
-            for(Iterator it = l2.iterator();it.hasNext();){
+            }
+/*            for(Iterator it = l2.iterator();it.hasNext();){
                 Good g = (Good)it.next();
                 System.out.println(g.getCode() + "+" + g.getNum()+"+"+g.getDetail());
-            }
+            }*/
             transport.close();
         } catch (TTransportException e) {
             e.printStackTrace();

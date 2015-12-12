@@ -128,7 +128,6 @@ public class PutInStorageActivity extends Activity {
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //读货位标签线程
                 TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
                 vGoodsPos.setText("A11");
             }
@@ -136,7 +135,6 @@ public class PutInStorageActivity extends Activity {
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //读货物标签线程
 
                 putInStorageThread=new PutInStorageThread(handler,CNum);
                 putInStorageThread.start();
@@ -157,7 +155,7 @@ public class PutInStorageActivity extends Activity {
                     String cartonNum=entry.getKey();
                     CNumList.add(cartonNum);
                 }
-                bindThread=new BindThread(CNumList,goodPos,handlerBind);
+                bindThread=new BindThread(CNumList,goodPos,handler);
                 bindThread.start();
 
             }
