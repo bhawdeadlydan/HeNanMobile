@@ -7,38 +7,40 @@ import org.apache.thrift.TException;
 
 import java.util.List;
 
-import rfid.service.Good;
 import rfid.service.RFIDService;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
- * Created by shao on 2015/12/11.
+ * Created by shao on 2015/12/12.
  */
-public class PutInStorageThread extends Thread {
+public class BindThread extends Thread {
 
-    private String CNum;
+    private List<String> CNumList;
+    private int goodPos;
     private Handler handler;
 
-    private Good good;
+    private boolean result;
 
-    public PutInStorageThread(Handler handler,String CNum) {
+    public BindThread(List<String> CNumList,int goodPos,Handler handler){
+        this.CNumList=CNumList;
+        this.goodPos=goodPos;
         this.handler=handler;
-        this.CNum=CNum;
     }
 
     @Override
     public void run() {
+
         Message msg=handler.obtainMessage();
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            good=client.getGoodByCNum(CNum);
+            result=client.bindLocationAndGoods(goodPos,CNumList);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();
         }
         msg.what=1;
-        msg.obj=good;
+        msg.obj=result;
         handler.sendMessage(msg);
     }
 }

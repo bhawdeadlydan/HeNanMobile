@@ -38,6 +38,7 @@ public class CheckByMatThread extends Thread {
         RFIDService.Client client = connectServer.openConnect();
         try{
             good=client.getGoodByCNum(CNum);
+
             locationInfoList=client.getLocationListByItemErpCode(good.getCode());
             checkByMatEntity=new CheckByMatEntity(good,locationInfoList);
         }catch(TException e){

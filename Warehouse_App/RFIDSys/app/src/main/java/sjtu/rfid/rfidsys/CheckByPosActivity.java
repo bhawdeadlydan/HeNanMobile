@@ -3,7 +3,6 @@ package sjtu.rfid.rfidsys;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +19,9 @@ import java.util.List;
 import java.util.Map;
 
 import rfid.service.Good;
-import sjtu.rfid.entity.CheckByMatEntity;
+import rfid.service.check;
 import sjtu.rfid.thread.CheckByPosThread;
+import sjtu.rfid.thread.CheckThread;
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -42,6 +42,10 @@ public class CheckByPosActivity extends Activity {
     private CheckByPosThread checkByPosThread;
     private List<Good> goodList;
 
+    private CheckThread checkThread;
+    private List<check> checkList;
+    private boolean checkResult;
+
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -51,6 +55,20 @@ public class CheckByPosActivity extends Activity {
             iniListView(goodList);
         }
     };
+
+    private Handler handlerCheck=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            checkResult=(boolean)msg.obj;
+            if(checkResult)
+                Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +94,7 @@ public class CheckByPosActivity extends Activity {
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
             map.put("matCode",good.getCode());
-            map.put("expectedCount",String.valueOf(good.getExpected_Quantity()));
+            map.put("expectedCount",String.valueOf(good.getNum()));
             map.put("realCount","0");
             mCheckByPosList.add(map);
 
@@ -99,8 +117,6 @@ public class CheckByPosActivity extends Activity {
                 }
             }
         });
-        TextView vGoosdPos=(TextView)findViewById(R.id.text_check_by_pos_loc);
-        vGoosdPos.setText(vGoosdPos.getText()+"A22");
 
     }
 
@@ -112,19 +128,26 @@ public class CheckByPosActivity extends Activity {
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货位标签线程
 
+                TextView vGoosdPos=(TextView)findViewById(R.id.text_check_by_pos_loc);
+                vGoosdPos.setText(vGoosdPos.getText()+"A22");
             }
         });
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货物标签线程
 
+                checkByPosThread=new CheckByPosThread(goodPos,handler);
+                checkByPosThread.start();
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkThread=new CheckThread(checkList,handlerCheck);
+                checkThread.start();
             }
         });
     }

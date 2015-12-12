@@ -2,11 +2,14 @@ package sjtu.rfid.rfidsys;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -16,6 +19,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.ASN;
+import rfid.service.Good;
+import sjtu.rfid.thread.BindThread;
+import sjtu.rfid.thread.PutInStorageThread;
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
 import sjtu.rfid.tools.PutInStorageExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
@@ -33,12 +40,42 @@ public class PutInStorageActivity extends Activity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
+    private PutInStorageThread putInStorageThread;
+    private BindThread bindThread;
+    private String CNum="EPC201509000000";
+    private Good good;
+    public int goodPos=-1;
+    private boolean bindResult;
+
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            bindResult=(boolean)msg.obj;
+            if(bindResult)
+                Toast.makeText(getApplicationContext(), "绑定成功", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "绑定失败", Toast.LENGTH_SHORT).show();
+        }
+    };
+    private Handler handlerBind=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            good=(Good)msg.obj;
+            iniListView(good);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_put_in_storage);
+        mPutInStorageDetailList = new HashMap<String, Map<String, String>>();
+        mPutInStorageList = new ArrayList<>();
         iniActivity();
-        iniListView();
         iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -50,25 +87,22 @@ public class PutInStorageActivity extends Activity {
         mTitleBar = new TitleBar(this,"入库上架");
     }
 
-    public void iniListView() {
+    public void iniListView(Good good) {
+        if(good==null)
+            return;
 
-        mPutInStorageDetailList = new HashMap<String, Map<String, String>>();
-        mPutInStorageList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_put_in_storage_sheets);
-        for(int i=0;i<9;i++){
-            Map<String,String> map=new HashMap<>();
-            map.put("boxCode","EPC201509000000"+(i+1));
-            map.put("matName","光缆");
-            mPutInStorageList.add(map);
+        Map<String,String> map=new HashMap<>();
+        map.put("boxCode", CNum);
+        map.put("matName", good.getDetail());
+        mPutInStorageList.add(map);
 
-        }
-        for (int i = 0; i < mPutInStorageList.size(); i++) {
-            Map<String, String> detailMap = new HashMap<>();
-            detailMap.put("matCode", "11111111"+(i+1));
-            detailMap.put("unit", "公里");
-            detailMap.put("count", "100");
-            mPutInStorageDetailList.put(mPutInStorageList.get(i).get("boxCode"), detailMap);
-        }
+        Map<String, String> detailMap = new HashMap<>();
+        detailMap.put("matCode", good.getCode());
+        detailMap.put("unit", good.getUnit());
+        detailMap.put("count", String.valueOf(good.getNum()));
+        mPutInStorageDetailList.put(CNum, detailMap);
+
         tmpAdapter = new PutInStorageExpandableAdapter(this,mPutInStorageDetailList,mPutInStorageList);
         sheetListView.setAdapter(tmpAdapter);
 
@@ -83,8 +117,6 @@ public class PutInStorageActivity extends Activity {
             }
         });
 
-        TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
-        vGoodsPos.setText("A12");
     }
 
     public void iniEvent(){
@@ -96,24 +128,37 @@ public class PutInStorageActivity extends Activity {
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //读货位标签线程
+                TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
+                vGoodsPos.setText("A11");
             }
         });
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货物标签线程
 
+                putInStorageThread=new PutInStorageThread(handler,CNum);
+                putInStorageThread.start();
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mPutInStorageDetailList.clear();
+                mPutInStorageList.clear();
             }
         });
         btnBind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<String> CNumList=new ArrayList<String>();
+                for(Map.Entry<String,Map<String,String>> entry:mPutInStorageDetailList.entrySet()){
+                    String cartonNum=entry.getKey();
+                    CNumList.add(cartonNum);
+                }
+                bindThread=new BindThread(CNumList,goodPos,handlerBind);
+                bindThread.start();
 
             }
         });

@@ -7,23 +7,24 @@ import org.apache.thrift.TException;
 
 import java.util.List;
 
-import rfid.service.Good;
 import rfid.service.RFIDService;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
- * Created by shao on 2015/12/11.
+ * Created by shao on 2015/12/12.
  */
-public class PutInStorageThread extends Thread {
+public class DeliverySubmitThread extends Thread {
 
-    private String CNum;
+    private String applyCode;
+    private List<String> CNums;
     private Handler handler;
 
-    private Good good;
+    private boolean result;
 
-    public PutInStorageThread(Handler handler,String CNum) {
+    public DeliverySubmitThread(String applyCode,List<String> CNums,Handler handler){
+        this.CNums=CNums;
+        this.applyCode=applyCode;
         this.handler=handler;
-        this.CNum=CNum;
     }
 
     @Override
@@ -32,13 +33,13 @@ public class PutInStorageThread extends Thread {
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            good=client.getGoodByCNum(CNum);
+            result=client.confirmRetrieval(applyCode,CNums);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();
         }
         msg.what=1;
-        msg.obj=good;
+        msg.obj=result;
         handler.sendMessage(msg);
     }
 }

@@ -7,23 +7,25 @@ import org.apache.thrift.TException;
 
 import java.util.List;
 
-import rfid.service.Good;
 import rfid.service.RFIDService;
+import rfid.service.check;
+import sjtu.rfid.entity.CheckByMatEntity;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
- * Created by shao on 2015/12/11.
+ * Created by shao on 2015/12/12.
  */
-public class PutInStorageThread extends Thread {
+public class CheckThread  extends Thread{
 
-    private String CNum;
+
+    private List<check> checkList;
     private Handler handler;
 
-    private Good good;
+    private boolean checkResult;
 
-    public PutInStorageThread(Handler handler,String CNum) {
+    public CheckThread(List<check> checkList,Handler handler){
+        this.checkList=checkList;
         this.handler=handler;
-        this.CNum=CNum;
     }
 
     @Override
@@ -32,13 +34,13 @@ public class PutInStorageThread extends Thread {
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            good=client.getGoodByCNum(CNum);
+            checkResult=client.confirmInventory(checkList);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();
         }
         msg.what=1;
-        msg.obj=good;
+        msg.obj=checkResult;
         handler.sendMessage(msg);
     }
 }

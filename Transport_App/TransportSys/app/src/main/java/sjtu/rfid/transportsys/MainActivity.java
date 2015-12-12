@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +25,20 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.apache.log4j.chainsaw.Main;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+
 import baidu.poistion.service.LocationListener;
 import sjtu.rfid.thread.TestThread;
+import tools.Data;
 
 public class MainActivity extends Activity {
 
@@ -36,6 +50,8 @@ public class MainActivity extends Activity {
 
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = LocationListener.getInstance();
+
+    private Data data;
 
 
     private Handler TestHandler = new Handler() {
@@ -64,6 +80,7 @@ public class MainActivity extends Activity {
         mLocationClient.requestLocation();
 
         iniBtns();
+        iniInfo();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -82,6 +99,43 @@ public class MainActivity extends Activity {
         btnArriveTmp.setOnClickListener(mBtnListener);
         btnArriveConstruct.setOnClickListener(mBtnListener);
 
+    }
+
+    public void iniInfo() {
+        data = (Data) getApplication();
+        try {
+            File filepath = this.getFilesDir();
+            File file = new File(filepath.toString(),"info.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+                data.setName("");
+                data.setPhone("");
+                data.setCompany("");
+                data.setRole("0");
+            } else {
+                InputStreamReader reader = new InputStreamReader(new FileInputStream(file), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                String line = null;
+                if ((line = bufferedReader.readLine()) != null) {
+                    data.setName(line);
+                    data.setPhone(bufferedReader.readLine());
+                    data.setCompany(bufferedReader.readLine());
+                    data.setRole(bufferedReader.readLine());
+                    return;
+                } else {
+                    data.setName("");
+                    data.setPhone("");
+                    data.setCompany("");
+                    data.setRole("0");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -146,6 +200,9 @@ public class MainActivity extends Activity {
                 case R.id.btn_main_arrive_construct:
                     intent.setClass(MainActivity.this, ArrivalActivity.class);
                     intent.putExtra("function", 1);
+                    break;
+                case R.id.btn_main_config_server:
+                    intent.setClass(MainActivity.this, ConfigServerActivity.class);
                     break;
             }
             startActivity(intent);

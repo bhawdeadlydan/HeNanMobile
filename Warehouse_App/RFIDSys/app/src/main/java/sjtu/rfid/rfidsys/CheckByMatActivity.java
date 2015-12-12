@@ -5,9 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,11 +20,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import rfid.service.ASN;
 import rfid.service.Good;
 import rfid.service.LocationInfo;
+import rfid.service.check;
 import sjtu.rfid.entity.CheckByMatEntity;
 import sjtu.rfid.thread.CheckByMatThread;
+import sjtu.rfid.thread.CheckThread;
 import sjtu.rfid.tools.CheckByMatAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -45,6 +44,10 @@ public class CheckByMatActivity extends Activity {
     private String CNum="";
     private CheckByMatThread checkByMatThread;
     private CheckByMatEntity checkByMatEntity;
+    private CheckThread checkThread;
+    private List<check> checkList;
+    private boolean checkResult;
+
 
     private Handler handler=new Handler(){
         @Override
@@ -53,6 +56,19 @@ public class CheckByMatActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             checkByMatEntity=(CheckByMatEntity)msg.obj;
             iniListView(checkByMatEntity);
+        }
+    };
+
+    private Handler handlerCheck=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            checkResult=(boolean)msg.obj;
+            if(checkResult)
+                Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -66,9 +82,6 @@ public class CheckByMatActivity extends Activity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-
-        checkByMatThread=new CheckByMatThread(CNum,handler);
-        checkByMatThread.start();
     }
 
     public void iniActivity() {
@@ -147,13 +160,17 @@ public class CheckByMatActivity extends Activity {
         btnScanGetInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //读货位标签线程
 
+                checkByMatThread=new CheckByMatThread(CNum,handler);
+                checkByMatThread.start();
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkThread=new CheckThread(checkList,handlerCheck);
+                checkThread.start();
             }
         });
     }

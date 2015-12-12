@@ -34,23 +34,13 @@ public class ConnectServer {
         {
             return false;
         }
-        else
-        {
-            // 获取NetworkInfo对象
-            NetworkInfo[] networkInfo = connectivityManager.getAllNetworkInfo();
+        NetworkInfo networkinfo = connectivityManager.getActiveNetworkInfo();
 
-            if (networkInfo != null && networkInfo.length > 0)
-            {
-                for (int i = 0; i < networkInfo.length; i++)
-                {
-                    if (networkInfo[i].getState() == NetworkInfo.State.CONNECTED)
-                    {
-                        return true;
-                    }
-                }
-            }
+        if (networkinfo == null || !networkinfo.isAvailable()) {
+            return false;
         }
-        return false;
+
+        return true;
     }
     public RFIDService.Client openConnect(){
         try {
@@ -63,8 +53,8 @@ public class ConnectServer {
             return client;
         } catch (TTransportException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public void closeConnect(){

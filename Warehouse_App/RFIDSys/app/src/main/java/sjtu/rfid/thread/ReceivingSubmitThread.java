@@ -5,40 +5,39 @@ import android.os.Message;
 
 import org.apache.thrift.TException;
 
-import java.util.List;
-
-import rfid.service.Good;
 import rfid.service.RFIDService;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
- * Created by shao on 2015/12/11.
+ * Created by shao on 2015/12/12.
  */
-public class PutInStorageThread extends Thread {
+public class ReceivingSubmitThread extends Thread {
 
-    private String CNum;
+
+    private  String sheetCode;
     private Handler handler;
 
-    private Good good;
+    private boolean result;
 
-    public PutInStorageThread(Handler handler,String CNum) {
+    public ReceivingSubmitThread(String sheetCode,Handler handler){
+        this.sheetCode=sheetCode;
         this.handler=handler;
-        this.CNum=CNum;
     }
 
     @Override
     public void run() {
+
         Message msg=handler.obtainMessage();
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            good=client.getGoodByCNum(CNum);
+            result=client.confirmReceiving(sheetCode);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();
         }
         msg.what=1;
-        msg.obj=good;
+        msg.obj=result;
         handler.sendMessage(msg);
     }
 }

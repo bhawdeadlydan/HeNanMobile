@@ -40,7 +40,7 @@ public class RFIDClient {
             }*/
             for(Iterator it = l2.iterator();it.hasNext();){
                 Good g = (Good)it.next();
-                System.out.println(g.getCode() + "+" + g.getNum());
+                System.out.println(g.getCode() + "+" + g.getNum()+"+"+g.getDetail());
             }
             transport.close();
         } catch (TTransportException e) {
