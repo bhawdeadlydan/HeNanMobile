@@ -191,7 +191,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select model.cartonNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and saleBomCode = ?  and allocationId != -1";
+            String hql = "select model.cNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and saleBomCode = ?  and allocationId != -1";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             query.setParameter(1, itemCode);
@@ -212,7 +212,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select model.cartonNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
+            String hql = "select model.cNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             query.setParameter(1, itemCode);
@@ -233,7 +233,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select model.cartonNum from WmsDetailEntity as model where asnCode = ? and saleBomCode = ?  and allocationId != -1";
+            String hql = "select model.cNum from WmsDetailEntity as model where asnCode = ? and saleBomCode = ?  and allocationId != -1";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             query.setParameter(1, saleBomCode);
@@ -254,7 +254,7 @@ public class WMSDetailDao extends BaseDao{
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "select model.cartonNum from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
+            String hql = "select model.cNum from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             query.setParameter(1, itemCode);

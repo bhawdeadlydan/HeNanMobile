@@ -103,6 +103,7 @@ public class ASNDao extends BaseDao{
             tx = session.beginTransaction();
             String hql = "select model.projectCode, model.vendorName from AsnEntity as model where model.code = ?";
             Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
             tx.commit();
             if(!query.list().isEmpty())
                 return (Object[]) query.list().get(0);
