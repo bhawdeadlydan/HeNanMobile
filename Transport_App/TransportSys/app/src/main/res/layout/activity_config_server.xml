@@ -40,7 +40,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/edittext_config_server_ip"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -62,7 +62,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/edittext_config_server_port"
             android:layout_weight="1" />
     </LinearLayout>
 

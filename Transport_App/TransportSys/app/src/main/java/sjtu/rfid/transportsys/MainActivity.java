@@ -3,46 +3,36 @@ package sjtu.rfid.transportsys;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.SyncStateContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
-import com.baidu.location.Poi;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.apache.log4j.chainsaw.Main;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Properties;
 
 import baidu.poistion.service.LocationListener;
-import sjtu.rfid.thread.TestThread;
+import sjtu.rfid.entity.ConfigData;
+import tools.ConnectServer;
 import tools.Data;
+import tools.PropertiesUtil;
 
 public class MainActivity extends Activity {
 
-    private Button btnConfig, btnApply, btnArriveTmp, btnArriveConstruct;
+    private Button btnConfig, btnApply, btnArriveTmp, btnArriveConstruct,btnConfigServer;
     private MainButtonListener mBtnListener = new MainButtonListener();
 
 
@@ -71,6 +61,18 @@ public class MainActivity extends Activity {
 
         iniBtns();
         iniInfo();
+        ConnectServer connectServer=new ConnectServer();
+        if(!connectServer.isNetworkAvailable(this)){
+            Toast.makeText(getApplicationContext(),"网络连接不可用",Toast.LENGTH_SHORT).show();
+        }
+
+        Properties properties= PropertiesUtil.loadConfig(getApplicationContext());
+        if( properties.get("ip") == null || properties.get("port") == null )
+            Toast.makeText(getApplicationContext(),"请您先配置服务器信息！",Toast.LENGTH_LONG).show();
+        else {
+            ConfigData.ip=properties.get("ip").toString();
+            ConfigData.port=Integer.valueOf(properties.get("port").toString());
+        }
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -83,11 +85,13 @@ public class MainActivity extends Activity {
         btnApply = (Button) findViewById(R.id.btn_main_check);
         btnArriveTmp = (Button) findViewById(R.id.btn_main_arrive_tmp);
         btnArriveConstruct = (Button) findViewById(R.id.btn_main_arrive_construct);
+        btnConfigServer=(Button)findViewById(R.id.btn_main_config_server);
 
         btnConfig.setOnClickListener(mBtnListener);
         btnApply.setOnClickListener(mBtnListener);
         btnArriveTmp.setOnClickListener(mBtnListener);
         btnArriveConstruct.setOnClickListener(mBtnListener);
+        btnConfigServer.setOnClickListener(mBtnListener);
 
     }
 
