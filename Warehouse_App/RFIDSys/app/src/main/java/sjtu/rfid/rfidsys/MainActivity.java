@@ -2,17 +2,22 @@ package sjtu.rfid.rfidsys;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Properties;
+
+import sjtu.rfid.entity.ConfigData;
 import sjtu.rfid.tools.ConnectServer;
+import sjtu.rfid.tools.PropertiesUtil;
 
 public class MainActivity extends Activity {
 
-    Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery;
+    Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery,benConfig;
     MainButtonListener btnListener = new MainButtonListener();
 
     @Override
@@ -24,6 +29,11 @@ public class MainActivity extends Activity {
         if(!connectServer.isNetworkAvailable(this)){
             Toast.makeText(getApplicationContext(),"网络连接不可用",Toast.LENGTH_SHORT).show();
         }
+
+        Properties properties=PropertiesUtil.loadConfig(getApplicationContext());
+        Toast.makeText(getApplicationContext(),properties.get("ip").toString(),Toast.LENGTH_LONG).show();
+        ConfigData.ip=properties.get("ip").toString();
+        ConfigData.port=Integer.valueOf(properties.get("port").toString());
 ;
     }
 
@@ -35,6 +45,7 @@ public class MainActivity extends Activity {
         btnMatCheck = (Button)findViewById(R.id.btn_mat_cehck);
         btnLocCheck = (Button)findViewById(R.id.btn_loc_check);
         btnDelivery = (Button)findViewById(R.id.btn_delivery);
+        benConfig=(Button)findViewById(R.id.btn_config);
 
         btnReceiving.setOnClickListener(btnListener);
         btnPutInStorage.setOnClickListener(btnListener);
@@ -42,6 +53,7 @@ public class MainActivity extends Activity {
         btnMatCheck.setOnClickListener(btnListener);
         btnLocCheck.setOnClickListener(btnListener);
         btnDelivery.setOnClickListener(btnListener);
+        benConfig.setOnClickListener(btnListener);
 
     }
 
@@ -68,6 +80,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_delivery:
                     intent.setClass(MainActivity.this, DeliverySheetsActivity.class);
+                    break;
+                case R.id.btn_config:
+                    intent.setClass(MainActivity.this, ConfigActivity.class);
                     break;
             }
             startActivity(intent);
