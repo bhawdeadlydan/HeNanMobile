@@ -3,6 +3,8 @@ package sjtu.rfid.rfidsys;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -36,6 +38,7 @@ public class MoveActivity extends Activity {
         setContentView(R.layout.activity_move);
         iniActivity();
         iniListView();
+        iniEvent();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -82,5 +85,29 @@ public class MoveActivity extends Activity {
         });
         TextView vcurLoc=(TextView)findViewById(R.id.text_move_cur_loc);
         vcurLoc.setText(vcurLoc.getText()+"B11");
+    }
+    public void iniEvent(){
+        Button btnScanBox=(Button)findViewById(R.id.btn_move_scan_target_box);
+        Button btnScanLoc=(Button)findViewById(R.id.btn_move_scan_target_loc);
+        Button btnCommit=(Button)findViewById(R.id.btn_move_commit);
+
+        btnScanLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnScanBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

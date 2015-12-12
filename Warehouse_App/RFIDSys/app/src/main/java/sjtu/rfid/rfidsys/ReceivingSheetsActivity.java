@@ -3,7 +3,11 @@ package sjtu.rfid.rfidsys;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -14,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.ASN;
+import sjtu.rfid.thread.ReceivingSheetsThread;
 import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -24,11 +30,24 @@ public class ReceivingSheetsActivity extends Activity {
     private List<String> mReceivingCodeList;
     private TitleBar mTitleBar;
 
+    private ReceivingSheetsThread receivingSheetsThread;
+    private List<ASN> asnList;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            asnList=(List<ASN>)msg.obj;
+            iniListView(asnList);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +55,13 @@ public class ReceivingSheetsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiving_sheets);
         iniActivity();
-        iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        receivingSheetsThread=new ReceivingSheetsThread(handler);
+        receivingSheetsThread.start();;
     }
 
     public void iniActivity()
@@ -48,30 +69,22 @@ public class ReceivingSheetsActivity extends Activity {
         mTitleBar = new TitleBar(this,"收货贴标");
     }
 
-    public void iniListView() {
+    public void iniListView(List<ASN> asnList) {
 
         mReceivingCodeDetailList = new HashMap<String, Map<String, String>>();
         mReceivingCodeList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_receiving_sheets);
         sheetListView.setItemsCanFocus(true);
-        mReceivingCodeList.add("VD-SH-2015090000001");
-        mReceivingCodeList.add("VD-SH-2015090000002");
-        mReceivingCodeList.add("VD-SH-2015090000003");
-        mReceivingCodeList.add("VD-SH-2015090000004");
-        mReceivingCodeList.add("VD-SH-2015090000005");
-        mReceivingCodeList.add("VD-SH-2015090000006");
-        mReceivingCodeList.add("VD-SH-2015090000007");
-        mReceivingCodeList.add("VD-SH-2015090000008");
-        mReceivingCodeList.add("VD-SH-2015090000009");
-        mReceivingCodeList.add("VD-SH-2015090000010");
-        for (int i = 0; i < mReceivingCodeList.size(); i++) {
+        for(ASN asn:asnList){
+            mReceivingCodeList.add(asn.getCode());
+
             Map<String, String> detailMap = new HashMap<>();
-            detailMap.put("projectCode", "B1524011");
-            detailMap.put("orderDate", "2015-09-01T00:00:00.000+08:00");
-            detailMap.put("vendorName", "江苏亨通光电股份有限公司");
-            detailMap.put("applyPerson", "苏军凯");
-            detailMap.put("relatedBill", "2524-PO-2015080000021");
-            mReceivingCodeDetailList.put(mReceivingCodeList.get(i), detailMap);
+            detailMap.put("projectCode", asn.getProject_Code());
+            detailMap.put("orderDate", asn.getOrder_Date());
+            detailMap.put("vendorName", asn.getVendor_Name());
+            detailMap.put("applyPerson", asn.getApply_Person());
+            detailMap.put("relatedBill", asn.getReleated_Bill1());
+            mReceivingCodeDetailList.put(asn.getCode(), detailMap);
         }
         tmpAdapter = new ReceivingSheetsExpandableAdapter(this, mReceivingCodeDetailList, mReceivingCodeList);
         sheetListView.setAdapter(tmpAdapter);

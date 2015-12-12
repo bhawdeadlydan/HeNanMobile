@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.List;
 import java.util.Map;
@@ -29,8 +30,7 @@ public class CheckByMatAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return 5;
-        //return mCheckByMatList.size();
+        return mCheckByMatList.size();
     }
 
     @Override
@@ -46,6 +46,15 @@ public class CheckByMatAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         RelativeLayout layout = (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_by_mat_box,null);
+        Map<String,String> map=mCheckByMatList.get(position);
+        TextView vPosDes=(TextView)layout.findViewById(R.id.text_check_by_mat_loc);
+        TextView vECount=(TextView)layout.findViewById(R.id.text_check_by_mat_expected_count);
+        TextView vSCount=(TextView)layout.findViewById(R.id.text_check_by_mat_real_count);
+
+        vPosDes.setText(vPosDes.getText()+map.get("posDes"));
+        vECount.setText(vECount.getText()+map.get("expectedCount"));
+        vSCount.setText(vSCount.getText()+"0");
+
         return layout;
     }
 }

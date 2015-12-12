@@ -2,6 +2,7 @@ package sjtu.rfid.tools;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
     private List<String> mReceivingCodeList;
     private Context mContext;
     private  TextView codeLable;
+    private String sheetCode="";
 
     public ReceivingSheetsExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingCodeDetailList, List<String> mReceivingCodeList){
         this.mContext = mContext;
@@ -73,19 +75,20 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
+    public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        final RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
+        sheetCode=mReceivingCodeList.get(groupPosition);
         codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
-        codeLable.setText(codeLable.getText()+mReceivingCodeList.get(groupPosition));
+        codeLable.setText(codeLable.getText()+sheetCode);
         Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
                 intent.setClass(mContext, ReceivingScanBoxActivity.class);
-                //Bundle bundle=new Bundle();
-                //bundle.putString("receiving_sheet_code",codeLable.getText().toString());
-                //intent.putExtras(bundle);
+                Bundle bundle=new Bundle();
+                bundle.putString("receiving_sheet_code",mReceivingCodeList.get(groupPosition));
+                intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }
         });
@@ -96,40 +99,22 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet_detail, null);
         Map<String,String> map=mReceivingCodeDetailList.get(mReceivingCodeList.get(groupPosition));
-        for(Map.Entry<String,String> entry:map.entrySet()){
-            if(entry.getKey().equals("projectCode")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_project_code);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("orderDate")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_order_date);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("vendorName")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_vendor_name);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("applyPerson")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_apply_person);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("relatedBill")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_related_bill);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-        }
-        //Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
-        /*button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.setClass(mContext, ReceivingScanBoxActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("receiving_sheet_code",receiveCode);
-                intent.putExtras(bundle);
-                mContext.startActivity(intent);
-            }
-        });*/
+
+        TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_project_code);
+        text1.setText(text1.getText()+map.get("projectCode"));
+
+        TextView text2 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_order_date);
+        text2.setText(text2.getText()+map.get("orderDate"));
+
+        TextView text3 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_vendor_name);
+        text3.setText(text3.getText()+map.get("vendorName"));
+
+        TextView text4 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_apply_person);
+        text4.setText(text4.getText()+map.get("applyPerson"));
+
+        TextView text5 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_related_bill);
+        text5.setText(text5.getText()+map.get("relatedBill"));
+
         return layout;
     }
 

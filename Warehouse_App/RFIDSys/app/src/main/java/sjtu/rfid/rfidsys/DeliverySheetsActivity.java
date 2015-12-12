@@ -1,9 +1,12 @@
 package sjtu.rfid.rfidsys;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -13,6 +16,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.ASN;
+import rfid.service.POS;
+import sjtu.rfid.thread.DeliverySheetsThread;
 import sjtu.rfid.tools.DeliverySheetsExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -23,52 +29,61 @@ public class DeliverySheetsActivity extends Activity {
     private List<String> mDeliveryCodeList;
     private TitleBar mTitleBar;
 
+    private DeliverySheetsThread deliverySheetsThread;
+    private List<POS> posList;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
 
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            posList=(List<POS>)msg.obj;
+            iniListView(posList);
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_sheets);
         iniActivity();
-        iniListView();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        deliverySheetsThread=new DeliverySheetsThread(handler);
+        deliverySheetsThread.start();
     }
 
     public void iniActivity() {
         mTitleBar = new TitleBar(this,"申领出库");
     }
 
-    public void iniListView() {
+    public void iniListView(List<POS> posList) {
 
         mDeliveryCodeDetailList = new HashMap<String, Map<String, String>>();
         mDeliveryCodeList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_sheets);
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000001");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000002");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000003");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000004");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000005");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000006");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000007");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000008");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000009");
-        mDeliveryCodeList.add("2524-PDE-OUT-2015090000010");
-        for (int i = 0; i < mDeliveryCodeList.size(); i++) {
+        for(POS pos:posList){
+            mDeliveryCodeList.add(pos.getApply_Doc_Code());
+
             Map<String, String> detailMap = new HashMap<>();
-            detailMap.put("applyPerson", "苏军凯");
-            detailMap.put("projectCode", "B1524011");
-            detailMap.put("applyUnit", "平顶山分公司\\网络部\\工程建设中心");
-            detailMap.put("applyDate", "2015/10/01");
-            detailMap.put("receiver", "盛来");
-            mDeliveryCodeDetailList.put(mDeliveryCodeList.get(i), detailMap);
+            detailMap.put("applyPerson", pos.getApply_Person());
+            detailMap.put("projectCode", pos.getProject_Code());
+            detailMap.put("applyUnit", pos.getApply_Unit());
+            detailMap.put("applyDate", pos.getApply_Date());
+            detailMap.put("receiver", pos.getReceiver());
+            mDeliveryCodeDetailList.put(pos.getApply_Doc_Code(), detailMap);
         }
+
         tmpAdapter = new DeliverySheetsExpandableAdapter(this, mDeliveryCodeDetailList, mDeliveryCodeList);
         sheetListView.setAdapter(tmpAdapter);
 
