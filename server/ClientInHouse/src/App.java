@@ -22,7 +22,7 @@ public class App extends JFrame {
     }
 
     private void button2ActionPerformed(ActionEvent e) {
-        new PutOutStorage("出库").setVisible(true);
+        new PutOutStorage().setVisible(true);
     }
 
     private void initComponents() {
@@ -131,6 +131,7 @@ public class App extends JFrame {
             e.printStackTrace();
         }
         new App().setVisible(true);
+
     }
     public static String getLookAndFeelClassName(String nameSnippet) {
         UIManager.LookAndFeelInfo[] plafs = UIManager.getInstalledLookAndFeels();
