@@ -34,6 +34,7 @@ public class PrintThread implements Runnable{
             data.setProjectCode(projectCode);
             data.setMatCode(batchGoods.get(i).get(0)[1]);
             System.out.println("print sequence " + i + " start");
+            // if(client == null || !client.printData(data, 6)) {
             if(client == null || !client.printData(data, batchGoods.get(i).size())) {
                 System.out.println("print sequence " + i + " over");
                 break;
