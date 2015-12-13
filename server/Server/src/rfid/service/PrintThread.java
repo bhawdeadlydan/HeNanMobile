@@ -28,14 +28,17 @@ public class PrintThread implements Runnable{
     }
     @Override
     public void run() {
-        for(Iterator it = batchGoods.iterator();it.hasNext();){
-            ArrayList<String[]> goods = (ArrayList<String[]>)it.next();
-            printTag(goods);
+        for(int i = 0; i < batchGoods.size(); i++){
+            printTag(batchGoods.get(i));
             Data data = new Data();
             data.setProjectCode(projectCode);
-            data.setMatCode(code);
-            if(client == null || !client.printData(data, goods.size()))
+            data.setMatCode(batchGoods.get(i).get(0)[1]);
+            System.out.println("print sequence " + i + " start");
+            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
+                System.out.println("print sequence " + i + " over");
                 break;
+            }
+            System.out.println("print sequence " + i + " over");
         }
         System.out.println("print thread exiting..");
         client.close();

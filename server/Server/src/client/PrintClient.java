@@ -17,7 +17,7 @@ public class PrintClient {
 
     public PrintClient(){
         // 设置调用的服务地址为本地，端口为 7778
-        transport = new TSocket("localhost", 7778);
+        transport = new TSocket("192.168.1.149", 7778);
         connected = true;
         try {
             transport.open();
