@@ -34,6 +34,7 @@
             this.write = new System.Windows.Forms.Button();
             this.read = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.infoTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnReadUid
@@ -94,11 +95,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // infoTextBox
+            // 
+            this.infoTextBox.Location = new System.Drawing.Point(423, 135);
+            this.infoTextBox.Multiline = true;
+            this.infoTextBox.Name = "infoTextBox";
+            this.infoTextBox.Size = new System.Drawing.Size(201, 212);
+            this.infoTextBox.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 460);
+            this.Controls.Add(this.infoTextBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.read);
             this.Controls.Add(this.write);
@@ -120,6 +130,7 @@
         private System.Windows.Forms.Button write;
         private System.Windows.Forms.Button read;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.TextBox infoTextBox;
     }
 }
 

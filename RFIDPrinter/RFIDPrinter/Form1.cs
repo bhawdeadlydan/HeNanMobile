@@ -41,6 +41,14 @@ namespace RFIDPrinter
             
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            serverThread.Abort();
+            serverTransport.Close();
+            server.Stop();
+            Application.Exit();
+        }
+
         private void OpenServer()
         {
             RfidPrinterImpl handle = new RfidPrinterImpl(this);
@@ -446,7 +454,7 @@ namespace RFIDPrinter
             d1.ProjectCode = "B1524011";
             d1.MatCode = "2510TP000009924_66666";
             RfidPrinterImpl insance = new RfidPrinterImpl(this);
-            insance.printData(d1,2);
+            insance.printData(d1,3);
         }
     }
 }
