@@ -7,3 +7,6 @@ E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\bin\Release\RFIDPrinter.p
 E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\bin\Release\Thrift.dll
 E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.exe
 E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.pdb
+E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\bin\Release\RFIDPrinter.exe.config
+E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.exe
+E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.pdb

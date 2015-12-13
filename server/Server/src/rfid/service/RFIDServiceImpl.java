@@ -56,7 +56,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         ASNDao adao = new ASNDao();
         boolean isbom = wdao.isBom(Code);
         ArrayList<Good> l = new ArrayList<>();
-        ArrayList<String[]> goods = new ArrayList<>();
+        ArrayList<ArrayList<String[]>> batchGoods = new ArrayList<>();
         if(isbom){
             List list = wdao.getBomDistinctGoods(Code);
             if(list == null)
@@ -76,6 +76,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
                 //print
                 if(printable){
+                    ArrayList<String[]> goods = new ArrayList<>();
                     List<Object[]> goodlist = wdao.getBomCartonsByItemCode((String)objs[0], Code);
                     for(Iterator i = goodlist.iterator();i.hasNext();){
                         Object[] os = (Object[])i.next();
@@ -87,6 +88,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                         gooditem[4] = os[0].toString();
                         goods.add(gooditem);
                     }
+                    batchGoods.add(goods);
                 }
             }
         }
@@ -108,6 +110,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
                 //print
                 if(printable){
+                    ArrayList<String[]> goods = new ArrayList<>();
                     List<Object[]> goodlist = wdao.getERPCartonsByItemCode((String)objs[0], Code);
                     for(Iterator i = goodlist.iterator();i.hasNext();){
                         Object[] os = (Object[])i.next();
@@ -119,12 +122,13 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                         gooditem[4] = os[0].toString();
                         goods.add(gooditem);
                     }
+                    batchGoods.add(goods);
                 }
             }
         }
         if(printable){
             Object[] info = adao.getASNInfo(Code);
-            printTag(info[0].toString(), Code, info[1].toString(), goods);
+            new Thread(new PrintThread(info[0].toString(),Code,info[1].toString(), batchGoods)).start();
         }
         return l;
     }
@@ -368,52 +372,5 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         dao.addEntity(transport);
         return true;
     }
-    /*
-    *项目编号
-    *入库单号
-    *物料名称
-    *物料编码
-    *数量
-    *单位
-    *epc，箱号
-    *VENDOR_NAME厂商名称
-    * */
-    public void printTag(String ProjectCode, String Code, String VendorName, List<String[]> goods){
-        for(Iterator it = goods.iterator();it.hasNext();){
-            String [] good = (String[]) it.next();
-            printOne(ProjectCode, Code, good[0], good[1], good[2], good[3],good[4],VendorName);
-            trigger(good[4]);
-        }
-    }
-    public void printOne(String ProjectCode, String Code, String ItemName, String ItemCode, String ItemNum, String ItemUnit, String EPC,
-                         String VendorName) {
-        try {
-            File file1 = new File(Config.DATAPATH,"epc.txt");
-            BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file1,false),"UTF-8"));
-            fw.write(ProjectCode + "," + Code + "," + ItemName + "," + ItemCode + ","+ ItemNum + ","
-                + ItemUnit + "," + EPC + "," + VendorName);
-            fw.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void trigger(String EPC){
-        try {
-            File file1 = new File(Config.DETECTPATH,EPC + ".txt");
-            BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file1,false),"UTF-8"));
-            fw.write(EPC);
-            fw.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
