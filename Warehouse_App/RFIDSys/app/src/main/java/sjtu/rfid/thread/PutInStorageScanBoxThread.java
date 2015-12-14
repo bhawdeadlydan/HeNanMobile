@@ -14,8 +14,12 @@ import sjtu.rfid.tools.ConnectServer;
  */
 public class PutInStorageScanBoxThread extends Thread {
     private Handler handler;
+    private ConnectServer connectServer;
+    RFIDService.Client client;
     public PutInStorageScanBoxThread(Handler handler) {
         this.handler = handler;
+        connectServer=new ConnectServer();
+        client = connectServer.openConnect();
     }
 
     @Override
@@ -23,8 +27,6 @@ public class PutInStorageScanBoxThread extends Thread {
         Message msg = handler.obtainMessage();
         msg.what = 1;
         String CNum = scan();
-        ConnectServer connectServer=new ConnectServer();
-        RFIDService.Client client = connectServer.openConnect();
         try{
             Good good = client.getGoodByCNum(CNum);
             msg.obj = good;

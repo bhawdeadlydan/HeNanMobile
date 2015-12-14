@@ -22,6 +22,9 @@ import java.util.Set;
 
 import rfid.service.Good;
 import rfid.service.check;
+import sjtu.rfid.entity.Config;
+import sjtu.rfid.thread.CheckByPosScanLocThread;
+import sjtu.rfid.thread.CheckByPosScanTagThread;
 import sjtu.rfid.thread.CheckByPosThread;
 import sjtu.rfid.thread.CheckThread;
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
@@ -34,6 +37,7 @@ public class CheckByPosActivity extends Activity {
     private Map<String, Map<String, String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
     private Map<String,Set<String>> mCheckByPosItemBoxList;
+    private Set<String> mItemCate;
     private TitleBar mTitleBar;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -43,6 +47,11 @@ public class CheckByPosActivity extends Activity {
 
     private int goodPos=-1;
     private CheckByPosThread checkByPosThread;
+    private CheckByPosScanLocThread checkByPosScanLocThread;
+    private CheckByPosScanTagThread checkByPosScanTagThread;
+
+    private boolean isReading = false;
+
     private List<Good> goodList;
 
     private CheckThread checkThread;
@@ -72,6 +81,23 @@ public class CheckByPosActivity extends Activity {
         }
     };
 
+    private Handler handlerScan = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            if( msg.what == 0 ) {
+                TextView vGoosdPos=(TextView)findViewById(R.id.text_check_by_pos_loc);
+                goodPos = Integer.valueOf(msg.obj.toString());
+                String loc = Config.Location.get(Integer.valueOf(goodPos));
+                vGoosdPos.setText("货位" + loc);
+                checkByPosThread=new CheckByPosThread(goodPos,handler);
+                checkByPosThread.start();
+            } else if ( msg.what == 1) {
+                tmpAdapter.notifyDataSetChanged();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +119,8 @@ public class CheckByPosActivity extends Activity {
         mCheckByPosDetailList = new HashMap<String, Map<String, String>>();
         mCheckByPosList = new ArrayList<>();
         mCheckByPosItemBoxList = new HashMap<>();
+
+        mItemCate = new HashSet<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_check_by_pos_sheets);
 
         for(Good good:goodList){
@@ -109,6 +137,7 @@ public class CheckByPosActivity extends Activity {
 
             Set<String> boxSet = new HashSet<>();
             mCheckByPosItemBoxList.put(good.getCode(),boxSet);
+            mItemCate.add(good.getCode());
         }
 
         tmpAdapter = new CheckByPosExpandableAdapter(this,mCheckByPosDetailList,mCheckByPosList,mCheckByPosItemBoxList);
@@ -136,9 +165,8 @@ public class CheckByPosActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //读货位标签线程
-
-                TextView vGoosdPos=(TextView)findViewById(R.id.text_check_by_pos_loc);
-                vGoosdPos.setText(vGoosdPos.getText()+"A22");
+                checkByPosScanLocThread = new CheckByPosScanLocThread(handlerScan);
+                checkByPosScanLocThread.start();
             }
         });
         btnScanBox.setOnClickListener(new View.OnClickListener() {
@@ -146,8 +174,16 @@ public class CheckByPosActivity extends Activity {
             public void onClick(View v) {
                 //读货物标签线程
 
-                checkByPosThread=new CheckByPosThread(goodPos,handler);
-                checkByPosThread.start();
+                if( !isReading ) {
+                    isReading = true;
+                    checkByPosScanTagThread = new CheckByPosScanTagThread(handlerScan, mCheckByPosList,isReading,mItemCate);
+                    checkByPosScanTagThread.start();
+                } else if ( isReading ) {
+                    isReading = false;
+                    checkByPosScanTagThread.setIsReading(false);
+                }
+
+
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
