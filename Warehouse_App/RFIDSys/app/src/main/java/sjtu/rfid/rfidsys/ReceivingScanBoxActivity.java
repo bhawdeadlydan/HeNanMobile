@@ -54,8 +54,10 @@ public class ReceivingScanBoxActivity extends Activity {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             receivingResult=(boolean)msg.obj;
-            if(receivingResult)
+            if(receivingResult) {
                 Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                finish();
+            }
             else
                 Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
         }
