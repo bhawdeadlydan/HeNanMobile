@@ -43,8 +43,18 @@
       <file leaf-file-name="RFIDServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7749511">
-              <caret line="184" column="50" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
+            <state vertical-scroll-proportion="-0.39530334">
+              <caret line="107" column="62" selection-start-line="107" selection-start-column="62" selection-end-line="107" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rfidservice.thrift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/rfidservice.thrift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -128,9 +138,9 @@
         <option value="$PROJECT_DIR$/DBConn/src/dao/ASNDao.java" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java" />
         <option value="$PROJECT_DIR$/Server/src/client/RFIDClient.java" />
+        <option value="$PROJECT_DIR$/DBConn/src/dao/PosDao.java" />
         <option value="$PROJECT_DIR$/Server/rfidservice.thrift" />
         <option value="$PROJECT_DIR$/Server/src/rfid/service/RFIDService.java" />
-        <option value="$PROJECT_DIR$/DBConn/src/dao/PosDao.java" />
         <option value="$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java" />
       </list>
     </option>
@@ -1024,12 +1034,12 @@
       <workItem from="1449837922049" duration="2187000" />
       <workItem from="1449893709685" duration="18394000" />
       <workItem from="1449998604809" duration="4657000" />
-      <workItem from="1450084245423" duration="15646000" />
+      <workItem from="1450084245423" duration="16319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188378000" />
+    <option name="totallyTimeSpent" value="189051000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1463,26 +1473,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/rfidservice.thrift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4598826">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/gen-java/rfid/service/RFIDService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18003914">
           <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="59" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1495,10 +1489,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36007828">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/rfidservice.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7749511">
-          <caret line="184" column="50" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
+        <state vertical-scroll-proportion="-0.39530334">
+          <caret line="107" column="62" selection-start-line="107" selection-start-column="62" selection-end-line="107" selection-end-column="62" />
           <folding />
         </state>
       </provider>

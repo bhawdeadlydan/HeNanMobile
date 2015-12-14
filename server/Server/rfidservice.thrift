@@ -5,6 +5,7 @@ include "data.thrift"
 service RFIDService {
 list<data.ASN> getReceivingSheets();
 list<data.Good> getGoodsListByCode(1:string Code,2:bool printable);//入库单号
+bool printTag(1:string Code);
 string getCodeByCNum(1:string CNum);
 bool bindLocationAndGoods(1:i32 LocationID, 2: list<string> CNums);
 list<data.POS> getApplySheets();
