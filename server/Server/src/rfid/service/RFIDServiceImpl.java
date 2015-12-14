@@ -420,7 +420,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             timestamp = new java.sql.Timestamp(parsedDate.getTime());
 
         }catch(Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         transport.setTime(timestamp);
         transport.setPosition(Position);
