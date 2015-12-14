@@ -261,10 +261,14 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     }
 
     @Override
-    public List<LocationInfo> getLocationListByItemErpCode(String ItemERPCode) throws TException {
+    public List<LocationInfo> getLocationListByItemErpCode(String ItemERPCode, boolean isBom) throws TException {
         WMSDetailDao dao = new WMSDetailDao();
         AllocationDao adao = new AllocationDao();
-        List<Object[]> l = dao.getLocationIDsByItemERPCode(ItemERPCode);
+        List<Object[]> l;
+        if(isBom)
+            l = dao.getLocationIDsByBomCode(ItemERPCode);
+        else
+            l = dao.getLocationIDsByItemERPCode(ItemERPCode);
         if(l == null)
             return null;
         ArrayList<LocationInfo> list = new ArrayList<>();
