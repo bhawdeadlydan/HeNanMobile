@@ -218,6 +218,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
+                nnfc.processTask(null);
 
             }
         });
@@ -227,7 +228,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 //扫描货物标签并写入相关数据线程
                 nnfc.nfcTask.clearNfcTask();
                 NfcDataType nfcDataType = new NfcDataType();
-
+                nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
                 if(func==0){
                     NfcDataType.TransInf transInf = nfcDataType.new TransInf(data.getName(),"",position,lat,lng,System.currentTimeMillis());
                     nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.TransInf,transInf);
@@ -236,6 +237,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                     NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(data.getName(),position,lat,lng,System.currentTimeMillis());
                     nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.ConsInf,consInf);
                 }
+                nnfc.processTask(null);
 
             }
         });
@@ -377,11 +379,16 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             public void run() {
                 //Toast.makeText(getApplicationContext(),  nfcDataTypeBase.toString(), Toast.LENGTH_SHORT).show();
 
-                applyCode = nfcDataTypeBase.getREQ();
-                TextView vApplyCode = (TextView) findViewById(R.id.text_arrival_order_code);
-                vApplyCode.setText(applyCode);
-                arrivalThread=new ArrivalThread(handler,applyCode);
-                arrivalThread.start();
+
+                if(nfcTaskName== NfcTask.NfcTaskName.REQInf) {
+                    applyCode = nfcDataTypeBase.getREQ();
+                    TextView vApplyCode = (TextView) findViewById(R.id.text_arrival_order_code);
+                    vApplyCode.setText(applyCode);
+                    arrivalThread=new ArrivalThread(handler,applyCode);
+                    arrivalThread.start();
+                }else if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
+                    Toast.makeText(getApplicationContext(),  nfcDataTypeBase.getERPCode(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

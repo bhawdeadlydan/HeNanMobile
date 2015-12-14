@@ -137,7 +137,6 @@ public class RfidNfc implements NfcAdapter.ReaderCallback{
         return true;
     }
 
-
     public void processTask(Tag tag) {
 
         if(tag != null)

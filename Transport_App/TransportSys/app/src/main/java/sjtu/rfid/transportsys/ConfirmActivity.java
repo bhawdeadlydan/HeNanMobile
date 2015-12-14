@@ -141,6 +141,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
+                nnfc.processTask(null);
             }
         });
 
@@ -149,10 +150,12 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
             public void onClick(View v) {
                 //扫描货物标签并写入相关信息线程
                 nnfc.nfcTask.clearNfcTask();
+                nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
                 NfcDataType nfcDataType = new NfcDataType();
                 REQInf reqInf = nfcDataType.new REQInf("",applyCode,confirmEntity.getPos().getApply_Person(),"","",System.currentTimeMillis());
                 //REQInf reqInf = nfcDataType.new REQInf("E00000000000000000000000","2524-REQ-2015100000297","申请人A","施工队B","复查人C",Long.decode("1450070000"));
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.REQInf,reqInf);
+                nnfc.processTask(null);
             }
         });
 
@@ -243,6 +246,8 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                     vApplyCode.setText(applyCode);
                     ConfirmThread thread = new ConfirmThread(handler, applyCode);
                     thread.start();
+                }else if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
+                    Toast.makeText(getApplicationContext(),  nfcDataTypeBase.getERPCode(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

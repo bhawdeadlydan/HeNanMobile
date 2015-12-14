@@ -59,6 +59,7 @@ public class NfcTask {
         if(nfcTaskList!=null && nfcTaskNum<nfcTaskList.length){
             nfcTaskList[nfcTaskNum] = new NfcTaskContext(nfcTaskType,nfcTaskName,nfcTaskData);
             nfcTaskNum++;
+
             return true;
         }
         return false;
