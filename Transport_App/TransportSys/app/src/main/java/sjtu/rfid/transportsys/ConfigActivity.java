@@ -55,13 +55,13 @@ public class ConfigActivity extends Activity {
         setContentView(R.layout.activity_config);
         TextView title = (TextView) findViewById(R.id.text_title);
         title.setText("配置信息");
+        data = (Data)getApplication();
         iniBtns();
         iniCheckBox();
         iniInfo();
     }
 
     private void iniInfo() {
-        data = (Data)getApplication();
         ((EditText) findViewById(R.id.editext_config_name)).setText(data.getName().toCharArray(),0,data.getName().length());
         ((EditText) findViewById(R.id.edittext_config_phone)).setText(data.getPhone().toCharArray(),0,data.getPhone().length());
         ((EditText) findViewById(R.id.edittext_config_company)).setText(data.getCompany().toCharArray(),0,data.getCompany().length());

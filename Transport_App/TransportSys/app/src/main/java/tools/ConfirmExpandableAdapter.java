@@ -87,9 +87,9 @@ public class ConfirmExpandableAdapter extends BaseExpandableListAdapter {
 
         TextView text1 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
         text1.setText(text1.getText()+map.get("isBom"));
-        TextView text2 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+        TextView text2 = (TextView) layout.findViewById(R.id.text_box_detail_mat_name);
         text2.setText(text2.getText()+map.get("matName"));
-        TextView text3 = (TextView) layout.findViewById(R.id.text_box_detail_is_bom);
+        TextView text3 = (TextView) layout.findViewById(R.id.text_box_detail_unit);
         text3.setText(text3.getText()+map.get("unit"));
 
         return layout;
@@ -98,5 +98,9 @@ public class ConfirmExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
+    }
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 }

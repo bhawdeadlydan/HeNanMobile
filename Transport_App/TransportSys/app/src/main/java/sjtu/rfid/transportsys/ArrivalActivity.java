@@ -30,18 +30,22 @@ import java.util.List;
 import java.util.Map;
 
 import baidu.poistion.service.LocationListener;
+import nfc.NfcDataType;
+import nfc.NfcTask;
+import nfc.RfidNfc;
 import rfid.service.Good;
 
 import sjtu.rfid.entity.ArrivalEntity;
 
 import sjtu.rfid.thread.ArrivalThread;
 import sjtu.rfid.thread.CommitTransInfoThread;
+import sjtu.rfid.thread.ConfirmThread;
 import sjtu.rfid.thread.GeoCoderThread;
 import tools.ArrivalExpandableAdapter;
 import tools.Data;
 
 
-public class ArrivalActivity extends Activity {
+public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack{
 
     ExpandableListView sheetListView;
     ArrivalExpandableAdapter tmpAdapter;
@@ -60,10 +64,12 @@ public class ArrivalActivity extends Activity {
     private double lng=0.0;
     private double lat=0.0;
 
-
-    private String CNum="";
     private ArrivalEntity arrivalEntity;
     private boolean commitResult;
+
+    private int func=-1;
+    private static RfidNfc nnfc;
+    private Data data ;
 
     public BDLocationListener myListener = LocationListener.getInstance();
 
@@ -73,8 +79,6 @@ public class ArrivalActivity extends Activity {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
             arrivalEntity=(ArrivalEntity)msg.obj;
-            TextView vApplyCode=(TextView)findViewById(R.id.text_arrival_order_code);
-            vApplyCode.setText(arrivalEntity.getApplyCode());
             iniListView(arrivalEntity.getGoodsList());
         }
     };
@@ -83,7 +87,7 @@ public class ArrivalActivity extends Activity {
         public void handleMessage(Message msg) {
             //Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
             if(msg.what==0||msg.obj==null)
-                Toast.makeText(getApplicationContext(),"获取地址失败\"",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"获取地址失败",Toast.LENGTH_SHORT).show();
             TextView vAddress=(TextView)findViewById(R.id.text_arrival_address);
             position=msg.obj.toString();
             vAddress.setText(msg.obj.toString());
@@ -116,8 +120,13 @@ public class ArrivalActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arrival);
 
+        data = (Data) getApplication();
+
         iniActivity();
         iniEvent();
+
+        nnfc = new RfidNfc(this);
+        nnfc.hfInit(this);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -132,7 +141,7 @@ public class ArrivalActivity extends Activity {
     {
         Intent intent = getIntent();
         TextView title = (TextView) findViewById(R.id.text_title);
-        int func = intent.getIntExtra("function",0);
+        func = intent.getIntExtra("function",0);
         switch (func) {
             case 0:
                 title.setText("暂存点收货");
@@ -207,9 +216,8 @@ public class ArrivalActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //扫描货物标签线程
-                applyCode="";
-                arrivalThread=new ArrivalThread(handler,CNum);
-                arrivalThread.start();
+                nnfc.nfcTask.clearNfcTask();
+                nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
 
             }
         });
@@ -217,25 +225,32 @@ public class ArrivalActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //扫描货物标签并写入相关数据线程
+                nnfc.nfcTask.clearNfcTask();
+                NfcDataType nfcDataType = new NfcDataType();
 
+                if(func==0){
+                    NfcDataType.TransInf transInf = nfcDataType.new TransInf(data.getName(),"",position,lat,lng,System.currentTimeMillis());
+                    nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.TransInf,transInf);
+                }
+                else if(func==1) {
+                    NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(data.getName(),position,lat,lng,System.currentTimeMillis());
+                    nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.ConsInf,consInf);
+                }
 
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Data data= (Data)getApplication();
                 charge=data.getName();
                 Date date=new Date();
                 DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 time=format.format(date);
                 //position
-                Intent intent = getIntent();
-                int func = intent.getIntExtra("function",0);
+
                 type=func+"";//0:暂存点，1：施工点
                 //applyCode
-
-                commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,handler);
+                commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,commitHandler);
                 commitTransInfoThread.start();
             }
         });
@@ -281,6 +296,125 @@ public class ArrivalActivity extends Activity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+    @Override
+    public void onTagUidGet(final NfcDataType.NfcDataTypeBase uid) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getApplicationContext(), uid.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onSectorGet(String sector){
+
+    }
+    public void onBlockGet(final String block)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), block.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void getItemInf(final NfcDataType.NfcDataTypeBase itemInf){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), itemInf.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void getREQInf(final NfcDataType.NfcDataTypeBase reqInf){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Toast.makeText(getApplicationContext(), reqInf.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    @Override
+    public void onWriteTaskEnd(final NfcTask.NfcTaskName nfcTaskName,final NfcDataType.NfcDataTypeBase nfcDataTypeBase,final boolean ret)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(),"写入" + nfcDataTypeBase.toString() + (ret  ? "succeed":"failed\n" + nfcDataTypeBase.toString()), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),nfcDataTypeBase.getREQ(), Toast.LENGTH_SHORT).show();
+                if(func==0){
+                    if(nfcTaskName== NfcTask.NfcTaskName.TransInf){
+                        if(ret)
+                            Toast.makeText(getApplicationContext(),"暂存点写入成功", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(getApplicationContext(),"暂存点写入失败", Toast.LENGTH_SHORT).show();
+                    }
+                }else if(func==1){
+                    if(nfcTaskName== NfcTask.NfcTaskName.ConsInf){
+                        if(ret)
+                            Toast.makeText(getApplicationContext(),"施工点写入成功", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(getApplicationContext(),"施工点写入失败", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public  void onReadTag(final NfcTask.NfcTaskName nfcTaskName, final NfcDataType.NfcDataTypeBase nfcDataTypeBase)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(),  nfcDataTypeBase.toString(), Toast.LENGTH_SHORT).show();
+
+                applyCode = nfcDataTypeBase.getREQ();
+                TextView vApplyCode = (TextView) findViewById(R.id.text_arrival_order_code);
+                vApplyCode.setText(applyCode);
+                arrivalThread=new ArrivalThread(handler,applyCode);
+                arrivalThread.start();
+            }
+        });
+    }
+
+    @Override
+    public void getTransInf(final NfcDataType.NfcDataTypeBase TransInf){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), TransInf.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    @Override
+    public void getConsInf(final NfcDataType.NfcDataTypeBase consInf){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), consInf.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(nnfc!=null)
+            nnfc.onResume(this);
+
     }
 }
 

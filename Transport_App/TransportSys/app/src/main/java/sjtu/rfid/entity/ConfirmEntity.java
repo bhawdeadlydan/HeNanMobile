@@ -2,27 +2,30 @@ package sjtu.rfid.entity;
 
 import java.util.List;
 
+import rfid.service.ASN;
 import rfid.service.Good;
+import rfid.service.POS;
 
 /**
  * Created by shao on 2015/12/11.
  */
 public class ConfirmEntity {
 
-    private String applyCode;
+    private POS pos;
     private List<Good> goodsList;
 
-    public ConfirmEntity(String applyCode, List<Good> goodsList) {
-        this.applyCode = applyCode;
+    public ConfirmEntity(POS pos, List<Good> goodsList) {
+        this.pos = pos;
         this.goodsList = goodsList;
     }
 
-    public String getApplyCode() {
-        return applyCode;
+
+    public POS getPos() {
+        return pos;
     }
 
-    public void setApplyCode(String applyCode) {
-        this.applyCode = applyCode;
+    public void setPos(POS pos) {
+        this.pos = pos;
     }
 
     public List<Good> getGoodsList() {

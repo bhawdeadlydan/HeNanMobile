@@ -8,6 +8,7 @@ import org.apache.thrift.TException;
 import java.util.Iterator;
 import java.util.List;
 
+import rfid.service.ASN;
 import rfid.service.Good;
 import rfid.service.POS;
 import rfid.service.RFIDService;
@@ -20,15 +21,16 @@ import tools.ConnectServer;
 public class ConfirmThread extends Thread {
 
     private Handler handler;
-    private String CNum;
-
     private String applyOrder;
+
+
     private List<Good> goodsList;
+    private POS pos;
     private ConfirmEntity confirmEntity;
 
-    public ConfirmThread(Handler handler, String CNum){
+    public ConfirmThread(Handler handler, String applyOrder){
         this.handler=handler;
-        this.CNum=CNum;
+        this.applyOrder=applyOrder;
     }
 
 
@@ -38,9 +40,9 @@ public class ConfirmThread extends Thread {
         ConnectServer connectServer = new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            applyOrder=client.getApplyDocCodeByCNum(CNum);
+            pos=client.getPOSInfoByApplyDocCode(applyOrder);
             goodsList=client.getGoodsListByApplyDocCode(applyOrder);
-            confirmEntity=new ConfirmEntity(applyOrder,goodsList);
+            confirmEntity=new ConfirmEntity(pos,goodsList);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();

@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
 
         Properties properties= PropertiesUtil.loadConfig(getApplicationContext());
         if( properties.get("ip") == null || properties.get("port") == null )
-            Toast.makeText(getApplicationContext(),"请您先配置服务器信息！",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"请您先配置服务器信息！",Toast.LENGTH_SHORT).show();
         else {
             ConfigData.ip=properties.get("ip").toString();
             ConfigData.port=Integer.valueOf(properties.get("port").toString());
