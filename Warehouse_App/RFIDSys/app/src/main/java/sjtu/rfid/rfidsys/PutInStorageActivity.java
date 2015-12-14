@@ -21,7 +21,10 @@ import java.util.Map;
 
 import rfid.service.ASN;
 import rfid.service.Good;
+import sjtu.rfid.entity.Config;
 import sjtu.rfid.thread.BindThread;
+import sjtu.rfid.thread.PutInStorageScanBoxThread;
+import sjtu.rfid.thread.PutInStorageScanLocThread;
 import sjtu.rfid.thread.PutInStorageThread;
 import sjtu.rfid.tools.CheckByPosExpandableAdapter;
 import sjtu.rfid.tools.PutInStorageExpandableAdapter;
@@ -42,6 +45,8 @@ public class PutInStorageActivity extends Activity {
     private GoogleApiClient client;
 
     private PutInStorageThread putInStorageThread;
+    private PutInStorageScanLocThread scanLocThread;
+    private PutInStorageScanBoxThread scanBoxThread;
     private BindThread bindThread;
     private String CNum="EPC201509000000";
     private Good good;
@@ -60,15 +65,26 @@ public class PutInStorageActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "绑定失败", Toast.LENGTH_SHORT).show();
         }
     };
-    private Handler handlerBind=new Handler(){
+
+    private Handler scanHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what==0||msg.obj==null)
-                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
-            good=(Good)msg.obj;
-            iniListView(good);
+            if(msg.what == 0){
+                int id = (Integer)msg.obj;
+                TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
+                if(id >= 1 && id <= 8)
+                    vGoodsPos.setText(Config.Location.get(id));
+                else
+                    vGoodsPos.setText("All");
+            }
+            else if(msg.what == 1){
+                Good good = (Good)msg.obj;
+                iniListView(good);
+
+            }
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,16 +144,15 @@ public class PutInStorageActivity extends Activity {
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView vGoodsPos=(TextView)findViewById(R.id.text_put_in_storage_loc);
-                vGoodsPos.setText("A11");
+                scanLocThread = new PutInStorageScanLocThread(scanHandler);
+                scanLocThread.start();
             }
         });
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                putInStorageThread=new PutInStorageThread(handler,CNum);
-                putInStorageThread.start();
+                scanBoxThread = new PutInStorageScanBoxThread(scanHandler);
+                scanBoxThread.start();
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {

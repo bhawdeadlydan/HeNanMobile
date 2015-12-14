@@ -72,6 +72,15 @@ public class CheckByMatActivity extends Activity {
         }
     };
 
+    private Handler handlerScanTag = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if( msg.what == 1 ) {
+                mAdapter.notifyDataSetChanged();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,9 +115,10 @@ public class CheckByMatActivity extends Activity {
             Map<String,String> mapDetail=new HashMap<>();
             mapDetail.put("posDes",String.valueOf(locationInfo.getID()));
             mapDetail.put("expectedCount",String.valueOf(locationInfo.getNum()));
+            mapDetail.put("readedCount","0");
             mCheckByMatList.add(mapDetail);
         }
-        mAdapter = new CheckByMatAdapter(this,mCheckByMatList);
+        mAdapter = new CheckByMatAdapter(this,mCheckByMatList,handlerScanTag);
         sheetListView.setAdapter(mAdapter);
     }
 

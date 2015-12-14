@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import sjtu.rfid.rfidsys.R;
 
@@ -28,15 +29,17 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
     private Map<String,Map<String,String>> mReceivingBoxesDetails;
     private List<Map<String,String>> mReceivingBoxes;
     private List<Integer> mRealCountList;
+    private Map<String, Set<String>> mReceivingBoxesItemsList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
-    public ReceivingSheetsScanBoxExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingBoxesDetails, List<Map<String,String>> mReceivingBoxes){
+    public ReceivingSheetsScanBoxExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingBoxesDetails, List<Map<String,String>> mReceivingBoxes,Map<String, Set<String>> mReceivingBoxesItemsList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mReceivingBoxes = mReceivingBoxes;
         this.mReceivingBoxesDetails = mReceivingBoxesDetails;
         this.mRealCountList = new ArrayList<>();
+        this.mReceivingBoxesItemsList = mReceivingBoxesItemsList;
 
         for( int i = 0; i < mReceivingBoxes.size(); i++ ) {
             mRealCountList.add(0);

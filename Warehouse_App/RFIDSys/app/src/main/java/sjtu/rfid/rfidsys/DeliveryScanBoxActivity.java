@@ -15,10 +15,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import rfid.service.Good;
+import sjtu.rfid.thread.DeliveryScanBoxScanTagThread;
 import sjtu.rfid.thread.DeliveryScanBoxThread;
 import sjtu.rfid.thread.DeliverySubmitThread;
+import sjtu.rfid.thread.ReceivingScanBoxScanTagThread;
 import sjtu.rfid.tools.DeliverySheetsScanBoxExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -30,14 +33,21 @@ public class DeliveryScanBoxActivity extends Activity {
     private Map<String, Map<String, String>> mDeliveryBoxesDetails;
     private List<Map<String,String>> mDeliveryBoxes;
 
+    //记录每个ERP编码下，已经扫到的箱号，避免重复扫描造成错误计数
+    private Map<String, Set<String>> mDeliveryBoxesItemsList;
+
     private TitleBar mTitleBar;
 
     private String cartonList="\n";
     private DeliveryScanBoxThread deliveryScanBoxThread;
     private DeliverySubmitThread deliverySubmitThread;
+    private DeliveryScanBoxScanTagThread deliveryScanBoxScanTagThread;
+    boolean isReading = false;
+
     private List<Good> goodList;
     private String applyCode;
     private boolean deliveryResult;
+
 
     private Handler handler=new Handler(){
         @Override
@@ -59,6 +69,15 @@ public class DeliveryScanBoxActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "数据提交成功", Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(getApplicationContext(), "数据提交失败", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private Handler handlerScanTag=new Handler() {
+        @Override
+        public void handleMessage(Message msg){
+            if(msg.what == 1){
+                tmpAdapter.notifyDataSetChanged();
+            }
         }
     };
 
@@ -120,12 +139,24 @@ public class DeliveryScanBoxActivity extends Activity {
     }
 
     public void iniEvent(){
-        Button btnScan=(Button)findViewById(R.id.btn_delivery_scan_box_scan);
+        final Button btnScan=(Button)findViewById(R.id.btn_delivery_scan_box_scan);
         Button btnCommit=(Button)findViewById(R.id.btn_delivery_scan_box_commit);
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+            if( isReading ) {
+                isReading = false;
+                btnScan.setText("扫描标签");
+                deliveryScanBoxScanTagThread.setIsReading(false);
+
+            } else if( !isReading ){
+                isReading = true;
+                btnScan.setText("停止扫描");
+                deliveryScanBoxScanTagThread = new DeliveryScanBoxScanTagThread(mDeliveryBoxesItemsList,true,handlerScanTag);
+                deliveryScanBoxScanTagThread.start();
+            }
 
                 //读货物标签线程
 
@@ -142,7 +173,7 @@ public class DeliveryScanBoxActivity extends Activity {
                     CNums.add(CNumString[i]);
                 }
                 deliverySubmitThread=new DeliverySubmitThread(applyCode,CNums,handlerDelivery);
-                deliverySubmitThread.start();;
+                deliverySubmitThread.start();
             }
         });
     }

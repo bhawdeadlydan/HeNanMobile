@@ -19,6 +19,8 @@ import java.util.Set;
 
 import rfid.service.ASN;
 import rfid.service.Good;
+import sjtu.rfid.thread.PrintThread;
+import sjtu.rfid.thread.ReceivingScanBoxScanTagThread;
 import sjtu.rfid.thread.ReceivingScanBoxThread;
 import sjtu.rfid.thread.ReceivingSubmitThread;
 import sjtu.rfid.tools.ReceivingSheetsScanBoxExpandableAdapter;
@@ -41,6 +43,10 @@ public class ReceivingScanBoxActivity extends Activity {
 
     private ReceivingScanBoxThread receivingScanBoxThread;
     private ReceivingSubmitThread receivingSubmitThread;
+    private PrintThread printThread;
+    private ReceivingScanBoxScanTagThread receivingScanBoxScanTagThread;
+    boolean isReading = false;
+
     private List<Good> goodList;
     private boolean receivingResult;
 
@@ -66,6 +72,27 @@ public class ReceivingScanBoxActivity extends Activity {
             else
                 Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
         }
+    };
+
+    private Handler handlerPrint=new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==0)
+                Toast.makeText(getApplicationContext(), "打印失败", Toast.LENGTH_SHORT).show();
+            else if(msg.what==1)
+                Toast.makeText(getApplicationContext(),"打印成功，请前往获取标签！", Toast.LENGTH_SHORT).show();
+            ((Button)findViewById(R.id.btn_receiving_scan_box_print)).setEnabled(false);
+        }
+    };
+
+    private Handler handlerScanTag=new Handler() {
+        @Override
+        public void handleMessage(Message msg){
+            if(msg.what == 1){
+                tmpAdapter.notifyDataSetChanged();
+            }
+        }
+
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +141,7 @@ public class ReceivingScanBoxActivity extends Activity {
 
         }
 
-        tmpAdapter = new ReceivingSheetsScanBoxExpandableAdapter(this, mReceivingBoxesDetails, mReceivingBoxes);
+        tmpAdapter = new ReceivingSheetsScanBoxExpandableAdapter(this, mReceivingBoxesDetails, mReceivingBoxes,mReceivingBoxesItemsList);
         sheetListView.setAdapter(tmpAdapter);
 
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -131,13 +158,25 @@ public class ReceivingScanBoxActivity extends Activity {
     }
 
     public void iniEvent(){
-        Button btnScan=(Button)findViewById(R.id.btn_receiving_scan_box_scan);
+        final Button btnScan=(Button)findViewById(R.id.btn_receiving_scan_box_scan);
         Button btnCommit=(Button)findViewById(R.id.btn_receiving_scan_box_commit);
+        Button btnPrint=(Button)findViewById(R.id.btn_receiving_scan_box_print);
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //读货物标签线程
+                if( isReading ) {
+                    isReading = false;
+                    btnScan.setText("扫描标签");
+                    receivingScanBoxScanTagThread.setIsReading(false);
+
+                } else if( !isReading ){
+                    isReading = true;
+                    btnScan.setText("停止扫描");
+                    receivingScanBoxScanTagThread = new ReceivingScanBoxScanTagThread(mReceivingBoxesItemsList,true,handlerScanTag);
+                    receivingScanBoxScanTagThread.start();
+                }
 
             }
         });
@@ -150,6 +189,17 @@ public class ReceivingScanBoxActivity extends Activity {
 
             }
         });
+
+        btnPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                printThread = new PrintThread(sheetCode,handlerPrint);
+                printThread.start();
+
+            }
+        });
+
 
 
     }

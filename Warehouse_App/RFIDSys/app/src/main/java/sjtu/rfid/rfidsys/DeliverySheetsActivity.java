@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
@@ -59,6 +61,11 @@ public class DeliverySheetsActivity extends Activity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         deliverySheetsThread=new DeliverySheetsThread(handler);
         deliverySheetsThread.start();
     }
@@ -99,4 +106,5 @@ public class DeliverySheetsActivity extends Activity {
         });
 
     }
+
 }

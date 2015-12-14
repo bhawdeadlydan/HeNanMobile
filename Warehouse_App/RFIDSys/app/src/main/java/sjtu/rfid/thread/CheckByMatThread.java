@@ -39,7 +39,7 @@ public class CheckByMatThread extends Thread {
         try{
             good=client.getGoodByCNum(CNum);
 
-            locationInfoList=client.getLocationListByItemErpCode(good.getCode());
+            locationInfoList=client.getLocationListByItemErpCode(good.getCode(),good.isIs_Bom());
             checkByMatEntity=new CheckByMatEntity(good,locationInfoList);
         }catch(TException e){
             msg.what=0;

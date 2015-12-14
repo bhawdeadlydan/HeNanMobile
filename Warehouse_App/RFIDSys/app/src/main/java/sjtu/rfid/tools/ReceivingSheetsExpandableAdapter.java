@@ -93,13 +93,6 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
                 intent.setClass(mContext, ReceivingScanBoxActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putString("receiving_sheet_code", mReceivingCodeList.get(groupPosition));
-
-                ArrayList list = new ArrayList();
-                list.add(mReceivingCodeList);
-
-                bundle.putParcelableArrayList("list", list);
-                bundle.putInt("index",groupPosition);
-
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }

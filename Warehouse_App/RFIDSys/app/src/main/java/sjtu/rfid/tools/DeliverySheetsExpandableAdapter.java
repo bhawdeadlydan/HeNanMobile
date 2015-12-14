@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -86,7 +87,12 @@ public class DeliverySheetsExpandableAdapter extends BaseExpandableListAdapter {
                 Intent intent=new Intent();
                 intent.setClass(mContext, DeliveryScanBoxActivity.class);
                 Bundle bundle=new Bundle();
-                bundle.putString("delivery_sheet_code",mDeliveryCodeList.get(groupPosition));
+                bundle.putString("delivery_sheet_code", mDeliveryCodeList.get(groupPosition));
+
+                ArrayList list = new ArrayList();
+                list.add(mDeliveryCodeList);
+                bundle.putInt("index",groupPosition);
+
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }
