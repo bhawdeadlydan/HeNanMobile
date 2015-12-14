@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -39,7 +37,6 @@ import sjtu.rfid.entity.ArrivalEntity;
 
 import sjtu.rfid.thread.ArrivalThread;
 import sjtu.rfid.thread.CommitTransInfoThread;
-import sjtu.rfid.thread.ConfirmThread;
 import sjtu.rfid.thread.GeoCoderThread;
 import tools.ArrivalExpandableAdapter;
 import tools.Data;
@@ -71,6 +68,10 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
     private static RfidNfc nnfc;
     private Data data ;
 
+    private Map<String,Integer> mapScan=new HashMap<>();
+    private Map<String,Integer> mapExpect=new HashMap<>();
+    private List<Good> goodList;
+
     public BDLocationListener myListener = LocationListener.getInstance();
 
     private Handler handler=new Handler(){
@@ -79,7 +80,12 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
             arrivalEntity=(ArrivalEntity)msg.obj;
-            iniListView(arrivalEntity.getGoodsList());
+            goodList=arrivalEntity.getGoodsList();
+            for(Good good:goodList){
+                mapScan.put(good.getCode(),0);
+                mapExpect.put(good.getCode(),good.getNum());
+            }
+            iniListView(goodList);
         }
     };
     private Handler geoHandler = new Handler() {
@@ -227,16 +233,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             public void onClick(View v) {
                 //扫描货物标签并写入相关数据线程
                 nnfc.nfcTask.clearNfcTask();
-                NfcDataType nfcDataType = new NfcDataType();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
-                if(func==0){
-                    NfcDataType.TransInf transInf = nfcDataType.new TransInf(data.getName(),"",position,lat,lng,System.currentTimeMillis());
-                    nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.TransInf,transInf);
-                }
-                else if(func==1) {
-                    NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(data.getName(),position,lat,lng,System.currentTimeMillis());
-                    nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.ConsInf,consInf);
-                }
                 nnfc.processTask(null);
 
             }
@@ -354,15 +351,50 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 //Toast.makeText(getApplicationContext(),nfcDataTypeBase.getREQ(), Toast.LENGTH_SHORT).show();
                 if(func==0){
                     if(nfcTaskName== NfcTask.NfcTaskName.TransInf){
-                        if(ret)
+                        if(ret){
                             Toast.makeText(getApplicationContext(),"暂存点写入成功", Toast.LENGTH_SHORT).show();
+                            mArrivalList.clear();
+                            mArrivalDetailList.clear();
+                            for(Good good:goodList){
+                                Map<String,String> map=new HashMap<>();
+                                map.put("matCode",good.getCode());
+                                map.put("expectedCount",String.valueOf(good.getNum()));
+                                map.put("realCount",String.valueOf(mapScan.get(good.getCode())));
+                                mArrivalList.add(map);
+
+                                Map<String, String> detailMap = new HashMap<>();
+                                detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
+                                detailMap.put("matName", good.getDetail());
+                                detailMap.put("unit", good.getUnit());
+                                mArrivalDetailList.put(good.getCode(), detailMap);
+                            }
+                            tmpAdapter.notifyDataSetChanged();
+                        }
+
                         else
                             Toast.makeText(getApplicationContext(),"暂存点写入失败", Toast.LENGTH_SHORT).show();
                     }
                 }else if(func==1){
                     if(nfcTaskName== NfcTask.NfcTaskName.ConsInf){
-                        if(ret)
+                        if(ret){
                             Toast.makeText(getApplicationContext(),"施工点写入成功", Toast.LENGTH_SHORT).show();
+                            mArrivalList.clear();
+                            mArrivalDetailList.clear();
+                            for(Good good:goodList){
+                                Map<String,String> map=new HashMap<>();
+                                map.put("matCode",good.getCode());
+                                map.put("expectedCount",String.valueOf(good.getNum()));
+                                map.put("realCount",String.valueOf(mapScan.get(good.getCode())));
+                                mArrivalList.add(map);
+
+                                Map<String, String> detailMap = new HashMap<>();
+                                detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
+                                detailMap.put("matName", good.getDetail());
+                                detailMap.put("unit", good.getUnit());
+                                mArrivalDetailList.put(good.getCode(), detailMap);
+                            }
+                            tmpAdapter.notifyDataSetChanged();
+                        }
                         else
                             Toast.makeText(getApplicationContext(),"施工点写入失败", Toast.LENGTH_SHORT).show();
                     }
@@ -377,9 +409,6 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                //Toast.makeText(getApplicationContext(),  nfcDataTypeBase.toString(), Toast.LENGTH_SHORT).show();
-
-
                 if(nfcTaskName== NfcTask.NfcTaskName.REQInf) {
                     applyCode = nfcDataTypeBase.getREQ();
                     TextView vApplyCode = (TextView) findViewById(R.id.text_arrival_order_code);
@@ -387,7 +416,24 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                     arrivalThread=new ArrivalThread(handler,applyCode);
                     arrivalThread.start();
                 }else if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
-                    Toast.makeText(getApplicationContext(),  nfcDataTypeBase.getERPCode(), Toast.LENGTH_SHORT).show();
+                    String epcCode=nfcDataTypeBase.getERPCode();
+                    if(mapScan.containsKey(epcCode)){
+                        if(mapScan.get(epcCode)>=mapExpect.get(epcCode)){
+                            Toast.makeText(getApplicationContext(),  "货物:"+epcCode+"数量已够", Toast.LENGTH_SHORT).show();
+                        }else {
+                            if(func==0){
+                                InnerThread1 innerThread1=new InnerThread1(data.getName(),"",position,lat,lng,System.currentTimeMillis(),nnfc);
+                                innerThread1.start();
+                            }
+                            else if(func==1) {
+                                InnerThread2 innerThread2=new InnerThread2(data.getName(),position,lat,lng,System.currentTimeMillis(),nnfc);
+                                innerThread2.start();
+                            }
+                            mapScan.put(epcCode,mapScan.get(epcCode)+1);
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(),  "错误:该货物不再此申领单中", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -422,6 +468,62 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
         if(nnfc!=null)
             nnfc.onResume(this);
 
+    }
+    class InnerThread1 extends Thread{
+
+        private String transPerson;
+        private String transStation;
+        private String location;
+        private double gpsN;
+        private double gpsE;
+        private long time;
+        private RfidNfc nnfc;
+
+        public InnerThread1(String transPerson, String transStation, String location, double gpsN, double gpsE, long time,RfidNfc nnfc) {
+            this.transPerson = transPerson;
+            this.transStation = transStation;
+            this.location = location;
+            this.gpsE = gpsE;
+            this.gpsN = gpsN;
+            this.time = time;
+            this.nnfc=nnfc;
+        }
+
+        @Override
+        public void run() {
+            nnfc.nfcTask.clearNfcTask();
+            NfcDataType nfcDataType = new NfcDataType();
+            NfcDataType.TransInf transInf = nfcDataType.new TransInf(transPerson,transStation,location,gpsN,gpsE, time);
+            nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.TransInf, transInf);
+            nnfc.processTask(null);
+        }
+    }
+    class InnerThread2 extends Thread{
+
+        private String consPerson;
+        private String location;
+        private double gpsN;
+        private double gpsE;
+        private long time;
+        private RfidNfc nnfc;
+
+        public InnerThread2(String consPerson, String location, double gpsN, double gpsE, long time, RfidNfc nnfc) {
+            this.consPerson = consPerson;
+            this.location = location;
+            this.gpsE = gpsE;
+            this.gpsN = gpsN;
+            this.time = time;
+            this.nnfc = nnfc;
+        }
+
+        @Override
+        public void run() {
+            nnfc.nfcTask.clearNfcTask();
+            NfcDataType nfcDataType = new NfcDataType();
+            NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(consPerson,location,gpsN,gpsE,time);
+            nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.ConsInf, consInf);
+            nnfc.processTask(null);
+        }
     }
 }
 

@@ -43,7 +43,9 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
     private static RfidNfc nnfc;
     private Data data ;
 
-    private int count=0;
+    private Map<String,Integer> mapScan=new HashMap<>();
+    private Map<String,Integer> mapExpect=new HashMap<>();
+    private List<Good> goodList;
 
 
     private Handler handler=new Handler(){
@@ -52,7 +54,12 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
             confirmEntity=(ConfirmEntity)msg.obj;
-            iniListView(confirmEntity.getGoodsList());
+            goodList=confirmEntity.getGoodsList();
+            for(Good good:goodList){
+                mapScan.put(good.getCode(),0);
+                mapExpect.put(good.getCode(),good.getNum());
+            }
+            iniListView(goodList);
         }
     };
 
@@ -105,7 +112,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
             Map<String,String> map=new HashMap<>();
             map.put("matCode",good.getCode());
             map.put("expectedCount",String.valueOf(good.getNum()));
-            map.put("realCount",String.valueOf(count));
+            map.put("realCount",String.valueOf(0));
             mConfirmList.add(map);
 
             Map<String, String> detailMap = new HashMap<>();
@@ -151,10 +158,6 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 //扫描货物标签并写入相关信息线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
-                NfcDataType nfcDataType = new NfcDataType();
-                REQInf reqInf = nfcDataType.new REQInf("",applyCode,confirmEntity.getPos().getApply_Person(),"","",System.currentTimeMillis());
-                //REQInf reqInf = nfcDataType.new REQInf("E00000000000000000000000","2524-REQ-2015100000297","申请人A","施工队B","复查人C",Long.decode("1450070000"));
-                nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.REQInf,reqInf);
                 nnfc.processTask(null);
             }
         });
@@ -225,6 +228,22 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 if(nfcTaskName== NfcTask.NfcTaskName.REQInf){
                     if(ret){
                         Toast.makeText(getApplicationContext(),"写入成功", Toast.LENGTH_SHORT).show();
+                        mConfirmList.clear();
+                        mConfirmDetailList.clear();
+                        for(Good good:goodList){
+                            Map<String,String> map=new HashMap<>();
+                            map.put("matCode",good.getCode());
+                            map.put("expectedCount",String.valueOf(good.getNum()));
+                            map.put("realCount",String.valueOf(mapScan.get(good.getCode())));
+                            mConfirmList.add(map);
+
+                            Map<String, String> detailMap = new HashMap<>();
+                            detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
+                            detailMap.put("matName", good.getDetail());
+                            detailMap.put("unit", good.getUnit());
+                            mConfirmDetailList.put(good.getCode(), detailMap);
+                        }
+                        tmpAdapter.notifyDataSetChanged();
                     }
                     else
                         Toast.makeText(getApplicationContext(),"写入失败", Toast.LENGTH_SHORT).show();
@@ -247,7 +266,20 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                     ConfirmThread thread = new ConfirmThread(handler, applyCode);
                     thread.start();
                 }else if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
-                    Toast.makeText(getApplicationContext(),  nfcDataTypeBase.getERPCode(), Toast.LENGTH_SHORT).show();
+
+                    String epcCode=nfcDataTypeBase.getERPCode();
+
+                    if(mapScan.containsKey(epcCode)){
+                        if(mapScan.get(epcCode)>=mapExpect.get(epcCode)){
+                            Toast.makeText(getApplicationContext(),  "货物:"+epcCode+"数量已够", Toast.LENGTH_SHORT).show();
+                        }else {
+                            InnerThread innerThread = new InnerThread("", applyCode, confirmEntity.getPos().getApply_Person(), "", "", System.currentTimeMillis(), nnfc);
+                            innerThread.start();
+                            mapScan.put(epcCode,mapScan.get(epcCode)+1);
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(),  "错误:该货物不再此申领单中", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -283,5 +315,35 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
             nnfc.onResume(this);
 
     }
+    class InnerThread extends Thread{
+
+        private String EPC;
+        private String applyCode;
+        private String applyPerson;
+        private String workTeam;
+        private String checkPerson;
+        private long time;
+        private RfidNfc nnfc;
+
+        public InnerThread(String EPC, String applyCode, String applyPerson, String workTeam, String checkPerson, long time,RfidNfc nnfc) {
+            this.EPC = EPC;
+            this.applyCode = applyCode;
+            this.applyPerson = applyPerson;
+            this.workTeam = workTeam;
+            this.checkPerson = checkPerson;
+            this.time = time;
+            this.nnfc=nnfc;
+        }
+
+        @Override
+        public void run() {
+            nnfc.nfcTask.clearNfcTask();
+            NfcDataType nfcDataType = new NfcDataType();
+            REQInf reqInf = nfcDataType.new REQInf(EPC,applyCode,applyPerson,workTeam,checkPerson,time);
+            nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.REQInf,reqInf);
+            nnfc.processTask(null);
+        }
+    }
 }
+
 
