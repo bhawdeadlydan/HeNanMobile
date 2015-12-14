@@ -12,8 +12,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import rfid.service.ASN;
 import rfid.service.Good;
@@ -30,6 +32,9 @@ public class ReceivingScanBoxActivity extends Activity {
     private ReceivingSheetsScanBoxExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mReceivingBoxesDetails;
     private List<Map<String,String>> mReceivingBoxes;
+
+    //记录每个ERP编码下，已经扫到的箱号，避免重复扫描造成错误计数
+    private Map<String, Set<String>> mReceivingBoxesItemsList;
 
     private TitleBar mTitleBar;
 
@@ -84,8 +89,9 @@ public class ReceivingScanBoxActivity extends Activity {
     }
 
     public void iniListView(List<Good> goodList) {
-        mReceivingBoxesDetails=new HashMap<String, Map<String, String>>();
+        mReceivingBoxesDetails=new HashMap<>();
         mReceivingBoxes = new ArrayList<>();
+        mReceivingBoxesItemsList = new HashMap<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_receiving_scan_box_sheets);
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
@@ -102,6 +108,10 @@ public class ReceivingScanBoxActivity extends Activity {
             }
             detailMap.put("cartonList",cartonList);
             mReceivingBoxesDetails.put(good.getCode(), detailMap);
+
+            Set<String> boxSet = new HashSet<>();
+            mReceivingBoxesItemsList.put(good.getCode(),boxSet);
+
         }
 
         tmpAdapter = new ReceivingSheetsScanBoxExpandableAdapter(this, mReceivingBoxesDetails, mReceivingBoxes);
