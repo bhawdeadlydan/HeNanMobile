@@ -170,6 +170,24 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     }
 
     @Override
+    public POS getPOSInfoByApplyDocCode(String ApplyDocCode) throws TException {
+        PosDao dao = new PosDao();
+        POS pos = new POS();
+        List list = dao.findOne(ApplyDocCode);
+        if(list != null){
+            Iterator it = list.iterator();
+            PosEntity entity = (PosEntity) it.next();
+            pos.setApply_Doc_Code(entity.getApplyDocCode());
+            pos.setApply_Person(entity.getApplyPerson());
+            pos.setApply_Unit(entity.getApplyUnit());
+            pos.setProject_Code(entity.getProjectCode());
+            pos.setApply_Date(entity.getApplyDate().toString());
+            pos.setReceiver(entity.getReceiver());
+        }
+        return pos;
+    }
+
+    @Override
     public List<Good> getGoodsListByApplyDocCode(String ApplyDocCode) throws TException {
         DetailDao ddao = new DetailDao();
         ASNDao adao = new ASNDao();

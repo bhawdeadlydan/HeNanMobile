@@ -50,4 +50,26 @@ public class PosDao extends BaseDao{
         }
         return null;
     }
+
+    public List findOne(String ApplyDocCode){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "from PosEntity as model where applyDocCode = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, ApplyDocCode);
+            queryObject.setMaxResults(1);
+            tx.commit();
+            return queryObject.list();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
 }
