@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import sjtu.rfid.rfidsys.R;
 
@@ -21,13 +22,16 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
     private LayoutInflater mLayoutInflater;
     private Map<String,Map<String,String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
+    private Map<String,Set<String>> mCheckByPosItemBoxList;
     private Context mContext;
 
-    public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mCheckByPosDetailList, List<Map<String,String>> mCheckByPosList){
+    public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mCheckByPosDetailList, List<Map<String,String>> mCheckByPosList,
+                                       Map<String,Set<String>> mCheckByPosItemBoxList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mCheckByPosList = mCheckByPosList;
         this.mCheckByPosDetailList = mCheckByPosDetailList;
+        this.mCheckByPosItemBoxList = mCheckByPosItemBoxList;
     }
 
     @Override
@@ -70,13 +74,17 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_by_pos_box, null);
+
         TextView codeLable = (TextView) layout.findViewById(R.id.text_check_by_pos_mat_code);
         TextView realCount = (TextView) layout.findViewById(R.id.text_check_by_pos_real_count);
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_check_by_pos_expected_count);
+
         codeLable.setText(codeLable.getText()+mCheckByPosList.get(groupPosition).get("matCode"));
-        realCount.setText(realCount.getText()+mCheckByPosList.get(groupPosition).get("realCount"));
+        realCount.setText("已扫到数量："+mCheckByPosItemBoxList.get(mCheckByPosList.get(groupPosition).get("matCode")).size());
         expectedCount.setText(expectedCount.getText()+mCheckByPosList.get(groupPosition).get("expectedCount"));
+
         return layout;
     }
 

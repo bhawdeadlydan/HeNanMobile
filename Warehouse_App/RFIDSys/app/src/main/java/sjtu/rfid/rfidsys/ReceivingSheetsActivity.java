@@ -59,8 +59,7 @@ public class ReceivingSheetsActivity extends Activity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        receivingSheetsThread=new ReceivingSheetsThread(handler);
-        receivingSheetsThread.start();
+
     }
 
     public void iniActivity()
@@ -119,6 +118,13 @@ public class ReceivingSheetsActivity extends Activity {
                 Uri.parse("android-app://sjtu.rfid.rfidsys/http/host/path")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        receivingSheetsThread=new ReceivingSheetsThread(handler);
+        receivingSheetsThread.start();
     }
 
     @Override

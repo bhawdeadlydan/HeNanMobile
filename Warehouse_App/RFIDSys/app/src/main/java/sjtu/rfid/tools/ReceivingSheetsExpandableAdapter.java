@@ -3,6 +3,7 @@ package sjtu.rfid.tools;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -76,6 +78,9 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
+        Log.i("show",String.valueOf(mReceivingCodeList.size()));
+
         final RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
         sheetCode=mReceivingCodeList.get(groupPosition);
         codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
@@ -87,7 +92,14 @@ public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter 
                 Intent intent=new Intent();
                 intent.setClass(mContext, ReceivingScanBoxActivity.class);
                 Bundle bundle=new Bundle();
-                bundle.putString("receiving_sheet_code",mReceivingCodeList.get(groupPosition));
+                bundle.putString("receiving_sheet_code", mReceivingCodeList.get(groupPosition));
+
+                ArrayList list = new ArrayList();
+                list.add(mReceivingCodeList);
+
+                bundle.putParcelableArrayList("list", list);
+                bundle.putInt("index",groupPosition);
+
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
             }

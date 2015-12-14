@@ -15,8 +15,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import rfid.service.Good;
 import rfid.service.check;
@@ -31,6 +33,7 @@ public class CheckByPosActivity extends Activity {
     private CheckByPosExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
+    private Map<String,Set<String>> mCheckByPosItemBoxList;
     private TitleBar mTitleBar;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -89,22 +92,26 @@ public class CheckByPosActivity extends Activity {
 
         mCheckByPosDetailList = new HashMap<String, Map<String, String>>();
         mCheckByPosList = new ArrayList<>();
+        mCheckByPosItemBoxList = new HashMap<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_check_by_pos_sheets);
 
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
             map.put("matCode",good.getCode());
-            map.put("expectedCount",String.valueOf(good.getNum()));
-            map.put("realCount","0");
+            map.put("expectedCount", String.valueOf(good.getNum()));
+            map.put("realCount", "0");
             mCheckByPosList.add(map);
 
             Map<String, String> detailMap = new HashMap<>();
             detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
             detailMap.put("matName", good.getDetail());
             mCheckByPosDetailList.put(good.getCode(), detailMap);
+
+            Set<String> boxSet = new HashSet<>();
+            mCheckByPosItemBoxList.put(good.getCode(),boxSet);
         }
 
-        tmpAdapter = new CheckByPosExpandableAdapter(this,mCheckByPosDetailList,mCheckByPosList);
+        tmpAdapter = new CheckByPosExpandableAdapter(this,mCheckByPosDetailList,mCheckByPosList,mCheckByPosItemBoxList);
         sheetListView.setAdapter(tmpAdapter);
 
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
