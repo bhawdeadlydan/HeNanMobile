@@ -44,9 +44,11 @@ public class PrintClient {
         } catch (TTransportException e) {
 //            e.printStackTrace();
             System.err.println(e.getMessage());
+            close();
         } catch (TException e) {
 //            e.printStackTrace();
             System.err.println(e.getMessage());
+            close();
         }
         return false;
     }

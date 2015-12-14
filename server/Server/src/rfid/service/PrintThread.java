@@ -34,8 +34,8 @@ public class PrintThread implements Runnable{
             data.setProjectCode(projectCode);
             data.setMatCode(batchGoods.get(i).get(0)[1]);
             System.out.println("print sequence " + i + " start");
-            // if(client == null || !client.printData(data, 6)) {
-            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
+             if(client == null || !client.printData(data, 1)) {
+//            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
                 System.out.println("print sequence " + i + " over");
                 break;
             }
@@ -55,17 +55,21 @@ public class PrintThread implements Runnable{
     *VENDOR_NAME厂商名称
     * */
     public void printTag(List<String[]> goods){
+        int i = 0;
         for(Iterator it = goods.iterator(); it.hasNext();){
+            if(i == 1)
+                break;
             String [] good = (String[]) it.next();
             printOne(projectCode, code, good[0], good[1], good[2], good[3],good[4],vendorName);
             trigger(good[4]);
+            i++;
         }
     }
     public void printOne(String ProjectCode, String Code, String ItemName, String ItemCode, String ItemNum, String ItemUnit, String EPC,
                          String VendorName) {
         try {
             File file1 = new File(Config.DATAPATH,"epc.txt");
-            BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file1,false),"UTF-8"));
+            BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file1,false),"GB2312"));
             fw.write(ProjectCode + "," + Code + "," + ItemName + "," + ItemCode + ","+ ItemNum + ","
                     + ItemUnit + "," + EPC + "," + VendorName);
             fw.close();

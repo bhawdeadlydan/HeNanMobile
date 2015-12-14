@@ -43,10 +43,7 @@ namespace RFIDPrinter
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            serverThread.Abort();
-            serverTransport.Close();
             server.Stop();
-            Application.Exit();
         }
 
         private void OpenServer()
@@ -455,6 +452,11 @@ namespace RFIDPrinter
             d1.MatCode = "2510TP000009924_66666";
             RfidPrinterImpl insance = new RfidPrinterImpl(this);
             insance.printData(d1,3);
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //serverThread.Abort();
         }
     }
 }
