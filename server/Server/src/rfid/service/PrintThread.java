@@ -34,8 +34,8 @@ public class PrintThread implements Runnable{
             data.setProjectCode(projectCode);
             data.setMatCode(batchGoods.get(i).get(0)[1]);
             System.out.println("print sequence " + i + " start");
-             if(client == null || !client.printData(data, 1)) {
-//            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
+//             if(client == null || !client.printData(data, 1)) {
+            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
                 System.out.println("print sequence " + i + " over");
                 break;
             }
@@ -55,14 +55,18 @@ public class PrintThread implements Runnable{
     *VENDOR_NAME厂商名称
     * */
     public void printTag(List<String[]> goods){
-        int i = 0;
-        for(Iterator it = goods.iterator(); it.hasNext();){
-            if(i == 1)
-                break;
-            String [] good = (String[]) it.next();
+//        for(int i = 0; i < 1; i++){
+        for(int i = 0; i < goods.size(); i++){
+//            if(i == 8)
+//                break;
+            String [] good = goods.get(i);
             printOne(projectCode, code, good[0], good[1], good[2], good[3],good[4],vendorName);
             trigger(good[4]);
-            i++;
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
     public void printOne(String ProjectCode, String Code, String ItemName, String ItemCode, String ItemNum, String ItemUnit, String EPC,
