@@ -74,6 +74,11 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
 
     public BDLocationListener myListener = LocationListener.getInstance();
 
+    private Button btnPos;
+    private Button btnGetOrder;
+    private Button btnScanWrite;
+    private Button btnCommit;
+
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -200,10 +205,10 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
     }
 
     public void iniEvent(){
-        Button btnPos=(Button)findViewById(R.id.btn_arrival_position);
-        Button btnGetOrder=(Button)findViewById(R.id.btn_arrival_scan_box_get_order);
-        Button btnScanWrite=(Button)findViewById(R.id.btn_arrival_scan_and_write);
-        Button btnCommit=(Button)findViewById(R.id.btn_arrival_commit);
+        btnPos=(Button)findViewById(R.id.btn_arrival_position);
+        btnGetOrder=(Button)findViewById(R.id.btn_arrival_scan_box_get_order);
+        btnScanWrite=(Button)findViewById(R.id.btn_arrival_scan_and_write);
+        btnCommit=(Button)findViewById(R.id.btn_arrival_commit);
 
         btnPos.setOnClickListener(new View.OnClickListener() {
 
@@ -224,7 +229,8 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
-                nnfc.processTask(null);
+                //nnfc.processTask(null);
+                btnGetOrder.setEnabled(false);
 
             }
         });
@@ -410,6 +416,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             @Override
             public void run() {
                 if(nfcTaskName== NfcTask.NfcTaskName.REQInf) {
+                    btnGetOrder.setEnabled(true);
                     applyCode = nfcDataTypeBase.getREQ();
                     TextView vApplyCode = (TextView) findViewById(R.id.text_arrival_order_code);
                     vApplyCode.setText(applyCode);

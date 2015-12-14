@@ -47,6 +47,10 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
     private Map<String,Integer> mapExpect=new HashMap<>();
     private List<Good> goodList;
 
+    private Button btnGetOrder;
+    private Button btnScanWrite;
+    private Button btnCommit;
+
 
     private Handler handler=new Handler(){
         @Override
@@ -139,16 +143,17 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
 
     private void initEvent(){
 
-        Button btnGetOrder=(Button)findViewById(R.id.btn_confirm_scan_box_get_order);
-        Button btnScanWrite=(Button)findViewById(R.id.bnt_confirm_scan_and_write);
-        Button btnCommit=(Button)findViewById(R.id.btn_confirm_commit);
+        btnGetOrder=(Button)findViewById(R.id.btn_confirm_scan_box_get_order);
+        btnScanWrite=(Button)findViewById(R.id.bnt_confirm_scan_and_write);
+        btnCommit=(Button)findViewById(R.id.btn_confirm_commit);
         btnGetOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
-                nnfc.processTask(null);
+                //nnfc.processTask(null);
+                btnGetOrder.setEnabled(false);
             }
         });
 
@@ -260,6 +265,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
             public void run() {
                 //Toast.makeText(getApplicationContext(),  nfcDataTypeBase.toString(), Toast.LENGTH_SHORT).show();
                 if(nfcTaskName== NfcTask.NfcTaskName.REQInf) {
+                    btnGetOrder.setEnabled(true);
                     applyCode = nfcDataTypeBase.getREQ();
                     TextView vApplyCode = (TextView) findViewById(R.id.text_confirm_order_code);
                     vApplyCode.setText(applyCode);
