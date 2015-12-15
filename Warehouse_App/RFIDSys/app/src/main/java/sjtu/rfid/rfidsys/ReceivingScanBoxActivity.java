@@ -169,12 +169,12 @@ public class ReceivingScanBoxActivity extends Activity {
                 if( isReading ) {
                     isReading = false;
                     btnScan.setText("扫描标签");
-                    receivingScanBoxScanTagThread.setIsReading(false);
+                    receivingScanBoxScanTagThread.setIsReading(isReading);
 
                 } else if( !isReading ){
                     isReading = true;
                     btnScan.setText("停止扫描");
-                    receivingScanBoxScanTagThread = new ReceivingScanBoxScanTagThread(mReceivingBoxesItemsList,true,handlerScanTag);
+                    receivingScanBoxScanTagThread = new ReceivingScanBoxScanTagThread(mReceivingBoxesItemsList,isReading,handlerScanTag);
                     receivingScanBoxScanTagThread.start();
                 }
 

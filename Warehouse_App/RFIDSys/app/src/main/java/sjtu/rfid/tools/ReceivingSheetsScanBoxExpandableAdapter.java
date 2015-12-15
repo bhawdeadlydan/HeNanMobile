@@ -122,10 +122,14 @@ public class ReceivingSheetsScanBoxExpandableAdapter extends BaseExpandableListA
 
 
         TextView text2 = (TextView) layout.findViewById(R.id.text_receiving_scan_box_detail_box_list);
-        text2.setText(text2.getText()+map.get("cartonList"));
+        text2.setText(text2.getText() + map.get("cartonList"));
 
         EditText realCount = (EditText) layout.findViewById(R.id.edittext_receiving_scan_box_count_count);
-        Integer t = mRealCountList.get(groupPosition);
+
+
+        String matCode = mReceivingBoxes.get(groupPosition).get("matCode");
+        Integer t = mReceivingBoxesItemsList.get(matCode).size();
+        mRealCountList.set(groupPosition,t);
 
         realCount.setText(String.valueOf(t));
         realCount.addTextChangedListener(new TextWatcher() {

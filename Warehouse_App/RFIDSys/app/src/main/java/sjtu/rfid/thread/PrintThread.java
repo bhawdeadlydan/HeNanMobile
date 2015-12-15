@@ -37,7 +37,10 @@ public class PrintThread extends Thread {
             msg.what=1;
         else
             msg.what=0;
+
+        connectServer.closeConnect();
         mHandler.sendMessage(msg);
+
     }
 
 }
