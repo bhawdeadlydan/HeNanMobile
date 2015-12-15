@@ -1,6 +1,8 @@
 package sjtu.rfid.entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by user on 12/15/2015.
@@ -17,5 +19,19 @@ public class Config {
         Location.add("B12");
         Location.add("B21");
         Location.add("B22");
+    }
+
+    public static Map<String,String> LocationMap;
+    static
+    {
+        LocationMap = new HashMap<>();
+        LocationMap.put("A11","1");
+        LocationMap.put("A12","2");
+        LocationMap.put("A21","3");
+        LocationMap.put("A22","4");
+        LocationMap.put("B11","5");
+        LocationMap.put("B12","6");
+        LocationMap.put("B21","7");
+        LocationMap.put("B22","8");
     }
 }

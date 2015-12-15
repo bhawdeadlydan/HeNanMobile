@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile files('src/main/lib/expandableadapter.jar')
@@ -33,4 +33,10 @@ dependencies {
     compile files('libs/slf4j-api-1.5.8.jar')
     compile files('libs/slf4j-log4j12-1.5.8.jar')
     compile files('libs/javax.annotation.jar')
+    compile files('src/main/jniLibs/atid.dev.barcode.jar')
+    compile files('src/main/jniLibs/atid.dev.rfid.jar')
+    compile files('src/main/jniLibs/atid.system.comm.jar')
+    compile files('src/main/jniLibs/atid.system.ctrl.jar')
+    compile files('src/main/jniLibs/atid.util.jar')
+    compile files('src/main/jniLibs/atid.system.device.jar')
 }
