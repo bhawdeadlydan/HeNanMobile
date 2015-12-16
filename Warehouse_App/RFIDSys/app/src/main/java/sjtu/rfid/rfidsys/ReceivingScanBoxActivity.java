@@ -1,6 +1,8 @@
 package sjtu.rfid.rfidsys;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +11,20 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.atid.lib.dev.ATRfidManager;
+import com.atid.lib.dev.ATRfidReader;
+import com.atid.lib.dev.event.RfidReaderEventListener;
+import com.atid.lib.dev.rfid.exception.ATRfidReaderException;
+import com.atid.lib.dev.rfid.type.ActionState;
+import com.atid.lib.dev.rfid.type.ConnectionState;
+import com.atid.lib.dev.rfid.type.ResultCode;
+import com.atid.lib.dev.rfid.type.TagType;
+import com.atid.lib.diagnostics.ATLog;
+import com.atid.lib.dialog.WaitDialog;
+import com.atid.lib.util.SysUtil;
+
+import org.apache.thrift.TException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,14 +35,19 @@ import java.util.Set;
 
 import rfid.service.ASN;
 import rfid.service.Good;
+import rfid.service.RFIDClient;
+import rfid.service.RFIDService;
 import sjtu.rfid.thread.PrintThread;
 import sjtu.rfid.thread.ReceivingScanBoxScanTagThread;
 import sjtu.rfid.thread.ReceivingScanBoxThread;
 import sjtu.rfid.thread.ReceivingSubmitThread;
+import sjtu.rfid.tools.ConnectServer;
+import sjtu.rfid.tools.Converters;
 import sjtu.rfid.tools.ReceivingSheetsScanBoxExpandableAdapter;
+import sjtu.rfid.tools.SoundPlay;
 import sjtu.rfid.tools.TitleBar;
 
-public class ReceivingScanBoxActivity extends Activity {
+public class ReceivingScanBoxActivity extends Activity implements RfidReaderEventListener {
 
     private TextView vReceSheetCode;
     private String sheetCode="";
@@ -49,6 +70,19 @@ public class ReceivingScanBoxActivity extends Activity {
 
     private List<Good> goodList;
     private boolean receivingResult;
+
+
+    private static final String TAG = "MainActivity";
+    private static final boolean ENABLE_LOG = false;
+    private static final String LOG_PATH = "Log";
+    private SoundPlay mSound;
+
+    private int mOperationTime;
+    private int mInventoryTime;
+    private int mIdleTime;
+    private int mPowerLevel;
+
+    private ATRfidReader mReader = null;
 
     private Handler handler=new Handler(){
         @Override
@@ -99,6 +133,31 @@ public class ReceivingScanBoxActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiving_scan_box);
 
+        mSound = new SoundPlay(getApplicationContext());
+        WaitDialog.show(this, "连接RFID模块中", "请稍等", new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                ReceivingScanBoxActivity.this.finish();
+            }
+        });
+
+        if ((mReader = ATRfidManager.getInstance()) == null) {
+            WaitDialog.hide();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            builder.setTitle("出错啦");
+            builder.setMessage("连接UHF模块错误,请检查UHF 模块！");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            builder.show();
+        }
+        mSound.playSuccess();
+
         vReceSheetCode=(TextView)findViewById(R.id.text_receiving_scan_box_order_number);
         Bundle bundle = new Bundle();
         bundle = this.getIntent().getExtras();
@@ -109,6 +168,152 @@ public class ReceivingScanBoxActivity extends Activity {
 
         receivingScanBoxThread=new ReceivingScanBoxThread(handler,sheetCode);
         receivingScanBoxThread.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        ATRfidManager.onDestroy();
+        SysUtil.wakeUnlock();
+        ATLog.d(TAG, "INFO. onDestroy");
+        ATLog.shutdown();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mReader != null) {
+            ATRfidManager.wakeUp();
+            try
+            {
+                saveOption();
+                ATLog.i(TAG, String.valueOf(mReader.getPower()));
+            }
+            catch (ATRfidReaderException ax)
+            {
+            }
+
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        ATRfidManager.sleep();
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mReader != null)
+            mReader.setEventListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        if (mReader != null)
+            mReader.removeEventListener(this);
+        super.onPause();
+    }
+
+    protected void stopAction() {
+        ResultCode res;
+        if ((res = mReader.stop()) != ResultCode.NoError) {
+            return;
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    // Reader Control Methods
+    // ------------------------------------------------------------------------
+
+    // Start Action
+    protected void startAction(boolean type) {
+
+        ResultCode res;
+        TagType tagType = TagType.Tag6C;//getTagType();
+
+
+        if (type) {
+            // Multi Reading
+            switch (tagType) {
+                case Tag6C:
+                    if ((res = mReader.inventory6cTag()) != ResultCode.NoError) {
+                        return;
+                    }
+                    break;
+                case Tag6B:
+                    if ((res = mReader.inventory6bTag()) != ResultCode.NoError) {
+                        return;
+                    }
+                    break;
+            }
+        } else {
+            // Single Reading
+            switch (tagType) {
+                case Tag6C:
+                    if ((res = mReader.readEpc6cTag()) != ResultCode.NoError) {
+                        return;
+                    }
+                    break;
+                case Tag6B:
+                    if ((res = mReader.readEpc6bTag()) != ResultCode.NoError) {
+                        return;
+                    }
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void onReaderStateChanged(final ATRfidReader reader, final ConnectionState state) {
+        switch (state) {
+            case Connected:
+                WaitDialog.hide();
+                String version = "";
+                try {
+                    version = mReader.getFirmwareVersion();
+                } catch (ATRfidReaderException e) {
+                    version = "";
+                    mReader.disconnect();
+                }
+                Toast.makeText(this, version, Toast.LENGTH_SHORT);
+                break;
+            case Disconnected:
+                WaitDialog.hide();
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onReaderActionChanged(ATRfidReader reader, final ActionState action) {
+        if (action == ActionState.Stop) {
+        }
+    }
+
+    @Override
+    public void onReaderReadTag(ATRfidReader reader, final String tag, final float rssi) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                String epc = new String(Converters.fromHexString(tag.substring(4)));
+                //Toast.makeText(getApplicationContext(),epc,Toast.LENGTH_SHORT).show();
+                //获取标签
+                ScanThread scanThread=new ScanThread(epc);
+                scanThread.start();
+            }
+        });
+        mSound.playSuccess();
+
+    }
+
+    @Override
+    public void onReaderResult(ATRfidReader reader, final ResultCode code, ActionState action, final String epc, final String data) {
+
     }
 
     public void iniActivity(){
@@ -169,22 +374,24 @@ public class ReceivingScanBoxActivity extends Activity {
                 if( isReading ) {
                     isReading = false;
                     btnScan.setText("扫描标签");
-                    receivingScanBoxScanTagThread.setIsReading(isReading);
-
+                    stopAction();
+                    mReader.stop();
+                    //receivingScanBoxScanTagThread.setIsReading(isReading);
                 } else if( !isReading ){
                     isReading = true;
                     btnScan.setText("停止扫描");
-                    receivingScanBoxScanTagThread = new ReceivingScanBoxScanTagThread(mReceivingBoxesItemsList,isReading,handlerScanTag);
-                    receivingScanBoxScanTagThread.start();
+                    startAction(true);
+                    mReader.connect();
+                    //receivingScanBoxScanTagThread = new ReceivingScanBoxScanTagThread(mReceivingBoxesItemsList,isReading,handlerScanTag);
+                    //receivingScanBoxScanTagThread.start();
                 }
-
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                receivingSubmitThread=new ReceivingSubmitThread(sheetCode,handlerReceiving);
+                receivingSubmitThread = new ReceivingSubmitThread(sheetCode, handlerReceiving);
                 receivingSubmitThread.start();
 
             }
@@ -194,7 +401,7 @@ public class ReceivingScanBoxActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                printThread = new PrintThread(sheetCode,handlerPrint);
+                printThread = new PrintThread(sheetCode, handlerPrint);
                 printThread.start();
 
             }
@@ -202,5 +409,124 @@ public class ReceivingScanBoxActivity extends Activity {
 
 
 
+    }
+
+    private void saveOption() {
+        WaitDialog.show(this, "Save Properties...\r\nPlease Wait...");
+
+        mOperationTime = 0;
+        mInventoryTime = 1200;
+        mIdleTime = 200;
+        mPowerLevel = 130;
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    mReader.setReportRssi(true);
+                } catch (ATRfidReaderException e) {
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            WaitDialog.hide();
+                        }
+                    });
+                    return;
+                }
+                // Set Operation Time
+                try {
+                    mReader.setOperationTime(mOperationTime);
+                } catch (ATRfidReaderException e) {
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            WaitDialog.hide();
+                        }
+                    });
+                    return;
+                }
+
+                // Set Inventory Time
+                try {
+                    mReader.setInventoryTime(mInventoryTime);
+                } catch (ATRfidReaderException e) {
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            WaitDialog.hide();
+                        }
+                    });
+                    return;
+                }
+
+                // Set Idle Time
+                try {
+                    mReader.setIdleTime(mIdleTime);
+                } catch (ATRfidReaderException e) {
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            WaitDialog.hide();
+                        }
+                    });
+                    return;
+                }
+
+                // Set Power Level
+                try {
+                    mReader.setPower(mPowerLevel);
+                } catch (ATRfidReaderException e) {
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            WaitDialog.hide();
+                        }
+                    });
+                    return;
+                }
+
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        WaitDialog.hide();
+                        //finish();
+                    }
+                });
+            }
+        }).start();
+    }
+    class ScanThread extends Thread{
+
+        private  String epc;
+
+        public ScanThread(String epc) {
+            this.epc = epc;
+        }
+
+        @Override
+        public void run() {
+            for( Map.Entry<String, Map<String, String>> map : mReceivingBoxesDetails.entrySet() )
+            {
+                if( map.getValue().get("cartonList").contains(epc) ) {
+                    if( mReceivingBoxesItemsList.containsKey(map.getKey()) && !mReceivingBoxesItemsList.get(map.getKey()).contains(epc)) {
+                        mReceivingBoxesItemsList.get(map.getKey()).add(epc);
+                        Message msg = handlerScanTag.obtainMessage();
+                        msg.what = 1;
+                        handlerScanTag.sendMessage(msg);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
