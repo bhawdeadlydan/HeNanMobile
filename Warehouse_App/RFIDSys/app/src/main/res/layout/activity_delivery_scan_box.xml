@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sjtu.rfid.rfidsys.DeliveryScanBoxActivity">
+
+    <include
+        layout="@layout/title"
+        android:id="@+id/include5" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include5"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/linearLayout5"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申领单号："
+                android:id="@+id/textView3"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000000000000000001"
+                android:id="@+id/text_delivery_scan_box_order_code" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="扫描标签"
+            android:id="@+id/btn_delivery_scan_box_scan"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/linearLayout5"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_delivery_scan_box_sheets"
+        android:layout_above="@+id/btn_delivery_scan_box_commit"
+        android:layout_below="@+id/textView4"
+        android:focusable="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完成出库"
+        android:id="@+id/btn_delivery_scan_box_commit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingBottom="5dp"
+        android:text="货物列表："
+        android:id="@+id/textView4"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

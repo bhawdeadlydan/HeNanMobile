@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "sjtu.rfid.rfidsys"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile files('src/main/lib/expandableadapter.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile files('libs/libthrift-0.9.3.jar')
+    compile files('libs/log4j-1.2.14.jar')
+    compile files('libs/slf4j-api-1.5.8.jar')
+    compile files('libs/slf4j-log4j12-1.5.8.jar')
+    compile files('libs/javax.annotation.jar')
+    compile files('src/main/jniLibs/atid.dev.barcode.jar')
+    compile files('src/main/jniLibs/atid.dev.rfid.jar')
+    compile files('src/main/jniLibs/atid.system.comm.jar')
+    compile files('src/main/jniLibs/atid.system.ctrl.jar')
+    compile files('src/main/jniLibs/atid.util.jar')
+    compile files('src/main/jniLibs/atid.system.device.jar')
+}

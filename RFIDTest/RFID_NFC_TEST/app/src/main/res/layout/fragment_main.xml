@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.headingwl.sjtu.rfid_nfc_test.MainActivity$PlaceholderFragment">
+
+    <TextView
+        android:id="@+id/section_label"
+        android:layout_width="320dp"
+        android:layout_height="80dp"
+        android:text="Test"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="初始化NFC"
+        android:id="@+id/btnInitNfc"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/section_label"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="读UID"
+        android:id="@+id/btnReadBlock"
+        android:layout_alignTop="@+id/btnInitNfc"
+        android:layout_alignStart="@+id/btnWriteTransInf"
+        android:layout_marginStart="0dp" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="GetItemInf"
+        android:id="@+id/btnGetItemInf"
+        android:onClick="addTask"
+        android:layout_alignTop="@+id/btnGetREQInf"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="GetREQInf"
+        android:id="@+id/btnGetREQInf"
+        android:onClick="addTask"
+        android:layout_below="@+id/btnInitNfc"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="GetTransInf"
+        android:id="@+id/btnGetTransInf"
+        android:onClick="addTask"
+        android:layout_below="@+id/btnGetItemInf"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="GetConsInf"
+        android:onClick="addTask"
+        android:id="@+id/btnGetConsInf"
+        android:layout_below="@+id/btnGetREQInf"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="WriteConsInf"
+        android:id="@+id/btnWriteConsInf"
+        android:onClick="addTask"
+        android:layout_below="@+id/btnGetTransInf"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="WriteTransInf"
+        android:id="@+id/btnWriteTransInf"
+        android:onClick="addTask"
+        android:layout_alignTop="@+id/btnWriteItemInf"
+        android:layout_alignStart="@+id/btnWriteConsInf" />
+
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="WriteREQInf"
+        android:id="@+id/btnWriteREQInf"
+        android:onClick="addTask"
+        android:layout_below="@+id/btnGetConsInf"
+        android:layout_alignParentStart="true" />
+
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="WriteItemInf"
+        android:id="@+id/btnWriteItemInf"
+        android:onClick="addTask"
+        android:layout_below="@+id/btnWriteREQInf"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

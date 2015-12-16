@@ -1,0 +1,130 @@
+package sjtu.rfid.tools;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import sjtu.rfid.rfidsys.R;
+import sjtu.rfid.rfidsys.ReceivingScanBoxActivity;
+
+/**
+ * Created by user on 12/6/2015.
+ */
+public class ReceivingSheetsExpandableAdapter extends BaseExpandableListAdapter {
+
+    private LayoutInflater mLayoutInflater;
+    private Map<String,Map<String,String>> mReceivingCodeDetailList;
+    private List<String> mReceivingCodeList;
+    private Context mContext;
+    private  TextView codeLable;
+    private String sheetCode="";
+
+    public ReceivingSheetsExpandableAdapter(Context mContext,Map<String,Map<String,String>> mReceivingCodeDetailList, List<String> mReceivingCodeList){
+        this.mContext = mContext;
+        this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mReceivingCodeList = mReceivingCodeList;
+        this.mReceivingCodeDetailList = mReceivingCodeDetailList;
+    }
+
+    @Override
+    public int getGroupCount() {
+        return mReceivingCodeList.size();
+    }
+
+    @Override
+    public int getChildrenCount(int groupPosition) {
+        return 1;
+    }
+
+    @Override
+    public Object getGroup(int groupPosition) {
+        return mReceivingCodeList.get(groupPosition);
+    }
+
+    @Override
+    public Object getChild(int groupPosition, int childPosition) {
+        String key=mReceivingCodeList.get(groupPosition);
+        return mReceivingCodeDetailList.get(key);
+
+    }
+
+    @Override
+    public long getGroupId(int groupPosition) {
+
+        return groupPosition;
+    }
+
+    @Override
+    public long getChildId(int groupPosition, int childPosition) {
+       return childPosition;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return false;
+    }
+
+    @Override
+    public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
+        Log.i("show",String.valueOf(mReceivingCodeList.size()));
+
+        final RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet, null);
+        sheetCode=mReceivingCodeList.get(groupPosition);
+        codeLable = (TextView) layout.findViewById(R.id.text_receiving_sheet_code);
+        codeLable.setText(codeLable.getText()+sheetCode);
+        Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.setClass(mContext, ReceivingScanBoxActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("receiving_sheet_code", mReceivingCodeList.get(groupPosition));
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
+        });
+        return layout;
+    }
+
+    @Override
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_receiving_sheet_detail, null);
+        Map<String,String> map=mReceivingCodeDetailList.get(mReceivingCodeList.get(groupPosition));
+
+        TextView text1 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_project_code);
+        text1.setText(text1.getText()+map.get("projectCode"));
+
+        TextView text2 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_order_date);
+        text2.setText(text2.getText()+map.get("orderDate"));
+
+        TextView text3 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_vendor_name);
+        text3.setText(text3.getText()+map.get("vendorName"));
+
+        TextView text4 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_apply_person);
+        text4.setText(text4.getText()+map.get("applyPerson"));
+
+        TextView text5 = (TextView) layout.findViewById(R.id.text_receiving_sheet_detail_related_bill);
+        text5.setText(text5.getText()+map.get("relatedBill"));
+
+        return layout;
+    }
+
+    @Override
+    public boolean isChildSelectable(int groupPosition, int childPosition) {
+        return false;
+    }
+}

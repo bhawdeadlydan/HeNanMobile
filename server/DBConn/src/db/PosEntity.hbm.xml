@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.PosEntity" table="pos" schema="mobile">
+        <id name="applyDocCode" column="APPLY_DOC_CODE"/>
+        <property name="company" column="COMPANY"/>
+        <property name="warehouseCode" column="WAREHOUSE_CODE"/>
+        <property name="billType" column="BILL_TYPE"/>
+        <property name="code" column="CODE"/>
+        <property name="projectCode" column="PROJECT_CODE"/>
+        <property name="applyUnit" column="APPLY_UNIT"/>
+        <property name="applyPerson" column="APPLY_PERSON"/>
+        <property name="applyDate" column="APPLY_DATE"/>
+        <property name="constructionUnit" column="CONSTRUCTION_UNIT"/>
+        <property name="receiver" column="RECEIVER"/>
+        <property name="receiverUidCode" column="RECEIVER_UID_CODE"/>
+        <property name="applyDocDesc" column="APPLY_DOC_DESC"/>
+        <property name="expectedShipDate" column="EXPECTED_SHIP_DATE"/>
+        <property name="dockCode" column="DOCK_CODE"/>
+        <property name="disposition" column="DISPOSITION"/>
+        <property name="sent" column="Sent"/>
+        <property name="sentDate" column="Sent_Date"/>
+    </class>
+</hibernate-mapping>

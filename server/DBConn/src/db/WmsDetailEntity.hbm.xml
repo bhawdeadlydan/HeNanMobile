@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.WmsDetailEntity" table="wms_detail" schema="mobile">
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
+        <property name="isBom" column="IS_BOM"/>
+        <property name="saleBomCode" column="SALE_BOM_CODE"/>
+        <property name="packingCode" column="PACKING_CODE"/>
+        <property name="price" column="PRICE"/>
+        <property name="cartonOrderNum" column="CARTON_ORDER_NUM"/>
+        <property name="cartonNum" column="CARTON_NUM"/>
+        <property name="itemCode" column="ITEM_CODE"/>
+        <property name="itemName" column="ITEM_NAME"/>
+        <property name="itemUnitCode" column="ITEM_UNIT_CODE"/>
+        <property name="expectedQuantity" column="EXPECTED_QUANTITY"/>
+        <property name="asnCode" column="ASN_CODE"/>
+        <property name="allocationId" column="ALLOCATION_id"/>
+        <property name="cNum" column="CartonNum"/>
+        <property name="applyDocCode" column="ApplyDocCode"/>
+    </class>
+</hibernate-mapping>

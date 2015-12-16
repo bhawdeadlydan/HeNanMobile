@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.RposEntity" table="rpos" schema="mobile">
+        <id name="code" column="CODE"/>
+        <property name="company" column="COMPANY"/>
+        <property name="warehouseCode" column="WAREHOUSE_CODE"/>
+        <property name="billType" column="BILL_TYPE"/>
+        <property name="shipUser" column="SHIP_USER"/>
+        <property name="shipDate" column="SHIP_DATE"/>
+    </class>
+</hibernate-mapping>

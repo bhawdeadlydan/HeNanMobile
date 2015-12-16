@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.RasnEntity" table="rasn" schema="mobile">
+        <id name="code" column="CODE"/>
+        <property name="company" column="COMPANY"/>
+        <property name="warehouseCode" column="WAREHOUSE_CODE"/>
+        <property name="billType" column="BILL_TYPE"/>
+        <property name="receiveType" column="RECEIVE_TYPE"/>
+        <property name="receiveUser" column="RECEIVE_USER"/>
+        <property name="receiveDate" column="RECEIVE_DATE"/>
+        <property name="rasNcol" column="RASNcol"/>
+    </class>
+</hibernate-mapping>

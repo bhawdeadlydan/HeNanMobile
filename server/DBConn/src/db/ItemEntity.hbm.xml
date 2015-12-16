@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.ItemEntity" table="item" schema="mobile">
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
+        <property name="itemCode" column="ITEM_CODE"/>
+        <property name="itemName" column="ITEM_NAME"/>
+        <property name="configQuantity" column="CONFIG_QUANTITY"/>
+        <property name="itemUnit" column="ITEM_UNIT"/>
+        <property name="iteMcol" column="ITEMcol"/>
+        <property name="saleBomDetailId" column=" SALE_BOM_DETAIL_ID"/>
+    </class>
+</hibernate-mapping>

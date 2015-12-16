@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingTop="5dp"
+        android:text="箱号："
+        android:id="@+id/textView13"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingBottom="5dp"
+        android:text="物料名称："
+        android:id="@+id/text_put_in_storage_mat_name"
+        android:layout_below="@+id/text_put_in_storage_box_code"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text=""
+        android:id="@+id/text_put_in_storage_box_code"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="推荐货位："
+        android:id="@+id/text_put_in_storage_rec_loc"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/text_put_in_storage_box_code"
+        android:layout_toEndOf="@+id/text_put_in_storage_box_code" />
+</RelativeLayout>

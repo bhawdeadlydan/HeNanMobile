@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="db.RasndetailEntity" table="rasndetail" schema="mobile">
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
+        <property name="cartonOrderNum" column="CARTON_ORDER_NUM"/>
+        <property name="receiveDate" column="RECEIVE_DATE"/>
+        <property name="itemCode" column="ITEM_CODE"/>
+        <property name="itemName" column="ITEM_NAME"/>
+        <property name="itemUnitCode" column="ITEM_UNIT_CODE"/>
+        <property name="receiveQuantity" column="RECEIVE_QUANTITY"/>
+    </class>
+</hibernate-mapping>
