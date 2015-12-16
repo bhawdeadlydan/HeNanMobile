@@ -360,6 +360,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
             good.setDetail(str[0].toString());
             good.setUnit(str[1].toString());
+            good.setCartonNums(wdao.getBomCartonNumsBySaleBomCode1(good.getCode(), Location));
             l.add(good);
         }
         for(Iterator it = erplist.iterator(); it.hasNext();){
@@ -370,6 +371,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             good.setIs_Bom(false);
             good.setDetail((String)objs[2]);
             good.setUnit((String)objs[3]);
+            good.setCartonNums(wdao.getERPCartonNumsBySaleBomCode1(good.getCode(),Location));
             l.add(good);
         }
         return l;

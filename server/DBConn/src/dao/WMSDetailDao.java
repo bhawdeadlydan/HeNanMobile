@@ -228,6 +228,27 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
+    public List getBomCartonNumsBySaleBomCode1(String saleBomCode, int locationID){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cNum from WmsDetailEntity as model where saleBomCode = ?  and allocationId = ?";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, saleBomCode);
+            query.setParameter(1,locationID);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
     public List getBomCartonNumsBySaleBomCode(String saleBomCode, String Code){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
@@ -237,6 +258,27 @@ public class WMSDetailDao extends BaseDao{
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             query.setParameter(1, saleBomCode);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public List getERPCartonNumsBySaleBomCode1(String itemCode, int location){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cNum from WmsDetailEntity as model where itemCode = ? and allocationId = ?";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, itemCode);
+            query.setParameter(1, location);
             tx.commit();
             return query.list();
         }catch (HibernateException e){
