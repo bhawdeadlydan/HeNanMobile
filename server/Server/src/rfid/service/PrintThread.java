@@ -28,15 +28,15 @@ public class PrintThread implements Runnable{
     }
     @Override
     public void run() {
-        for(int i = 0; i < batchGoods.size(); i++){
+        for(int i = 1; i < batchGoods.size(); i++){
             printTag(batchGoods.get(i));
             Data data = new Data();
             data.setProjectCode(projectCode);
             data.setMatCode(batchGoods.get(i).get(0)[1]);
             System.out.println("print sequence " + i + " start");
-//             if(client == null || !client.printData(data, 1)) {
-            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
-                System.out.println("print sequence " + i + " over");
+             if(client == null || !client.printData(data, 40)) {
+//            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
+                System.out.println("print sequence " + i + " over unexpectedly");
                 break;
             }
             System.out.println("print sequence " + i + " over");
@@ -57,8 +57,8 @@ public class PrintThread implements Runnable{
     public void printTag(List<String[]> goods){
 //        for(int i = 0; i < 1; i++){
         for(int i = 0; i < goods.size(); i++){
-//            if(i == 8)
-//                break;
+            if(i == 0x13c)
+                break;
             String [] good = goods.get(i);
             printOne(projectCode, code, good[0], good[1], good[2], good[3],good[4],vendorName);
             trigger(good[4]);

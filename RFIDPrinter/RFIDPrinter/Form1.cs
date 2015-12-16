@@ -227,7 +227,7 @@ namespace RFIDPrinter
 
         private void write_Click(object sender, EventArgs e)
         {
-            write1("2510TP000009924_53009", "B1524011");
+            write1("10041806", "B1524015");
         }
 
         private void read1()
