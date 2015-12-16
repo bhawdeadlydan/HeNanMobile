@@ -2,7 +2,6 @@ package com.headingwl.RfidManager;
 
 import android.nfc.Tag;
 import android.util.Log;
-
 import com.headingwl.RfidManager.NfcDataType.*;
 /**
  * Created by L on 2015/12/13.
