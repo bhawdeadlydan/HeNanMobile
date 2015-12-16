@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import rfid.service.check;
 import sjtu.rfid.rfidsys.R;
 
 /**
@@ -22,16 +23,16 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
     private LayoutInflater mLayoutInflater;
     private Map<String,Map<String,String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
-    private Map<String,Set<String>> mCheckByPosItemBoxList;
+    private Map<String,check> mCheckList;
     private Context mContext;
 
     public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mCheckByPosDetailList, List<Map<String,String>> mCheckByPosList,
-                                       Map<String,Set<String>> mCheckByPosItemBoxList){
+                                       Map<String,check>mCheckList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mCheckByPosList = mCheckByPosList;
         this.mCheckByPosDetailList = mCheckByPosDetailList;
-        this.mCheckByPosItemBoxList = mCheckByPosItemBoxList;
+        this.mCheckList = mCheckList;
     }
 
     @Override
@@ -82,7 +83,8 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
         TextView expectedCount = (TextView) layout.findViewById(R.id.text_check_by_pos_expected_count);
 
         codeLable.setText(codeLable.getText()+mCheckByPosList.get(groupPosition).get("matCode"));
-        realCount.setText("已扫到数量："+mCheckByPosItemBoxList.get(mCheckByPosList.get(groupPosition).get("matCode")).size());
+        String matCode = mCheckByPosList.get(groupPosition).get("matCode");
+        realCount.setText("已扫到数量："+mCheckList.get(matCode).getRealNum());
         expectedCount.setText(expectedCount.getText()+mCheckByPosList.get(groupPosition).get("expectedCount"));
 
         return layout;
