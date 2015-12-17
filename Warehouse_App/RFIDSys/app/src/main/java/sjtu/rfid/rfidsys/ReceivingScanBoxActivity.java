@@ -290,7 +290,7 @@ public class ReceivingScanBoxActivity extends Activity implements RfidReaderEven
                     version = "";
                     mReader.disconnect();
                 }
-                Toast.makeText(this, version, Toast.LENGTH_SHORT);
+                //Toast.makeText(this, version, Toast.LENGTH_SHORT);
                 break;
             case Disconnected:
                 WaitDialog.hide();
@@ -315,8 +315,10 @@ public class ReceivingScanBoxActivity extends Activity implements RfidReaderEven
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
                 //Toast.makeText(getApplicationContext(),epc,Toast.LENGTH_SHORT).show();
                 //获取标签
-                ScanThread scanThread=new ScanThread(epc);
-                scanThread.start();
+                if(epc.length()==16) {
+                    ScanThread scanThread = new ScanThread(epc);
+                    scanThread.start();
+                }
             }
         });
         mSound.playSuccess();

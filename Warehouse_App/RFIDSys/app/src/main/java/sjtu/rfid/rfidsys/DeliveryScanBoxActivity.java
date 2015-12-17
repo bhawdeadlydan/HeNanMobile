@@ -99,8 +99,10 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             deliveryResult=(boolean)msg.obj;
-            if(deliveryResult)
+            if(deliveryResult) {
                 Toast.makeText(getApplicationContext(), "数据提交成功", Toast.LENGTH_SHORT).show();
+                finish();
+            }
             else
                 Toast.makeText(getApplicationContext(), "数据提交失败", Toast.LENGTH_SHORT).show();
         }
@@ -277,7 +279,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                     version = "";
                     mReader.disconnect();
                 }
-                Toast.makeText(this, version, Toast.LENGTH_SHORT);
+                //Toast.makeText(this, version, Toast.LENGTH_SHORT);
                 break;
             case Disconnected:
                 WaitDialog.hide();
@@ -302,8 +304,10 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
                 //Toast.makeText(getApplicationContext(),epc,Toast.LENGTH_SHORT).show();
                 //获取标签
-                ScanThread scanThread=new ScanThread(epc);
-                scanThread.start();
+                if(epc.length()==16) {
+                    ScanThread scanThread = new ScanThread(epc);
+                    scanThread.start();
+                }
             }
         });
         mSound.playSuccess();
@@ -334,6 +338,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 
             Map<String, String> detailMap = new HashMap<>();
             detailMap.put("isBom", good.isIs_Bom() ? "Y" : "N");
+            detailMap.put("expectedCount",String.valueOf(good.getNum()));
 //            for(String cartonNum:good.getCartonNums()){
 //                cartonList+=cartonNum+"，";
 //            }
@@ -499,7 +504,10 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                 e.printStackTrace();
             }
             String matCode = good.getCode();
-            if( (mDeliveryBoxesItemsList.containsKey(matCode)) && !mDeliveryBoxesItemsList.get(matCode).contains(epc) ) {
+            Integer scanCnt = mDeliveryBoxesItemsList.get(matCode).size();
+            Integer expecteCnt = Integer.valueOf(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
+            if( (mDeliveryBoxesItemsList.containsKey(matCode)) && !mDeliveryBoxesItemsList.get(matCode).contains(epc)
+                    && scanCnt < expecteCnt) {
                 mDeliveryBoxesItemsList.get(matCode).add(epc);
                 Message msg = handlerScanTag.obtainMessage();
                 msg.what = 1;

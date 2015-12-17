@@ -21,6 +21,8 @@ import java.util.Map;
 import rfid.service.ASN;
 import rfid.service.POS;
 import sjtu.rfid.thread.DeliverySheetsThread;
+import sjtu.rfid.thread.ReceivingSheetsThread;
+import sjtu.rfid.tools.ConnectServer;
 import sjtu.rfid.tools.DeliverySheetsExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -66,8 +68,14 @@ public class DeliverySheetsActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        deliverySheetsThread=new DeliverySheetsThread(handler);
-        deliverySheetsThread.start();
+        ConnectServer connectServer=new ConnectServer();
+        if(connectServer.isNetworkAvailable(this)){
+            deliverySheetsThread=new DeliverySheetsThread(handler);
+            deliverySheetsThread.start();
+        }else{
+            Toast.makeText(getApplicationContext(),"网络连接不可用",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void iniActivity() {

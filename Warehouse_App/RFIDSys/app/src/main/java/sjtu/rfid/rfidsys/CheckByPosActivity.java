@@ -138,9 +138,8 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                 //tmpAdapter.notifyDataSetChanged();
             } else if (msg.what == 2) {
                 if( boxList.containsKey(msg.obj.toString()) && !boxList.get(msg.obj.toString()) ) {
-                    boxList.put(msg.obj.toString(),true);
+                    boxList.put(msg.obj.toString(), true);
                     new GetGoodByCartNumThread(msg.obj.toString(), handlerScan).start();
-                    Log.i("111111111111111aaa",msg.obj.toString());
                 }
             } else if (msg.what == 3) {
                 Good g = (Good)msg.obj;
@@ -354,7 +353,6 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                     }.start();
 
                     //更新界面已扫到数量并构造checkList
-
                 }
             }
         });
@@ -458,6 +456,13 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
             Map<String, String> detailMap = new HashMap<>();
             detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
             detailMap.put("matName", good.getDetail());
+
+            String showBoxList = "货箱列表：\n";
+            for( String s : good.getCartonNums() ) {
+                showBoxList += s + '\n';
+            }
+            detailMap.put("boxList",showBoxList);
+
             mCheckByPosDetailList.put(good.getCode(), detailMap);
 
             for(String s : good.getCartonNums()) {
@@ -515,12 +520,6 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                     stopAction();
                     mReader.stop();
                 }
-
-
-                //startAction(false);
-                //mReader.connect();
-
-
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {

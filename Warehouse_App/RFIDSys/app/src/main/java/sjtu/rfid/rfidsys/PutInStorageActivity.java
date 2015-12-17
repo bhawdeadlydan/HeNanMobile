@@ -89,8 +89,10 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             bindResult=(boolean)msg.obj;
-            if(bindResult)
+            if(bindResult) {
                 Toast.makeText(getApplicationContext(), "绑定成功", Toast.LENGTH_SHORT).show();
+                finish();
+            }
             else
                 Toast.makeText(getApplicationContext(), "绑定失败", Toast.LENGTH_SHORT).show();
         }
@@ -289,7 +291,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
                     version = "";
                     mReader.disconnect();
                 }
-                Toast.makeText(this, version, Toast.LENGTH_SHORT);
+                //Toast.makeText(this, version, Toast.LENGTH_SHORT);
                 break;
             case Disconnected:
                 WaitDialog.hide();

@@ -8,6 +8,8 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -94,16 +96,15 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_check_box_detail, null);
         Map<String,String> map=mCheckByPosDetailList.get(mCheckByPosList.get(groupPosition).get("matCode"));
-        for(Map.Entry<String,String> entry:map.entrySet()){
-            if(entry.getKey().equals("isBom")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_check_box_detail_is_bom);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("matName")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_check_box_detail_mat_name);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-        }
+
+        TextView text1 = (TextView) layout.findViewById(R.id.text_check_box_detail_is_bom);
+        text1.setText(text1.getText()+map.get("isBom"));
+
+        TextView text2 = (TextView) layout.findViewById(R.id.text_check_box_detail_mat_name);
+        text2.setText(text2.getText()+map.get("matName"));
+
+        TextView vBoxList = (TextView)layout.findViewById(R.id.text_check_box_detail_box_list);
+        vBoxList.setText(map.get("boxList"));
         //Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
         /*button.setOnClickListener(new View.OnClickListener() {
             @Override
