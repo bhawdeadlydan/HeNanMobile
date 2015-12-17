@@ -35,6 +35,7 @@ struct LocationInfo {
 2:required i32 Num;
 3:required string Area;
 4:required i32 Location;
+5:optional list<string> CartonNums;
 }
 
 struct check {

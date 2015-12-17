@@ -364,6 +364,40 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
+    public List getCNumsByLocationAndBomCode(String BomCode, int lID){
+        Session session =ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cNum from WmsDetailEntity as model where model.allocationId = ? and model.saleBomCode = ?";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, lID);
+            query.setParameter(1, BomCode);
+            tx.commit();
+            return query.list();
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List getCNumsByLocationAndItemCode(String ItemCode, int lID){
+        Session session =ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cNum from WmsDetailEntity as model where model.allocationId = ? and model.itemCode = ?";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, lID);
+            query.setParameter(1, ItemCode);
+            tx.commit();
+            return query.list();
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public String getERPDetailByERPCode(String code){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;

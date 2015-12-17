@@ -10,10 +10,7 @@ import org.apache.thrift.TException;
 import java.io.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by richard on 2015/12/9.
@@ -331,14 +328,18 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         for(Iterator it = l.iterator(); it.hasNext();){
             Object[] objs = (Object[])it.next();
             LocationInfo linfo = new LocationInfo();
-            linfo.setID(Integer.parseInt(objs[0].toString()));
+            int locationID = Integer.parseInt(objs[0].toString());
+            linfo.setID(locationID);
             linfo.setNum(Integer.parseInt(objs[1].toString()));
             Object[] obs = adao.getLocationInfoByID(linfo.getID());
             linfo.setArea("");
             linfo.setLocation(0);
+            linfo.setCartonNums(null);
             if(obs != null){
                 linfo.setArea(obs[0].toString());
                 linfo.setLocation(Integer.parseInt(obs[1].toString()));
+                linfo.setCartonNums(isBom ? dao.getCNumsByLocationAndBomCode(ItemERPCode, locationID) :
+                        dao.getCNumsByLocationAndItemCode(ItemERPCode, locationID));
             }
             list.add(linfo);
         }
@@ -394,7 +395,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             ch.setMaterialCode(c.getMaterialCode());
             ch.setPosition(c.getLocation());
             ch.setRealNum(c.getRealNum());
-            Timestamp timestamp = new Timestamp(new Date().getTime());
+            Timestamp timestamp = new Timestamp(Calendar.getInstance().getTimeInMillis());
             try{
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
                 Date parsedDate = dateFormat.parse(c.getTime());
