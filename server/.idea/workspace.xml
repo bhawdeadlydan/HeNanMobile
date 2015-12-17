@@ -49,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="349" column="40" selection-start-line="349" selection-start-column="22" selection-end-line="349" selection-end-column="40" />
+              <caret line="323" column="40" selection-start-line="323" selection-start-column="40" selection-end-line="323" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -59,17 +59,37 @@
         <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RFIDClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PrintClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/client/PrintClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrintThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/PrintThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.45364892">
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RFIDClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/client/RFIDClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53488374">
-              <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -151,12 +171,12 @@
         <option value="$PROJECT_DIR$/Server/src/rfid/service/RFIDService.java" />
         <option value="$PROJECT_DIR$/Server/rfidservice.thrift" />
         <option value="$PROJECT_DIR$/Server/src/client/PrintClient.java" />
-        <option value="$PROJECT_DIR$/Server/src/rfid/service/PrintThread.java" />
         <option value="$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java" />
         <option value="$PROJECT_DIR$/Server/data.thrift" />
         <option value="$PROJECT_DIR$/Server/src/rfid/service/LocationInfo.java" />
         <option value="$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java" />
         <option value="$PROJECT_DIR$/Server/src/client/RFIDClient.java" />
+        <option value="$PROJECT_DIR$/Server/src/rfid/service/PrintThread.java" />
       </list>
     </option>
   </component>
@@ -286,7 +306,7 @@
     <property name="JPA.DatabaseSchemaImportDialog" value="27ccc35b-2382-45f3-943e-3ce6916ad3ae" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/DBConn/src" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="asnda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;asnen&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/db/AsnEntity.java&#10;base&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/BaseDao.java&#10;wms&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/WMSDetailDao.java&#10;pos&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;posda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;asn&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;posen&#9;PSI&#9;JAVA://db.PosEntity&#10;wmsdetaildao&#9;PSI&#9;JAVA://dao.WMSDetailDao&#10;good&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/src/rfid/service/Good.java&#10;asndao&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;data&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/data.thrift&#10;allo&#9;PSI&#9;JAVA://dao.AllocationDao&#10;binding&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/IOfIES/src/PutIn/SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl.java&#10;ASN&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java" />
+    <property name="SearchEverywhereHistoryKey" value="printth&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/src/rfid/service/PrintThread.java&#10;print&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/src/client/PrintClient.java&#10;asnda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;asnen&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/db/AsnEntity.java&#10;base&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/BaseDao.java&#10;wms&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/WMSDetailDao.java&#10;pos&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;posda&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/PosDao.java&#10;asn&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;posen&#9;PSI&#9;JAVA://db.PosEntity&#10;wmsdetaildao&#9;PSI&#9;JAVA://dao.WMSDetailDao&#10;good&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/src/rfid/service/Good.java&#10;asndao&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java&#10;data&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/Server/data.thrift&#10;allo&#9;PSI&#9;JAVA://dao.AllocationDao&#10;binding&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/IOfIES/src/PutIn/SB_WMS_WMS_ImportComEpuSimMatStorSrvBindingImpl.java&#10;ASN&#9;FILE&#9;file://E:/微云/实验室/实验室项目/河南移动/HeNanMobile/server/DBConn/src/dao/ASNDao.java" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="left" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/ClientInHouse/lib" />
   </component>
@@ -356,7 +376,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RFIDClient">
+  <component name="RunManager" selected="Application.RFIDServer">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -921,9 +941,7 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="IOfIES:war exploded" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <list size="6">
@@ -971,12 +989,12 @@
       <workItem from="1449998604809" duration="4657000" />
       <workItem from="1450084245423" duration="19128000" />
       <workItem from="1450273628521" duration="15217000" />
-      <workItem from="1450333283023" duration="2575000" />
+      <workItem from="1450333283023" duration="3949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209652000" />
+    <option name="totallyTimeSpent" value="211026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -988,8 +1006,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1000,7 +1018,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.4974293" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44010767" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27860028" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20886889" sideWeight="0.53518516" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1242,6 +1260,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2254902">
           <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,6 +1294,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.127451">
           <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1282,6 +1302,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.032212887">
           <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,23 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/client/PrintClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/PrintThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/rfidservice.thrift">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1371,14 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04042179">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1417,14 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="349" column="40" selection-start-line="349" selection-start-column="22" selection-end-line="349" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBConn/src/dao/WMSDetailDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1433,10 +1421,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="323" column="40" selection-start-line="323" selection-start-column="40" selection-end-line="323" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/client/RFIDClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53488374">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/RFIDServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/client/PrintClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/rfid/service/PrintThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45364892">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1447,7 +1467,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>IOfIES:war exploded</last-edited>
+          <last-edited>server:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
