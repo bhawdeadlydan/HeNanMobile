@@ -1,6 +1,9 @@
 package nfc;
 
 
+import java.sql.Date;
+import java.sql.Time;
+
 /**
  * Created by L on 2015/12/14.
  */
@@ -12,27 +15,6 @@ public class NfcDataType {
     }
 
     public class NfcDataTypeBase{
-
-        int quantity;
-        String uid;
-        String ERPCode;
-        String projectCode;
-        String EPC;
-        String REQ;
-        String ReqPerson;
-        String WorkTeam;
-        String CheckPerson;
-        String TransPerson;
-        String TransStation;
-        String Location;
-        String ConsPerson;
-        long Timestamp;
-        double gpsN,gpsE;
-
-        @Override
-        public String toString() {
-            return super.toString();
-        }
 
         public int getQuantity() {
             return quantity;
@@ -97,6 +79,27 @@ public class NfcDataType {
         public double getGpsE() {
             return gpsE;
         }
+
+        int quantity;
+        String uid;
+        String ERPCode;
+        String projectCode;
+        String EPC;
+        String REQ;
+        String ReqPerson;
+        String WorkTeam;
+        String CheckPerson;
+        public String TransPerson;
+        String TransStation;
+        String Location;
+        String ConsPerson;
+        long Timestamp;
+        double gpsN,gpsE;
+
+        @Override
+        public String toString() {
+            return super.toString();
+        }
     }
 
     public class UID extends NfcDataTypeBase {
@@ -149,12 +152,15 @@ public class NfcDataType {
             WorkTeam = nWorkTeam;
             CheckPerson = nCheckPerson;
             Timestamp = nTimestamp;
+
+
         }
 
         public String toString()
         {
+            long timed = System.currentTimeMillis();
             return EPC+ ',' + REQ + ',' +ReqPerson +','+
-                        WorkTeam + ',' + CheckPerson + ',' + Timestamp;
+                        WorkTeam + ',' + CheckPerson + ',' + String.valueOf(Timestamp);
         }
     }
 
@@ -167,8 +173,8 @@ public class NfcDataType {
         double gpsN,gpsE;
         long TimeStamp;*/
 
-        public TransInf(String nTransPerson,String nTransStation,String nLocation,
-                                double nGpsN,double nGpsE,long nTimestamp){
+        public TransInf(String nTransPerson, String nTransStation, String nLocation,
+                        double nGpsN, double nGpsE, long nTimestamp){
             TransPerson = nTransPerson;
             TransStation = nTransStation;
             Location = nLocation;
@@ -179,7 +185,7 @@ public class NfcDataType {
 
         public String toString()
         {
-            return TransPerson + ',' + TransStation + ',' + Location + ',' + Timestamp;
+            return TransPerson + ',' + TransStation + ',' + Location + ',' + String.valueOf(Timestamp);
         }
     }
 
@@ -191,7 +197,7 @@ public class NfcDataType {
         long Timestamp;
         */
 
-        public ConsInf(String nConsPerson,String nLocation,double nGpsN,double nGpsE,long nTimestamp){
+        public ConsInf(String nConsPerson, String nLocation, double nGpsN, double nGpsE, long nTimestamp){
             ConsPerson = nConsPerson;
             Location =nLocation;
             gpsN = nGpsN;
@@ -200,9 +206,8 @@ public class NfcDataType {
         }
 
         public String toString(){
-            return ConsPerson + ',' + Location + ',' + Timestamp;
+            return ConsPerson + ',' + Location + ',' + String.valueOf(Timestamp);
         }
-
 
     }
 }

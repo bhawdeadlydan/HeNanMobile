@@ -1,10 +1,14 @@
 package nfc;
 
+import android.content.Context;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
 import android.util.Log;
+import android.view.*;
+
+import java.nio.CharBuffer;
 
 /**
  * Created by L on 2015/12/14.

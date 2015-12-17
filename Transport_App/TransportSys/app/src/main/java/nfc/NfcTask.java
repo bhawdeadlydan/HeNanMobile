@@ -2,7 +2,6 @@ package nfc;
 
 import android.nfc.Tag;
 import android.util.Log;
-
 import nfc.NfcDataType.*;
 /**
  * Created by L on 2015/12/13.
@@ -59,7 +58,6 @@ public class NfcTask {
         if(nfcTaskList!=null && nfcTaskNum<nfcTaskList.length){
             nfcTaskList[nfcTaskNum] = new NfcTaskContext(nfcTaskType,nfcTaskName,nfcTaskData);
             nfcTaskNum++;
-
             return true;
         }
         return false;
