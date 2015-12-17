@@ -25,14 +25,14 @@ public class RFIDClient {
             // 设置传输协议为 TBinaryProtocol
             TProtocol protocol = new TBinaryProtocol(transport);
             RFIDService.Client client = new RFIDService.Client(protocol);
-            client.printTag("VD-SH-2015120001434");
+//            client.printTag("VD-SH-2015120001434");
       //      List<LocationInfo> list1 = new ArrayList<>();//client.getLocationListByItemErpCode("2510TP000009924_53009", true);
 /*            ArrayList<String> l = new ArrayList<>();
             l.add("20151212000000a0");*/
 //            client.bindLocationAndGoods(1, l);
 //            Good item = client.getGoodByCNum("2015121200000001");
 //            List<> list = client.getLocationListByItemErpCode("");
-//            List<Good> l = client.getGoodsListByCode("VD-SH-2015090000006", false);
+            List<Good> l = client.getGoodsByLocation(1);
            /* List<ASN> list = client.getReceivingSheets();
             for(Iterator it = list.iterator();it.hasNext();) {
                 ASN pos = (ASN) it.next();
@@ -52,7 +52,7 @@ public class RFIDClient {
 //            client.confirmRetrieval("2524-REQ-2015090000059", ll);
             //client.confirmArrive("凌云昊", new Timestamp(Calendar.getInstance().getTimeInMillis()).toString(),"sjtu","暂存点","2524-REQ-2015090000059",
            //         21.1,23.2);
-            for(Iterator it = list.iterator();it.hasNext();){
+            for(Iterator it = l.iterator();it.hasNext();){
                 Good item = (Good)it.next();
                 Field[] fields = item.getClass().getDeclaredFields();
                 for (int i = 0; i < fields.length; i++) {

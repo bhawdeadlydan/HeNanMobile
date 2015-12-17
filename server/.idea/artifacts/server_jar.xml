@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/server_jar</output-path>
     <root id="archive" name="server.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="E:/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="ClientInHouse" />
       <element id="module-output" name="DBConn" />
@@ -15,6 +15,14 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/Server/lib/libthrift-0.9.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/Server/lib/slf4j-api-1.5.8.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/Server/lib/slf4j-log4j12-1.5.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/jaxrpc.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/commons-logging-1.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/commons-discovery-0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/saaj.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/wsdl4j-1.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/log4j-1.2.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/axis.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/test/lib/dom4j-1.6.1/dom4j-1.6.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/DBConn/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/DBConn/lib/hibernate-commons-annotations-4.0.2.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/DBConn/lib/antlr-2.7.7.jar" path-in-jar="/" />
@@ -24,14 +32,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/DBConn/lib/javassist-3.15.0-GA.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/DBConn/lib/hibernate-core-4.2.2.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/DBConn/lib/mysql-connector-java-5.1.37-bin.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/test/lib/dom4j-1.6.1/dom4j-1.6.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/jaxrpc.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/commons-logging-1.0.4.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/commons-discovery-0.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/saaj.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/wsdl4j-1.5.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/log4j-1.2.8.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/IOfIES/lib/axis.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/ClientInHouse/lib/forms_rt.jar" path-in-jar="/" />
     </root>
   </artifact>
