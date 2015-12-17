@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -29,6 +30,7 @@ import org.apache.thrift.TException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -168,18 +170,30 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
     @Override
     protected void onStart() {
         super.onStart();
+
         if (mReader != null) {
             ATRfidManager.wakeUp();
-            try
-            {
-                saveOption();
-                ATLog.i(TAG, String.valueOf(mReader.getPower()));
-            }
-            catch (ATRfidReaderException ax)
-            {
-            }
 
+            if (mReader.getState() == ConnectionState.Connected) {
+
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        try {
+                            ATLog.i(TAG, String.valueOf(mReader.getPower()));
+                        } catch (ATRfidReaderException ax) {
+                            ATLog.i(TAG, ax.getMessage());
+
+                        }
+                    }
+                }).start();;
+            }
         }
+
+
+        ATLog.i(TAG, "INFO. onStart()");
     }
 
     @Override
@@ -309,6 +323,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         mDeliveryBoxesDetails=new HashMap<String, Map<String, String>>();
         mDeliveryBoxes = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_scan_box_sheets);
+        mDeliveryBoxesItemsList = new HashMap<>();
 
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
@@ -325,9 +340,12 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 //            detailMap.put("cartonList",cartonList);
             detailMap.put("cartonList","");
             mDeliveryBoxesDetails.put(good.getCode(), detailMap);
+
+            Set<String> boxSet = new HashSet<>();
+            mDeliveryBoxesItemsList.put(good.getCode(),boxSet);
         }
 
-        tmpAdapter = new DeliverySheetsScanBoxExpandableAdapter(this, mDeliveryBoxesDetails, mDeliveryBoxes);
+        tmpAdapter = new DeliverySheetsScanBoxExpandableAdapter(this, mDeliveryBoxesDetails, mDeliveryBoxes,mDeliveryBoxesItemsList);
         sheetListView.setAdapter(tmpAdapter);
 
 
@@ -351,6 +369,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
             @Override
             public void onClick(View v) {
 
+
                 if (isReading) {
                     isReading = false;
                     btnScan.setText("扫描标签");
@@ -359,6 +378,11 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                     //deliveryScanBoxScanTagThread.setIsReading(false);
 
                 } else if (!isReading) {
+                    saveOption();
+                    for(Map.Entry<String,Set<String>> entry:mDeliveryBoxesItemsList.entrySet()){
+                        entry.getValue().clear();
+                    }
+                    tmpAdapter.notifyDataSetChanged();
                     isReading = true;
                     btnScan.setText("停止扫描");
 //                    deliveryScanBoxScanTagThread = new DeliveryScanBoxScanTagThread(mDeliveryBoxesItemsList, true, handlerScanTag);
@@ -387,98 +411,74 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         });
     }
     private void saveOption() {
-        WaitDialog.show(this, "Save Properties...\r\nPlease Wait...");
-
         mOperationTime = 0;
-        mInventoryTime = 1200;
+        mInventoryTime = 400;
         mIdleTime = 200;
-        mPowerLevel = 130;
+        mPowerLevel = 100;
 
-        new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                try {
-                    mReader.setReportRssi(true);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        try {
+            mReader.setPower(mPowerLevel);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
-                // Set Operation Time
-                try {
-                    mReader.setOperationTime(mOperationTime);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getPower()));
+        }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                // Set Inventory Time
-                try {
-                    mReader.setInventoryTime(mInventoryTime);
-                } catch (ATRfidReaderException e) {
+        try {
+            mReader.setInventoryTime(mInventoryTime);
+        }
 
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getInventoryTime()));
+        }
 
-                // Set Idle Time
-                try {
-                    mReader.setIdleTime(mIdleTime);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setIdleTime(mIdleTime);
+        }
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try{
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getIdleTime()));
+        }
 
-                // Set Power Level
-                try {
-                    mReader.setPower(mPowerLevel);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setOperationTime(mOperationTime);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                runOnUiThread(new Runnable() {
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getOperationTime()));
+        }
+        catch(ATRfidReaderException e)
+        {
+            e.printStackTrace();
+        }
 
-                    @Override
-                    public void run() {
-                        WaitDialog.hide();
-                        //finish();
-                    }
-                });
-            }
-        }).start();
     }
 
     class ScanThread extends Thread{

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -184,18 +185,30 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     @Override
     protected void onStart() {
         super.onStart();
+
         if (mReader != null) {
             ATRfidManager.wakeUp();
-            try
-            {
-                saveOption();
-                ATLog.i(TAG, String.valueOf(mReader.getPower()));
-            }
-            catch (ATRfidReaderException ax)
-            {
-            }
 
+            if (mReader.getState() == ConnectionState.Connected) {
+
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        try {
+                            ATLog.i(TAG, String.valueOf(mReader.getPower()));
+                        } catch (ATRfidReaderException ax) {
+                            ATLog.i(TAG, ax.getMessage());
+
+                        }
+                    }
+                }).start();;
+            }
         }
+
+
+        ATLog.i(TAG, "INFO. onStart()");
     }
 
     @Override
@@ -355,99 +368,75 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     }
 
 
-    private void saveOption() {
-        WaitDialog.show(this, "Save Properties...\r\nPlease Wait...");
-
+    private void saveOption(int mPowerLevel) {
         mOperationTime = 0;
-        mInventoryTime = 1200;
+        mInventoryTime = 400;
         mIdleTime = 200;
-        mPowerLevel = 130;
+        //mPowerLevel = 100;
 
-        new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                try {
-                    mReader.setReportRssi(true);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        try {
+            mReader.setPower(mPowerLevel);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
-                // Set Operation Time
-                try {
-                    mReader.setOperationTime(mOperationTime);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getPower()));
+        }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                // Set Inventory Time
-                try {
-                    mReader.setInventoryTime(mInventoryTime);
-                } catch (ATRfidReaderException e) {
+        try {
+            mReader.setInventoryTime(mInventoryTime);
+        }
 
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getInventoryTime()));
+        }
 
-                // Set Idle Time
-                try {
-                    mReader.setIdleTime(mIdleTime);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setIdleTime(mIdleTime);
+        }
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try{
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getIdleTime()));
+        }
 
-                // Set Power Level
-                try {
-                    mReader.setPower(mPowerLevel);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setOperationTime(mOperationTime);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                runOnUiThread(new Runnable() {
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getOperationTime()));
+        }
+        catch(ATRfidReaderException e)
+        {
+            e.printStackTrace();
+        }
 
-                    @Override
-                    public void run() {
-                        WaitDialog.hide();
-                        //finish();
-                    }
-                });
-            }
-        }).start();
     }
 
     public void iniActivity() {
@@ -497,6 +486,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
             @Override
             public void onClick(View v) {
                 //读货位标签线程
+                saveOption(300);
                 startAction(true);
                 type = 0;
                 mReader.connect();

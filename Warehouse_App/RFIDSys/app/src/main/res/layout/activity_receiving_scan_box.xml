@@ -41,7 +41,7 @@
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingBottom="5dp"
-            android:layout_weight="0.7">
+            android:layout_weight="0.1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:id="@+id/textView"/>
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:text="000000000000001"
                 android:id="@+id/text_receiving_scan_box_order_number" />
@@ -61,25 +61,25 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.3">
+            android:layout_weight="0.4">
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="12dp"
+                android:text="打印标签"
+                android:id="@+id/btn_receiving_scan_box_print"
+                android:layout_marginRight="0dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="扫描标签"
                 android:id="@+id/btn_receiving_scan_box_scan"
                 android:textSize="12dp"
                 android:layout_alignTop="@+id/checkBox2"
                 android:layout_alignBottom="@+id/checkBox2"
-                android:layout_marginRight="5dp"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:textSize="12dp"
-                android:text="打印标签"
-                android:id="@+id/btn_receiving_scan_box_print"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="0dp"/>
         </LinearLayout>
 
     </LinearLayout>

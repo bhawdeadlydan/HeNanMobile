@@ -87,8 +87,8 @@
             android:layout_height="80dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="货物移位"
-            android:id="@+id/btn_move_box"
+            android:text="配置信息"
+            android:id="@+id/btn_config"
             android:layout_alignParentTop="true"
             android:layout_weight="0.5"/>
 
@@ -102,16 +102,18 @@
         android:layout_marginTop="120dp"
         android:id="@+id/linearLayout16">
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:text="配置信息"
-            android:id="@+id/btn_config"
-            android:layout_alignParentTop="true"
-            android:layout_weight="0.5"/>
     </LinearLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:text="货物移位"
+        android:id="@+id/btn_move_box"
+        android:layout_weight="0.5"
+        android:visibility="invisible"
+        android:enabled="false"
+        android:layout_alignTop="@+id/linearLayout16"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

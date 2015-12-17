@@ -114,7 +114,6 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             else if(msg.what == 1){
                 PutInStorageEntity putInStorageEntity=(PutInStorageEntity)msg.obj;
                 iniListView(putInStorageEntity);
-
             }
         }
     };
@@ -182,18 +181,30 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
     @Override
     protected void onStart() {
         super.onStart();
+
         if (mReader != null) {
             ATRfidManager.wakeUp();
-            try
-            {
-                saveOption();
-                ATLog.i(TAG, String.valueOf(mReader.getPower()));
-            }
-            catch (ATRfidReaderException ax)
-            {
-            }
 
+            if (mReader.getState() == ConnectionState.Connected) {
+
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        try {
+                            ATLog.i(TAG, String.valueOf(mReader.getPower()));
+                        } catch (ATRfidReaderException ax) {
+                            ATLog.i(TAG, ax.getMessage());
+
+                        }
+                    }
+                }).start();;
+            }
         }
+
+
+        ATLog.i(TAG, "INFO. onStart()");
     }
 
     @Override
@@ -367,6 +378,8 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
                     }
                 }
             });
+
+            ((TextView)findViewById(R.id.text_put_in_storage_box_cnt)).setText("已扫到货箱数量："+mPutInStorageDetailList.size());
         }
 
     }
@@ -380,6 +393,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveOption(300);
                 startAction(false,1);
                 mReader.connect();
             }
@@ -387,6 +401,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveOption(100);
                 startAction(false,2);
                 mReader.connect();
             }
@@ -394,6 +409,8 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((TextView)findViewById(R.id.text_put_in_storage_box_cnt)).setText("已扫到货箱数量：0");
+
                 mPutInStorageDetailList.clear();
                 mPutInStorageList.clear();
 
@@ -423,98 +440,74 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
 
     }
 
-    private void saveOption() {
-        WaitDialog.show(this, "Save Properties...\r\nPlease Wait...");
-
+    private void saveOption(int mPowerLevel) {
         mOperationTime = 0;
-        mInventoryTime = 1200;
+        mInventoryTime = 400;
         mIdleTime = 200;
-        mPowerLevel = 130;
+        //mPowerLevel = 100;
 
-        new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                try {
-                    mReader.setReportRssi(true);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        try {
+            mReader.setPower(mPowerLevel);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
-                // Set Operation Time
-                try {
-                    mReader.setOperationTime(mOperationTime);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getPower()));
+        }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                // Set Inventory Time
-                try {
-                    mReader.setInventoryTime(mInventoryTime);
-                } catch (ATRfidReaderException e) {
+        try {
+            mReader.setInventoryTime(mInventoryTime);
+        }
 
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getInventoryTime()));
+        }
 
-                // Set Idle Time
-                try {
-                    mReader.setIdleTime(mIdleTime);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setIdleTime(mIdleTime);
+        }
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try{
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getIdleTime()));
+        }
 
-                // Set Power Level
-                try {
-                    mReader.setPower(mPowerLevel);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setOperationTime(mOperationTime);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                runOnUiThread(new Runnable() {
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getOperationTime()));
+        }
+        catch(ATRfidReaderException e)
+        {
+            e.printStackTrace();
+        }
 
-                    @Override
-                    public void run() {
-                        WaitDialog.hide();
-                        //finish();
-                    }
-                });
-            }
-        }).start();
     }
 }

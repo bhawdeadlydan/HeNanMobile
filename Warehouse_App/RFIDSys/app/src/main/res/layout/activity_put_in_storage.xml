@@ -98,4 +98,13 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已扫到货箱数量：0"
+        android:id="@+id/text_put_in_storage_box_cnt"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12" />
+
 </RelativeLayout>
