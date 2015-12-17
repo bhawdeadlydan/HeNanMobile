@@ -182,7 +182,7 @@ public class MainActivity extends Activity {
                     intent.setClass(MainActivity.this, ConfigActivity.class);
                     break;
                 case R.id.btn_main_check:
-                    intent.setClass(MainActivity.this, ConfirmActivity.class);
+                    intent.setClass(MainActivity.this, SheetActivity.class);
                     break;
                 case R.id.btn_main_arrive_tmp:
                     intent.setClass(MainActivity.this, ArrivalActivity.class);

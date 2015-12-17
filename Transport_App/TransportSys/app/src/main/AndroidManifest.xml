@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-
     <uses-permission android:name="android.permission.NFC" />
 
     <application
@@ -47,9 +46,10 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
-        <activity android:name=".ConfigServerActivity"></activity>
+        <activity android:name=".ConfigServerActivity" />
+        <activity android:name=".SheetActivity"></activity>
     </application>
 
 </manifest>
