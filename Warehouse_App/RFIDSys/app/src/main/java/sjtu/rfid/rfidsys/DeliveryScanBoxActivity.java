@@ -58,6 +58,8 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
     //记录每个ERP编码下，已经扫到的箱号，避免重复扫描造成错误计数
     private Map<String, Set<String>> mDeliveryBoxesItemsList;
 
+    private List<String> CNumList;
+
     private TitleBar mTitleBar;
 
     private String cartonList="\n";
@@ -328,6 +330,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         mDeliveryBoxes = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_scan_box_sheets);
         mDeliveryBoxesItemsList = new HashMap<>();
+        CNumList=new ArrayList<>();
 
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
@@ -403,14 +406,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> CNums = new ArrayList<String>();
-                String[] CNumString;
-                cartonList = cartonList.trim();
-                CNumString = cartonList.split(",");
-                for (int i = 0; i < CNumString.length; i++) {
-                    CNums.add(CNumString[i]);
-                }
-                deliverySubmitThread = new DeliverySubmitThread(applyCode, CNums, handlerDelivery);
+                deliverySubmitThread = new DeliverySubmitThread(applyCode, CNumList, handlerDelivery);
                 deliverySubmitThread.start();
             }
         });
@@ -495,6 +491,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         }
         @Override
         public void run() {
+
             ConnectServer connectServer=new ConnectServer();
             RFIDService.Client client = connectServer.openConnect();
             Good good = null;
@@ -508,6 +505,9 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
             Integer expecteCnt = Integer.valueOf(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
             if( (mDeliveryBoxesItemsList.containsKey(matCode)) && !mDeliveryBoxesItemsList.get(matCode).contains(epc)
                     && scanCnt < expecteCnt) {
+                if(!CNumList.contains(epc)){
+                    CNumList.add(epc);
+                }
                 mDeliveryBoxesItemsList.get(matCode).add(epc);
                 Message msg = handlerScanTag.obtainMessage();
                 msg.what = 1;
