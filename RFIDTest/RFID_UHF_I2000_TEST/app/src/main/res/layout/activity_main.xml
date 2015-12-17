@@ -12,7 +12,7 @@
 
 
     <Button
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Start"
         android:onClick="onClick"
@@ -22,14 +22,14 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Stop"
         android:onClick="onClick"
         android:id="@+id/btnStop"
-        android:layout_alignBottom="@+id/btnStart"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnStart"
+        android:layout_toEndOf="@+id/btnStart" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -38,11 +38,37 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btnStart"
-        android:layout_alignRight="@+id/btnStop"
-        android:layout_alignEnd="@+id/btnStop"
         android:editable="false"
         android:gravity="top|center_horizontal"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/seekBar" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Set"
+        android:id="@+id/btnset"
+        android:layout_alignTop="@+id/btnStop"
+        android:layout_toRightOf="@+id/btnStop"
+        android:layout_toEndOf="@+id/btnStop" />
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:id="@+id/seekBar"
+        android:layout_above="@+id/btnStart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:max="29"
+        android:progress="10" />
+
+    SeekBar
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:id="@+id/seekBar"
+        android:layout_above="@+id/btnStart"
+        android:layout_alignEnd="@+id/editText" />
 
 </RelativeLayout>

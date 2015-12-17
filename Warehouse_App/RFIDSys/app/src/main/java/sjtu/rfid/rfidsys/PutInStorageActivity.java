@@ -36,6 +36,7 @@ import java.util.Map;
 import rfid.service.ASN;
 import rfid.service.Good;
 import sjtu.rfid.entity.Config;
+import sjtu.rfid.entity.PutInStorageEntity;
 import sjtu.rfid.thread.BindThread;
 import sjtu.rfid.thread.PutInStorageScanBoxThread;
 import sjtu.rfid.thread.PutInStorageScanLocThread;
@@ -61,15 +62,16 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
     private GoogleApiClient client;
 
     private PutInStorageThread putInStorageThread;
-    private PutInStorageScanLocThread scanLocThread;
-    private PutInStorageScanBoxThread scanBoxThread;
+//    private PutInStorageScanLocThread scanLocThread;
+//    private PutInStorageScanBoxThread scanBoxThread;
     private BindThread bindThread;
     private String CNum="EPC201509000000";
     private Good good;
     public int goodPos=-1;
     private boolean bindResult;
 
-    private static final String TAG = "MainActivity";
+    private int scanType=-1;
+    private static final String TAG = "PutInStorageActivity";
     private static final boolean ENABLE_LOG = false;
     private static final String LOG_PATH = "Log";
     private SoundPlay mSound;
@@ -99,7 +101,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         public void handleMessage(Message msg) {
             if(msg.what == 0){
                 try {
-                    String epc = ((String) msg.obj).substring(0,3);
+                    String epc = (String) msg.obj;
                     TextView vGoodsPos = (TextView) findViewById(R.id.text_put_in_storage_loc);
                     if (Config.LocationMap.containsKey(epc)) {
                         goodPos = Integer.parseInt(Config.LocationMap.get(epc));
@@ -110,11 +112,21 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
                 }
             }
             else if(msg.what == 1){
-                Good good = (Good)msg.obj;
-                iniListView(good);
+                PutInStorageEntity putInStorageEntity=(PutInStorageEntity)msg.obj;
+                iniListView(putInStorageEntity);
 
             }
         }
+    };
+
+    private Handler handlerScanTag=new Handler() {
+        @Override
+        public void handleMessage(Message msg){
+            if(msg.what == 1){
+                tmpAdapter.notifyDataSetChanged();
+            }
+        }
+
     };
 
     @Override
@@ -216,8 +228,9 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
     // ------------------------------------------------------------------------
 
     // Start Action
-    protected void startAction(boolean type) {
+    protected void startAction(boolean type,int scanType) {
 
+        this.scanType=scanType;
         ResultCode res;
         TagType tagType = TagType.Tag6C;//getTagType();
 
@@ -289,11 +302,17 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
                 stopAction();
                 mReader.stop();
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
-                Toast.makeText(getApplicationContext(),tag+","+epc,Toast.LENGTH_SHORT).show();
-                Message msg=scanHandler.obtainMessage();
-                msg.what=0;
-                msg.obj=epc;
-                scanHandler.sendMessage(msg);
+                //Toast.makeText(getApplicationContext(),tag+","+epc,Toast.LENGTH_SHORT).show();
+                if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,3))) {
+                    Message msg = scanHandler.obtainMessage();
+                    msg.what = 0;
+                    msg.obj = epc.substring(0,3);
+                    scanHandler.sendMessage(msg);
+                }else if(scanType==2&&epc.length()==16){
+                    CNum=epc;
+                    putInStorageThread=new PutInStorageThread(scanHandler,epc);
+                    putInStorageThread.start();
+                }
             }
         });
         mSound.playSuccess();
@@ -309,35 +328,46 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         mTitleBar = new TitleBar(this,"入库上架");
     }
 
-    public void iniListView(Good good) {
-        if(good==null)
+    public void iniListView(PutInStorageEntity putInStorageEntity) {
+        if(putInStorageEntity==null)
             return;
 
-        sheetListView = (ExpandableListView) findViewById(R.id.list_put_in_storage_sheets);
-        Map<String,String> map=new HashMap<>();
-        map.put("boxCode", CNum);
-        map.put("matName", good.getDetail());
-        mPutInStorageList.add(map);
+        if( !mPutInStorageDetailList.containsKey(CNum) ) {
 
-        Map<String, String> detailMap = new HashMap<>();
-        detailMap.put("matCode", good.getCode());
-        detailMap.put("unit", good.getUnit());
-        detailMap.put("count", String.valueOf(good.getNum()));
-        mPutInStorageDetailList.put(CNum, detailMap);
 
-        tmpAdapter = new PutInStorageExpandableAdapter(this,mPutInStorageDetailList,mPutInStorageList);
-        sheetListView.setAdapter(tmpAdapter);
+            Good good = putInStorageEntity.getGood();
+            sheetListView = (ExpandableListView) findViewById(R.id.list_put_in_storage_sheets);
+            Map<String, String> map = new HashMap<>();
+            map.put("boxCode", CNum);
+            map.put("matName", good.getDetail());
+            mPutInStorageList.add(map);
 
-        sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                for (int i = 0; i < tmpAdapter.getGroupCount(); i++) {
-                    if (groupPosition != i) {
-                        sheetListView.collapseGroup(i);
+            Map<String, String> detailMap = new HashMap<>();
+            detailMap.put("matCode", good.getCode());
+            detailMap.put("unit", good.getUnit());
+            detailMap.put("count", String.valueOf(good.getNum()));
+            detailMap.put("projectCode", good.getProjectCode());
+            detailMap.put("asnCode", putInStorageEntity.getAsnCode());
+            mPutInStorageDetailList.put(CNum, detailMap);
+
+            tmpAdapter = new PutInStorageExpandableAdapter(this, mPutInStorageDetailList, mPutInStorageList);
+            sheetListView.setAdapter(tmpAdapter);
+
+            Message msg = handlerScanTag.obtainMessage();
+            msg.what = 1;
+            handlerScanTag.sendMessage(msg);
+
+            sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+                @Override
+                public void onGroupExpand(int groupPosition) {
+                    for (int i = 0; i < tmpAdapter.getGroupCount(); i++) {
+                        if (groupPosition != i) {
+                            sheetListView.collapseGroup(i);
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
 
     }
 
@@ -350,18 +380,15 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         btnScanLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                scanLocThread = new PutInStorageScanLocThread(scanHandler);
-//                scanLocThread.start();
-
-                startAction(false);
+                startAction(false,1);
                 mReader.connect();
             }
         });
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scanBoxThread = new PutInStorageScanBoxThread(scanHandler);
-                scanBoxThread.start();
+                startAction(false,2);
+                mReader.connect();
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
@@ -369,19 +396,27 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             public void onClick(View v) {
                 mPutInStorageDetailList.clear();
                 mPutInStorageList.clear();
+
+                Message msg = handlerScanTag.obtainMessage();
+                msg.what = 1;
+                handlerScanTag.sendMessage(msg);
+
             }
         });
         btnBind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> CNumList = new ArrayList<String>();
-                for (Map.Entry<String, Map<String, String>> entry : mPutInStorageDetailList.entrySet()) {
-                    String cartonNum = entry.getKey();
-                    CNumList.add(cartonNum);
+                if(!mPutInStorageDetailList.isEmpty()&&!mPutInStorageList.isEmpty()&&goodPos!=-1){
+                    List<String> CNumList = new ArrayList<String>();
+                    for (Map.Entry<String, Map<String, String>> entry : mPutInStorageDetailList.entrySet()) {
+                        String cartonNum = entry.getKey();
+                        CNumList.add(cartonNum);
+                    }
+                    bindThread = new BindThread(CNumList, goodPos, handler);
+                    bindThread.start();
+                }else{
+                    Toast.makeText(getApplicationContext(),"未扫描货物或货位标签",Toast.LENGTH_SHORT).show();
                 }
-                bindThread = new BindThread(CNumList, goodPos, handler);
-                bindThread.start();
-
             }
         });
 
@@ -481,22 +516,5 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
                 });
             }
         }).start();
-    }
-    class ScanThread extends Thread{
-
-        private  String epc;
-
-        public ScanThread(String epc) {
-            this.epc = epc;
-        }
-
-        @Override
-        public void run() {
-//                if( Config.LocationMap.containsKey(epc) ) {
-//                    goodPos = Integer.parseInt(Config.LocationMap.get(epc));
-//                    ((TextView)findViewById(R.id.text_put_in_storage_loc)).setText(epc);
-//                }
-
-        }
     }
 }

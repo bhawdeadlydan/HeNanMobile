@@ -5,7 +5,9 @@ import android.os.Message;
 
 import org.apache.thrift.TException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import rfid.service.RFIDService;
 import rfid.service.check;
@@ -18,12 +20,12 @@ import sjtu.rfid.tools.ConnectServer;
 public class CheckThread  extends Thread{
 
 
-    private List<check> checkList;
+    private Map<String,check> checkList;
     private Handler handler;
 
     private boolean checkResult;
 
-    public CheckThread(List<check> checkList,Handler handler){
+    public CheckThread(Map<String,check> checkList,Handler handler){
         this.checkList=checkList;
         this.handler=handler;
     }
@@ -33,8 +35,12 @@ public class CheckThread  extends Thread{
         Message msg=handler.obtainMessage();
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
+        List<check> tmpList = new ArrayList<>();
         try{
-            checkResult=client.confirmInventory(checkList);
+            for( Map.Entry<String,check> entry : checkList.entrySet() ) {
+                tmpList.add(entry.getValue());
+            }
+            checkResult=client.confirmInventory(tmpList);
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();

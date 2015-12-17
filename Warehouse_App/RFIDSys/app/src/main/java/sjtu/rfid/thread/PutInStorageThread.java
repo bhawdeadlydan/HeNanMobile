@@ -9,6 +9,7 @@ import java.util.List;
 
 import rfid.service.Good;
 import rfid.service.RFIDService;
+import sjtu.rfid.entity.PutInStorageEntity;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
@@ -20,6 +21,8 @@ public class PutInStorageThread extends Thread {
     private Handler handler;
 
     private Good good;
+    private String asnCode;
+    private PutInStorageEntity putInStorageEntity;
 
     public PutInStorageThread(Handler handler,String CNum) {
         this.handler=handler;
@@ -33,12 +36,16 @@ public class PutInStorageThread extends Thread {
         RFIDService.Client client = connectServer.openConnect();
         try{
             good=client.getGoodByCNum(CNum);
+            asnCode=client.getCodeByCNum(CNum);
+            putInStorageEntity=new PutInStorageEntity(good,asnCode);
+            msg.what=1;
+            msg.obj=putInStorageEntity;
+            handler.sendMessage(msg);
         }catch(TException e){
-            msg.what=0;
+//            msg.what=0;
             e.printStackTrace();
+        }finally{
+            connectServer.closeConnect();
         }
-        msg.what=1;
-        msg.obj=good;
-        handler.sendMessage(msg);
     }
 }

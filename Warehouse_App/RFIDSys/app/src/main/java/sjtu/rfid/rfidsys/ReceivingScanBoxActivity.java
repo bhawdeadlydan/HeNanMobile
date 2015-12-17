@@ -65,7 +65,6 @@ public class ReceivingScanBoxActivity extends Activity implements RfidReaderEven
     private ReceivingScanBoxThread receivingScanBoxThread;
     private ReceivingSubmitThread receivingSubmitThread;
     private PrintThread printThread;
-    private ReceivingScanBoxScanTagThread receivingScanBoxScanTagThread;
     boolean isReading = false;
 
     private List<Good> goodList;
@@ -403,12 +402,8 @@ public class ReceivingScanBoxActivity extends Activity implements RfidReaderEven
 
                 printThread = new PrintThread(sheetCode, handlerPrint);
                 printThread.start();
-
             }
         });
-
-
-
     }
 
     private void saveOption() {

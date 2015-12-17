@@ -88,20 +88,18 @@ public class PutInStorageExpandableAdapter extends BaseExpandableListAdapter {
         if(mPutInStorageDetailList.size()==0||mPutInStorageDetailList==null)
             return layout;
         Map<String,String> map=mPutInStorageDetailList.get(mPutInStorageList.get(groupPosition).get("boxCode"));
-        for(Map.Entry<String,String> entry:map.entrySet()){
-            if(entry.getKey().equals("matCode")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_mat_code);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("unit")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_unit);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-            else if(entry.getKey().equals("count")){
-                TextView text1 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_count);
-                text1.setText(text1.getText()+entry.getValue());
-            }
-        }
+
+        TextView text1 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_mat_code);
+        text1.setText(text1.getText()+map.get("matCode"));
+        TextView text2 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_unit);
+        text2.setText(text2.getText()+map.get("unit"));
+        TextView text3 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_count);
+        text3.setText(text3.getText()+map.get("count"));
+        TextView text4 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_project_code);
+        text4.setText(text4.getText()+map.get("projectCode"));
+        TextView text5 = (TextView) layout.findViewById(R.id.text_put_in_storage_box_detail_order_code);
+        text5.setText(text5.getText()+map.get("asnCode"));
+
         return layout;
     }
 
