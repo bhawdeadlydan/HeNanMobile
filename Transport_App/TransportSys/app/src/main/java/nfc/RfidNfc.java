@@ -8,7 +8,7 @@ import android.nfc.*;
 import android.content.Context;
 import android.nfc.tech.MifareClassic;
 import android.util.Log;
-
+import android.widget.Toast;
 import nfc.NfcDataType.*;
 
 import nfc.NfcTask.*;
@@ -137,11 +137,11 @@ public class RfidNfc implements NfcAdapter.ReaderCallback{
         return true;
     }
 
+
     public void processTask(Tag tag) {
 
         if(tag != null)
             tag = MifareClassicTools.tag;
-        NfcTestData nfcTestData = new NfcTestData();
         try
         {
             while (nfcTask.nfcTaskNum > 0) {

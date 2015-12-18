@@ -1,46 +1,34 @@
-package sjtu.rfid.rfidsys;
+package sjtu.rfid.transportsys;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import rfid.service.ASN;
 import rfid.service.POS;
-import sjtu.rfid.thread.DeliverySheetsThread;
-import sjtu.rfid.thread.ReceivingSheetsThread;
-import sjtu.rfid.tools.ConnectServer;
-import sjtu.rfid.tools.DeliverySheetsExpandableAdapter;
-import sjtu.rfid.tools.TitleBar;
+import sjtu.rfid.thread.SheetsThread;
+import tools.ConnectServer;
+import tools.SheetExpandableAdapter;
 
-public class DeliverySheetsActivity extends Activity {
+public class SheetActivity extends Activity {
+
     private ExpandableListView sheetListView;
-    private DeliverySheetsExpandableAdapter tmpAdapter;
+    private SheetExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mDeliveryCodeDetailList;
     private List<String> mDeliveryCodeList;
-    private TitleBar mTitleBar;
 
-    private DeliverySheetsThread deliverySheetsThread;
+    private SheetsThread deliverySheetsThread;
     private List<POS> posList;
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     private Handler handler=new Handler(){
         @Override
@@ -52,41 +40,44 @@ public class DeliverySheetsActivity extends Activity {
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivery_sheets);
+        setContentView(R.layout.activity_sheet);
         iniActivity();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        ConnectServer connectServer=new ConnectServer();
-        if(connectServer.isNetworkAvailable(this)){
-            deliverySheetsThread=new DeliverySheetsThread(handler);
-            deliverySheetsThread.start();
-        }else{
-            Toast.makeText(getApplicationContext(),"网络连接不可用",Toast.LENGTH_SHORT).show();
-        }
 
     }
 
     public void iniActivity() {
-        mTitleBar = new TitleBar(this,"申领出库");
+        TextView title = (TextView) findViewById(R.id.text_title);
+        title.setText("申领出库");
+        Button btnBack = (Button) findViewById(R.id.btn_title_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    @Override
+    protected  void onResume() {
+        super.onResume();
+        ConnectServer connectServer=new ConnectServer();
+        if(connectServer.isNetworkAvailable(this)){
+            SheetsThread sheetsThread=new SheetsThread(handler);
+            sheetsThread.start();
+        }else{
+            Toast.makeText(getApplicationContext(), "网络连接不可用", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void iniListView(List<POS> posList) {
 
         mDeliveryCodeDetailList = new HashMap<String, Map<String, String>>();
         mDeliveryCodeList = new ArrayList<>();
-        sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_sheets);
+        sheetListView = (ExpandableListView) findViewById(R.id.list_sheets);
+        sheetListView.setEnabled(false);
         for(POS pos:posList){
             mDeliveryCodeList.add(pos.getApply_Doc_Code());
 
@@ -99,7 +90,7 @@ public class DeliverySheetsActivity extends Activity {
             mDeliveryCodeDetailList.put(pos.getApply_Doc_Code(), detailMap);
         }
 
-        tmpAdapter = new DeliverySheetsExpandableAdapter(this, mDeliveryCodeDetailList, mDeliveryCodeList);
+        tmpAdapter = new SheetExpandableAdapter(this, mDeliveryCodeDetailList, mDeliveryCodeList);
         sheetListView.setAdapter(tmpAdapter);
 
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -114,5 +105,4 @@ public class DeliverySheetsActivity extends Activity {
         });
 
     }
-
 }

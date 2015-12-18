@@ -138,9 +138,8 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                 //tmpAdapter.notifyDataSetChanged();
             } else if (msg.what == 2) {
                 if( boxList.containsKey(msg.obj.toString()) && !boxList.get(msg.obj.toString()) ) {
-                    boxList.put(msg.obj.toString(),true);
+                    boxList.put(msg.obj.toString(), true);
                     new GetGoodByCartNumThread(msg.obj.toString(), handlerScan).start();
-                    Log.i("111111111111111aaa",msg.obj.toString());
                 }
             } else if (msg.what == 3) {
                 Good g = (Good)msg.obj;
@@ -204,18 +203,30 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
     @Override
     protected void onStart() {
         super.onStart();
+
         if (mReader != null) {
             ATRfidManager.wakeUp();
-            try
-            {
-                saveOption();
-                ATLog.i(TAG, String.valueOf(mReader.getPower()));
-            }
-            catch (ATRfidReaderException ax)
-            {
-            }
 
+            if (mReader.getState() == ConnectionState.Connected) {
+
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        try {
+                            ATLog.i(TAG, String.valueOf(mReader.getPower()));
+                        } catch (ATRfidReaderException ax) {
+                            ATLog.i(TAG, ax.getMessage());
+
+                        }
+                    }
+                }).start();;
+            }
         }
+
+
+        ATLog.i(TAG, "INFO. onStart()");
     }
 
     @Override
@@ -342,7 +353,6 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                     }.start();
 
                     //更新界面已扫到数量并构造checkList
-
                 }
             }
         });
@@ -355,99 +365,75 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
 
     }
 
-    private void saveOption() {
-        WaitDialog.show(this, "Save Properties...\r\nPlease Wait...");
-
+    private void saveOption(int mPowerLevel) {
         mOperationTime = 0;
-        mInventoryTime = 1200;
-        mIdleTime = 400;
-        mPowerLevel = 130;
+        mInventoryTime = 400;
+        mIdleTime = 200;
+        //mPowerLevel = 100;
 
-        new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                try {
-                    mReader.setReportRssi(true);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        try {
+            mReader.setPower(mPowerLevel);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
-                // Set Operation Time
-                try {
-                    mReader.setOperationTime(mOperationTime);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getPower()));
+        }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                // Set Inventory Time
-                try {
-                    mReader.setInventoryTime(mInventoryTime);
-                } catch (ATRfidReaderException e) {
+        try {
+            mReader.setInventoryTime(mInventoryTime);
+        }
 
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getInventoryTime()));
+        }
 
-                // Set Idle Time
-                try {
-                    mReader.setIdleTime(mIdleTime);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setIdleTime(mIdleTime);
+        }
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try{
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getIdleTime()));
+        }
 
-                // Set Power Level
-                try {
-                    mReader.setPower(mPowerLevel);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setOperationTime(mOperationTime);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                runOnUiThread(new Runnable() {
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getOperationTime()));
+        }
+        catch(ATRfidReaderException e)
+        {
+            e.printStackTrace();
+        }
 
-                    @Override
-                    public void run() {
-                        WaitDialog.hide();
-                        //finish();
-                    }
-                });
-            }
-        }).start();
     }
     public void iniActivity(){
         mTitleBar = new TitleBar(this,"货位盘点");
@@ -470,6 +456,13 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
             Map<String, String> detailMap = new HashMap<>();
             detailMap.put("isBom", good.isIs_Bom()?"Y":"N");
             detailMap.put("matName", good.getDetail());
+
+            String showBoxList = "货箱列表：\n";
+            for( String s : good.getCartonNums() ) {
+                showBoxList += s + '\n';
+            }
+            detailMap.put("boxList",showBoxList);
+
             mCheckByPosDetailList.put(good.getCode(), detailMap);
 
             for(String s : good.getCartonNums()) {
@@ -503,6 +496,7 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
             @Override
             public void onClick(View v) {
                 //读货位标签线程
+                saveOption(300);
                 scanType=1;
                 startAction(false);
                 mReader.connect();
@@ -513,6 +507,7 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
             public void onClick(View v) {
                 //读货物标签线程
                 if( !isReading ) {
+                    saveOption(100);
                     isReading = true;
                     btnScanBox.setText("停止扫描");
                     scanType=2;
@@ -525,12 +520,6 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                     stopAction();
                     mReader.stop();
                 }
-
-
-                //startAction(false);
-                //mReader.connect();
-
-
             }
         });
         btnCommit.setOnClickListener(new View.OnClickListener() {

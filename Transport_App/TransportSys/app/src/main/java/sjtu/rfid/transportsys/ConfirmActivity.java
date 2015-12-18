@@ -51,6 +51,8 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
     private Button btnScanWrite;
     private Button btnCommit;
 
+    private String applyUnit;
+
 
     private Handler handler=new Handler(){
         @Override
@@ -78,7 +80,13 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
-
+        Intent intent = getIntent();
+        TextView textView;
+        textView=(TextView)findViewById(R.id.text_confirm_order_code);
+        Bundle bundle=this.getIntent().getExtras();
+        applyCode=bundle.getString("delivery_sheet_code");
+        applyUnit=bundle.getString("applyUnit");
+        textView.setText(applyCode);
         data = (Data) getApplication();
         iniActivity();
         initEvent();
@@ -105,6 +113,8 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 finish();
             }
         });
+        ConfirmThread thread = new ConfirmThread(handler, applyCode);
+        thread.start();
 
     }
     public void iniListView(List<Good> goodsList) {
@@ -163,6 +173,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 //扫描货物标签并写入相关信息线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
+
                 nnfc.processTask(null);
             }
         });
@@ -170,6 +181,8 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                finish();
                 //暂不知做何操作
 
             }
@@ -279,7 +292,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                         if(mapScan.get(epcCode)>=mapExpect.get(epcCode)){
                             Toast.makeText(getApplicationContext(),  "货物:"+epcCode+"数量已够", Toast.LENGTH_SHORT).show();
                         }else {
-                            InnerThread innerThread = new InnerThread("", applyCode, confirmEntity.getPos().getApply_Person(), "", "", System.currentTimeMillis(), nnfc);
+                            InnerThread innerThread = new InnerThread("", applyCode, confirmEntity.getPos().getApply_Person(), applyUnit, data.getName(), System.currentTimeMillis(), nnfc);
                             innerThread.start();
                             mapScan.put(epcCode,mapScan.get(epcCode)+1);
                         }

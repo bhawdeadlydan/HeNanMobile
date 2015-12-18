@@ -11,9 +11,12 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import sjtu.rfid.rfidsys.R;
 
@@ -27,12 +30,15 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     private List<Integer> mRealCountList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
+    private Map<String,Set<String>> mDeliveryBoxesItemsList;
 
-    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes){
+    public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes,
+                                                  Map<String,Set<String>> mDeliveryBoxesItemsList){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDeliveryBoxes = mDeliveryBoxes;
         this.mDeliveryBoxesDetails = mDeliveryBoxesDetails;
+        this.mDeliveryBoxesItemsList = mDeliveryBoxesItemsList;
 
         this.mRealCountList = new ArrayList<>();
 
@@ -106,7 +112,8 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
         text2.setText(text2.getText()+map.get("cartonList"));
 
         EditText realCount = (EditText) layout.findViewById(R.id.edittext_delivery_scan_box_scan_count);
-        Integer t = mRealCountList.get(groupPosition);
+        String matCode = mDeliveryBoxes.get(groupPosition).get("matCode");
+        Integer t = mDeliveryBoxesItemsList.get(matCode).size();
 
         realCount.setText(String.valueOf(t));
         realCount.addTextChangedListener(new TextWatcher() {
@@ -122,13 +129,21 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
             @Override
             public void afterTextChanged(Editable s) {
-                if( !s.toString().equals("") ) {
+                if (!s.toString().equals("")) {
                     mRealCountList.set(groupPosition, Integer.valueOf(s.toString()));
                 } else {
                     mRealCountList.set(groupPosition, 0);
                 }
             }
         });
+
+        TextView vBoxList=(TextView)layout.findViewById(R.id.text_delivery_scan_box_detail_box_list);
+        Set<String> set=mDeliveryBoxesItemsList.get(matCode);
+        String boxList="";
+        for(String s:set){
+            boxList+=s+"\n";
+        }
+        vBoxList.setText("货箱列表：\n"+boxList);
         return layout;
     }
 

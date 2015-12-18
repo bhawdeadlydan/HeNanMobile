@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,7 +31,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.apache.thrift.TException;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,7 +60,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     private CheckByMatAdapter mAdapter;
     private List<Map<String,String>> mCheckByMatList;
 
-    private Map<Integer,Integer> posMap;
+    private Map<Integer, Set<String>> posMapDetail;
     private Set<String> boxSet;
 
     /**
@@ -70,7 +73,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     private CheckByMatThread checkByMatThread;
     private CheckByMatEntity checkByMatEntity;
     private CheckThread checkThread;
-    private List<check> checkList;
+    private Map<String,check> checkList;
     private boolean checkResult;
 
     private static final String TAG = "MainActivity";
@@ -96,6 +99,13 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             checkByMatEntity=(CheckByMatEntity)msg.obj;
+            checkList = new HashMap<>();
+            String code=checkByMatEntity.getGood().getCode();
+            for(LocationInfo locationInfo:checkByMatEntity.getLocationInfoList()){
+                check c=new check(String.valueOf(locationInfo.getID()),code,0,new Timestamp(Calendar.getInstance().getTimeInMillis()).toString());
+                checkList.put(code,c);
+            }
+
             iniListView(checkByMatEntity);
         }
     };
@@ -106,8 +116,10 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             checkResult=(boolean)msg.obj;
-            if(checkResult)
+            if(checkResult) {
                 Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                finish();
+            }
             else
                 Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
         }
@@ -117,14 +129,15 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         @Override
         public void handleMessage(Message msg) {
             if( msg.what == 0 ) {
+                saveOption(100);
                 type = 1;
                 curPos = Integer.valueOf(msg.obj.toString());
-                        ((Button) findViewById(R.id.btn_check_by_mat_scan_box)).setText("停止扫描");
+                posMapDetail.get(curPos).clear();
+                boxSet.clear();
                 startAction(true);
                 mReader.connect();
             } else if (msg.what == 1) {
                 type = -1;
-                ((Button)findViewById(R.id.btn_check_by_mat_scan_box)).setText("扫描标签");
                 stopAction();
                 mReader.stop();
             } else if(msg.what == 2) {
@@ -184,18 +197,30 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     @Override
     protected void onStart() {
         super.onStart();
+
         if (mReader != null) {
             ATRfidManager.wakeUp();
-            try
-            {
-                saveOption();
-                ATLog.i(TAG, String.valueOf(mReader.getPower()));
-            }
-            catch (ATRfidReaderException ax)
-            {
-            }
 
+            if (mReader.getState() == ConnectionState.Connected) {
+
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        try {
+                            ATLog.i(TAG, String.valueOf(mReader.getPower()));
+                        } catch (ATRfidReaderException ax) {
+                            ATLog.i(TAG, ax.getMessage());
+
+                        }
+                    }
+                }).start();;
+            }
         }
+
+
+        ATLog.i(TAG, "INFO. onStart()");
     }
 
     @Override
@@ -279,7 +304,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
                     version = "";
                     mReader.disconnect();
                 }
-                Toast.makeText(this, version, Toast.LENGTH_SHORT);
+                //Toast.makeText(this, version, Toast.LENGTH_SHORT);
                 break;
             case Disconnected:
                 WaitDialog.hide();
@@ -305,7 +330,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
                     stopAction();
                     mReader.stop();
                     String epc = new String(Converters.fromHexString(tag.substring(4)));
-                    Toast.makeText(getApplicationContext(), epc, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), epc, Toast.LENGTH_SHORT).show();
                     //获取标签
                     if (epc.length() == 16) {
                         CNum = epc;
@@ -315,31 +340,12 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
                     type = -1;
                 } else if ( type == 1) {
                     String epc = new String(Converters.fromHexString(tag.substring(4)));
-                    Toast.makeText(getApplicationContext(), epc, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), epc, Toast.LENGTH_SHORT).show();
                     if( epc.length() == 16 ){
                         if( !boxSet.contains(epc) ) {
-                            final String tmp = epc;
-                            new Thread() {
-                                @Override
-                                public void run() {
-                                    ConnectServer server = new ConnectServer();
-                                    RFIDService.Client client = server.openConnect();
-                                    try {
-                                        Good g = client.getGoodByCNum(tmp);
-                                        if( g.getCode().equals(itemCode) ) {
-                                            boxSet.add(tmp);
-                                            posMap.put(curPos,posMap.get(curPos)+1);
-                                            Message msg = handlerScanTag.obtainMessage();
-                                            msg.what = 2;
-                                            handlerScanTag.sendMessage(msg);
-                                        }
-                                    } catch (TException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }.start();
+                            ScanTagThread t = new ScanTagThread(epc);
+                            t.start();
                         }
-
                     }
                 }
 
@@ -355,99 +361,75 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     }
 
 
-    private void saveOption() {
-        WaitDialog.show(this, "Save Properties...\r\nPlease Wait...");
-
+    private void saveOption(int mPowerLevel) {
         mOperationTime = 0;
-        mInventoryTime = 1200;
-        mIdleTime = 200;
-        mPowerLevel = 130;
+        mInventoryTime = 800;
+        mIdleTime = 400;
+        //mPowerLevel = 100;
 
-        new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                try {
-                    mReader.setReportRssi(true);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        try {
+            mReader.setPower(mPowerLevel);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
-                // Set Operation Time
-                try {
-                    mReader.setOperationTime(mOperationTime);
-                } catch (ATRfidReaderException e) {
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getPower()));
+        }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                // Set Inventory Time
-                try {
-                    mReader.setInventoryTime(mInventoryTime);
-                } catch (ATRfidReaderException e) {
+        try {
+            mReader.setInventoryTime(mInventoryTime);
+        }
 
-                    runOnUiThread(new Runnable() {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getInventoryTime()));
+        }
 
-                // Set Idle Time
-                try {
-                    mReader.setIdleTime(mIdleTime);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setIdleTime(mIdleTime);
+        }
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        try{
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getIdleTime()));
+        }
 
-                // Set Power Level
-                try {
-                    mReader.setPower(mPowerLevel);
-                } catch (ATRfidReaderException e) {
+        catch(ATRfidReaderException e){
+            e.printStackTrace();
+        }
 
-                    runOnUiThread(new Runnable() {
+        try{
+            mReader.setOperationTime(mOperationTime);
+        }
 
-                        @Override
-                        public void run() {
-                            WaitDialog.hide();
-                        }
-                    });
-                    return;
-                }
+        catch(ATRfidReaderException e) {
+            e.printStackTrace();
+        }
 
-                runOnUiThread(new Runnable() {
+        try {
+            Log.i(TAG, "********************************" + String.valueOf(mReader.getOperationTime()));
+        }
+        catch(ATRfidReaderException e)
+        {
+            e.printStackTrace();
+        }
 
-                    @Override
-                    public void run() {
-                        WaitDialog.hide();
-                        //finish();
-                    }
-                });
-            }
-        }).start();
     }
 
     public void iniActivity() {
@@ -455,8 +437,6 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     }
 
     public void iniListView(CheckByMatEntity checkByMatEntity) {
-
-
 
         mCheckByMatList=new ArrayList<>();
         Good good=checkByMatEntity.getGood();
@@ -467,24 +447,29 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         TextView vmatCode=(TextView)findViewById(R.id.text_check_by_mat_mat_code);
         vmatCode.setText(vmatCode.getText()+good.getCode());
         TextView vmatName=(TextView)findViewById(R.id.text_check_by_mat_mat_name);
-        vmatName.setText(vmatName.getText() + good.getDetail());
+        vmatName.setText("物料名称：" + good.getDetail());
         TextView visBom=(TextView)findViewById(R.id.text_check_by_mat_is_bom);
         visBom.setText(visBom.getText() + (good.isIs_Bom()?"Y":"N"));
 
-        posMap = new HashMap<>();
         boxSet = new HashSet<>();
-
+        posMapDetail = new HashMap<>();
         for(LocationInfo locationInfo:locationInfoList){
             Map<String,String> mapDetail=new HashMap<>();
             mapDetail.put("posDes",String.valueOf(locationInfo.getID()));
             mapDetail.put("expectedCount",String.valueOf(locationInfo.getNum()));
-            mapDetail.put("readedCount","0");
+            mapDetail.put("readedCount", "0");
+
+            String boxList = "货箱列表：\n";
+            for( String s : locationInfo.getCartonNums() ) {
+                boxList += s + '\n';
+            }
+            mapDetail.put("boxList",boxList);
             mCheckByMatList.add(mapDetail);
 
-            posMap.put(locationInfo.getID(),0);
+            posMapDetail.put(locationInfo.getID(), new HashSet<String>());
 
         }
-        mAdapter = new CheckByMatAdapter(this,mCheckByMatList,handlerScanTag,posMap);
+        mAdapter = new CheckByMatAdapter(this,mCheckByMatList,handlerScanTag,posMapDetail);
         sheetListView.setAdapter(mAdapter);
     }
 
@@ -497,6 +482,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
             @Override
             public void onClick(View v) {
                 //读货位标签线程
+                saveOption(100);
                 startAction(true);
                 type = 0;
                 mReader.connect();
@@ -505,9 +491,39 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //checkThread=new CheckThread(checkList,handlerCheck);
+                checkThread=new CheckThread(checkList,handlerCheck);
                 checkThread.start();
             }
         });
+    }
+
+    public class ScanTagThread extends  Thread{
+        String epc = "";
+        public ScanTagThread(String epc) {
+            this.epc = epc;
+        }
+        @Override
+        public void run() {
+            ConnectServer server = new ConnectServer();
+            RFIDService.Client client = server.openConnect();
+            try {
+                Good g = client.getGoodByCNum(epc);
+
+                if( g.getCode().equals(itemCode) ) {
+                    if( !boxSet.contains(epc)&&checkList.containsKey(g.getCode()) ) {
+                        int cur = checkList.get(g.getCode()).getRealNum();
+                        checkList.get(g.getCode()).setRealNum(cur + 1);
+                    }
+                    boxSet.add(epc);
+                    //posMap.put(curPos,posMap.get(curPos)+1);
+                    posMapDetail.get(curPos).add(epc);
+                    Message msg = handlerScanTag.obtainMessage();
+                    msg.what = 2;
+                    handlerScanTag.sendMessage(msg);
+                }
+            } catch (TException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

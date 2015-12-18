@@ -19,6 +19,7 @@ import java.util.Map;
 
 import rfid.service.ASN;
 import sjtu.rfid.thread.ReceivingSheetsThread;
+import sjtu.rfid.tools.ConnectServer;
 import sjtu.rfid.tools.ReceivingSheetsExpandableAdapter;
 import sjtu.rfid.tools.TitleBar;
 
@@ -123,8 +124,14 @@ public class ReceivingSheetsActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        receivingSheetsThread=new ReceivingSheetsThread(handler);
-        receivingSheetsThread.start();
+        ConnectServer connectServer=new ConnectServer();
+        if(connectServer.isNetworkAvailable(this)){
+            receivingSheetsThread=new ReceivingSheetsThread(handler);
+            receivingSheetsThread.start();
+        }else{
+            Toast.makeText(getApplicationContext(),"网络连接不可用",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

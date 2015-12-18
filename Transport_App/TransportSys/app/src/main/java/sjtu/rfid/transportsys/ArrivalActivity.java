@@ -429,7 +429,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                             Toast.makeText(getApplicationContext(),  "货物:"+epcCode+"数量已够", Toast.LENGTH_SHORT).show();
                         }else {
                             if(func==0){
-                                InnerThread1 innerThread1=new InnerThread1(data.getName(),"",position,lat,lng,System.currentTimeMillis(),nnfc);
+                                InnerThread1 innerThread1=new InnerThread1(data.getName(),data.getCompany(),position,lat,lng,System.currentTimeMillis(),nnfc);
                                 innerThread1.start();
                             }
                             else if(func==1) {

@@ -12,7 +12,11 @@ import java.nio.charset.Charset;
  * Created by L on 2015/12/13.
  */
 public class NfcTask {
+<<<<<<< HEAD
 	public static com.headingwl.RfidManager.MifareClassicTools mifareClassicTools;
+=======
+	public static MifareClassicTools mifareClassicTools;
+>>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 
 	public static String TAG = "NfcTask";
 
@@ -82,7 +86,10 @@ public class NfcTask {
 		s += NfcUtils.binToString(mifareClassicTools.readTagBlockByte(tag, 2));
 
 		s = s.replace("\0", "");
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		itemInf.ERPCode = s.equals("") ? "NULL" : s;
 
 		s = NfcUtils.binToString(mifareClassicTools.readTagBlockByte(tag, 4)).replace("\0","");
@@ -98,6 +105,7 @@ public class NfcTask {
 
 	public static REQInf readREQInf(Tag tag) {
 		REQInf reqInf  = new NfcTestData().reqInf;
+<<<<<<< HEAD
 
 		byte [][] block =new byte[3][16];
 		byte [] c = new byte[48];
@@ -112,6 +120,8 @@ public class NfcTask {
 
 		reqInf.CheckPerson = new String(block[0]).replace("\0","");
 		reqInf.REQ = NfcUtils.convertBinToASCII(block[0]).substring(0,18).replace("E","-REQ-");
+=======
+>>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		return reqInf;
 	}
 
@@ -132,6 +142,7 @@ public class NfcTask {
 
 	public static boolean writeREQInf(Tag tag,REQInf reqInf) {
 		Log.i(TAG,"Write:" + reqInf.toString());
+<<<<<<< HEAD
 	/*	reqInf.WorkTeam="平顶山分公司\\网络部\\工程建设中心";
 		reqInf.CheckPerson = "吴现迎";
 		reqInf.REQ = "2524-REQ-2015110000012";*/
@@ -160,6 +171,8 @@ public class NfcTask {
 		mifareClassicTools.writeM1BlockByte(tag,9,b[1]);
 		mifareClassicTools.writeM1BlockByte(tag,10,b[2]);
 /******************************************************/
+=======
+>>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		return true;
 	}
 
