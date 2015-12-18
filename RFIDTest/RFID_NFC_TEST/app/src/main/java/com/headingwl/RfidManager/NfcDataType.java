@@ -121,7 +121,7 @@ public class NfcDataType {
 	}
 
 	public class REQInf extends NfcDataTypeBase {
-		protected REQInf(String nEPC,String nREQ, String nReqPerson,
+		public REQInf(String nEPC,String nREQ, String nReqPerson,
 		                 String nWorkTeam,String nCheckPerson,long nTimestamp) {
 			EPC = nEPC;
 			REQ = nREQ;
@@ -137,7 +137,7 @@ public class NfcDataType {
 	}
 
 	public class TransInf extends NfcDataTypeBase {
-		protected TransInf(String nTransPerson,String nTransStation,String nLocation,
+		public TransInf(String nTransPerson,String nTransStation,String nLocation,
 		                   double nGpsN,double nGpsE,long nTimestamp) {
 			TransPerson = nTransPerson;
 			TransStation = nTransStation;
@@ -152,7 +152,7 @@ public class NfcDataType {
 	}
 
 	public class ConsInf extends NfcDataTypeBase {
-		protected ConsInf(String nConsPerson,String nLocation,double nGpsN,double nGpsE,long nTimestamp) {
+		public ConsInf(String nConsPerson,String nLocation,double nGpsN,double nGpsE,long nTimestamp) {
 			ConsPerson = nConsPerson;
 			Location =nLocation;
 			gpsN = nGpsN;

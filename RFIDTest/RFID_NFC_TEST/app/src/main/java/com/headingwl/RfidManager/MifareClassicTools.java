@@ -44,7 +44,7 @@ public class MifareClassicTools {
 				int type = mfc.getType();
 				int blockCount = mfc.getBlockCount();
 				if (block < blockCount && type == MifareClassic.TYPE_CLASSIC) {
-					if (mfc.authenticateSectorWithKeyB(block/4, MifareClassic.KEY_DEFAULT)) {
+					if (mfc.authenticateSectorWithKeyA(block/4, MifareClassic.KEY_DEFAULT)) {
 						Log.i(TAG,"Auth succeed");
 						blockData = mfc.readBlock(block);
 					} else {
@@ -131,7 +131,7 @@ public class MifareClassicTools {
 				int type = mfc.getType();
 				int blockCount = mfc.getBlockCount();
 				if (block < blockCount && type == MifareClassic.TYPE_CLASSIC) {
-					if (mfc.authenticateSectorWithKeyB(block/4, MifareClassic.KEY_DEFAULT)) {
+					if (mfc.authenticateSectorWithKeyA(block/4, MifareClassic.KEY_DEFAULT)) {
 						Log.i(TAG,"Auth succeed");
 						mfc.writeBlock(block,blockDat);
 					} else {
