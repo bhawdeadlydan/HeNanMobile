@@ -214,7 +214,6 @@ public class MainActivity extends AppCompatActivity implements RfidNfc.TagUidCal
                 break;
             case R.id.btnWriteREQInf:
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.REQInf, new NfcTestData().reqInf);
-                nnfc.processTask(null);
                 Log.i(TAG, "btnWriteREQInf");
                 break;
             case R.id.btnWriteTransInf:
