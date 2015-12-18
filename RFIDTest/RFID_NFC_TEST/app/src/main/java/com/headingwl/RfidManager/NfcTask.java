@@ -157,7 +157,7 @@ public class NfcTask {
 		byte [] dCP = tmp.getBytes("GBK");
 		byte[] bTmp = new byte[16];
 
-		for(int i=0;i<9;i++)
+		for(int i=0;i<bREQ.length&&i<9;i++)
 			bTmp[i]=bREQ[i];
 
 		bTmp[12] = (byte)(reqInf.timestamp/(256*256*256));
