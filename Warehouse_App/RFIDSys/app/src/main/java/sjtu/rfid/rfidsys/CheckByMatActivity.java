@@ -445,11 +445,11 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
 
         sheetListView=(ListView)findViewById(R.id.list_check_by_mat_sheets);
         TextView vmatCode=(TextView)findViewById(R.id.text_check_by_mat_mat_code);
-        vmatCode.setText(vmatCode.getText()+good.getCode());
+        vmatCode.setText(good.getCode());
         TextView vmatName=(TextView)findViewById(R.id.text_check_by_mat_mat_name);
         vmatName.setText("物料名称：" + good.getDetail());
         TextView visBom=(TextView)findViewById(R.id.text_check_by_mat_is_bom);
-        visBom.setText(visBom.getText() + (good.isIs_Bom()?"Y":"N"));
+        visBom.setText("是否套设备：" + (good.isIs_Bom()?"Y":"N"));
 
         boxSet = new HashSet<>();
         posMapDetail = new HashMap<>();

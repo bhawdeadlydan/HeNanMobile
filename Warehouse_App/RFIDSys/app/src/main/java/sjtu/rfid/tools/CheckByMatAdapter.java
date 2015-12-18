@@ -83,7 +83,7 @@ public class CheckByMatAdapter extends BaseAdapter{
         if( isReading ) {
             scanButton.setText("停止扫描");
         } else {
-            scanButton.setText("扫描该货位");
+            scanButton.setText("扫描该货位上的货物");
         }
         scanButton.setOnClickListener(new MyClickListener(scanButton,vReadedCount,map.get("matCode"),Integer.valueOf(map.get("expectedCount")),
                 Integer.valueOf(map.get("posDes"))));
@@ -121,7 +121,7 @@ public class CheckByMatAdapter extends BaseAdapter{
                 isReading = false;
                 msg.what = 1;// 1 for stop
                 mHandler.sendMessage(msg);
-                ((Button)btn).setText("扫描该货位");
+                ((Button)btn).setText("扫描该货位上的货物");
             }
 
 
