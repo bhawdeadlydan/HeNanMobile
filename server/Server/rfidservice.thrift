@@ -9,6 +9,7 @@ bool printTag(1:string Code);
 string getCodeByCNum(1:string CNum);
 bool bindLocationAndGoods(1:i32 LocationID, 2: list<string> CNums);
 list<data.POS> getApplySheets();
+list<data.POS> getOutApplySheets();
 data.POS getPOSInfoByApplyDocCode(1:string ApplyDocCode);
 list<data.Good> getGoodsListByApplyDocCode(1:string ApplyDocCode);
 bool confirmRetrieval(1:string ApplyDocCode, 2:list<string> CNums);

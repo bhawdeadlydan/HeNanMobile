@@ -32,7 +32,7 @@ public class RFIDClient {
 //            client.bindLocationAndGoods(1, l);
 //            Good item = client.getGoodByCNum("2015121200000001");
 //            List<> list = client.getLocationListByItemErpCode("");
-            List<Good> l = client.getGoodsByLocation(1);
+//            List<Good> l = client.getGoodsByLocation(1);
            /* List<ASN> list = client.getReceivingSheets();
             for(Iterator it = list.iterator();it.hasNext();) {
                 ASN pos = (ASN) it.next();
@@ -40,7 +40,7 @@ public class RFIDClient {
             }*/
 //            client.confirmReceiving("VD-SH-2015090000006");
 //            List<Good> l = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
-            List<Good> list = new ArrayList<>();//client.getGoodsListByApplyDocCode("2524-REQ-2015090000059");
+            List<Good> l = client.getGoodsListByApplyDocCode("2524-REQ-2015090000059");
             /*List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
                 POS pos = (POS)it.next();
@@ -52,6 +52,9 @@ public class RFIDClient {
 //            client.confirmRetrieval("2524-REQ-2015090000059", ll);
             //client.confirmArrive("凌云昊", new Timestamp(Calendar.getInstance().getTimeInMillis()).toString(),"sjtu","暂存点","2524-REQ-2015090000059",
            //         21.1,23.2);
+            ArrayList<String> cnums=  new ArrayList<>();
+            cnums.add("2015121600000001");
+//            client.confirmRetrieval("2524-REQ-2015120000125", cnums);
             for(Iterator it = l.iterator();it.hasNext();){
                 Good item = (Good)it.next();
                 Field[] fields = item.getClass().getDeclaredFields();

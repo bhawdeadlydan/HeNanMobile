@@ -28,14 +28,14 @@ public class PrintThread implements Runnable{
     }
     @Override
     public void run() {
-        for(int i = 0; i < batchGoods.size(); i++){
+        for(int i = 1; i < batchGoods.size(); i++){
             printTag(batchGoods.get(i));
             Data data = new Data();
             data.setProjectCode(projectCode);
             data.setMatCode(batchGoods.get(i).get(0)[1]);
             System.out.println("print sequence " + i + " start");
-             if(client == null || !client.printData(data, 40)) {
-//            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
+//             if(client == null || !client.printData(data, 2)) {
+            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
                 System.out.println("print sequence " + i + " over unexpectedly");
                 break;
             }

@@ -13,20 +13,18 @@ import java.util.List;
 public class DetailDao extends BaseDao{
     public boolean isBom(String ApplyDocCode){
         Session session = ourSessionFactory.openSession();
-        Transaction tx = null;
         try{
-            tx = session.beginTransaction();
             String queryString = "select model.isBom from DetailEntity as model where model.posApplyDocCode = ?";
             Query queryObject = session.createQuery(queryString);
             queryObject.setParameter(0, ApplyDocCode);
-            tx.commit();
             if(!queryObject.list().isEmpty())
                 return ((String)queryObject.list().get(0)).toUpperCase().equals("Y");
         }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.err.println(e.getMessage());
         }catch(Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.err.println(e.getMessage());
         }finally {
             session.close();
         }

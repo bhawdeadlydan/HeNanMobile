@@ -7,7 +7,6 @@ import db.PosEntity;
 import db.TransportEntity;
 import org.apache.thrift.TException;
 
-import java.io.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -189,6 +188,25 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     public List<POS> getApplySheets() throws TException {
         PosDao dao = new PosDao();
         List list = dao.findUnSent();
+        ArrayList<POS> l = new ArrayList<>();
+        for(Iterator it = list.iterator(); it.hasNext();) {
+            PosEntity entity = (PosEntity) it.next();
+            POS pos = new POS();
+            pos.setApply_Doc_Code(entity.getApplyDocCode());
+            pos.setApply_Person(entity.getApplyPerson());
+            pos.setApply_Unit(entity.getApplyUnit());
+            pos.setProject_Code(entity.getProjectCode());
+            pos.setApply_Date(entity.getApplyDate().toString());
+            pos.setReceiver(entity.getReceiver());
+            l.add(pos);
+        }
+        return l;
+    }
+
+    @Override
+    public List<POS> getOutApplySheets() throws TException {
+        PosDao dao = new PosDao();
+        List list = dao.findSent();
         ArrayList<POS> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();) {
             PosEntity entity = (PosEntity) it.next();

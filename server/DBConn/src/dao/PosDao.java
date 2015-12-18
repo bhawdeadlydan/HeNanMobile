@@ -51,6 +51,26 @@ public class PosDao extends BaseDao{
         return null;
     }
 
+    public List findSent() {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "from PosEntity as model where model.sent = 1";
+            Query queryObject = session.createQuery(queryString);
+            tx.commit();
+            return queryObject.list();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
     public List findOne(String ApplyDocCode){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
