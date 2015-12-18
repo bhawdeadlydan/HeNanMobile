@@ -112,8 +112,10 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
             commitResult=(boolean)msg.obj;
-            if(commitResult)
-                Toast.makeText(getApplicationContext(),"提交成功",Toast.LENGTH_SHORT).show();
+            if(commitResult) {
+                Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                finish();
+            }
             else
                 Toast.makeText(getApplicationContext(),"提交失败",Toast.LENGTH_SHORT).show();
 
@@ -253,7 +255,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 time=format.format(date);
                 //position
 
-                type=func+"";//0:暂存点，1：施工点
+                type=func+"";//0:暂存点，1：施工点，2:复核出库
                 //applyCode
                 commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,commitHandler);
                 commitTransInfoThread.start();

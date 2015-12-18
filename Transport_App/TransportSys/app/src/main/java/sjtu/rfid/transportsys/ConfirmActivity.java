@@ -14,7 +14,10 @@ import android.widget.Toast;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +28,7 @@ import nfc.NfcTask;
 import nfc.RfidNfc;
 import rfid.service.Good;
 import sjtu.rfid.entity.ConfirmEntity;
+import sjtu.rfid.thread.CommitTransInfoThread;
 import sjtu.rfid.thread.ConfirmThread;
 import tools.ConfirmExpandableAdapter;
 import tools.Data;
@@ -53,6 +57,16 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
 
     private String applyUnit;
 
+    private CommitTransInfoThread commitTransInfoThread;
+    private String charge;
+    private String time;
+    private String position;
+    private String type;
+    private double lng=0.0;
+    private double lat=0.0;
+
+    private boolean commitResult;
+
 
     private Handler handler=new Handler(){
         @Override
@@ -66,6 +80,23 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 mapExpect.put(good.getCode(),good.getNum());
             }
             iniListView(goodList);
+        }
+    };
+
+    private Handler commitHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            //Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
+            if(msg.what==0||msg.obj==null)
+                Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_SHORT).show();
+            commitResult=(boolean)msg.obj;
+            if(commitResult) {
+                Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+            else
+                Toast.makeText(getApplicationContext(),"提交失败",Toast.LENGTH_SHORT).show();
+
         }
     };
 
@@ -181,8 +212,16 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                charge=data.getName();
+                Date date=new Date();
+                DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                time=format.format(date);
+                //position
 
-                finish();
+                type=2+"";//0:暂存点，1：施工点,2:复核出库
+                //applyCode
+                commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,commitHandler);
+                commitTransInfoThread.start();
                 //暂不知做何操作
 
             }
