@@ -6,6 +6,8 @@ import android.util.Log;
 import nfc.NfcDataType.*;
 import nfc.MifareClassicTools.*;
 
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 
 /**
@@ -96,7 +98,7 @@ public class NfcTask {
 		return itemInf;
 	}
 
-	public static REQInf readREQInf(Tag tag) {
+	public static REQInf readREQInf(Tag tag) throws UnsupportedEncodingException {
 		REQInf reqInf  = new NfcTestData().reqInf;
 
 		byte [][] block =new byte[3][16];
@@ -109,9 +111,16 @@ public class NfcTask {
 		reqInf.WorkTeam = new String(c).replace("\0", "");
 
 		block[0] = mifareClassicTools.readTagBlockByte(tag, 12);
+
+		reqInf.CheckPerson = new String(block[0]).replace("\0", "");
 		reqInf.REQ = NfcUtils.convertBinToASCII(block[0]).substring(0,18).replace("E", "-REQ-");
+
+		reqInf.timestamp = (long)(block[0][12]&0xff)*256*256*256 + (long)(block[0][13]&0xff)*256*256 + (long)(block[0][14]&0xff)*256 +(long)(block[0][15]&0xff) ;
+
 		block[0] = mifareClassicTools.readTagBlockByte(tag, 13);
-		reqInf.CheckPerson = new String(block[0]).replace("\0","");
+		String tmp = new String(block[0],"GBK").replace("\0", "");
+		reqInf.CheckPerson = tmp.substring(0,tmp.indexOf(','));
+		reqInf.ReqPerson  =tmp.substring(tmp.indexOf(',')+1);
 		return reqInf;
 	}
 
@@ -130,25 +139,39 @@ public class NfcTask {
 		return true;
 	}
 
-	public static boolean writeREQInf(Tag tag,REQInf reqInf) {
+	public static boolean writeREQInf(Tag tag,REQInf reqInf) throws UnsupportedEncodingException {
 		Log.i(TAG,"Write:" + reqInf.toString());
-	/*	reqInf.WorkTeam="平顶山分公司\\网络部\\工程建设中心";
-		reqInf.CheckPerson = "吴现迎";
-		reqInf.REQ = "2524-REQ-2015110000012";*/
+
+		/*
+		reqInf.WorkTeam="平顶山分公司\\网络部\\工程建设中心";
+		reqInf.CheckPerson = "复核人";
+		reqInf.ReqPerson  ="申请人";
+		reqInf.REQ = "2524-REQ-2015110000012";
+		reqInf.timestamp = 1450085000;
+		*/
+
 		reqInf.REQ = reqInf.REQ.replace("-REQ-", "E");
-
+		String tmp =reqInf.CheckPerson + "," + reqInf.ReqPerson;
 		byte[] bREQ = NfcUtils.convertASCIIToBin(reqInf.REQ);
-		byte []dCP = reqInf.CheckPerson.getBytes();
-		byte[] cC = new byte[16];
 
-		for(int i=0;i<9;i++)
-			cC[i]=bREQ[i];
-		mifareClassicTools.writeM1BlockByte(tag, 12, cC);
+		byte [] dCP = tmp.getBytes("GBK");
+		byte[] bTmp = new byte[16];
 
-		cC = new byte[16];
+		for(int i=0;i<bREQ.length&&i<9;i++)
+			bTmp[i]=bREQ[i];
+
+		bTmp[12] = (byte)(reqInf.timestamp/(256*256*256));
+		bTmp[13] = (byte)(reqInf.timestamp/(256*256));
+		bTmp[14] = (byte)(reqInf.timestamp/256);
+		bTmp[15] = (byte)(reqInf.timestamp);
+
+		mifareClassicTools.writeM1BlockByte(tag, 12, bTmp);
+
+		bTmp = new byte[16];
 		for(int i=0;i<dCP.length&i<16;i++)
-			cC[i] = dCP[i];
-		mifareClassicTools.writeM1BlockByte(tag, 13, cC);
+			bTmp[i] = dCP[i];
+
+		mifareClassicTools.writeM1BlockByte(tag, 13, bTmp);
 
 /******************************************************/
 		byte [][] b = new byte[3][16];
