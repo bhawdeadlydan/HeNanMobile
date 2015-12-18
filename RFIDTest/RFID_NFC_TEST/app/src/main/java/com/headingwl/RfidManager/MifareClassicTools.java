@@ -20,7 +20,6 @@ public class MifareClassicTools {
 			nfcAdapter = nfc;
 	}
 
-<<<<<<< HEAD
 	protected MifareClassicTools(){
 
 	}
@@ -34,17 +33,6 @@ public class MifareClassicTools {
 	}
 
 	public byte[] readTagBlockByte(Tag tag,int block) {
-=======
-	public static boolean isNfcEnable() {
-		return nfcAdapter!=null && nfcAdapter.isEnabled();
-	}
-
-	public static boolean isTagExist() {
-		return tag != null;
-	}
-
-	public static byte[] readTagBlockByte(Tag tag,int block) {
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 
 		byte[] blockData = null;
 		MifareClassic mfc = MifareClassic.get(tag);
@@ -64,29 +52,16 @@ public class MifareClassicTools {
 					}
 				}
 				mfc.close();
-<<<<<<< HEAD
 			}
 		} catch (Exception e) {
 
 			Log.i(TAG,e.getMessage());
-=======
-
-			}
-		} catch (Exception e) {
-			Log.i(TAG,e.getMessage());
-
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		}
 		return blockData;
 	}
 
-<<<<<<< HEAD
 	public String readTagBlockASCII(Tag tag,int block) {
 		String blockData = NfcUtils.convertBinToASCII(readTagBlockByte(tag, block));
-=======
-	public static String readTagBlockASCII(Tag tag,int block) {
-		String blockData = NfcUtils.convertBinToASCII(readTagBlockByte(tag,block));
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		return blockData;
 	}
 
@@ -98,20 +73,12 @@ public class MifareClassicTools {
 		return blockData;
 	}
 
-<<<<<<< HEAD
 	public String getTagUID(Tag tag) {
-=======
-	public static String getTagUID(Tag tag) {
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		MifareClassic mfc = MifareClassic.get(tag);
 		return NfcUtils.convertBinToASCII(mfc.getTag().getId());
 	}
 
-<<<<<<< HEAD
 	public String getUidFromIntent(Intent intent) {
-=======
-	public static String getUidFromIntent(Intent intent) {
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		if(intent.getAction() != NfcAdapter.ACTION_TAG_DISCOVERED)
 			return "";
 		Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
@@ -141,11 +108,7 @@ public class MifareClassicTools {
 		return sectorData;
 	}
 
-<<<<<<< HEAD
 	public String getM1SectorASCII(Tag tag,int sector) {
-=======
-	public static String getM1SectorASCII(Tag tag,int sector) {
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		String sectorDataString = "";
 		byte [][]  sectorDataByte = getM1SectorByteArray(tag, sector);
 		if(sectorDataByte!=null) {
@@ -154,7 +117,6 @@ public class MifareClassicTools {
 		}
 		return sectorDataString;
 	}
-<<<<<<< HEAD
 
 	public  boolean writeM1BlockByte(Tag tag,int block,byte[] blockDat)
 	{
@@ -219,6 +181,4 @@ public class MifareClassicTools {
 		}
 		return true;
 	}
-=======
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 }

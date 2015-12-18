@@ -62,11 +62,7 @@ public class RfidNfc implements NfcAdapter.ReaderCallback {
 	@Override
 	public void onTagDiscovered(Tag tag) {
 		Log.i(TAG, "New tag discovered");
-<<<<<<< HEAD
 		nfcTask.mifareClassicTools.tag = tag;
-=======
-		MifareClassicTools.tag = tag;
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		processTask(tag);
 	}
 
@@ -131,13 +127,8 @@ public class RfidNfc implements NfcAdapter.ReaderCallback {
 
 	public void processTask(Tag tag) {
 
-<<<<<<< HEAD
 		if(tag == null)
 			tag = nfcTask.mifareClassicTools.tag;
-=======
-		if(tag != null)
-			tag = MifareClassicTools.tag;
->>>>>>> fa1b025f552938672f6ca35e57b215b736347db6
 		try {
 			while (nfcTask.nfcTaskNum > 0) {
 				nfcTask.isNfcTaskRun = true;
