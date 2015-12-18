@@ -4,7 +4,7 @@ import android.nfc.Tag;
 import android.util.Log;
 
 import nfc.NfcDataType.*;
-import nfc.MifareClassicTools.*;
+import  nfc.MifareClassicTools.*;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
@@ -124,18 +124,82 @@ public class NfcTask {
 		return reqInf;
 	}
 
-	public static TransInf readTransInf(Tag tag ) {
+	public static TransInf readTransInf(Tag tag ) throws UnsupportedEncodingException {
 		TransInf transInf = new NfcTestData().transInf;
+
+		byte[] nTP  =mifareClassicTools.readTagBlockByte(tag, 14);
+		transInf.TransPerson = new String(nTP,"GBK").replace("\0", "");
+
+		/*TransPerson and Location End*/
+
+		byte [][] block = new byte[4][16];
+
+		block[0] = mifareClassicTools.readTagBlockByte(tag,16);
+		block[1] = mifareClassicTools.readTagBlockByte(tag,17);
+		block[2] = mifareClassicTools.readTagBlockByte(tag,18);
+		block[3] =mifareClassicTools.readTagBlockByte(tag,20);
+		byte[]  ntmp = new byte [64];
+		for(int i=0;i<ntmp.length;i++)
+			ntmp[i] = block[i/16][i%16];
+
+		String TP_LOC = new String(ntmp,"GBK");
+
+		transInf.TransStation = TP_LOC.substring(0, TP_LOC.indexOf(","));
+		transInf.Location = TP_LOC.substring(TP_LOC.indexOf(","));
+		/* TransStation and Location End */
+
+		ntmp = mifareClassicTools.readTagBlockByte(tag,21);
+
+		nTP = new byte[4];
+		nTP [0]= ntmp[0];
+		nTP [1]= ntmp[1];
+		nTP [2]= ntmp[2];
+		nTP [3]= ntmp[3];
+
+		transInf.timestamp = NfcUtils.bytes2long(nTP);
+
 		return transInf;
 	}
 
-	public static ConsInf readConsInf(Tag tag) {
+	public static ConsInf readConsInf(Tag tag) throws UnsupportedEncodingException {
 		ConsInf consInf = new NfcTestData().consInf;
+
+
+
+		byte [][] block = new byte[4][16];
+
+		block[0] = mifareClassicTools.readTagBlockByte(tag,22);
+		block[1] = mifareClassicTools.readTagBlockByte(tag,24);
+		block[2] = mifareClassicTools.readTagBlockByte(tag,25);
+		block[3] = mifareClassicTools.readTagBlockByte(tag,26);
+
+		byte[]  ntmp = new byte [64];
+		for(int i=0;i<ntmp.length;i++)
+			ntmp[i] = block[i/16][i%16];
+
+		String CP_LOC = new String(ntmp,"GBK").replace("\0","");
+
+		consInf.ConsPerson = CP_LOC.substring(0,CP_LOC.indexOf(","));
+		consInf.Location = CP_LOC.substring(CP_LOC.indexOf(","));
+
+		/*    CP    LOC    */
+
+		ntmp = mifareClassicTools.readTagBlockByte(tag,21);
+
+		ntmp = new byte[4];
+		ntmp [0]= ntmp[0];
+		ntmp [1]= ntmp[1];
+		ntmp [2]= ntmp[2];
+		ntmp [3]= ntmp[3];
+
+		consInf.timestamp = NfcUtils.bytes2long(ntmp);
+
 		return consInf;
 	}
 
 	public static boolean writeItemInf(Tag tag,ItemInf itemInf) {
 		Log.i(TAG,"Write:" + itemInf.toString());
+
 		return true;
 	}
 
@@ -188,13 +252,75 @@ public class NfcTask {
 		return true;
 	}
 
-	public static boolean writeTransInf(Tag tag,TransInf transInf) {
+	public static boolean writeTransInf(Tag tag,TransInf transInf) throws UnsupportedEncodingException {
 		Log.i(TAG,"Write:" + transInf.toString());
+		/*
+		String nTransPerson,String nTransStation,String nLocation,
+		double nGpsN,double nGpsE,long nTimestamp*/
+
+
+		byte[] nTP = transInf.TransPerson.getBytes("GBK");
+		byte[] bTmp = new byte[16];
+		for(int i=0;i<nTP.length&&i<16;i++)
+			bTmp[i]=nTP[i];
+		mifareClassicTools.writeM1BlockByte(tag, 14, bTmp);
+
+		/*TransPerson  End*/
+
+		String TP_LOC = transInf.TransStation + "," + transInf.Location;
+
+		byte [][] block = new byte[4][16];
+		byte[] c = TP_LOC.getBytes("GBK");
+		for(int i =0,j=0;j<4 && i<c.length;){
+			block[j][i%16] = c[i];
+			if((++i)%16 == 0)
+				j++;
+		}
+
+		mifareClassicTools.writeM1BlockByte(tag,16,block[0]);
+		mifareClassicTools.writeM1BlockByte(tag,17,block[1]);
+		mifareClassicTools.writeM1BlockByte(tag,18,block[2]);
+		mifareClassicTools.writeM1BlockByte(tag,20,block[3]);
+
+		/* TransStation and Location End */
+
+		byte[] tms = NfcUtils.long2bytes(transInf.timestamp);
+		bTmp = new byte[16];
+		for(int i=0;i<bTmp.length&& i <tms.length;i++)
+			bTmp[i] = tms[i];
+		mifareClassicTools.writeM1BlockByte(tag,21,bTmp);
+
+		/* TimeStamp End */
 		return true;
 	}
 
-	public boolean writeConsInf(Tag tag,ConsInf consInf) {
+	public boolean writeConsInf(Tag tag,ConsInf consInf) throws UnsupportedEncodingException {
 		Log.i(TAG,"Write:" + consInf.toString());
+
+
+		String CP_LOC = consInf.ConsPerson + "," + consInf.Location;
+
+		byte [][] block = new byte[4][16];
+		byte[] c = CP_LOC.getBytes("GBK");
+		for(int i =0,j=0;j<4 && i<c.length;){
+			block[j][i%16] = c[i];
+			if((++i)%16 == 0)
+				j++;
+		}
+
+		mifareClassicTools.writeM1BlockByte(tag,22,block[0]);
+		mifareClassicTools.writeM1BlockByte(tag,24,block[1]);
+		mifareClassicTools.writeM1BlockByte(tag,25,block[2]);
+		mifareClassicTools.writeM1BlockByte(tag,26,block[3]);
+
+		/*    CP    LOC    */
+
+		byte[] tms = NfcUtils.long2bytes(consInf.timestamp);
+		byte[] bTmp = new byte[16];
+		for(int i=0;i<bTmp.length&& i <tms.length;i++)
+			bTmp[i] = tms[i];
+		mifareClassicTools.writeM1BlockByte(tag,28,bTmp);
+
 		return true;
 	}
 
