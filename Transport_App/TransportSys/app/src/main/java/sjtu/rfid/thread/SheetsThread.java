@@ -29,7 +29,7 @@ public class SheetsThread extends Thread {
         ConnectServer connectServer=new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            posList=client.getApplySheets();
+            posList=client.getOutApplySheets();
         }catch(TException e){
             msg.what=0;
             e.printStackTrace();
