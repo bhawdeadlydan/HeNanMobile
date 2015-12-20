@@ -79,6 +79,8 @@ public class RFIDService {
 
     public List<rfid.service.stagingInfo> getStagingInfo(String constructUnit) throws org.apache.thrift.TException;
 
+    public List<rfid.service.inStagingInfo> getInStagingInfo(String constructUnit) throws org.apache.thrift.TException;
+
   }
 
   public interface AsyncIface {
@@ -122,6 +124,8 @@ public class RFIDService {
     public void getTransportInfo(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
     public void getStagingInfo(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+
+    public void getInStagingInfo(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -613,6 +617,29 @@ public class RFIDService {
         return result.success;
       }
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getStagingInfo failed: unknown result");
+    }
+
+    public List<rfid.service.inStagingInfo> getInStagingInfo(String constructUnit) throws org.apache.thrift.TException
+    {
+      send_getInStagingInfo(constructUnit);
+      return recv_getInStagingInfo();
+    }
+
+    public void send_getInStagingInfo(String constructUnit) throws org.apache.thrift.TException
+    {
+      getInStagingInfo_args args = new getInStagingInfo_args();
+      args.setConstructUnit(constructUnit);
+      sendBase("getInStagingInfo", args);
+    }
+
+    public List<rfid.service.inStagingInfo> recv_getInStagingInfo() throws org.apache.thrift.TException
+    {
+      getInStagingInfo_result result = new getInStagingInfo_result();
+      receiveBase(result, "getInStagingInfo");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getInStagingInfo failed: unknown result");
     }
 
   }
@@ -1303,6 +1330,38 @@ public class RFIDService {
       }
     }
 
+    public void getInStagingInfo(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      getInStagingInfo_call method_call = new getInStagingInfo_call(constructUnit, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class getInStagingInfo_call extends org.apache.thrift.async.TAsyncMethodCall {
+      private String constructUnit;
+      public getInStagingInfo_call(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.constructUnit = constructUnit;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getInStagingInfo", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        getInStagingInfo_args args = new getInStagingInfo_args();
+        args.setConstructUnit(constructUnit);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public List<rfid.service.inStagingInfo> getResult() throws org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_getInStagingInfo();
+      }
+    }
+
   }
 
   public static class Processor<I extends Iface> extends org.apache.thrift.TBaseProcessor<I> implements org.apache.thrift.TProcessor {
@@ -1336,6 +1395,7 @@ public class RFIDService {
       processMap.put("stagingSiteCheckout", new stagingSiteCheckout());
       processMap.put("getTransportInfo", new getTransportInfo());
       processMap.put("getStagingInfo", new getStagingInfo());
+      processMap.put("getInStagingInfo", new getInStagingInfo());
       return processMap;
     }
 
@@ -1746,6 +1806,26 @@ public class RFIDService {
       }
     }
 
+    public static class getInStagingInfo<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getInStagingInfo_args> {
+      public getInStagingInfo() {
+        super("getInStagingInfo");
+      }
+
+      public getInStagingInfo_args getEmptyArgsInstance() {
+        return new getInStagingInfo_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public getInStagingInfo_result getResult(I iface, getInStagingInfo_args args) throws org.apache.thrift.TException {
+        getInStagingInfo_result result = new getInStagingInfo_result();
+        result.success = iface.getInStagingInfo(args.constructUnit);
+        return result;
+      }
+    }
+
   }
 
   public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
@@ -1779,6 +1859,7 @@ public class RFIDService {
       processMap.put("stagingSiteCheckout", new stagingSiteCheckout());
       processMap.put("getTransportInfo", new getTransportInfo());
       processMap.put("getStagingInfo", new getStagingInfo());
+      processMap.put("getInStagingInfo", new getInStagingInfo());
       return processMap;
     }
 
@@ -2806,6 +2887,57 @@ public class RFIDService {
 
       public void start(I iface, getStagingInfo_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.stagingInfo>> resultHandler) throws TException {
         iface.getStagingInfo(args.constructUnit,resultHandler);
+      }
+    }
+
+    public static class getInStagingInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getInStagingInfo_args, List<rfid.service.inStagingInfo>> {
+      public getInStagingInfo() {
+        super("getInStagingInfo");
+      }
+
+      public getInStagingInfo_args getEmptyArgsInstance() {
+        return new getInStagingInfo_args();
+      }
+
+      public AsyncMethodCallback<List<rfid.service.inStagingInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new AsyncMethodCallback<List<rfid.service.inStagingInfo>>() { 
+          public void onComplete(List<rfid.service.inStagingInfo> o) {
+            getInStagingInfo_result result = new getInStagingInfo_result();
+            result.success = o;
+            try {
+              fcall.sendResponse(fb,result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+              return;
+            } catch (Exception e) {
+              LOGGER.error("Exception writing to internal frame buffer", e);
+            }
+            fb.close();
+          }
+          public void onError(Exception e) {
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TBase msg;
+            getInStagingInfo_result result = new getInStagingInfo_result();
+            {
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+            }
+            try {
+              fcall.sendResponse(fb,msg,msgType,seqid);
+              return;
+            } catch (Exception ex) {
+              LOGGER.error("Exception writing to internal frame buffer", ex);
+            }
+            fb.close();
+          }
+        };
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public void start(I iface, getInStagingInfo_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.inStagingInfo>> resultHandler) throws TException {
+        iface.getInStagingInfo(args.constructUnit,resultHandler);
       }
     }
 
@@ -18890,6 +19022,782 @@ public class RFIDService {
               _elem94 = new rfid.service.stagingInfo();
               _elem94.read(iprot);
               struct.success.add(_elem94);
+            }
+          }
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getInStagingInfo_args implements org.apache.thrift.TBase<getInStagingInfo_args, getInStagingInfo_args._Fields>, java.io.Serializable, Cloneable, Comparable<getInStagingInfo_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getInStagingInfo_args");
+
+    private static final org.apache.thrift.protocol.TField CONSTRUCT_UNIT_FIELD_DESC = new org.apache.thrift.protocol.TField("constructUnit", org.apache.thrift.protocol.TType.STRING, (short)1);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getInStagingInfo_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getInStagingInfo_argsTupleSchemeFactory());
+    }
+
+    public String constructUnit; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      CONSTRUCT_UNIT((short)1, "constructUnit");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // CONSTRUCT_UNIT
+            return CONSTRUCT_UNIT;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.CONSTRUCT_UNIT, new org.apache.thrift.meta_data.FieldMetaData("constructUnit", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getInStagingInfo_args.class, metaDataMap);
+    }
+
+    public getInStagingInfo_args() {
+    }
+
+    public getInStagingInfo_args(
+      String constructUnit)
+    {
+      this();
+      this.constructUnit = constructUnit;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getInStagingInfo_args(getInStagingInfo_args other) {
+      if (other.isSetConstructUnit()) {
+        this.constructUnit = other.constructUnit;
+      }
+    }
+
+    public getInStagingInfo_args deepCopy() {
+      return new getInStagingInfo_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.constructUnit = null;
+    }
+
+    public String getConstructUnit() {
+      return this.constructUnit;
+    }
+
+    public getInStagingInfo_args setConstructUnit(String constructUnit) {
+      this.constructUnit = constructUnit;
+      return this;
+    }
+
+    public void unsetConstructUnit() {
+      this.constructUnit = null;
+    }
+
+    /** Returns true if field constructUnit is set (has been assigned a value) and false otherwise */
+    public boolean isSetConstructUnit() {
+      return this.constructUnit != null;
+    }
+
+    public void setConstructUnitIsSet(boolean value) {
+      if (!value) {
+        this.constructUnit = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case CONSTRUCT_UNIT:
+        if (value == null) {
+          unsetConstructUnit();
+        } else {
+          setConstructUnit((String)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case CONSTRUCT_UNIT:
+        return getConstructUnit();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case CONSTRUCT_UNIT:
+        return isSetConstructUnit();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getInStagingInfo_args)
+        return this.equals((getInStagingInfo_args)that);
+      return false;
+    }
+
+    public boolean equals(getInStagingInfo_args that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_constructUnit = true && this.isSetConstructUnit();
+      boolean that_present_constructUnit = true && that.isSetConstructUnit();
+      if (this_present_constructUnit || that_present_constructUnit) {
+        if (!(this_present_constructUnit && that_present_constructUnit))
+          return false;
+        if (!this.constructUnit.equals(that.constructUnit))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_constructUnit = true && (isSetConstructUnit());
+      list.add(present_constructUnit);
+      if (present_constructUnit)
+        list.add(constructUnit);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(getInStagingInfo_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetConstructUnit()).compareTo(other.isSetConstructUnit());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetConstructUnit()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.constructUnit, other.constructUnit);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getInStagingInfo_args(");
+      boolean first = true;
+
+      sb.append("constructUnit:");
+      if (this.constructUnit == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.constructUnit);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getInStagingInfo_argsStandardSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_argsStandardScheme getScheme() {
+        return new getInStagingInfo_argsStandardScheme();
+      }
+    }
+
+    private static class getInStagingInfo_argsStandardScheme extends StandardScheme<getInStagingInfo_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getInStagingInfo_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // CONSTRUCT_UNIT
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.constructUnit = iprot.readString();
+                struct.setConstructUnitIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getInStagingInfo_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.constructUnit != null) {
+          oprot.writeFieldBegin(CONSTRUCT_UNIT_FIELD_DESC);
+          oprot.writeString(struct.constructUnit);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getInStagingInfo_argsTupleSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_argsTupleScheme getScheme() {
+        return new getInStagingInfo_argsTupleScheme();
+      }
+    }
+
+    private static class getInStagingInfo_argsTupleScheme extends TupleScheme<getInStagingInfo_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetConstructUnit()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetConstructUnit()) {
+          oprot.writeString(struct.constructUnit);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.constructUnit = iprot.readString();
+          struct.setConstructUnitIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getInStagingInfo_result implements org.apache.thrift.TBase<getInStagingInfo_result, getInStagingInfo_result._Fields>, java.io.Serializable, Cloneable, Comparable<getInStagingInfo_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getInStagingInfo_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.LIST, (short)0);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getInStagingInfo_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getInStagingInfo_resultTupleSchemeFactory());
+    }
+
+    public List<rfid.service.inStagingInfo> success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, rfid.service.inStagingInfo.class))));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getInStagingInfo_result.class, metaDataMap);
+    }
+
+    public getInStagingInfo_result() {
+    }
+
+    public getInStagingInfo_result(
+      List<rfid.service.inStagingInfo> success)
+    {
+      this();
+      this.success = success;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getInStagingInfo_result(getInStagingInfo_result other) {
+      if (other.isSetSuccess()) {
+        List<rfid.service.inStagingInfo> __this__success = new ArrayList<rfid.service.inStagingInfo>(other.success.size());
+        for (rfid.service.inStagingInfo other_element : other.success) {
+          __this__success.add(new rfid.service.inStagingInfo(other_element));
+        }
+        this.success = __this__success;
+      }
+    }
+
+    public getInStagingInfo_result deepCopy() {
+      return new getInStagingInfo_result(this);
+    }
+
+    @Override
+    public void clear() {
+      this.success = null;
+    }
+
+    public int getSuccessSize() {
+      return (this.success == null) ? 0 : this.success.size();
+    }
+
+    public java.util.Iterator<rfid.service.inStagingInfo> getSuccessIterator() {
+      return (this.success == null) ? null : this.success.iterator();
+    }
+
+    public void addToSuccess(rfid.service.inStagingInfo elem) {
+      if (this.success == null) {
+        this.success = new ArrayList<rfid.service.inStagingInfo>();
+      }
+      this.success.add(elem);
+    }
+
+    public List<rfid.service.inStagingInfo> getSuccess() {
+      return this.success;
+    }
+
+    public getInStagingInfo_result setSuccess(List<rfid.service.inStagingInfo> success) {
+      this.success = success;
+      return this;
+    }
+
+    public void unsetSuccess() {
+      this.success = null;
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return this.success != null;
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      if (!value) {
+        this.success = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((List<rfid.service.inStagingInfo>)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return getSuccess();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getInStagingInfo_result)
+        return this.equals((getInStagingInfo_result)that);
+      return false;
+    }
+
+    public boolean equals(getInStagingInfo_result that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_success = true && this.isSetSuccess();
+      boolean that_present_success = true && that.isSetSuccess();
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (!this.success.equals(that.success))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_success = true && (isSetSuccess());
+      list.add(present_success);
+      if (present_success)
+        list.add(success);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(getInStagingInfo_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getInStagingInfo_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      if (this.success == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.success);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getInStagingInfo_resultStandardSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_resultStandardScheme getScheme() {
+        return new getInStagingInfo_resultStandardScheme();
+      }
+    }
+
+    private static class getInStagingInfo_resultStandardScheme extends StandardScheme<getInStagingInfo_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getInStagingInfo_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+                {
+                  org.apache.thrift.protocol.TList _list96 = iprot.readListBegin();
+                  struct.success = new ArrayList<rfid.service.inStagingInfo>(_list96.size);
+                  rfid.service.inStagingInfo _elem97;
+                  for (int _i98 = 0; _i98 < _list96.size; ++_i98)
+                  {
+                    _elem97 = new rfid.service.inStagingInfo();
+                    _elem97.read(iprot);
+                    struct.success.add(_elem97);
+                  }
+                  iprot.readListEnd();
+                }
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getInStagingInfo_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.success != null) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          {
+            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
+            for (rfid.service.inStagingInfo _iter99 : struct.success)
+            {
+              _iter99.write(oprot);
+            }
+            oprot.writeListEnd();
+          }
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getInStagingInfo_resultTupleSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_resultTupleScheme getScheme() {
+        return new getInStagingInfo_resultTupleScheme();
+      }
+    }
+
+    private static class getInStagingInfo_resultTupleScheme extends TupleScheme<getInStagingInfo_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          {
+            oprot.writeI32(struct.success.size());
+            for (rfid.service.inStagingInfo _iter100 : struct.success)
+            {
+              _iter100.write(oprot);
+            }
+          }
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          {
+            org.apache.thrift.protocol.TList _list101 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new ArrayList<rfid.service.inStagingInfo>(_list101.size);
+            rfid.service.inStagingInfo _elem102;
+            for (int _i103 = 0; _i103 < _list101.size; ++_i103)
+            {
+              _elem102 = new rfid.service.inStagingInfo();
+              _elem102.read(iprot);
+              struct.success.add(_elem102);
             }
           }
           struct.setSuccessIsSet(true);

@@ -482,6 +482,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             tInfo.setPosition("");
             tInfo.setPerson("");
             tInfo.setConstructUnit("");
+            tInfo.setType(0);
+            tInfo.setApplyDocCode("");
             if(objs[0] != null)
                 tInfo.setTime(objs[0].toString());
             if(objs[1] != null)
@@ -490,6 +492,10 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                 tInfo.setPerson(objs[2].toString());
             if(objs[3] != null)
                 tInfo.setConstructUnit(objs[3].toString());
+            if(objs[4] != null)
+                tInfo.setType(Integer.parseInt(objs[4].toString()));
+            if(objs[5] != null)
+                tInfo.setApplyDocCode(objs[5].toString());
             l.add(tInfo);
         }
         return l;
@@ -509,6 +515,25 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             sInfo.setTime(stagingsite.getTime().toString());
             sInfo.setMaterialCode(stagingsite.getMaterialCode());
             sInfo.setNum(stagingsite.getNum());
+            l.add(sInfo);
+        }
+        return l;
+    }
+
+    @Override
+    public List<inStagingInfo> getInStagingInfo(String constructUnit) throws TException {
+        TransportDao tdao = new TransportDao();
+        List list = dao.getStagingSiteInfo(constructUnit);
+        ArrayList<inStagingInfo> l = new ArrayList<>();
+        for(Iterator it = list.iterator();it.hasNext();){
+            StagingsiteEntity stagingsite = (StagingsiteEntity)it.next();
+            /*stagingInfo sInfo = new stagingInfo();
+            sInfo.setApplyPerson(stagingsite.getApplyPerson());
+            sInfo.setConstructPos(stagingsite.getConstructPos());
+            sInfo.setConstructUnit(stagingsite.getConstructUnit());
+            sInfo.setTime(stagingsite.getTime().toString());
+            sInfo.setMaterialCode(stagingsite.getMaterialCode());
+            sInfo.setNum(stagingsite.getNum());*/
             l.add(sInfo);
         }
         return l;

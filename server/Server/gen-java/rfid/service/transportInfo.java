@@ -42,6 +42,8 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
   private static final org.apache.thrift.protocol.TField POSITION_FIELD_DESC = new org.apache.thrift.protocol.TField("Position", org.apache.thrift.protocol.TType.STRING, (short)2);
   private static final org.apache.thrift.protocol.TField PERSON_FIELD_DESC = new org.apache.thrift.protocol.TField("Person", org.apache.thrift.protocol.TType.STRING, (short)3);
   private static final org.apache.thrift.protocol.TField CONSTRUCT_UNIT_FIELD_DESC = new org.apache.thrift.protocol.TField("ConstructUnit", org.apache.thrift.protocol.TType.STRING, (short)4);
+  private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("Type", org.apache.thrift.protocol.TType.I32, (short)5);
+  private static final org.apache.thrift.protocol.TField APPLY_DOC_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("ApplyDocCode", org.apache.thrift.protocol.TType.STRING, (short)6);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
@@ -53,13 +55,17 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
   public String Position; // required
   public String Person; // required
   public String ConstructUnit; // required
+  public int Type; // required
+  public String ApplyDocCode; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
     TIME((short)1, "Time"),
     POSITION((short)2, "Position"),
     PERSON((short)3, "Person"),
-    CONSTRUCT_UNIT((short)4, "ConstructUnit");
+    CONSTRUCT_UNIT((short)4, "ConstructUnit"),
+    TYPE((short)5, "Type"),
+    APPLY_DOC_CODE((short)6, "ApplyDocCode");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -82,6 +88,10 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
           return PERSON;
         case 4: // CONSTRUCT_UNIT
           return CONSTRUCT_UNIT;
+        case 5: // TYPE
+          return TYPE;
+        case 6: // APPLY_DOC_CODE
+          return APPLY_DOC_CODE;
         default:
           return null;
       }
@@ -122,6 +132,8 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
   }
 
   // isset id assignments
+  private static final int __TYPE_ISSET_ID = 0;
+  private byte __isset_bitfield = 0;
   public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
     Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
@@ -132,6 +144,10 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     tmpMap.put(_Fields.PERSON, new org.apache.thrift.meta_data.FieldMetaData("Person", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.CONSTRUCT_UNIT, new org.apache.thrift.meta_data.FieldMetaData("ConstructUnit", org.apache.thrift.TFieldRequirementType.REQUIRED, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+    tmpMap.put(_Fields.TYPE, new org.apache.thrift.meta_data.FieldMetaData("Type", org.apache.thrift.TFieldRequirementType.REQUIRED, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+    tmpMap.put(_Fields.APPLY_DOC_CODE, new org.apache.thrift.meta_data.FieldMetaData("ApplyDocCode", org.apache.thrift.TFieldRequirementType.REQUIRED, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
     org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(transportInfo.class, metaDataMap);
@@ -144,19 +160,25 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     String Time,
     String Position,
     String Person,
-    String ConstructUnit)
+    String ConstructUnit,
+    int Type,
+    String ApplyDocCode)
   {
     this();
     this.Time = Time;
     this.Position = Position;
     this.Person = Person;
     this.ConstructUnit = ConstructUnit;
+    this.Type = Type;
+    setTypeIsSet(true);
+    this.ApplyDocCode = ApplyDocCode;
   }
 
   /**
    * Performs a deep copy on <i>other</i>.
    */
   public transportInfo(transportInfo other) {
+    __isset_bitfield = other.__isset_bitfield;
     if (other.isSetTime()) {
       this.Time = other.Time;
     }
@@ -168,6 +190,10 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     }
     if (other.isSetConstructUnit()) {
       this.ConstructUnit = other.ConstructUnit;
+    }
+    this.Type = other.Type;
+    if (other.isSetApplyDocCode()) {
+      this.ApplyDocCode = other.ApplyDocCode;
     }
   }
 
@@ -181,6 +207,9 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     this.Position = null;
     this.Person = null;
     this.ConstructUnit = null;
+    setTypeIsSet(false);
+    this.Type = 0;
+    this.ApplyDocCode = null;
   }
 
   public String getTime() {
@@ -279,6 +308,53 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     }
   }
 
+  public int getType() {
+    return this.Type;
+  }
+
+  public transportInfo setType(int Type) {
+    this.Type = Type;
+    setTypeIsSet(true);
+    return this;
+  }
+
+  public void unsetType() {
+    __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __TYPE_ISSET_ID);
+  }
+
+  /** Returns true if field Type is set (has been assigned a value) and false otherwise */
+  public boolean isSetType() {
+    return EncodingUtils.testBit(__isset_bitfield, __TYPE_ISSET_ID);
+  }
+
+  public void setTypeIsSet(boolean value) {
+    __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __TYPE_ISSET_ID, value);
+  }
+
+  public String getApplyDocCode() {
+    return this.ApplyDocCode;
+  }
+
+  public transportInfo setApplyDocCode(String ApplyDocCode) {
+    this.ApplyDocCode = ApplyDocCode;
+    return this;
+  }
+
+  public void unsetApplyDocCode() {
+    this.ApplyDocCode = null;
+  }
+
+  /** Returns true if field ApplyDocCode is set (has been assigned a value) and false otherwise */
+  public boolean isSetApplyDocCode() {
+    return this.ApplyDocCode != null;
+  }
+
+  public void setApplyDocCodeIsSet(boolean value) {
+    if (!value) {
+      this.ApplyDocCode = null;
+    }
+  }
+
   public void setFieldValue(_Fields field, Object value) {
     switch (field) {
     case TIME:
@@ -313,6 +389,22 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
       }
       break;
 
+    case TYPE:
+      if (value == null) {
+        unsetType();
+      } else {
+        setType((Integer)value);
+      }
+      break;
+
+    case APPLY_DOC_CODE:
+      if (value == null) {
+        unsetApplyDocCode();
+      } else {
+        setApplyDocCode((String)value);
+      }
+      break;
+
     }
   }
 
@@ -329,6 +421,12 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
 
     case CONSTRUCT_UNIT:
       return getConstructUnit();
+
+    case TYPE:
+      return getType();
+
+    case APPLY_DOC_CODE:
+      return getApplyDocCode();
 
     }
     throw new IllegalStateException();
@@ -349,6 +447,10 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
       return isSetPerson();
     case CONSTRUCT_UNIT:
       return isSetConstructUnit();
+    case TYPE:
+      return isSetType();
+    case APPLY_DOC_CODE:
+      return isSetApplyDocCode();
     }
     throw new IllegalStateException();
   }
@@ -402,6 +504,24 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
         return false;
     }
 
+    boolean this_present_Type = true;
+    boolean that_present_Type = true;
+    if (this_present_Type || that_present_Type) {
+      if (!(this_present_Type && that_present_Type))
+        return false;
+      if (this.Type != that.Type)
+        return false;
+    }
+
+    boolean this_present_ApplyDocCode = true && this.isSetApplyDocCode();
+    boolean that_present_ApplyDocCode = true && that.isSetApplyDocCode();
+    if (this_present_ApplyDocCode || that_present_ApplyDocCode) {
+      if (!(this_present_ApplyDocCode && that_present_ApplyDocCode))
+        return false;
+      if (!this.ApplyDocCode.equals(that.ApplyDocCode))
+        return false;
+    }
+
     return true;
   }
 
@@ -428,6 +548,16 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     list.add(present_ConstructUnit);
     if (present_ConstructUnit)
       list.add(ConstructUnit);
+
+    boolean present_Type = true;
+    list.add(present_Type);
+    if (present_Type)
+      list.add(Type);
+
+    boolean present_ApplyDocCode = true && (isSetApplyDocCode());
+    list.add(present_ApplyDocCode);
+    if (present_ApplyDocCode)
+      list.add(ApplyDocCode);
 
     return list.hashCode();
   }
@@ -476,6 +606,26 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     }
     if (isSetConstructUnit()) {
       lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.ConstructUnit, other.ConstructUnit);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetType()).compareTo(other.isSetType());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetType()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.Type, other.Type);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetApplyDocCode()).compareTo(other.isSetApplyDocCode());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetApplyDocCode()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.ApplyDocCode, other.ApplyDocCode);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -531,6 +681,18 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
       sb.append(this.ConstructUnit);
     }
     first = false;
+    if (!first) sb.append(", ");
+    sb.append("Type:");
+    sb.append(this.Type);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("ApplyDocCode:");
+    if (this.ApplyDocCode == null) {
+      sb.append("null");
+    } else {
+      sb.append(this.ApplyDocCode);
+    }
+    first = false;
     sb.append(")");
     return sb.toString();
   }
@@ -549,6 +711,10 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
     if (ConstructUnit == null) {
       throw new org.apache.thrift.protocol.TProtocolException("Required field 'ConstructUnit' was not present! Struct: " + toString());
     }
+    // alas, we cannot check 'Type' because it's a primitive and you chose the non-beans generator.
+    if (ApplyDocCode == null) {
+      throw new org.apache.thrift.protocol.TProtocolException("Required field 'ApplyDocCode' was not present! Struct: " + toString());
+    }
     // check for sub-struct validity
   }
 
@@ -562,6 +728,8 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
 
   private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
     try {
+      // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
+      __isset_bitfield = 0;
       read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
     } catch (org.apache.thrift.TException te) {
       throw new java.io.IOException(te);
@@ -618,6 +786,22 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
+          case 5: // TYPE
+            if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+              struct.Type = iprot.readI32();
+              struct.setTypeIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
+          case 6: // APPLY_DOC_CODE
+            if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+              struct.ApplyDocCode = iprot.readString();
+              struct.setApplyDocCodeIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
           default:
             org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
         }
@@ -626,6 +810,9 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
       iprot.readStructEnd();
 
       // check for required fields of primitive type, which can't be checked in the validate method
+      if (!struct.isSetType()) {
+        throw new org.apache.thrift.protocol.TProtocolException("Required field 'Type' was not found in serialized data! Struct: " + toString());
+      }
       struct.validate();
     }
 
@@ -653,6 +840,14 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
         oprot.writeString(struct.ConstructUnit);
         oprot.writeFieldEnd();
       }
+      oprot.writeFieldBegin(TYPE_FIELD_DESC);
+      oprot.writeI32(struct.Type);
+      oprot.writeFieldEnd();
+      if (struct.ApplyDocCode != null) {
+        oprot.writeFieldBegin(APPLY_DOC_CODE_FIELD_DESC);
+        oprot.writeString(struct.ApplyDocCode);
+        oprot.writeFieldEnd();
+      }
       oprot.writeFieldStop();
       oprot.writeStructEnd();
     }
@@ -674,6 +869,8 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
       oprot.writeString(struct.Position);
       oprot.writeString(struct.Person);
       oprot.writeString(struct.ConstructUnit);
+      oprot.writeI32(struct.Type);
+      oprot.writeString(struct.ApplyDocCode);
     }
 
     @Override
@@ -687,6 +884,10 @@ public class transportInfo implements org.apache.thrift.TBase<transportInfo, tra
       struct.setPersonIsSet(true);
       struct.ConstructUnit = iprot.readString();
       struct.setConstructUnitIsSet(true);
+      struct.Type = iprot.readI32();
+      struct.setTypeIsSet(true);
+      struct.ApplyDocCode = iprot.readString();
+      struct.setApplyDocCodeIsSet(true);
     }
   }
 

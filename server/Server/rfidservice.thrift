@@ -23,4 +23,5 @@ bool confirmArrive(1:string charge, 2:string Time, 3:string Position,4: string T
 bool stagingSiteCheckout(1:string applyPerson, 2:string constructPos, 3:string constructUnit, 4:string materialCode, 5:i32 num);
 list<data.transportInfo> getTransportInfo();
 list<data.stagingInfo> getStagingInfo(1:string constructUnit);
+list<data.inStagingInfo> getInStagingInfo(1:string constructUnit);
 }

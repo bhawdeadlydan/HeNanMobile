@@ -50,6 +50,8 @@ struct transportInfo {
 2:required string Position;
 3:required string Person;
 4:required string ConstructUnit;
+5:required i32 Type;
+6:required string ApplyDocCode;
 }
 
 struct stagingInfo {
@@ -59,4 +61,10 @@ struct stagingInfo {
 4:required string Time;
 5:required string MaterialCode;
 6:required i32 Num;
+}
+
+struct inStagingInfo {
+1:required string Time;
+2:required string MaterialCode;
+3:required i32 Num;
 }
