@@ -49,7 +49,10 @@
             android:process=":remote" />
 
         <activity android:name=".ConfigServerActivity" />
-        <activity android:name=".SheetActivity"></activity>
+        <activity android:name=".SheetActivity" />
+        <activity android:name=".TmpConfirmActivity" />
+        <activity android:name=".OrderSearchActivity" />
+        <activity android:name=".TmpSearchActivity"></activity>
     </application>
 
 </manifest>
