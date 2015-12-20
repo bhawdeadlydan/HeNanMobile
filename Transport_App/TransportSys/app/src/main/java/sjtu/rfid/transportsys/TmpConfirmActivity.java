@@ -77,9 +77,14 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nnfc.nfcTask.clearNfcTask();
-                nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
-                btnScan.setEnabled(false);
+                if(editTextAddr.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(),"请先填写施工单位",Toast.LENGTH_SHORT).show();
+                }else{
+                    nnfc.nfcTask.clearNfcTask();
+                    nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
+                    nnfc.processTask(null);
+                    btnScan.setEnabled(false);
+                }
             }
         });
 
@@ -166,14 +171,21 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
                 //Toast.makeText(getApplication(),nfcDataTypeBase.toString(),Toast.LENGTH_SHORT).show();
                 if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
                     btnScan.setEnabled(true);
+                    Data data = (Data) getApplication();
                     String epcCode=nfcDataTypeBase.getERPCode();
-                    if( mItemList.contains(epcCode) ) {
-                        mItemDetailList.put(epcCode,mItemDetailList.get(epcCode)+1);
-                    } else {
-                        mItemList.add(epcCode);
-                        mItemDetailList.put(epcCode,1);
+                    if(editTextAddr.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(),"请先填写施工单位",Toast.LENGTH_SHORT).show();
+                    }else {
+                        InnerThread innerThread = new InnerThread(data.getName(), editTextAddr.getText().toString(), data.getCompany(), 0, 0, System.currentTimeMillis(), nnfc);
+                        innerThread.start();
+                        if (mItemList.contains(epcCode)) {
+                            mItemDetailList.put(epcCode, mItemDetailList.get(epcCode) + 1);
+                        } else {
+                            mItemList.add(epcCode);
+                            mItemDetailList.put(epcCode, 1);
+                        }
+                        mAdapter.notifyDataSetChanged();
                     }
-                    mAdapter.notifyDataSetChanged();
                 }
             }
         });
@@ -208,5 +220,35 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         if(nnfc!=null)
             nnfc.onResume(this);
 
+    }
+
+    class InnerThread extends Thread{
+
+        private String consPerson;
+        private String location;
+        private String company;
+        private double gpsN;
+        private double gpsE;
+        private long time;
+        private RfidNfc nnfc;
+
+        public InnerThread(String consPerson, String location, String company,double gpsN, double gpsE, long time, RfidNfc nnfc) {
+            this.consPerson = consPerson;
+            this.location = location;
+            this.company=company;
+            this.gpsE = gpsE;
+            this.gpsN = gpsN;
+            this.time = time;
+            this.nnfc = nnfc;
+        }
+
+        @Override
+        public void run() {
+            nnfc.nfcTask.clearNfcTask();
+            NfcDataType nfcDataType = new NfcDataType();
+            NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(consPerson,location,company,gpsN,gpsE,time);
+            nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.ConsInf, consInf);
+            nnfc.processTask(null);
+        }
     }
 }

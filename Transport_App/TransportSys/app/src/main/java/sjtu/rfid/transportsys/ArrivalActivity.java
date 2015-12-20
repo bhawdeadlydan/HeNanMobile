@@ -230,7 +230,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
-                //nnfc.processTask(null);
+                nnfc.processTask(null);
                 btnGetOrder.setEnabled(false);
 
             }
@@ -434,7 +434,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                                 innerThread1.start();
                             }
                             else if(func==1) {
-                                InnerThread2 innerThread2=new InnerThread2(data.getName(),position,lat,lng,System.currentTimeMillis(),nnfc);
+                                InnerThread2 innerThread2=new InnerThread2(data.getName(),position,data.getCompany(),lat,lng,System.currentTimeMillis(),nnfc);
                                 innerThread2.start();
                             }
                             mapScan.put(epcCode,mapScan.get(epcCode)+1);
@@ -510,14 +510,16 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
 
         private String consPerson;
         private String location;
+        private String company;
         private double gpsN;
         private double gpsE;
         private long time;
         private RfidNfc nnfc;
 
-        public InnerThread2(String consPerson, String location, double gpsN, double gpsE, long time, RfidNfc nnfc) {
+        public InnerThread2(String consPerson, String location, String company,double gpsN, double gpsE, long time, RfidNfc nnfc) {
             this.consPerson = consPerson;
             this.location = location;
+            this.company=company;
             this.gpsE = gpsE;
             this.gpsN = gpsN;
             this.time = time;
@@ -528,7 +530,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
         public void run() {
             nnfc.nfcTask.clearNfcTask();
             NfcDataType nfcDataType = new NfcDataType();
-            NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(consPerson,location,gpsN,gpsE,time);
+            NfcDataType.ConsInf consInf = nfcDataType.new ConsInf(consPerson,location,company,gpsN,gpsE,time);
             nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.WriteData, NfcTask.NfcTaskName.ConsInf, consInf);
             nnfc.processTask(null);
         }

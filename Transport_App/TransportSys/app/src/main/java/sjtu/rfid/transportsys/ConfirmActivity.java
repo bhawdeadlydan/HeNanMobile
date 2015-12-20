@@ -193,7 +193,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
-                //nnfc.processTask(null);
+                nnfc.processTask(null);
                 btnGetOrder.setEnabled(false);
             }
         });

@@ -152,9 +152,10 @@ public class NfcDataType {
 	}
 
 	public class ConsInf extends NfcDataTypeBase {
-		public ConsInf(String nConsPerson,String nLocation,double nGpsN,double nGpsE,long nTimestamp) {
+		public ConsInf(String nConsPerson,String nLocation,String nWorkTeam,double nGpsN,double nGpsE,long nTimestamp) {
 			ConsPerson = nConsPerson;
 			Location =nLocation;
+			WorkTeam = nWorkTeam;
 			gpsN = nGpsN;
 			gpsE = nGpsE;
 			timestamp =nTimestamp;
