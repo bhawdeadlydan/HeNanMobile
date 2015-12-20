@@ -44,3 +44,19 @@ struct check {
 3:required i32 RealNum;
 4:required string Time;
 }
+
+struct transportInfo {
+1:required string Time;
+2:required string Position;
+3:required string Person;
+4:required string ConstructUnit;
+}
+
+struct stagingInfo {
+1:required string ApplyPerson;
+2:required string ConstructPos;
+3:required string ConstructUnit;
+4:required string Time;
+5:required string MaterialCode;
+6:required i32 Num;
+}

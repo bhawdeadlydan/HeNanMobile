@@ -20,4 +20,7 @@ list<data.Good> getGoodsByLocation(1:i32 Location);
 string getApplyDocCodeByCNum(1:string CNum);
 bool confirmInventory(1:list<data.check> checks);
 bool confirmArrive(1:string charge, 2:string Time, 3:string Position,4: string Type, 5:string PosApplyDocCode, 6:double longitude, 7:double latitude);
+bool stagingSiteCheckout(1:string applyPerson, 2:string constructPos, 3:string constructUnit, 4:string materialCode, 5:i32 num);
+list<data.transportInfo> getTransportInfo(1:string applyDocCode);
+list<data.stagingInfo> getStagingInfo(1:string constructUnit);
 }

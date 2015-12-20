@@ -1,10 +1,7 @@
 package rfid.service;
 
 import dao.*;
-import db.AsnEntity;
-import db.CheckEntity;
-import db.PosEntity;
-import db.TransportEntity;
+import db.*;
 import org.apache.thrift.TException;
 
 import java.sql.Timestamp;
@@ -434,7 +431,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     public boolean confirmArrive(String charge, String Time, String Position, String Type, String PosApplyDocCode, double longitude, double latitude) throws TException {
         TransportEntity transport = new TransportEntity();
         transport.setCharge(charge);
-        Timestamp timestamp = new Timestamp(new Date().getTime());
+        Timestamp timestamp = new Timestamp(Calendar.getInstance().getTimeInMillis());
         try{
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
             Date parsedDate = dateFormat.parse(Time);
@@ -456,6 +453,57 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         PosDao pdao = new PosDao();
         pdao.Retrieval(PosApplyDocCode, 2);
         return true;
+    }
+
+    @Override
+    public boolean stagingSiteCheckout(String applyPerson, String constructPos, String constructUnit, String materialCode, int num) throws TException {
+        StagingSiteDao dao = new StagingSiteDao();
+        StagingsiteEntity stagingSite = new StagingsiteEntity();
+        stagingSite.setApplyPerson(applyPerson);
+        stagingSite.setConstructPos(constructPos);
+        stagingSite.setConstructUnit(constructUnit);
+        stagingSite.setMaterialCode(materialCode);
+        stagingSite.setNum(num);
+        Timestamp timestamp = new Timestamp(Calendar.getInstance().getTimeInMillis());
+        stagingSite.setTime(timestamp);
+        dao.addEntity(stagingSite);
+        return true;
+    }
+
+    @Override
+    public List<transportInfo> getTransportInfo(String applyDocCode) throws TException {
+        TransportDao dao = new TransportDao();
+        List<Object[]> list = dao.getTransportInfo(applyDocCode);
+        ArrayList<transportInfo> l = new ArrayList<>();
+        for(Iterator it = list.iterator(); it.hasNext();){
+            Object[] objs = (Object[]) it.next();
+            transportInfo tInfo = new transportInfo();
+            tInfo.setTime(objs[0].toString());
+            tInfo.setPosition(objs[1].toString());
+            tInfo.setPerson(objs[2].toString());
+            tInfo.setConstructUnit(objs[3].toString());
+            l.add(tInfo);
+        }
+        return l;
+    }
+
+    @Override
+    public List<stagingInfo> getStagingInfo(String constructUnit) throws TException {
+        StagingSiteDao dao = new StagingSiteDao();
+        List list = dao.getStagingSiteInfo(constructUnit);
+        ArrayList<stagingInfo> l = new ArrayList<>();
+        for(Iterator it = list.iterator();it.hasNext();){
+            StagingsiteEntity stagingsite = (StagingsiteEntity)it.next();
+            stagingInfo sInfo = new stagingInfo();
+            sInfo.setApplyPerson(stagingsite.getApplyPerson());
+            sInfo.setConstructPos(stagingsite.getConstructPos());
+            sInfo.setConstructUnit(stagingsite.getConstructUnit());
+            sInfo.setTime(stagingsite.getTime().toString());
+            sInfo.setMaterialCode(stagingsite.getMaterialCode());
+            sInfo.setNum(stagingsite.getNum());
+            l.add(sInfo);
+        }
+        return l;
     }
 
 }
