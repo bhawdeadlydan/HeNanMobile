@@ -40,7 +40,7 @@ public class RFIDClient {
             }*/
 //            client.confirmReceiving("VD-SH-2015090000006");
 //            List<Good> l = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
-            List<transportInfo> l = client.getTransportInfo();
+            List<inStagingInfo> l = client.getInStagingInfo("广东和新");
             /*List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
                 POS pos = (POS)it.next();
@@ -56,7 +56,7 @@ public class RFIDClient {
             cnums.add("2015121600000001");*/
 //            client.confirmRetrieval("2524-REQ-2015120000125", cnums);
             for(Iterator it = l.iterator();it.hasNext();){
-                transportInfo item = (transportInfo)it.next();
+                inStagingInfo item = (inStagingInfo)it.next();
                 Field[] fields = item.getClass().getDeclaredFields();
                 for (int i = 0; i < fields.length; i++) {
                     String mod = Modifier.toString(fields[i].getModifiers());

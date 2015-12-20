@@ -523,18 +523,38 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public List<inStagingInfo> getInStagingInfo(String constructUnit) throws TException {
         TransportDao tdao = new TransportDao();
-        List list = dao.getStagingSiteInfo(constructUnit);
+        WMSDetailDao wdao = new WMSDetailDao();
+        List timelist = tdao.getTimeInfo(constructUnit);
         ArrayList<inStagingInfo> l = new ArrayList<>();
-        for(Iterator it = list.iterator();it.hasNext();){
-            StagingsiteEntity stagingsite = (StagingsiteEntity)it.next();
-            /*stagingInfo sInfo = new stagingInfo();
-            sInfo.setApplyPerson(stagingsite.getApplyPerson());
-            sInfo.setConstructPos(stagingsite.getConstructPos());
-            sInfo.setConstructUnit(stagingsite.getConstructUnit());
-            sInfo.setTime(stagingsite.getTime().toString());
-            sInfo.setMaterialCode(stagingsite.getMaterialCode());
-            sInfo.setNum(stagingsite.getNum());*/
-            l.add(sInfo);
+        for(Iterator it = timelist.iterator();it.hasNext();){
+            Object[] obj = (Object[])it.next();
+            String appCode = "", time = "";
+            if(obj[0] != null)
+                appCode = obj[0].toString();
+            if(obj[1] != null)
+                time = obj[1].toString();
+            List<Object[]> goods1 = wdao.getBomGoodInfoByApplyDocCode(appCode);
+            List<Object[]> goods2 = wdao.getERPGoodInfoByApplyDocCode(appCode);
+            for(Iterator i1 = goods1.iterator();i1.hasNext();){
+                Object[] objs = (Object[]) i1.next();
+                String mCode = objs[0].toString();
+                int num = Integer.parseInt(objs[1].toString());
+                inStagingInfo isInfo = new inStagingInfo();
+                isInfo.setNum(num);
+                isInfo.setMaterialCode(mCode);
+                isInfo.setTime(time);
+                l.add(isInfo);
+            }
+            for(Iterator i1 = goods2.iterator();i1.hasNext();){
+                Object[] objs = (Object[]) i1.next();
+                String mCode = objs[0].toString();
+                int num = Integer.parseInt(objs[1].toString());
+                inStagingInfo isInfo = new inStagingInfo();
+                isInfo.setNum(num);
+                isInfo.setMaterialCode(mCode);
+                isInfo.setTime(time);
+                l.add(isInfo);
+            }
         }
         return l;
     }
