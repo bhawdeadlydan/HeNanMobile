@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.stagingInfo;
 import sjtu.rfid.thread.TmpSearchThread;
 import tools.SearchTmpInListAdapter;
 import tools.SearchTmpOutListAdapter;
@@ -30,6 +31,8 @@ public class TmpSearchActivity extends Activity {
     SearchTmpInListAdapter mAdapterIn;
     SearchTmpOutListAdapter mAdapterOut;
 
+
+    private List<stagingInfo> stagingInfoList;
     private Handler handler=new Handler(){
 
         @Override
@@ -37,13 +40,8 @@ public class TmpSearchActivity extends Activity {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             else if (msg.what==1){
-//                arrivalEntity = (ArrivalEntity) msg.obj;
-//                goodList = arrivalEntity.getGoodsList();
-//                for (Good good : goodList) {
-//                    mapScan.put(good.getCode(), 0);
-//                    mapExpect.put(good.getCode(), good.getNum());
-//                }
-//                iniListView(goodList);
+                stagingInfoList=(List<stagingInfo>)msg.obj;
+                iniListView(stagingInfoList);
             }
         }
     };
@@ -83,9 +81,11 @@ public class TmpSearchActivity extends Activity {
         });
     }
 
-    public void iniListView(){
+    public void iniListView(List<stagingInfo> stagingInfoList){
 
+        for(stagingInfo s:stagingInfoList){
 
+        }
         mAdapterIn = new SearchTmpInListAdapter(this,inList);
         mAdapterOut = new SearchTmpOutListAdapter(this,outList);
     }

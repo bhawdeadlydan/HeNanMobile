@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import rfid.service.Good;
+import rfid.service.transportInfo;
 import sjtu.rfid.entity.ArrivalEntity;
 import sjtu.rfid.thread.OrderSearchThread;
 import tools.OrderSearchAdapter;
@@ -26,19 +27,16 @@ public class OrderSearchActivity extends Activity {
     OrderSearchAdapter mAdapter;
     List<Map<String,String>> mSheetList;
 
+    private List<transportInfo> transportInfoList;
+
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             else if (msg.what==1){
-//                arrivalEntity = (ArrivalEntity) msg.obj;
-//                goodList = arrivalEntity.getGoodsList();
-//                for (Good good : goodList) {
-//                    mapScan.put(good.getCode(), 0);
-//                    mapExpect.put(good.getCode(), good.getNum());
-//                }
-//                iniListView(goodList);
+                transportInfoList=(List<transportInfo>)msg.obj;
+                iniListView(transportInfoList);
             }
         }
     };
@@ -68,7 +66,15 @@ public class OrderSearchActivity extends Activity {
 
     }
 
-    public void iniListView(){
+    public void iniListView(List<transportInfo> transportInfoList){
+
+        for(transportInfo t:transportInfoList){
+            Map<String,String> map=new HashMap<>();
+            map.put("applyCode","");
+            map.put("applyStatus","");
+            map.put("time",t.Time);
+            mSheetList.add(map);
+        }
         mAdapter = new OrderSearchAdapter(this,mSheetList);
         listView.setAdapter(mAdapter);
     }

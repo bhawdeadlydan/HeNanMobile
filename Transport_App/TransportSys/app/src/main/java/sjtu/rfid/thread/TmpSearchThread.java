@@ -3,7 +3,12 @@ package sjtu.rfid.thread;
 import android.os.Handler;
 import android.os.Message;
 
+import org.apache.thrift.TException;
+
+import java.util.List;
+
 import rfid.service.RFIDService;
+import rfid.service.stagingInfo;
 import tools.ConnectServer;
 
 /**
@@ -13,6 +18,9 @@ public class TmpSearchThread extends Thread {
 
     private String search;//暂存点名称
     private Handler handler;
+
+
+    private List<stagingInfo> stagingInfoList;
 
     public TmpSearchThread(String search,Handler handler){
         this.search=search;
@@ -25,17 +33,15 @@ public class TmpSearchThread extends Thread {
         Message msg = handler.obtainMessage();
         ConnectServer connectServer = new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
-//        try{
-//            pos=client.getPOSInfoByApplyDocCode(applyOrder);
-//            goodsList=client.getGoodsListByApplyDocCode(applyOrder);
-//            arrivalEntity=new ArrivalEntity(pos,goodsList);
-//        }catch(TException e){
-//            msg.what=0;
-//            e.printStackTrace();
-//        }
-//
-//        msg.what=1;
-//        msg.obj=arrivalEntity;
-//        handler.sendMessage(msg);
+        try{
+            stagingInfoList=client.getStagingInfo(search);
+            msg.what=1;
+            msg.obj=stagingInfoList;
+            handler.sendMessage(msg);
+        }catch(TException e){
+            msg.what=0;
+            e.printStackTrace();
+        }
+
     }
 }
