@@ -120,6 +120,8 @@ public class NfcTask {
 
 			//REQ was stored in bytes 0-9 of the block 12("-REQ-" replaced with "E")
 			reqInf.REQ = NfcUtils.convertBinToASCII(bTmp).substring(0,18).replace("E", "-REQ-");
+			if(!reqInf.REQ.contains("-REQ-"))
+				reqInf.REQ = "";
 
 			//timeStamp was converted to byte Array stored in byte 12-15 of the block
 			reqInf.timestamp = (long)(bTmp[12]&0xff)*256*256*256 + (long)(bTmp[13]&0xff)*256*256 + (long)(bTmp[14]&0xff)*256 +(long)(bTmp[15]&0xff);
