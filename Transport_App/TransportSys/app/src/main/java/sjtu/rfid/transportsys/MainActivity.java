@@ -15,6 +15,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 
+import org.apache.log4j.chainsaw.Main;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,7 +34,8 @@ import tools.PropertiesUtil;
 
 public class MainActivity extends Activity {
 
-    private Button btnConfig, btnApply, btnArriveTmp, btnArriveConstruct,btnConfigServer;
+    private Button btnConfig, btnApply, btnArriveTmp, btnArriveConstruct,btnConfigServer,
+    btnTmpConfirm,btnTmpSearch,btnOrderSeach;
     private MainButtonListener mBtnListener = new MainButtonListener();
 
 
@@ -86,12 +89,18 @@ public class MainActivity extends Activity {
         btnArriveTmp = (Button) findViewById(R.id.btn_main_arrive_tmp);
         btnArriveConstruct = (Button) findViewById(R.id.btn_main_arrive_construct);
         btnConfigServer=(Button)findViewById(R.id.btn_main_config_server);
+        btnTmpConfirm=(Button)findViewById(R.id.btn_main_tmp_check);
+        btnTmpSearch=(Button)findViewById(R.id.btn_main_search_tmp);
+        btnOrderSeach=(Button)findViewById(R.id.btn_main_search_order);
 
         btnConfig.setOnClickListener(mBtnListener);
         btnApply.setOnClickListener(mBtnListener);
         btnArriveTmp.setOnClickListener(mBtnListener);
         btnArriveConstruct.setOnClickListener(mBtnListener);
         btnConfigServer.setOnClickListener(mBtnListener);
+        btnTmpConfirm.setOnClickListener(mBtnListener);
+        btnTmpSearch.setOnClickListener(mBtnListener);
+        btnOrderSeach.setOnClickListener(mBtnListener);
 
     }
 
@@ -195,6 +204,15 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_main_config_server:
                     intent.setClass(MainActivity.this, ConfigServerActivity.class);
+                    break;
+                case R.id.btn_main_tmp_check:
+                    intent.setClass(MainActivity.this, TmpConfirmActivity.class);
+                    break;
+                case R.id.btn_main_search_order:
+                    intent.setClass(MainActivity.this,OrderSearchActivity.class);
+                    break;
+                case R.id.btn_main_search_tmp:
+                    intent.setClass(MainActivity.this,TmpSearchActivity.class);
                     break;
             }
             startActivity(intent);
