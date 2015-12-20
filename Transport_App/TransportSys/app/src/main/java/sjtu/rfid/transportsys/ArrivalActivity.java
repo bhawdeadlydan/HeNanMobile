@@ -230,8 +230,8 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
-                nnfc.processTask(null);
-                btnGetOrder.setEnabled(false);
+                //nnfc.processTask(null);
+                //btnGetOrder.setEnabled(false);
 
             }
         });
@@ -417,7 +417,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             @Override
             public void run() {
                 if(nfcTaskName== NfcTask.NfcTaskName.REQInf) {
-                    btnGetOrder.setEnabled(true);
+                    //btnGetOrder.setEnabled(true);
                     applyCode = nfcDataTypeBase.getREQ();
                     TextView vApplyCode = (TextView) findViewById(R.id.text_arrival_order_code);
                     vApplyCode.setText(applyCode);

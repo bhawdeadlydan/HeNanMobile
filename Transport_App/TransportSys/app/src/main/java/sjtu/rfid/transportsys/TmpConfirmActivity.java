@@ -83,7 +83,7 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
                     nnfc.nfcTask.clearNfcTask();
                     nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
                     nnfc.processTask(null);
-                    btnScan.setEnabled(false);
+                    //btnScan.setEnabled(false);
                 }
             }
         });
@@ -157,7 +157,11 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
+                if(ret){
+                    Toast.makeText(getApplicationContext(),"写入成功", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(),"写入失败", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -170,7 +174,7 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
             public void run() {
                 //Toast.makeText(getApplication(),nfcDataTypeBase.toString(),Toast.LENGTH_SHORT).show();
                 if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
-                    btnScan.setEnabled(true);
+                    //btnScan.setEnabled(true);
                     Data data = (Data) getApplication();
                     String epcCode=nfcDataTypeBase.getERPCode();
                     if(editTextAddr.getText().toString().equals("")){

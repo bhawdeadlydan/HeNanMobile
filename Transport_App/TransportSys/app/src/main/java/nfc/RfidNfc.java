@@ -45,9 +45,9 @@ public class RfidNfc implements NfcAdapter.ReaderCallback {
 		void getTransInf(NfcDataTypeBase TransInf);     /*获得运输信息*/
 		void getConsInf(NfcDataTypeBase ConsInf);       /*获得施工点信息*/
 		/*标签读取返回信息*/
-		void onReadTag(NfcTaskName nfcTaskName, NfcDataTypeBase NfcDataTypeBase);
+		void onReadTag(NfcTaskName nfcTaskName,NfcDataTypeBase NfcDataTypeBase);
 		/*写标签任务完成*/
-		void onWriteTaskEnd(NfcTaskName nfcTaskName, NfcDataTypeBase nfcDataTypeBase, boolean ret);
+		void onWriteTaskEnd(NfcTaskName nfcTaskName,NfcDataTypeBase nfcDataTypeBase,boolean ret);
 
 	}
 

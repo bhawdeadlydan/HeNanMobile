@@ -6,6 +6,8 @@ import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
 import android.util.Log;
 
+import java.io.IOException;
+
 /**
  * Created by L on 2015/12/14.
  */
@@ -32,7 +34,7 @@ public class MifareClassicTools {
 		return tag != null;
 	}
 
-	public byte[] readTagBlockByte(Tag tag,int block) {
+	public byte[] readM1TagBlockByte(Tag tag,int block) {
 
 		byte[] blockData = null;
 		MifareClassic mfc = MifareClassic.get(tag);
@@ -54,53 +56,57 @@ public class MifareClassicTools {
 				mfc.close();
 			}
 		} catch (Exception e) {
-
 			Log.i(TAG,e.getMessage());
 		}
 		return blockData;
 	}
 
-	public String readTagBlockASCII(Tag tag,int block) {
-		String blockData = NfcUtils.convertBinToASCII(readTagBlockByte(tag, block));
-		return blockData;
+	public String readM1TagBlockASCII(Tag tag,int block) {
+		return NfcUtils.convertBinToASCII(readM1TagBlockByte(tag, block));
 	}
 
-	public String readSectorFromIntent(Intent intent,int Sector) {
+	public String readM1SectorASCIIFromIntent(Intent intent,int Sector) {
+		Log.i(TAG,"readM1SectorASCIIFromIntent");
+		if(intent.getAction() != NfcAdapter.ACTION_TAG_DISCOVERED)
+			return "";
 		String blockData = "";
 		Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		blockData = getM1SectorASCII(tagFromIntent, Sector);
-		Log.i(TAG,"Sector:" + Sector +"\n" +blockData);
+		blockData = readM1SectorASCII(tagFromIntent, Sector);
 		return blockData;
 	}
 
-	public String getTagUID(Tag tag) {
+	public String getM1TagUID(Tag tag) {
 		MifareClassic mfc = MifareClassic.get(tag);
-		return NfcUtils.convertBinToASCII(mfc.getTag().getId());
+		String uid = NfcUtils.convertBinToASCII(mfc.getTag().getId());
+		Log.i(TAG,"getM1TagUID:" + uid);
+		return uid;
 	}
 
-	public String getUidFromIntent(Intent intent) {
+	public String getM1UidFromIntent(Intent intent) {
+		Log.i(TAG,"getM1UidFromIntent");
 		if(intent.getAction() != NfcAdapter.ACTION_TAG_DISCOVERED)
 			return "";
 		Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		return getTagUID(tagFromIntent);
+		return getM1TagUID(tagFromIntent);
 	}
 
-	protected static byte[][] getM1SectorByteArray(Tag tag, int sector) {
+	public byte[][] readM1SectorByteArray(Tag tag, int sector) {
+		Log.i(TAG,"getM1SectorByteArray");
 		byte [][] sectorData = null;
 		MifareClassic mfc = MifareClassic.get(tag);
 		try {
 			mfc.connect();
 			int type = mfc.getType();
 			int sectorCount = mfc.getSectorCount();
-			if (sector< sectorCount && type == MifareClassic.TYPE_CLASSIC) {
-
+			if (sector< sectorCount && type == MifareClassic.TYPE_CLASSIC)
+			{
 				if (mfc.authenticateSectorWithKeyA(sector, MifareClassic.KEY_DEFAULT)) {
 					sectorData = new byte[4][16];
 					for (int i=0; i<=3; i++)
 						sectorData[i] =mfc.readBlock(i);
-					return sectorData;
 				}
 			}
+			mfc.close();
 		} catch (Exception e) {
 			sectorData = null;
 			Log.i(TAG, e.getMessage());
@@ -108,15 +114,17 @@ public class MifareClassicTools {
 		return sectorData;
 	}
 
-	public String getM1SectorASCII(Tag tag,int sector) {
+	public String readM1SectorASCII(Tag tag,int sector) {
 		String sectorDataString = "";
-		byte [][]  sectorDataByte = getM1SectorByteArray(tag, sector);
+		byte [][]  sectorDataByte = readM1SectorByteArray(tag, sector);
 		if(sectorDataByte!=null) {
 			for(int i=0; i<=3; i++)
 				sectorDataString += NfcUtils.convertBinToASCII(sectorDataByte[i]);
 		}
+		Log.i(TAG,"readM1SectorASCII:" + sector +"\n" +sectorDataString);
 		return sectorDataString;
 	}
+
 
 	public  boolean writeM1BlockByte(Tag tag,int block,byte[] blockDat)
 	{
@@ -125,7 +133,7 @@ public class MifareClassicTools {
 		try
 		{
 			if(mfc!=null){
-				if(mfc.isConnected())
+				if(mfc.isConnected())	/* maybe it's redundant*/
 					mfc.close();
 				mfc.connect();
 				int type = mfc.getType();
@@ -134,7 +142,10 @@ public class MifareClassicTools {
 					if (mfc.authenticateSectorWithKeyA(block/4, MifareClassic.KEY_DEFAULT)) {
 						Log.i(TAG,"Auth succeed");
 						mfc.writeBlock(block,blockDat);
-					} else {
+						mfc.close();
+						return true;
+					}
+					else {
 						Log.i(TAG,"Auth failed");
 					}
 				}
@@ -144,9 +155,8 @@ public class MifareClassicTools {
 		catch(Exception e)
 		{
 			Log.i(TAG, e.getMessage());
-			return false;
 		}
-		return true;
+		return false;
 	}
 
 	public boolean writeM1SectorByte(Tag tag,int sector,byte[][] blockDat)

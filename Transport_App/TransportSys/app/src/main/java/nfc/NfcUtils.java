@@ -123,10 +123,10 @@ public class NfcUtils {
 
 	}
 
-	public static long bytes2long(byte[] b) {
-		long temp = 0;
+	public static long bytesTolong4(byte[] b) {
+		long temp;
 		long res = 0;
-		for (int i=0;i<b.length&&i<8;i++) {
+		for (int i=0;i<b.length&&i<4;i++) {
 			res <<= 8;
 			temp = b[i] & 0xff;
 			res |= temp;
@@ -134,7 +134,7 @@ public class NfcUtils {
 		return res;
 	}
 
-	public static byte[] long2bytes(long num) {
+	public static byte[] long4Tobytes(long num) {
 		byte[] b = new byte[4];
 		for (int i=0;i<4;i++) {
 			b[i] = (byte)(num>>>(24-(i*8)));

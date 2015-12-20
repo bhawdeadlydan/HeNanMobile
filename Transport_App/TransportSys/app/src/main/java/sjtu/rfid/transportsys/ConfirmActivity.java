@@ -193,8 +193,8 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 //扫描货物标签线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.REQInf, null);
-                nnfc.processTask(null);
-                btnGetOrder.setEnabled(false);
+                //nnfc.processTask(null);
+                //btnGetOrder.setEnabled(false);
             }
         });
 
@@ -204,7 +204,6 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 //扫描货物标签并写入相关信息线程
                 nnfc.nfcTask.clearNfcTask();
                 nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
-
                 nnfc.processTask(null);
             }
         });
@@ -317,7 +316,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
             public void run() {
                 //Toast.makeText(getApplicationContext(),  nfcDataTypeBase.toString(), Toast.LENGTH_SHORT).show();
                 if(nfcTaskName== NfcTask.NfcTaskName.REQInf) {
-                    btnGetOrder.setEnabled(true);
+                    //btnGetOrder.setEnabled(true);
                     applyCode = nfcDataTypeBase.getREQ();
                     TextView vApplyCode = (TextView) findViewById(R.id.text_confirm_order_code);
                     vApplyCode.setText(applyCode);
@@ -326,7 +325,7 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
                 }else if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
 
                     String epcCode=nfcDataTypeBase.getERPCode();
-
+                    //Toast.makeText(getApplicationContext(),  epcCode, Toast.LENGTH_SHORT).show();
                     if(mapScan.containsKey(epcCode)){
                         if(mapScan.get(epcCode)>=mapExpect.get(epcCode)){
                             Toast.makeText(getApplicationContext(),  "货物:"+epcCode+"数量已够", Toast.LENGTH_SHORT).show();
@@ -371,7 +370,14 @@ public class ConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
         super.onResume();
         if(nnfc!=null)
             nnfc.onResume(this);
+    }
 
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        if(nnfc!=null)
+            nnfc.onPause(this);
     }
     class InnerThread extends Thread{
 
