@@ -1,6 +1,8 @@
 package com.headingwl.RfidManager;
 
 
+import android.support.annotation.Nullable;
+
 /**
  * Created by L on 2015/12/14.
  */
@@ -121,8 +123,8 @@ public class NfcDataType {
 	}
 
 	public class REQInf extends NfcDataTypeBase {
-		public REQInf(String nEPC,String nREQ, String nReqPerson,
-		                 String nWorkTeam,String nCheckPerson,long nTimestamp) {
+		public REQInf(String nEPC,String nREQ,String nReqPerson,
+					   String nWorkTeam,String nCheckPerson,long nTimestamp) {
 			EPC = nEPC;
 			REQ = nREQ;
 			ReqPerson = nReqPerson;
@@ -152,9 +154,10 @@ public class NfcDataType {
 	}
 
 	public class ConsInf extends NfcDataTypeBase {
-		public ConsInf(String nConsPerson,String nLocation,double nGpsN,double nGpsE,long nTimestamp) {
+		public ConsInf(String nConsPerson,String nLocation,String nWorkTeam,double nGpsN,double nGpsE,long nTimestamp) {
 			ConsPerson = nConsPerson;
 			Location =nLocation;
+			WorkTeam = nWorkTeam;
 			gpsN = nGpsN;
 			gpsE = nGpsE;
 			timestamp =nTimestamp;
