@@ -55,7 +55,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
 
     private String charge;
     private String time;
-    private String position;
+    private String position="";
     private String type;
     private String applyCode;
     private double lng=0.0;
@@ -239,9 +239,13 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             @Override
             public void onClick(View v) {
                 //扫描货物标签并写入相关数据线程
-                nnfc.nfcTask.clearNfcTask();
-                nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
-                nnfc.processTask(null);
+                if(position.equals("")){
+                    Toast.makeText(getApplicationContext(),"请先定位",Toast.LENGTH_SHORT).show();
+                }else {
+                    nnfc.nfcTask.clearNfcTask();
+                    nnfc.nfcTask.addNfcTask(NfcTask.NfcTaskType.ReadData, NfcTask.NfcTaskName.ItemInf, null);
+                    nnfc.processTask(null);
+                }
 
             }
         });
