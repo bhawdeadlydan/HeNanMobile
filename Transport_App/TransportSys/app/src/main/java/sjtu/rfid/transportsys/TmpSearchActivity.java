@@ -45,6 +45,8 @@ public class TmpSearchActivity extends Activity {
             else if (msg.what==1){
                 tmpSearchEntity=(TmpSearchEntity)msg.obj;
                 iniListView(tmpSearchEntity);
+                mAdapterIn.notifyDataSetChanged();
+                mAdapterOut.notifyDataSetChanged();
             }
         }
     };
@@ -88,5 +90,7 @@ public class TmpSearchActivity extends Activity {
         out=tmpSearchEntity.getOut();
         mAdapterIn = new SearchTmpInListAdapter(this,in);
         mAdapterOut = new SearchTmpOutListAdapter(this,out);
+        listViewIn.setAdapter(mAdapterIn);
+        listViewOut.setAdapter(mAdapterOut);
     }
 }

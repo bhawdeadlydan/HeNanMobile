@@ -37,6 +37,7 @@ public class OrderSearchActivity extends Activity {
             else if (msg.what==1){
                 transportInfoList=(List<transportInfo>)msg.obj;
                 iniListView(transportInfoList);
+                mAdapter.notifyDataSetChanged();
             }
         }
     };
@@ -70,8 +71,20 @@ public class OrderSearchActivity extends Activity {
 
         for(transportInfo t:transportInfoList){
             Map<String,String> map=new HashMap<>();
-            map.put("applyCode","");
-            map.put("applyStatus","");
+            map.put("applyCode",t.getApplyDocCode());
+            String status = "";
+            switch ( t.getType() ) {
+                case 0:
+                    status = "抵达暂存点";
+                    break;
+                case 1:
+                    status = "抵达施工点";
+                    break;
+                case 2:
+                    status = "已复核出库";
+                    break;
+            }
+            map.put("applyStatus",status);
             map.put("time",t.Time);
             mSheetList.add(map);
         }

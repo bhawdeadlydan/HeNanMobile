@@ -46,9 +46,13 @@ public class OrderSearchAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_order_seach, null);
-        TextView vOrder = (TextView)layout.findViewById(R.id.text_order_seach_code);
+        TextView vCode = (TextView)layout.findViewById(R.id.text_order_seach_code);
         TextView vStatus = (TextView)layout.findViewById(R.id.text_order_seach_status);
         TextView vDate = (TextView)layout.findViewById(R.id.text_order_seach_date);
+        Map map = mSheetList.get(position);
+        vCode.setText("申领单号："+map.get("applyCode"));
+        vStatus.setText("申领状态："+map.get("applyStatus"));
+        vDate.setText("更新时间："+map.get("time"));
         return layout;
     }
 }

@@ -52,10 +52,13 @@ public class SearchTmpOutListAdapter extends BaseAdapter {
         TextView vCnt = (TextView)layout.findViewById(R.id.text_out_list_cnt);
         TextView vDate = (TextView)layout.findViewById(R.id.text_out_list_date);
         TextView vPerson = (TextView)layout.findViewById(R.id.text_out_list_person);
+        TextView vAddr = (TextView)layout.findViewById(R.id.text_out_list_addr);
         vCode.setText("物料编码："+s.getMaterialCode());
         vCnt.setText("物料数量："+s.getNum());
         vDate.setText("申领时间："+s.getTime());
         vPerson.setText("申领人："+s.getApplyPerson());
+        vAddr.setText("施工地点："+s.getConstructPos());
+
         return layout;
     }
 }

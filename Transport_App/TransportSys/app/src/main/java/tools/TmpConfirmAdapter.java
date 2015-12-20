@@ -49,6 +49,10 @@ public class TmpConfirmAdapter extends BaseAdapter {
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_tmp_confirm, null);
         TextView vCode = (TextView)layout.findViewById(R.id.item_tmp_confirm_code);
         TextView vCnt = (TextView)layout.findViewById(R.id.item_tmp_confirm_cnt);
+        String code = mItemList.get(position);
+        vCode.setText("物料编码："+code);
+        Integer cnt = mItemDetailList.get(code);
+        vCnt.setText("物料数量："+cnt);
         return layout;
     }
 }

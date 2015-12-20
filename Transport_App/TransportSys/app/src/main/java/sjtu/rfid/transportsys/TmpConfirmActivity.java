@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,11 +20,14 @@ import nfc.NfcDataType;
 import nfc.NfcTask;
 import nfc.RfidNfc;
 import sjtu.rfid.thread.ArrivalThread;
+import sjtu.rfid.thread.TmpConfirmThread;
+import tools.Data;
 import tools.TmpConfirmAdapter;
 
 public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBack{
 
     Button btnScan,btnCommit;
+    EditText editTextAddr;
     ListView listView;
     Map<String,Integer> mItemDetailList;
     List<String> mItemList;
@@ -34,16 +38,11 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
 
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what==0||msg.obj==null)
-                Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
+            if(msg.what==0)
+                Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
             else if (msg.what==1){
-//                arrivalEntity = (ArrivalEntity) msg.obj;
-//                goodList = arrivalEntity.getGoodsList();
-//                for (Good good : goodList) {
-//                    mapScan.put(good.getCode(), 0);
-//                    mapExpect.put(good.getCode(), good.getNum());
-//                }
-//                iniListView(goodList);
+                Toast.makeText(getApplicationContext(),"提交成功",Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
     };
@@ -56,6 +55,7 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         nnfc.hfInit(this);
 
         iniActivity();
+        iniListView();
     }
 
     public void iniActivity() {
@@ -70,6 +70,7 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         btnScan = (Button)findViewById(R.id.btn_tmp_confirm_scan);
         btnCommit = (Button)findViewById(R.id.btn_tmp_confirm_commit);
         listView = (ListView)findViewById(R.id.listview_tmp_confirm);
+        editTextAddr=(EditText)findViewById(R.id.edittext_construct_address);
         mItemList = new ArrayList<>();
         mItemDetailList = new HashMap<>();
 
@@ -85,7 +86,12 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Data data = (Data) getApplication();
+                String name = data.getName();
+                String unit = data.getCompany();
+                String address = editTextAddr.getText().toString();
+                TmpConfirmThread t = new TmpConfirmThread(handler, name, unit, address, mItemDetailList);
+                t.start();
             }
         });
     }
@@ -96,51 +102,111 @@ public class TmpConfirmActivity extends Activity implements RfidNfc.TagUidCallBa
         listView.setAdapter(mAdapter);
     }
     @Override
-    public void onTagUidGet(NfcDataType.NfcDataTypeBase uid) {
+    public void onTagUidGet(final NfcDataType.NfcDataTypeBase uid) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getApplicationContext(), uid.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onSectorGet(String sector){
+
+    }
+    public void onBlockGet(final String block)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), block.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void getItemInf(final NfcDataType.NfcDataTypeBase itemInf){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), itemInf.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void getREQInf(final NfcDataType.NfcDataTypeBase reqInf){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Toast.makeText(getApplicationContext(), reqInf.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    @Override
+    public void onWriteTaskEnd(final NfcTask.NfcTaskName nfcTaskName,final NfcDataType.NfcDataTypeBase nfcDataTypeBase,final boolean ret)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+    }
+
+    @Override
+    public  void onReadTag(final NfcTask.NfcTaskName nfcTaskName, final NfcDataType.NfcDataTypeBase nfcDataTypeBase)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplication(),nfcDataTypeBase.toString(),Toast.LENGTH_SHORT).show();
+                if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
+                    btnScan.setEnabled(true);
+                    String epcCode=nfcDataTypeBase.getERPCode();
+                    if( mItemList.contains(epcCode) ) {
+                        mItemDetailList.put(epcCode,mItemDetailList.get(epcCode)+1);
+                    } else {
+                        mItemList.add(epcCode);
+                        mItemDetailList.put(epcCode,1);
+                    }
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getTransInf(final NfcDataType.NfcDataTypeBase TransInf){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), TransInf.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     @Override
-    public void onBlockGet(String block) {
+    public void getConsInf(final NfcDataType.NfcDataTypeBase consInf){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //Toast.makeText(getApplicationContext(), consInf.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     @Override
-    public void onSectorGet(String sector) {
-
-    }
-
-    @Override
-    public void getItemInf(NfcDataType.NfcDataTypeBase ItemInf) {
-
-    }
-
-    @Override
-    public void getREQInf(NfcDataType.NfcDataTypeBase REQInf) {
-
-    }
-
-    @Override
-    public void getTransInf(NfcDataType.NfcDataTypeBase TransInf) {
-
-    }
-
-    @Override
-    public void getConsInf(NfcDataType.NfcDataTypeBase ConsInf) {
-
-    }
-
-    @Override
-    public void onReadTag(NfcTask.NfcTaskName nfcTaskName, NfcDataType.NfcDataTypeBase NfcDataTypeBase) {
-
-        if(nfcTaskName== NfcTask.NfcTaskName.ItemInf){
-            btnScan.setEnabled(true);
-            String epcCode=NfcDataTypeBase.getERPCode();
-        }
-    }
-
-    @Override
-    public void onWriteTaskEnd(NfcTask.NfcTaskName nfcTaskName, NfcDataType.NfcDataTypeBase nfcDataTypeBase, boolean ret) {
+    protected void onResume() {
+        super.onResume();
+        if(nnfc!=null)
+            nnfc.onResume(this);
 
     }
 }

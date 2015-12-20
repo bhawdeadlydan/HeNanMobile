@@ -97,8 +97,6 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
         @Override
         public void handleMessage(Message msg) {
             //Toast.makeText(getApplicationContext(), msg.obj.toString(), Toast.LENGTH_LONG).show();
-            if(msg.what==0||msg.obj==null)
-                Toast.makeText(getApplicationContext(),"获取地址失败",Toast.LENGTH_SHORT).show();
             TextView vAddress=(TextView)findViewById(R.id.text_arrival_address);
             position=msg.obj.toString();
             vAddress.setText(msg.obj.toString());
@@ -145,9 +143,9 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        LocationListener listener=(LocationListener)myListener;
-        geoCoderThread=new GeoCoderThread(listener.getLongitude(),listener.getLatitude(),geoHandler);
-        geoCoderThread.start();
+//        LocationListener listener=(LocationListener)myListener;
+//        geoCoderThread=new GeoCoderThread(listener.getLongitude(),listener.getLatitude(),geoHandler);
+//        geoCoderThread.start();
 
     }
     public void iniActivity()
@@ -222,6 +220,7 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
                 lat=listener.getLatitude();
                 geoCoderThread=new GeoCoderThread(listener.getLongitude(),listener.getLatitude(),geoHandler);
                 geoCoderThread.start();
+
             }
         });
 
