@@ -75,7 +75,7 @@ public class RFIDService {
 
     public boolean stagingSiteCheckout(String applyPerson, String constructPos, String constructUnit, String materialCode, int num) throws org.apache.thrift.TException;
 
-    public List<rfid.service.transportInfo> getTransportInfo(String applyDocCode) throws org.apache.thrift.TException;
+    public List<rfid.service.transportInfo> getTransportInfo() throws org.apache.thrift.TException;
 
     public List<rfid.service.stagingInfo> getStagingInfo(String constructUnit) throws org.apache.thrift.TException;
 
@@ -119,7 +119,7 @@ public class RFIDService {
 
     public void stagingSiteCheckout(String applyPerson, String constructPos, String constructUnit, String materialCode, int num, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
-    public void getTransportInfo(String applyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+    public void getTransportInfo(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
     public void getStagingInfo(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
@@ -570,16 +570,15 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "stagingSiteCheckout failed: unknown result");
     }
 
-    public List<rfid.service.transportInfo> getTransportInfo(String applyDocCode) throws org.apache.thrift.TException
+    public List<rfid.service.transportInfo> getTransportInfo() throws org.apache.thrift.TException
     {
-      send_getTransportInfo(applyDocCode);
+      send_getTransportInfo();
       return recv_getTransportInfo();
     }
 
-    public void send_getTransportInfo(String applyDocCode) throws org.apache.thrift.TException
+    public void send_getTransportInfo() throws org.apache.thrift.TException
     {
       getTransportInfo_args args = new getTransportInfo_args();
-      args.setApplyDocCode(applyDocCode);
       sendBase("getTransportInfo", args);
     }
 
@@ -1243,24 +1242,21 @@ public class RFIDService {
       }
     }
 
-    public void getTransportInfo(String applyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+    public void getTransportInfo(org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      getTransportInfo_call method_call = new getTransportInfo_call(applyDocCode, resultHandler, this, ___protocolFactory, ___transport);
+      getTransportInfo_call method_call = new getTransportInfo_call(resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
     public static class getTransportInfo_call extends org.apache.thrift.async.TAsyncMethodCall {
-      private String applyDocCode;
-      public getTransportInfo_call(String applyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public getTransportInfo_call(org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
-        this.applyDocCode = applyDocCode;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getTransportInfo", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getTransportInfo_args args = new getTransportInfo_args();
-        args.setApplyDocCode(applyDocCode);
         args.write(prot);
         prot.writeMessageEnd();
       }
@@ -1725,7 +1721,7 @@ public class RFIDService {
 
       public getTransportInfo_result getResult(I iface, getTransportInfo_args args) throws org.apache.thrift.TException {
         getTransportInfo_result result = new getTransportInfo_result();
-        result.success = iface.getTransportInfo(args.applyDocCode);
+        result.success = iface.getTransportInfo();
         return result;
       }
     }
@@ -2758,7 +2754,7 @@ public class RFIDService {
       }
 
       public void start(I iface, getTransportInfo_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.transportInfo>> resultHandler) throws TException {
-        iface.getTransportInfo(args.applyDocCode,resultHandler);
+        iface.getTransportInfo(resultHandler);
       }
     }
 
@@ -17467,7 +17463,6 @@ public class RFIDService {
   public static class getTransportInfo_args implements org.apache.thrift.TBase<getTransportInfo_args, getTransportInfo_args._Fields>, java.io.Serializable, Cloneable, Comparable<getTransportInfo_args>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getTransportInfo_args");
 
-    private static final org.apache.thrift.protocol.TField APPLY_DOC_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("applyDocCode", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -17475,11 +17470,10 @@ public class RFIDService {
       schemes.put(TupleScheme.class, new getTransportInfo_argsTupleSchemeFactory());
     }
 
-    public String applyDocCode; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      APPLY_DOC_CODE((short)1, "applyDocCode");
+;
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -17494,8 +17488,6 @@ public class RFIDService {
        */
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
-          case 1: // APPLY_DOC_CODE
-            return APPLY_DOC_CODE;
           default:
             return null;
         }
@@ -17534,13 +17526,9 @@ public class RFIDService {
         return _fieldName;
       }
     }
-
-    // isset id assignments
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.APPLY_DOC_CODE, new org.apache.thrift.meta_data.FieldMetaData("applyDocCode", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getTransportInfo_args.class, metaDataMap);
     }
@@ -17548,20 +17536,10 @@ public class RFIDService {
     public getTransportInfo_args() {
     }
 
-    public getTransportInfo_args(
-      String applyDocCode)
-    {
-      this();
-      this.applyDocCode = applyDocCode;
-    }
-
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public getTransportInfo_args(getTransportInfo_args other) {
-      if (other.isSetApplyDocCode()) {
-        this.applyDocCode = other.applyDocCode;
-      }
     }
 
     public getTransportInfo_args deepCopy() {
@@ -17570,51 +17548,15 @@ public class RFIDService {
 
     @Override
     public void clear() {
-      this.applyDocCode = null;
-    }
-
-    public String getApplyDocCode() {
-      return this.applyDocCode;
-    }
-
-    public getTransportInfo_args setApplyDocCode(String applyDocCode) {
-      this.applyDocCode = applyDocCode;
-      return this;
-    }
-
-    public void unsetApplyDocCode() {
-      this.applyDocCode = null;
-    }
-
-    /** Returns true if field applyDocCode is set (has been assigned a value) and false otherwise */
-    public boolean isSetApplyDocCode() {
-      return this.applyDocCode != null;
-    }
-
-    public void setApplyDocCodeIsSet(boolean value) {
-      if (!value) {
-        this.applyDocCode = null;
-      }
     }
 
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
-      case APPLY_DOC_CODE:
-        if (value == null) {
-          unsetApplyDocCode();
-        } else {
-          setApplyDocCode((String)value);
-        }
-        break;
-
       }
     }
 
     public Object getFieldValue(_Fields field) {
       switch (field) {
-      case APPLY_DOC_CODE:
-        return getApplyDocCode();
-
       }
       throw new IllegalStateException();
     }
@@ -17626,8 +17568,6 @@ public class RFIDService {
       }
 
       switch (field) {
-      case APPLY_DOC_CODE:
-        return isSetApplyDocCode();
       }
       throw new IllegalStateException();
     }
@@ -17645,26 +17585,12 @@ public class RFIDService {
       if (that == null)
         return false;
 
-      boolean this_present_applyDocCode = true && this.isSetApplyDocCode();
-      boolean that_present_applyDocCode = true && that.isSetApplyDocCode();
-      if (this_present_applyDocCode || that_present_applyDocCode) {
-        if (!(this_present_applyDocCode && that_present_applyDocCode))
-          return false;
-        if (!this.applyDocCode.equals(that.applyDocCode))
-          return false;
-      }
-
       return true;
     }
 
     @Override
     public int hashCode() {
       List<Object> list = new ArrayList<Object>();
-
-      boolean present_applyDocCode = true && (isSetApplyDocCode());
-      list.add(present_applyDocCode);
-      if (present_applyDocCode)
-        list.add(applyDocCode);
 
       return list.hashCode();
     }
@@ -17677,16 +17603,6 @@ public class RFIDService {
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetApplyDocCode()).compareTo(other.isSetApplyDocCode());
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-      if (isSetApplyDocCode()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.applyDocCode, other.applyDocCode);
-        if (lastComparison != 0) {
-          return lastComparison;
-        }
-      }
       return 0;
     }
 
@@ -17707,13 +17623,6 @@ public class RFIDService {
       StringBuilder sb = new StringBuilder("getTransportInfo_args(");
       boolean first = true;
 
-      sb.append("applyDocCode:");
-      if (this.applyDocCode == null) {
-        sb.append("null");
-      } else {
-        sb.append(this.applyDocCode);
-      }
-      first = false;
       sb.append(")");
       return sb.toString();
     }
@@ -17757,14 +17666,6 @@ public class RFIDService {
             break;
           }
           switch (schemeField.id) {
-            case 1: // APPLY_DOC_CODE
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-                struct.applyDocCode = iprot.readString();
-                struct.setApplyDocCodeIsSet(true);
-              } else { 
-                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-              }
-              break;
             default:
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
@@ -17780,11 +17681,6 @@ public class RFIDService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        if (struct.applyDocCode != null) {
-          oprot.writeFieldBegin(APPLY_DOC_CODE_FIELD_DESC);
-          oprot.writeString(struct.applyDocCode);
-          oprot.writeFieldEnd();
-        }
         oprot.writeFieldStop();
         oprot.writeStructEnd();
       }
@@ -17802,24 +17698,11 @@ public class RFIDService {
       @Override
       public void write(org.apache.thrift.protocol.TProtocol prot, getTransportInfo_args struct) throws org.apache.thrift.TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
-        BitSet optionals = new BitSet();
-        if (struct.isSetApplyDocCode()) {
-          optionals.set(0);
-        }
-        oprot.writeBitSet(optionals, 1);
-        if (struct.isSetApplyDocCode()) {
-          oprot.writeString(struct.applyDocCode);
-        }
       }
 
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, getTransportInfo_args struct) throws org.apache.thrift.TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(1);
-        if (incoming.get(0)) {
-          struct.applyDocCode = iprot.readString();
-          struct.setApplyDocCodeIsSet(true);
-        }
       }
     }
 

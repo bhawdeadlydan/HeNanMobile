@@ -471,17 +471,25 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     }
 
     @Override
-    public List<transportInfo> getTransportInfo(String applyDocCode) throws TException {
+    public List<transportInfo> getTransportInfo() throws TException {
         TransportDao dao = new TransportDao();
-        List<Object[]> list = dao.getTransportInfo(applyDocCode);
+        List<Object[]> list = dao.getTransportInfo();
         ArrayList<transportInfo> l = new ArrayList<>();
         for(Iterator it = list.iterator(); it.hasNext();){
             Object[] objs = (Object[]) it.next();
             transportInfo tInfo = new transportInfo();
-            tInfo.setTime(objs[0].toString());
-            tInfo.setPosition(objs[1].toString());
-            tInfo.setPerson(objs[2].toString());
-            tInfo.setConstructUnit(objs[3].toString());
+            tInfo.setTime("");
+            tInfo.setPosition("");
+            tInfo.setPerson("");
+            tInfo.setConstructUnit("");
+            if(objs[0] != null)
+                tInfo.setTime(objs[0].toString());
+            if(objs[1] != null)
+                tInfo.setPosition(objs[1].toString());
+            if(objs[2] != null)
+                tInfo.setPerson(objs[2].toString());
+            if(objs[3] != null)
+                tInfo.setConstructUnit(objs[3].toString());
             l.add(tInfo);
         }
         return l;

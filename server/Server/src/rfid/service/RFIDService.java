@@ -75,9 +75,9 @@ public class RFIDService {
 
     public boolean stagingSiteCheckout(String applyPerson, String constructPos, String constructUnit, String materialCode, int num) throws TException;
 
-    public List<rfid.service.transportInfo> getTransportInfo(String applyDocCode) throws TException;
+    public List<transportInfo> getTransportInfo() throws TException;
 
-    public List<rfid.service.stagingInfo> getStagingInfo(String constructUnit) throws TException;
+    public List<stagingInfo> getStagingInfo(String constructUnit) throws TException;
 
   }
 
@@ -119,7 +119,7 @@ public class RFIDService {
 
     public void stagingSiteCheckout(String applyPerson, String constructPos, String constructUnit, String materialCode, int num, AsyncMethodCallback resultHandler) throws TException;
 
-    public void getTransportInfo(String applyDocCode, AsyncMethodCallback resultHandler) throws TException;
+    public void getTransportInfo(AsyncMethodCallback resultHandler) throws TException;
 
     public void getStagingInfo(String constructUnit, AsyncMethodCallback resultHandler) throws TException;
 
@@ -570,20 +570,19 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "stagingSiteCheckout failed: unknown result");
     }
 
-    public List<rfid.service.transportInfo> getTransportInfo(String applyDocCode) throws TException
+    public List<transportInfo> getTransportInfo() throws TException
     {
-      send_getTransportInfo(applyDocCode);
+      send_getTransportInfo();
       return recv_getTransportInfo();
     }
 
-    public void send_getTransportInfo(String applyDocCode) throws TException
+    public void send_getTransportInfo() throws TException
     {
       getTransportInfo_args args = new getTransportInfo_args();
-      args.setApplyDocCode(applyDocCode);
       sendBase("getTransportInfo", args);
     }
 
-    public List<rfid.service.transportInfo> recv_getTransportInfo() throws TException
+    public List<transportInfo> recv_getTransportInfo() throws TException
     {
       getTransportInfo_result result = new getTransportInfo_result();
       receiveBase(result, "getTransportInfo");
@@ -593,7 +592,7 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getTransportInfo failed: unknown result");
     }
 
-    public List<rfid.service.stagingInfo> getStagingInfo(String constructUnit) throws TException
+    public List<stagingInfo> getStagingInfo(String constructUnit) throws TException
     {
       send_getStagingInfo(constructUnit);
       return recv_getStagingInfo();
@@ -606,7 +605,7 @@ public class RFIDService {
       sendBase("getStagingInfo", args);
     }
 
-    public List<rfid.service.stagingInfo> recv_getStagingInfo() throws TException
+    public List<stagingInfo> recv_getStagingInfo() throws TException
     {
       getStagingInfo_result result = new getStagingInfo_result();
       receiveBase(result, "getStagingInfo");
@@ -1243,29 +1242,26 @@ public class RFIDService {
       }
     }
 
-    public void getTransportInfo(String applyDocCode, AsyncMethodCallback resultHandler) throws TException {
+    public void getTransportInfo(AsyncMethodCallback resultHandler) throws TException {
       checkReady();
-      getTransportInfo_call method_call = new getTransportInfo_call(applyDocCode, resultHandler, this, ___protocolFactory, ___transport);
+      getTransportInfo_call method_call = new getTransportInfo_call(resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
     public static class getTransportInfo_call extends org.apache.thrift.async.TAsyncMethodCall {
-      private String applyDocCode;
-      public getTransportInfo_call(String applyDocCode, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
+      public getTransportInfo_call(AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
         super(client, protocolFactory, transport, resultHandler, false);
-        this.applyDocCode = applyDocCode;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getTransportInfo", org.apache.thrift.protocol.TMessageType.CALL, 0));
         getTransportInfo_args args = new getTransportInfo_args();
-        args.setApplyDocCode(applyDocCode);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.transportInfo> getResult() throws TException {
+      public List<transportInfo> getResult() throws TException {
         if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
@@ -1297,7 +1293,7 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.stagingInfo> getResult() throws TException {
+      public List<stagingInfo> getResult() throws TException {
         if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
@@ -1725,7 +1721,7 @@ public class RFIDService {
 
       public getTransportInfo_result getResult(I iface, getTransportInfo_args args) throws TException {
         getTransportInfo_result result = new getTransportInfo_result();
-        result.success = iface.getTransportInfo(args.applyDocCode);
+        result.success = iface.getTransportInfo();
         return result;
       }
     }
@@ -2711,7 +2707,7 @@ public class RFIDService {
       }
     }
 
-    public static class getTransportInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getTransportInfo_args, List<rfid.service.transportInfo>> {
+    public static class getTransportInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getTransportInfo_args, List<transportInfo>> {
       public getTransportInfo() {
         super("getTransportInfo");
       }
@@ -2720,10 +2716,10 @@ public class RFIDService {
         return new getTransportInfo_args();
       }
 
-      public AsyncMethodCallback<List<rfid.service.transportInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+      public AsyncMethodCallback<List<transportInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
-        return new AsyncMethodCallback<List<rfid.service.transportInfo>>() { 
-          public void onComplete(List<rfid.service.transportInfo> o) {
+        return new AsyncMethodCallback<List<transportInfo>>() {
+          public void onComplete(List<transportInfo> o) {
             getTransportInfo_result result = new getTransportInfo_result();
             result.success = o;
             try {
@@ -2757,12 +2753,12 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getTransportInfo_args args, AsyncMethodCallback<List<rfid.service.transportInfo>> resultHandler) throws TException {
-        iface.getTransportInfo(args.applyDocCode,resultHandler);
+      public void start(I iface, getTransportInfo_args args, AsyncMethodCallback<List<transportInfo>> resultHandler) throws TException {
+        iface.getTransportInfo(resultHandler);
       }
     }
 
-    public static class getStagingInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getStagingInfo_args, List<rfid.service.stagingInfo>> {
+    public static class getStagingInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getStagingInfo_args, List<stagingInfo>> {
       public getStagingInfo() {
         super("getStagingInfo");
       }
@@ -2771,10 +2767,10 @@ public class RFIDService {
         return new getStagingInfo_args();
       }
 
-      public AsyncMethodCallback<List<rfid.service.stagingInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+      public AsyncMethodCallback<List<stagingInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
-        return new AsyncMethodCallback<List<rfid.service.stagingInfo>>() { 
-          public void onComplete(List<rfid.service.stagingInfo> o) {
+        return new AsyncMethodCallback<List<stagingInfo>>() {
+          public void onComplete(List<stagingInfo> o) {
             getStagingInfo_result result = new getStagingInfo_result();
             result.success = o;
             try {
@@ -2808,7 +2804,7 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getStagingInfo_args args, AsyncMethodCallback<List<rfid.service.stagingInfo>> resultHandler) throws TException {
+      public void start(I iface, getStagingInfo_args args, AsyncMethodCallback<List<stagingInfo>> resultHandler) throws TException {
         iface.getStagingInfo(args.constructUnit,resultHandler);
       }
     }
@@ -17467,7 +17463,6 @@ public class RFIDService {
   public static class getTransportInfo_args implements org.apache.thrift.TBase<getTransportInfo_args, getTransportInfo_args._Fields>, java.io.Serializable, Cloneable, Comparable<getTransportInfo_args>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getTransportInfo_args");
 
-    private static final org.apache.thrift.protocol.TField APPLY_DOC_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("applyDocCode", org.apache.thrift.protocol.TType.STRING, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -17475,11 +17470,10 @@ public class RFIDService {
       schemes.put(TupleScheme.class, new getTransportInfo_argsTupleSchemeFactory());
     }
 
-    public String applyDocCode; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      APPLY_DOC_CODE((short)1, "applyDocCode");
+;
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -17494,8 +17488,6 @@ public class RFIDService {
        */
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
-          case 1: // APPLY_DOC_CODE
-            return APPLY_DOC_CODE;
           default:
             return null;
         }
@@ -17534,13 +17526,9 @@ public class RFIDService {
         return _fieldName;
       }
     }
-
-    // isset id assignments
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.APPLY_DOC_CODE, new org.apache.thrift.meta_data.FieldMetaData("applyDocCode", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getTransportInfo_args.class, metaDataMap);
     }
@@ -17548,20 +17536,10 @@ public class RFIDService {
     public getTransportInfo_args() {
     }
 
-    public getTransportInfo_args(
-      String applyDocCode)
-    {
-      this();
-      this.applyDocCode = applyDocCode;
-    }
-
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public getTransportInfo_args(getTransportInfo_args other) {
-      if (other.isSetApplyDocCode()) {
-        this.applyDocCode = other.applyDocCode;
-      }
     }
 
     public getTransportInfo_args deepCopy() {
@@ -17570,51 +17548,15 @@ public class RFIDService {
 
     @Override
     public void clear() {
-      this.applyDocCode = null;
-    }
-
-    public String getApplyDocCode() {
-      return this.applyDocCode;
-    }
-
-    public getTransportInfo_args setApplyDocCode(String applyDocCode) {
-      this.applyDocCode = applyDocCode;
-      return this;
-    }
-
-    public void unsetApplyDocCode() {
-      this.applyDocCode = null;
-    }
-
-    /** Returns true if field applyDocCode is set (has been assigned a value) and false otherwise */
-    public boolean isSetApplyDocCode() {
-      return this.applyDocCode != null;
-    }
-
-    public void setApplyDocCodeIsSet(boolean value) {
-      if (!value) {
-        this.applyDocCode = null;
-      }
     }
 
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
-      case APPLY_DOC_CODE:
-        if (value == null) {
-          unsetApplyDocCode();
-        } else {
-          setApplyDocCode((String)value);
-        }
-        break;
-
       }
     }
 
     public Object getFieldValue(_Fields field) {
       switch (field) {
-      case APPLY_DOC_CODE:
-        return getApplyDocCode();
-
       }
       throw new IllegalStateException();
     }
@@ -17626,8 +17568,6 @@ public class RFIDService {
       }
 
       switch (field) {
-      case APPLY_DOC_CODE:
-        return isSetApplyDocCode();
       }
       throw new IllegalStateException();
     }
@@ -17645,26 +17585,12 @@ public class RFIDService {
       if (that == null)
         return false;
 
-      boolean this_present_applyDocCode = true && this.isSetApplyDocCode();
-      boolean that_present_applyDocCode = true && that.isSetApplyDocCode();
-      if (this_present_applyDocCode || that_present_applyDocCode) {
-        if (!(this_present_applyDocCode && that_present_applyDocCode))
-          return false;
-        if (!this.applyDocCode.equals(that.applyDocCode))
-          return false;
-      }
-
       return true;
     }
 
     @Override
     public int hashCode() {
       List<Object> list = new ArrayList<Object>();
-
-      boolean present_applyDocCode = true && (isSetApplyDocCode());
-      list.add(present_applyDocCode);
-      if (present_applyDocCode)
-        list.add(applyDocCode);
 
       return list.hashCode();
     }
@@ -17677,16 +17603,6 @@ public class RFIDService {
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetApplyDocCode()).compareTo(other.isSetApplyDocCode());
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-      if (isSetApplyDocCode()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.applyDocCode, other.applyDocCode);
-        if (lastComparison != 0) {
-          return lastComparison;
-        }
-      }
       return 0;
     }
 
@@ -17707,13 +17623,6 @@ public class RFIDService {
       StringBuilder sb = new StringBuilder("getTransportInfo_args(");
       boolean first = true;
 
-      sb.append("applyDocCode:");
-      if (this.applyDocCode == null) {
-        sb.append("null");
-      } else {
-        sb.append(this.applyDocCode);
-      }
-      first = false;
       sb.append(")");
       return sb.toString();
     }
@@ -17757,14 +17666,6 @@ public class RFIDService {
             break;
           }
           switch (schemeField.id) {
-            case 1: // APPLY_DOC_CODE
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-                struct.applyDocCode = iprot.readString();
-                struct.setApplyDocCodeIsSet(true);
-              } else { 
-                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-              }
-              break;
             default:
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
@@ -17780,11 +17681,6 @@ public class RFIDService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        if (struct.applyDocCode != null) {
-          oprot.writeFieldBegin(APPLY_DOC_CODE_FIELD_DESC);
-          oprot.writeString(struct.applyDocCode);
-          oprot.writeFieldEnd();
-        }
         oprot.writeFieldStop();
         oprot.writeStructEnd();
       }
@@ -17802,24 +17698,11 @@ public class RFIDService {
       @Override
       public void write(org.apache.thrift.protocol.TProtocol prot, getTransportInfo_args struct) throws TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
-        BitSet optionals = new BitSet();
-        if (struct.isSetApplyDocCode()) {
-          optionals.set(0);
-        }
-        oprot.writeBitSet(optionals, 1);
-        if (struct.isSetApplyDocCode()) {
-          oprot.writeString(struct.applyDocCode);
-        }
       }
 
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, getTransportInfo_args struct) throws TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(1);
-        if (incoming.get(0)) {
-          struct.applyDocCode = iprot.readString();
-          struct.setApplyDocCodeIsSet(true);
-        }
       }
     }
 
@@ -17836,7 +17719,7 @@ public class RFIDService {
       schemes.put(TupleScheme.class, new getTransportInfo_resultTupleSchemeFactory());
     }
 
-    public List<rfid.service.transportInfo> success; // required
+    public List<transportInfo> success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -17902,7 +17785,7 @@ public class RFIDService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
-              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, rfid.service.transportInfo.class))));
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, transportInfo.class))));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getTransportInfo_result.class, metaDataMap);
     }
@@ -17911,7 +17794,7 @@ public class RFIDService {
     }
 
     public getTransportInfo_result(
-      List<rfid.service.transportInfo> success)
+      List<transportInfo> success)
     {
       this();
       this.success = success;
@@ -17922,9 +17805,9 @@ public class RFIDService {
      */
     public getTransportInfo_result(getTransportInfo_result other) {
       if (other.isSetSuccess()) {
-        List<rfid.service.transportInfo> __this__success = new ArrayList<rfid.service.transportInfo>(other.success.size());
-        for (rfid.service.transportInfo other_element : other.success) {
-          __this__success.add(new rfid.service.transportInfo(other_element));
+        List<transportInfo> __this__success = new ArrayList<transportInfo>(other.success.size());
+        for (transportInfo other_element : other.success) {
+          __this__success.add(new transportInfo(other_element));
         }
         this.success = __this__success;
       }
@@ -17943,22 +17826,22 @@ public class RFIDService {
       return (this.success == null) ? 0 : this.success.size();
     }
 
-    public java.util.Iterator<rfid.service.transportInfo> getSuccessIterator() {
+    public java.util.Iterator<transportInfo> getSuccessIterator() {
       return (this.success == null) ? null : this.success.iterator();
     }
 
-    public void addToSuccess(rfid.service.transportInfo elem) {
+    public void addToSuccess(transportInfo elem) {
       if (this.success == null) {
-        this.success = new ArrayList<rfid.service.transportInfo>();
+        this.success = new ArrayList<transportInfo>();
       }
       this.success.add(elem);
     }
 
-    public List<rfid.service.transportInfo> getSuccess() {
+    public List<transportInfo> getSuccess() {
       return this.success;
     }
 
-    public getTransportInfo_result setSuccess(List<rfid.service.transportInfo> success) {
+    public getTransportInfo_result setSuccess(List<transportInfo> success) {
       this.success = success;
       return this;
     }
@@ -17984,7 +17867,7 @@ public class RFIDService {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((List<rfid.service.transportInfo>)value);
+          setSuccess((List<transportInfo>)value);
         }
         break;
 
@@ -18142,11 +18025,11 @@ public class RFIDService {
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
                   org.apache.thrift.protocol.TList _list80 = iprot.readListBegin();
-                  struct.success = new ArrayList<rfid.service.transportInfo>(_list80.size);
-                  rfid.service.transportInfo _elem81;
+                  struct.success = new ArrayList<transportInfo>(_list80.size);
+                  transportInfo _elem81;
                   for (int _i82 = 0; _i82 < _list80.size; ++_i82)
                   {
-                    _elem81 = new rfid.service.transportInfo();
+                    _elem81 = new transportInfo();
                     _elem81.read(iprot);
                     struct.success.add(_elem81);
                   }
@@ -18176,7 +18059,7 @@ public class RFIDService {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (rfid.service.transportInfo _iter83 : struct.success)
+            for (transportInfo _iter83 : struct.success)
             {
               _iter83.write(oprot);
             }
@@ -18209,7 +18092,7 @@ public class RFIDService {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (rfid.service.transportInfo _iter84 : struct.success)
+            for (transportInfo _iter84 : struct.success)
             {
               _iter84.write(oprot);
             }
@@ -18224,11 +18107,11 @@ public class RFIDService {
         if (incoming.get(0)) {
           {
             org.apache.thrift.protocol.TList _list85 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new ArrayList<rfid.service.transportInfo>(_list85.size);
-            rfid.service.transportInfo _elem86;
+            struct.success = new ArrayList<transportInfo>(_list85.size);
+            transportInfo _elem86;
             for (int _i87 = 0; _i87 < _list85.size; ++_i87)
             {
-              _elem86 = new rfid.service.transportInfo();
+              _elem86 = new transportInfo();
               _elem86.read(iprot);
               struct.success.add(_elem86);
             }
@@ -18612,7 +18495,7 @@ public class RFIDService {
       schemes.put(TupleScheme.class, new getStagingInfo_resultTupleSchemeFactory());
     }
 
-    public List<rfid.service.stagingInfo> success; // required
+    public List<stagingInfo> success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -18678,7 +18561,7 @@ public class RFIDService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
-              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, rfid.service.stagingInfo.class))));
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, stagingInfo.class))));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getStagingInfo_result.class, metaDataMap);
     }
@@ -18687,7 +18570,7 @@ public class RFIDService {
     }
 
     public getStagingInfo_result(
-      List<rfid.service.stagingInfo> success)
+      List<stagingInfo> success)
     {
       this();
       this.success = success;
@@ -18698,9 +18581,9 @@ public class RFIDService {
      */
     public getStagingInfo_result(getStagingInfo_result other) {
       if (other.isSetSuccess()) {
-        List<rfid.service.stagingInfo> __this__success = new ArrayList<rfid.service.stagingInfo>(other.success.size());
-        for (rfid.service.stagingInfo other_element : other.success) {
-          __this__success.add(new rfid.service.stagingInfo(other_element));
+        List<stagingInfo> __this__success = new ArrayList<stagingInfo>(other.success.size());
+        for (stagingInfo other_element : other.success) {
+          __this__success.add(new stagingInfo(other_element));
         }
         this.success = __this__success;
       }
@@ -18719,22 +18602,22 @@ public class RFIDService {
       return (this.success == null) ? 0 : this.success.size();
     }
 
-    public java.util.Iterator<rfid.service.stagingInfo> getSuccessIterator() {
+    public java.util.Iterator<stagingInfo> getSuccessIterator() {
       return (this.success == null) ? null : this.success.iterator();
     }
 
-    public void addToSuccess(rfid.service.stagingInfo elem) {
+    public void addToSuccess(stagingInfo elem) {
       if (this.success == null) {
-        this.success = new ArrayList<rfid.service.stagingInfo>();
+        this.success = new ArrayList<stagingInfo>();
       }
       this.success.add(elem);
     }
 
-    public List<rfid.service.stagingInfo> getSuccess() {
+    public List<stagingInfo> getSuccess() {
       return this.success;
     }
 
-    public getStagingInfo_result setSuccess(List<rfid.service.stagingInfo> success) {
+    public getStagingInfo_result setSuccess(List<stagingInfo> success) {
       this.success = success;
       return this;
     }
@@ -18760,7 +18643,7 @@ public class RFIDService {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((List<rfid.service.stagingInfo>)value);
+          setSuccess((List<stagingInfo>)value);
         }
         break;
 
@@ -18918,11 +18801,11 @@ public class RFIDService {
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
                   org.apache.thrift.protocol.TList _list88 = iprot.readListBegin();
-                  struct.success = new ArrayList<rfid.service.stagingInfo>(_list88.size);
-                  rfid.service.stagingInfo _elem89;
+                  struct.success = new ArrayList<stagingInfo>(_list88.size);
+                  stagingInfo _elem89;
                   for (int _i90 = 0; _i90 < _list88.size; ++_i90)
                   {
-                    _elem89 = new rfid.service.stagingInfo();
+                    _elem89 = new stagingInfo();
                     _elem89.read(iprot);
                     struct.success.add(_elem89);
                   }
@@ -18952,7 +18835,7 @@ public class RFIDService {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (rfid.service.stagingInfo _iter91 : struct.success)
+            for (stagingInfo _iter91 : struct.success)
             {
               _iter91.write(oprot);
             }
@@ -18985,7 +18868,7 @@ public class RFIDService {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (rfid.service.stagingInfo _iter92 : struct.success)
+            for (stagingInfo _iter92 : struct.success)
             {
               _iter92.write(oprot);
             }
@@ -19000,11 +18883,11 @@ public class RFIDService {
         if (incoming.get(0)) {
           {
             org.apache.thrift.protocol.TList _list93 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new ArrayList<rfid.service.stagingInfo>(_list93.size);
-            rfid.service.stagingInfo _elem94;
+            struct.success = new ArrayList<stagingInfo>(_list93.size);
+            stagingInfo _elem94;
             for (int _i95 = 0; _i95 < _list93.size; ++_i95)
             {
-              _elem94 = new rfid.service.stagingInfo();
+              _elem94 = new stagingInfo();
               _elem94.read(iprot);
               struct.success.add(_elem94);
             }
