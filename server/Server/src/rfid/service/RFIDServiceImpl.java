@@ -282,7 +282,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     @Override
     public boolean confirmRetrieval(String ApplyDocCode, List<String> CNums) throws TException {
         PosDao pdao = new PosDao();
-        pdao.Retrieval(ApplyDocCode);
+        pdao.Retrieval(ApplyDocCode, 1);
         WMSDetailDao wdao = new WMSDetailDao();
         for(Iterator<String> it = CNums.iterator(); it.hasNext();){
             String CNum = it.next();
@@ -443,6 +443,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         }catch(Exception e){
 //            e.printStackTrace();
             System.err.println(e.getMessage());
+            return false;
         }
         transport.setTime(timestamp);
         transport.setPosition(Position);
@@ -452,6 +453,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         transport.setLatitude(latitude);
         TransportDao dao = new TransportDao();
         dao.addEntity(transport);
+        PosDao pdao = new PosDao();
+        pdao.Retrieval(PosApplyDocCode, 2);
         return true;
     }
 

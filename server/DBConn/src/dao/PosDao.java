@@ -11,14 +11,15 @@ import java.util.List;
  * Created by richard on 2015/12/7.
  */
 public class PosDao extends BaseDao{
-    public void Retrieval(String ApplyDocCode){
+    public void Retrieval(String ApplyDocCode, int sent){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String queryString = "update PosEntity as model set model.sent = 1 where model.applyDocCode = ?";
+            String queryString = "update PosEntity as model set model.sent = ? where model.applyDocCode = ?";
             Query queryObject = session.createQuery(queryString);
-            queryObject.setParameter(0, ApplyDocCode);
+            queryObject.setParameter(0, sent);
+            queryObject.setParameter(1, ApplyDocCode);
             queryObject.executeUpdate();
             tx.commit();
         }catch (HibernateException e) {

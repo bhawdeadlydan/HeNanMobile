@@ -45,6 +45,8 @@
         <mapping class="db.PosEntity"/>
         <mapping resource="db/PosEntity.hbm.xml"/>
         <mapping resource="db/SaleBomDetailEntity.hbm.xml"/>
+        <mapping class="db.StagingsiteEntity"/>
+        <mapping resource="db/StagingsiteEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
     </session-factory>
 </hibernate-configuration>
