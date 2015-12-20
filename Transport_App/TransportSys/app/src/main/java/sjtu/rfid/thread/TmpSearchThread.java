@@ -8,7 +8,9 @@ import org.apache.thrift.TException;
 import java.util.List;
 
 import rfid.service.RFIDService;
+import rfid.service.inStagingInfo;
 import rfid.service.stagingInfo;
+import sjtu.rfid.entity.TmpSearchEntity;
 import tools.ConnectServer;
 
 /**
@@ -20,7 +22,9 @@ public class TmpSearchThread extends Thread {
     private Handler handler;
 
 
-    private List<stagingInfo> stagingInfoList;
+    private List<inStagingInfo> in;
+    private List<stagingInfo> out;
+    private TmpSearchEntity tmpSearchEntity;
 
     public TmpSearchThread(String search,Handler handler){
         this.search=search;
@@ -34,9 +38,11 @@ public class TmpSearchThread extends Thread {
         ConnectServer connectServer = new ConnectServer();
         RFIDService.Client client = connectServer.openConnect();
         try{
-            stagingInfoList=client.getStagingInfo(search);
+            in=client.getInStagingInfo(search);
+            out=client.getStagingInfo(search);
+            tmpSearchEntity=new TmpSearchEntity(in,out);
             msg.what=1;
-            msg.obj=stagingInfoList;
+            msg.obj=tmpSearchEntity;
             handler.sendMessage(msg);
         }catch(TException e){
             msg.what=0;

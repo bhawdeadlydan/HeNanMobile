@@ -75,9 +75,11 @@ public class RFIDService {
 
     public boolean stagingSiteCheckout(String applyPerson, String constructPos, String constructUnit, String materialCode, int num) throws TException;
 
-    public List<rfid.service.transportInfo> getTransportInfo() throws TException;
+    public List<transportInfo> getTransportInfo() throws TException;
 
-    public List<rfid.service.stagingInfo> getStagingInfo(String constructUnit) throws TException;
+    public List<stagingInfo> getStagingInfo(String constructUnit) throws TException;
+
+    public List<inStagingInfo> getInStagingInfo(String constructUnit) throws TException;
 
   }
 
@@ -122,6 +124,8 @@ public class RFIDService {
     public void getTransportInfo(AsyncMethodCallback resultHandler) throws TException;
 
     public void getStagingInfo(String constructUnit, AsyncMethodCallback resultHandler) throws TException;
+
+    public void getInStagingInfo(String constructUnit, AsyncMethodCallback resultHandler) throws TException;
 
   }
 
@@ -570,7 +574,7 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "stagingSiteCheckout failed: unknown result");
     }
 
-    public List<rfid.service.transportInfo> getTransportInfo() throws TException
+    public List<transportInfo> getTransportInfo() throws TException
     {
       send_getTransportInfo();
       return recv_getTransportInfo();
@@ -582,7 +586,7 @@ public class RFIDService {
       sendBase("getTransportInfo", args);
     }
 
-    public List<rfid.service.transportInfo> recv_getTransportInfo() throws TException
+    public List<transportInfo> recv_getTransportInfo() throws TException
     {
       getTransportInfo_result result = new getTransportInfo_result();
       receiveBase(result, "getTransportInfo");
@@ -592,7 +596,7 @@ public class RFIDService {
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getTransportInfo failed: unknown result");
     }
 
-    public List<rfid.service.stagingInfo> getStagingInfo(String constructUnit) throws TException
+    public List<stagingInfo> getStagingInfo(String constructUnit) throws TException
     {
       send_getStagingInfo(constructUnit);
       return recv_getStagingInfo();
@@ -605,7 +609,7 @@ public class RFIDService {
       sendBase("getStagingInfo", args);
     }
 
-    public List<rfid.service.stagingInfo> recv_getStagingInfo() throws TException
+    public List<stagingInfo> recv_getStagingInfo() throws TException
     {
       getStagingInfo_result result = new getStagingInfo_result();
       receiveBase(result, "getStagingInfo");
@@ -613,6 +617,29 @@ public class RFIDService {
         return result.success;
       }
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getStagingInfo failed: unknown result");
+    }
+
+    public List<inStagingInfo> getInStagingInfo(String constructUnit) throws TException
+    {
+      send_getInStagingInfo(constructUnit);
+      return recv_getInStagingInfo();
+    }
+
+    public void send_getInStagingInfo(String constructUnit) throws TException
+    {
+      getInStagingInfo_args args = new getInStagingInfo_args();
+      args.setConstructUnit(constructUnit);
+      sendBase("getInStagingInfo", args);
+    }
+
+    public List<inStagingInfo> recv_getInStagingInfo() throws TException
+    {
+      getInStagingInfo_result result = new getInStagingInfo_result();
+      receiveBase(result, "getInStagingInfo");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getInStagingInfo failed: unknown result");
     }
 
   }
@@ -1261,7 +1288,7 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.transportInfo> getResult() throws TException {
+      public List<transportInfo> getResult() throws TException {
         if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
@@ -1293,13 +1320,45 @@ public class RFIDService {
         prot.writeMessageEnd();
       }
 
-      public List<rfid.service.stagingInfo> getResult() throws TException {
+      public List<stagingInfo> getResult() throws TException {
         if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
         return (new Client(prot)).recv_getStagingInfo();
+      }
+    }
+
+    public void getInStagingInfo(String constructUnit, AsyncMethodCallback resultHandler) throws TException {
+      checkReady();
+      getInStagingInfo_call method_call = new getInStagingInfo_call(constructUnit, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class getInStagingInfo_call extends org.apache.thrift.async.TAsyncMethodCall {
+      private String constructUnit;
+      public getInStagingInfo_call(String constructUnit, AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.constructUnit = constructUnit;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getInStagingInfo", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        getInStagingInfo_args args = new getInStagingInfo_args();
+        args.setConstructUnit(constructUnit);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public List<inStagingInfo> getResult() throws TException {
+        if (getState() != State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_getInStagingInfo();
       }
     }
 
@@ -1336,6 +1395,7 @@ public class RFIDService {
       processMap.put("stagingSiteCheckout", new stagingSiteCheckout());
       processMap.put("getTransportInfo", new getTransportInfo());
       processMap.put("getStagingInfo", new getStagingInfo());
+      processMap.put("getInStagingInfo", new getInStagingInfo());
       return processMap;
     }
 
@@ -1746,6 +1806,26 @@ public class RFIDService {
       }
     }
 
+    public static class getInStagingInfo<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getInStagingInfo_args> {
+      public getInStagingInfo() {
+        super("getInStagingInfo");
+      }
+
+      public getInStagingInfo_args getEmptyArgsInstance() {
+        return new getInStagingInfo_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public getInStagingInfo_result getResult(I iface, getInStagingInfo_args args) throws TException {
+        getInStagingInfo_result result = new getInStagingInfo_result();
+        result.success = iface.getInStagingInfo(args.constructUnit);
+        return result;
+      }
+    }
+
   }
 
   public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
@@ -1779,6 +1859,7 @@ public class RFIDService {
       processMap.put("stagingSiteCheckout", new stagingSiteCheckout());
       processMap.put("getTransportInfo", new getTransportInfo());
       processMap.put("getStagingInfo", new getStagingInfo());
+      processMap.put("getInStagingInfo", new getInStagingInfo());
       return processMap;
     }
 
@@ -2707,7 +2788,7 @@ public class RFIDService {
       }
     }
 
-    public static class getTransportInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getTransportInfo_args, List<rfid.service.transportInfo>> {
+    public static class getTransportInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getTransportInfo_args, List<transportInfo>> {
       public getTransportInfo() {
         super("getTransportInfo");
       }
@@ -2716,10 +2797,10 @@ public class RFIDService {
         return new getTransportInfo_args();
       }
 
-      public AsyncMethodCallback<List<rfid.service.transportInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+      public AsyncMethodCallback<List<transportInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
-        return new AsyncMethodCallback<List<rfid.service.transportInfo>>() { 
-          public void onComplete(List<rfid.service.transportInfo> o) {
+        return new AsyncMethodCallback<List<transportInfo>>() {
+          public void onComplete(List<transportInfo> o) {
             getTransportInfo_result result = new getTransportInfo_result();
             result.success = o;
             try {
@@ -2753,12 +2834,12 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getTransportInfo_args args, AsyncMethodCallback<List<rfid.service.transportInfo>> resultHandler) throws TException {
+      public void start(I iface, getTransportInfo_args args, AsyncMethodCallback<List<transportInfo>> resultHandler) throws TException {
         iface.getTransportInfo(resultHandler);
       }
     }
 
-    public static class getStagingInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getStagingInfo_args, List<rfid.service.stagingInfo>> {
+    public static class getStagingInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getStagingInfo_args, List<stagingInfo>> {
       public getStagingInfo() {
         super("getStagingInfo");
       }
@@ -2767,10 +2848,10 @@ public class RFIDService {
         return new getStagingInfo_args();
       }
 
-      public AsyncMethodCallback<List<rfid.service.stagingInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+      public AsyncMethodCallback<List<stagingInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
-        return new AsyncMethodCallback<List<rfid.service.stagingInfo>>() { 
-          public void onComplete(List<rfid.service.stagingInfo> o) {
+        return new AsyncMethodCallback<List<stagingInfo>>() {
+          public void onComplete(List<stagingInfo> o) {
             getStagingInfo_result result = new getStagingInfo_result();
             result.success = o;
             try {
@@ -2804,8 +2885,59 @@ public class RFIDService {
         return false;
       }
 
-      public void start(I iface, getStagingInfo_args args, AsyncMethodCallback<List<rfid.service.stagingInfo>> resultHandler) throws TException {
+      public void start(I iface, getStagingInfo_args args, AsyncMethodCallback<List<stagingInfo>> resultHandler) throws TException {
         iface.getStagingInfo(args.constructUnit,resultHandler);
+      }
+    }
+
+    public static class getInStagingInfo<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getInStagingInfo_args, List<inStagingInfo>> {
+      public getInStagingInfo() {
+        super("getInStagingInfo");
+      }
+
+      public getInStagingInfo_args getEmptyArgsInstance() {
+        return new getInStagingInfo_args();
+      }
+
+      public AsyncMethodCallback<List<inStagingInfo>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new AsyncMethodCallback<List<inStagingInfo>>() {
+          public void onComplete(List<inStagingInfo> o) {
+            getInStagingInfo_result result = new getInStagingInfo_result();
+            result.success = o;
+            try {
+              fcall.sendResponse(fb,result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+              return;
+            } catch (Exception e) {
+              LOGGER.error("Exception writing to internal frame buffer", e);
+            }
+            fb.close();
+          }
+          public void onError(Exception e) {
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TBase msg;
+            getInStagingInfo_result result = new getInStagingInfo_result();
+            {
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+            }
+            try {
+              fcall.sendResponse(fb,msg,msgType,seqid);
+              return;
+            } catch (Exception ex) {
+              LOGGER.error("Exception writing to internal frame buffer", ex);
+            }
+            fb.close();
+          }
+        };
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public void start(I iface, getInStagingInfo_args args, AsyncMethodCallback<List<inStagingInfo>> resultHandler) throws TException {
+        iface.getInStagingInfo(args.constructUnit,resultHandler);
       }
     }
 
@@ -17719,7 +17851,7 @@ public class RFIDService {
       schemes.put(TupleScheme.class, new getTransportInfo_resultTupleSchemeFactory());
     }
 
-    public List<rfid.service.transportInfo> success; // required
+    public List<transportInfo> success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -17785,7 +17917,7 @@ public class RFIDService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
-              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, rfid.service.transportInfo.class))));
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, transportInfo.class))));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getTransportInfo_result.class, metaDataMap);
     }
@@ -17794,7 +17926,7 @@ public class RFIDService {
     }
 
     public getTransportInfo_result(
-      List<rfid.service.transportInfo> success)
+      List<transportInfo> success)
     {
       this();
       this.success = success;
@@ -17805,9 +17937,9 @@ public class RFIDService {
      */
     public getTransportInfo_result(getTransportInfo_result other) {
       if (other.isSetSuccess()) {
-        List<rfid.service.transportInfo> __this__success = new ArrayList<rfid.service.transportInfo>(other.success.size());
-        for (rfid.service.transportInfo other_element : other.success) {
-          __this__success.add(new rfid.service.transportInfo(other_element));
+        List<transportInfo> __this__success = new ArrayList<transportInfo>(other.success.size());
+        for (transportInfo other_element : other.success) {
+          __this__success.add(new transportInfo(other_element));
         }
         this.success = __this__success;
       }
@@ -17826,22 +17958,22 @@ public class RFIDService {
       return (this.success == null) ? 0 : this.success.size();
     }
 
-    public java.util.Iterator<rfid.service.transportInfo> getSuccessIterator() {
+    public java.util.Iterator<transportInfo> getSuccessIterator() {
       return (this.success == null) ? null : this.success.iterator();
     }
 
-    public void addToSuccess(rfid.service.transportInfo elem) {
+    public void addToSuccess(transportInfo elem) {
       if (this.success == null) {
-        this.success = new ArrayList<rfid.service.transportInfo>();
+        this.success = new ArrayList<transportInfo>();
       }
       this.success.add(elem);
     }
 
-    public List<rfid.service.transportInfo> getSuccess() {
+    public List<transportInfo> getSuccess() {
       return this.success;
     }
 
-    public getTransportInfo_result setSuccess(List<rfid.service.transportInfo> success) {
+    public getTransportInfo_result setSuccess(List<transportInfo> success) {
       this.success = success;
       return this;
     }
@@ -17867,7 +17999,7 @@ public class RFIDService {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((List<rfid.service.transportInfo>)value);
+          setSuccess((List<transportInfo>)value);
         }
         break;
 
@@ -18025,11 +18157,11 @@ public class RFIDService {
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
                   org.apache.thrift.protocol.TList _list80 = iprot.readListBegin();
-                  struct.success = new ArrayList<rfid.service.transportInfo>(_list80.size);
-                  rfid.service.transportInfo _elem81;
+                  struct.success = new ArrayList<transportInfo>(_list80.size);
+                  transportInfo _elem81;
                   for (int _i82 = 0; _i82 < _list80.size; ++_i82)
                   {
-                    _elem81 = new rfid.service.transportInfo();
+                    _elem81 = new transportInfo();
                     _elem81.read(iprot);
                     struct.success.add(_elem81);
                   }
@@ -18059,7 +18191,7 @@ public class RFIDService {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (rfid.service.transportInfo _iter83 : struct.success)
+            for (transportInfo _iter83 : struct.success)
             {
               _iter83.write(oprot);
             }
@@ -18092,7 +18224,7 @@ public class RFIDService {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (rfid.service.transportInfo _iter84 : struct.success)
+            for (transportInfo _iter84 : struct.success)
             {
               _iter84.write(oprot);
             }
@@ -18107,11 +18239,11 @@ public class RFIDService {
         if (incoming.get(0)) {
           {
             org.apache.thrift.protocol.TList _list85 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new ArrayList<rfid.service.transportInfo>(_list85.size);
-            rfid.service.transportInfo _elem86;
+            struct.success = new ArrayList<transportInfo>(_list85.size);
+            transportInfo _elem86;
             for (int _i87 = 0; _i87 < _list85.size; ++_i87)
             {
-              _elem86 = new rfid.service.transportInfo();
+              _elem86 = new transportInfo();
               _elem86.read(iprot);
               struct.success.add(_elem86);
             }
@@ -18495,7 +18627,7 @@ public class RFIDService {
       schemes.put(TupleScheme.class, new getStagingInfo_resultTupleSchemeFactory());
     }
 
-    public List<rfid.service.stagingInfo> success; // required
+    public List<stagingInfo> success; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -18561,7 +18693,7 @@ public class RFIDService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
-              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, rfid.service.stagingInfo.class))));
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, stagingInfo.class))));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getStagingInfo_result.class, metaDataMap);
     }
@@ -18570,7 +18702,7 @@ public class RFIDService {
     }
 
     public getStagingInfo_result(
-      List<rfid.service.stagingInfo> success)
+      List<stagingInfo> success)
     {
       this();
       this.success = success;
@@ -18581,9 +18713,9 @@ public class RFIDService {
      */
     public getStagingInfo_result(getStagingInfo_result other) {
       if (other.isSetSuccess()) {
-        List<rfid.service.stagingInfo> __this__success = new ArrayList<rfid.service.stagingInfo>(other.success.size());
-        for (rfid.service.stagingInfo other_element : other.success) {
-          __this__success.add(new rfid.service.stagingInfo(other_element));
+        List<stagingInfo> __this__success = new ArrayList<stagingInfo>(other.success.size());
+        for (stagingInfo other_element : other.success) {
+          __this__success.add(new stagingInfo(other_element));
         }
         this.success = __this__success;
       }
@@ -18602,22 +18734,22 @@ public class RFIDService {
       return (this.success == null) ? 0 : this.success.size();
     }
 
-    public java.util.Iterator<rfid.service.stagingInfo> getSuccessIterator() {
+    public java.util.Iterator<stagingInfo> getSuccessIterator() {
       return (this.success == null) ? null : this.success.iterator();
     }
 
-    public void addToSuccess(rfid.service.stagingInfo elem) {
+    public void addToSuccess(stagingInfo elem) {
       if (this.success == null) {
-        this.success = new ArrayList<rfid.service.stagingInfo>();
+        this.success = new ArrayList<stagingInfo>();
       }
       this.success.add(elem);
     }
 
-    public List<rfid.service.stagingInfo> getSuccess() {
+    public List<stagingInfo> getSuccess() {
       return this.success;
     }
 
-    public getStagingInfo_result setSuccess(List<rfid.service.stagingInfo> success) {
+    public getStagingInfo_result setSuccess(List<stagingInfo> success) {
       this.success = success;
       return this;
     }
@@ -18643,7 +18775,7 @@ public class RFIDService {
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((List<rfid.service.stagingInfo>)value);
+          setSuccess((List<stagingInfo>)value);
         }
         break;
 
@@ -18801,11 +18933,11 @@ public class RFIDService {
               if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
                 {
                   org.apache.thrift.protocol.TList _list88 = iprot.readListBegin();
-                  struct.success = new ArrayList<rfid.service.stagingInfo>(_list88.size);
-                  rfid.service.stagingInfo _elem89;
+                  struct.success = new ArrayList<stagingInfo>(_list88.size);
+                  stagingInfo _elem89;
                   for (int _i90 = 0; _i90 < _list88.size; ++_i90)
                   {
-                    _elem89 = new rfid.service.stagingInfo();
+                    _elem89 = new stagingInfo();
                     _elem89.read(iprot);
                     struct.success.add(_elem89);
                   }
@@ -18835,7 +18967,7 @@ public class RFIDService {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-            for (rfid.service.stagingInfo _iter91 : struct.success)
+            for (stagingInfo _iter91 : struct.success)
             {
               _iter91.write(oprot);
             }
@@ -18868,7 +19000,7 @@ public class RFIDService {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (rfid.service.stagingInfo _iter92 : struct.success)
+            for (stagingInfo _iter92 : struct.success)
             {
               _iter92.write(oprot);
             }
@@ -18883,13 +19015,789 @@ public class RFIDService {
         if (incoming.get(0)) {
           {
             org.apache.thrift.protocol.TList _list93 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-            struct.success = new ArrayList<rfid.service.stagingInfo>(_list93.size);
-            rfid.service.stagingInfo _elem94;
+            struct.success = new ArrayList<stagingInfo>(_list93.size);
+            stagingInfo _elem94;
             for (int _i95 = 0; _i95 < _list93.size; ++_i95)
             {
-              _elem94 = new rfid.service.stagingInfo();
+              _elem94 = new stagingInfo();
               _elem94.read(iprot);
               struct.success.add(_elem94);
+            }
+          }
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getInStagingInfo_args implements org.apache.thrift.TBase<getInStagingInfo_args, getInStagingInfo_args._Fields>, java.io.Serializable, Cloneable, Comparable<getInStagingInfo_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getInStagingInfo_args");
+
+    private static final org.apache.thrift.protocol.TField CONSTRUCT_UNIT_FIELD_DESC = new org.apache.thrift.protocol.TField("constructUnit", org.apache.thrift.protocol.TType.STRING, (short)1);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getInStagingInfo_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getInStagingInfo_argsTupleSchemeFactory());
+    }
+
+    public String constructUnit; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      CONSTRUCT_UNIT((short)1, "constructUnit");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // CONSTRUCT_UNIT
+            return CONSTRUCT_UNIT;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.CONSTRUCT_UNIT, new org.apache.thrift.meta_data.FieldMetaData("constructUnit", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getInStagingInfo_args.class, metaDataMap);
+    }
+
+    public getInStagingInfo_args() {
+    }
+
+    public getInStagingInfo_args(
+      String constructUnit)
+    {
+      this();
+      this.constructUnit = constructUnit;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getInStagingInfo_args(getInStagingInfo_args other) {
+      if (other.isSetConstructUnit()) {
+        this.constructUnit = other.constructUnit;
+      }
+    }
+
+    public getInStagingInfo_args deepCopy() {
+      return new getInStagingInfo_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.constructUnit = null;
+    }
+
+    public String getConstructUnit() {
+      return this.constructUnit;
+    }
+
+    public getInStagingInfo_args setConstructUnit(String constructUnit) {
+      this.constructUnit = constructUnit;
+      return this;
+    }
+
+    public void unsetConstructUnit() {
+      this.constructUnit = null;
+    }
+
+    /** Returns true if field constructUnit is set (has been assigned a value) and false otherwise */
+    public boolean isSetConstructUnit() {
+      return this.constructUnit != null;
+    }
+
+    public void setConstructUnitIsSet(boolean value) {
+      if (!value) {
+        this.constructUnit = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case CONSTRUCT_UNIT:
+        if (value == null) {
+          unsetConstructUnit();
+        } else {
+          setConstructUnit((String)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case CONSTRUCT_UNIT:
+        return getConstructUnit();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case CONSTRUCT_UNIT:
+        return isSetConstructUnit();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getInStagingInfo_args)
+        return this.equals((getInStagingInfo_args)that);
+      return false;
+    }
+
+    public boolean equals(getInStagingInfo_args that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_constructUnit = true && this.isSetConstructUnit();
+      boolean that_present_constructUnit = true && that.isSetConstructUnit();
+      if (this_present_constructUnit || that_present_constructUnit) {
+        if (!(this_present_constructUnit && that_present_constructUnit))
+          return false;
+        if (!this.constructUnit.equals(that.constructUnit))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_constructUnit = true && (isSetConstructUnit());
+      list.add(present_constructUnit);
+      if (present_constructUnit)
+        list.add(constructUnit);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(getInStagingInfo_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetConstructUnit()).compareTo(other.isSetConstructUnit());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetConstructUnit()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.constructUnit, other.constructUnit);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getInStagingInfo_args(");
+      boolean first = true;
+
+      sb.append("constructUnit:");
+      if (this.constructUnit == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.constructUnit);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getInStagingInfo_argsStandardSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_argsStandardScheme getScheme() {
+        return new getInStagingInfo_argsStandardScheme();
+      }
+    }
+
+    private static class getInStagingInfo_argsStandardScheme extends StandardScheme<getInStagingInfo_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getInStagingInfo_args struct) throws TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // CONSTRUCT_UNIT
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.constructUnit = iprot.readString();
+                struct.setConstructUnitIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getInStagingInfo_args struct) throws TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.constructUnit != null) {
+          oprot.writeFieldBegin(CONSTRUCT_UNIT_FIELD_DESC);
+          oprot.writeString(struct.constructUnit);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getInStagingInfo_argsTupleSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_argsTupleScheme getScheme() {
+        return new getInStagingInfo_argsTupleScheme();
+      }
+    }
+
+    private static class getInStagingInfo_argsTupleScheme extends TupleScheme<getInStagingInfo_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_args struct) throws TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetConstructUnit()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetConstructUnit()) {
+          oprot.writeString(struct.constructUnit);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_args struct) throws TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.constructUnit = iprot.readString();
+          struct.setConstructUnitIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getInStagingInfo_result implements org.apache.thrift.TBase<getInStagingInfo_result, getInStagingInfo_result._Fields>, java.io.Serializable, Cloneable, Comparable<getInStagingInfo_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getInStagingInfo_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.LIST, (short)0);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getInStagingInfo_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getInStagingInfo_resultTupleSchemeFactory());
+    }
+
+    public List<inStagingInfo> success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
+              new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, inStagingInfo.class))));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getInStagingInfo_result.class, metaDataMap);
+    }
+
+    public getInStagingInfo_result() {
+    }
+
+    public getInStagingInfo_result(
+      List<inStagingInfo> success)
+    {
+      this();
+      this.success = success;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getInStagingInfo_result(getInStagingInfo_result other) {
+      if (other.isSetSuccess()) {
+        List<inStagingInfo> __this__success = new ArrayList<inStagingInfo>(other.success.size());
+        for (inStagingInfo other_element : other.success) {
+          __this__success.add(new inStagingInfo(other_element));
+        }
+        this.success = __this__success;
+      }
+    }
+
+    public getInStagingInfo_result deepCopy() {
+      return new getInStagingInfo_result(this);
+    }
+
+    @Override
+    public void clear() {
+      this.success = null;
+    }
+
+    public int getSuccessSize() {
+      return (this.success == null) ? 0 : this.success.size();
+    }
+
+    public java.util.Iterator<inStagingInfo> getSuccessIterator() {
+      return (this.success == null) ? null : this.success.iterator();
+    }
+
+    public void addToSuccess(inStagingInfo elem) {
+      if (this.success == null) {
+        this.success = new ArrayList<inStagingInfo>();
+      }
+      this.success.add(elem);
+    }
+
+    public List<inStagingInfo> getSuccess() {
+      return this.success;
+    }
+
+    public getInStagingInfo_result setSuccess(List<inStagingInfo> success) {
+      this.success = success;
+      return this;
+    }
+
+    public void unsetSuccess() {
+      this.success = null;
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return this.success != null;
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      if (!value) {
+        this.success = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((List<inStagingInfo>)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return getSuccess();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getInStagingInfo_result)
+        return this.equals((getInStagingInfo_result)that);
+      return false;
+    }
+
+    public boolean equals(getInStagingInfo_result that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_success = true && this.isSetSuccess();
+      boolean that_present_success = true && that.isSetSuccess();
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (!this.success.equals(that.success))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_success = true && (isSetSuccess());
+      list.add(present_success);
+      if (present_success)
+        list.add(success);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(getInStagingInfo_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getInStagingInfo_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      if (this.success == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.success);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getInStagingInfo_resultStandardSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_resultStandardScheme getScheme() {
+        return new getInStagingInfo_resultStandardScheme();
+      }
+    }
+
+    private static class getInStagingInfo_resultStandardScheme extends StandardScheme<getInStagingInfo_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getInStagingInfo_result struct) throws TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+                {
+                  org.apache.thrift.protocol.TList _list96 = iprot.readListBegin();
+                  struct.success = new ArrayList<inStagingInfo>(_list96.size);
+                  inStagingInfo _elem97;
+                  for (int _i98 = 0; _i98 < _list96.size; ++_i98)
+                  {
+                    _elem97 = new inStagingInfo();
+                    _elem97.read(iprot);
+                    struct.success.add(_elem97);
+                  }
+                  iprot.readListEnd();
+                }
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getInStagingInfo_result struct) throws TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.success != null) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          {
+            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
+            for (inStagingInfo _iter99 : struct.success)
+            {
+              _iter99.write(oprot);
+            }
+            oprot.writeListEnd();
+          }
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getInStagingInfo_resultTupleSchemeFactory implements SchemeFactory {
+      public getInStagingInfo_resultTupleScheme getScheme() {
+        return new getInStagingInfo_resultTupleScheme();
+      }
+    }
+
+    private static class getInStagingInfo_resultTupleScheme extends TupleScheme<getInStagingInfo_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_result struct) throws TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          {
+            oprot.writeI32(struct.success.size());
+            for (inStagingInfo _iter100 : struct.success)
+            {
+              _iter100.write(oprot);
+            }
+          }
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getInStagingInfo_result struct) throws TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          {
+            org.apache.thrift.protocol.TList _list101 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+            struct.success = new ArrayList<inStagingInfo>(_list101.size);
+            inStagingInfo _elem102;
+            for (int _i103 = 0; _i103 < _list101.size; ++_i103)
+            {
+              _elem102 = new inStagingInfo();
+              _elem102.read(iprot);
+              struct.success.add(_elem102);
             }
           }
           struct.setSuccessIsSet(true);

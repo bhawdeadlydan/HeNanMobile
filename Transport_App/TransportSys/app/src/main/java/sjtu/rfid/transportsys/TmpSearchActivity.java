@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.inStagingInfo;
 import rfid.service.stagingInfo;
+import sjtu.rfid.entity.TmpSearchEntity;
 import sjtu.rfid.thread.TmpSearchThread;
 import tools.SearchTmpInListAdapter;
 import tools.SearchTmpOutListAdapter;
@@ -26,13 +28,14 @@ public class TmpSearchActivity extends Activity {
     ListView listViewIn;
     ListView listViewOut;
     Button btnSearch;
-    List<Map<String,String>> inList;
-    List<Map<String,String>> outList;
+
+    private List<inStagingInfo> in;
+    private List<stagingInfo> out;
     SearchTmpInListAdapter mAdapterIn;
     SearchTmpOutListAdapter mAdapterOut;
 
 
-    private List<stagingInfo> stagingInfoList;
+    private TmpSearchEntity tmpSearchEntity;
     private Handler handler=new Handler(){
 
         @Override
@@ -40,8 +43,8 @@ public class TmpSearchActivity extends Activity {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             else if (msg.what==1){
-                stagingInfoList=(List<stagingInfo>)msg.obj;
-                iniListView(stagingInfoList);
+                tmpSearchEntity=(TmpSearchEntity)msg.obj;
+                iniListView(tmpSearchEntity);
             }
         }
     };
@@ -68,8 +71,6 @@ public class TmpSearchActivity extends Activity {
         listViewOut = (ListView)findViewById(R.id.listview_tmp_search_out);
         editText = (EditText)findViewById(R.id.edittext_tmp_search);
         btnSearch = (Button)findViewById(R.id.btn_tmp_search);
-        inList = new ArrayList<>();
-        outList = new ArrayList<>();
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +82,11 @@ public class TmpSearchActivity extends Activity {
         });
     }
 
-    public void iniListView(List<stagingInfo> stagingInfoList){
+    public void iniListView(TmpSearchEntity tmpSearchEntity){
 
-        for(stagingInfo s:stagingInfoList){
-
-        }
-        mAdapterIn = new SearchTmpInListAdapter(this,inList);
-        mAdapterOut = new SearchTmpOutListAdapter(this,outList);
+        in=tmpSearchEntity.getIn();
+        out=tmpSearchEntity.getOut();
+        mAdapterIn = new SearchTmpInListAdapter(this,in);
+        mAdapterOut = new SearchTmpOutListAdapter(this,out);
     }
 }

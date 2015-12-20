@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
 
+import rfid.service.inStagingInfo;
 import sjtu.rfid.transportsys.R;
 
 /**
@@ -20,17 +21,17 @@ public class SearchTmpInListAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater mLayoutInflater;
-    List<Map<String,String>> mList;
+    private List<inStagingInfo> in;
 
-    public SearchTmpInListAdapter(Context mContext,List<Map<String,String>> mList)
+    public SearchTmpInListAdapter(Context mContext,List<inStagingInfo> in)
     {
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.mList = mList;
+        this.in  = in;
     }
     @Override
     public int getCount() {
-        return mList.size();
+        return in.size();
     }
 
     @Override
@@ -45,10 +46,14 @@ public class SearchTmpInListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        inStagingInfo i=in.get(position);
         RelativeLayout layout= (RelativeLayout) mLayoutInflater.inflate(R.layout.item_in_list, null);
         TextView vCode = (TextView)layout.findViewById(R.id.text_in_list_code);
         TextView vCnt = (TextView)layout.findViewById(R.id.text_in_list_cnt);
         TextView vDate = (TextView)layout.findViewById(R.id.text_in_list_date);
+        vCode.setText("物料编码："+i.getMaterialCode());
+        vCnt.setText("物料数量："+i.getNum());
+        vDate.setText("入库时间："+i.getTime());
         return layout;
     }
 }
