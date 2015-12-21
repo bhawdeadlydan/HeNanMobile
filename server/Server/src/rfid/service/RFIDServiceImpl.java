@@ -419,7 +419,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
             }catch(Exception e){
                 System.err.println(e.getMessage());
 //                e.printStackTrace();
-                return false;
+               // return false;
             }
             ch.setTime(timestamp);
             dao.addEntity(ch);
@@ -440,7 +440,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         }catch(Exception e){
 //            e.printStackTrace();
             System.err.println(e.getMessage());
-            return false;
+            //return false;
         }
         transport.setTime(timestamp);
         transport.setPosition(Position);
