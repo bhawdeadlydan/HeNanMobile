@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ import com.atid.lib.dialog.WaitDialog;
 import com.atid.lib.util.SysUtil;
 
 import org.apache.thrift.TException;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,6 +61,15 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
     //记录每个ERP编码下，已经扫到的箱号，避免重复扫描造成错误计数
     private Map<String, Set<String>> mDeliveryBoxesItemsList;
 
+    //20160411 记录已经拣选的某类货物的总共数量,Key:物料ERP编码，Value:该物料总数量
+    private HashMap<String,Double> mDeliveryBoxesMatCount;
+    //20160411 记录每个箱子里面取了多少件东西,Key:箱子EPC编码，Value：取了该箱内多少件物品
+    private HashMap<String,Double> mDeliveryBoxesPickCountInsideBox;
+    //20160411 当前扫到的箱子所包含的货物
+    private Good curScanGood = null;
+    //20160411 当前扫到的箱子EPC号
+    private String curScanEpc = null;
+
     private List<String> CNumList;
 
     private TitleBar mTitleBar;
@@ -84,6 +96,8 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 
     private ATRfidReader mReader = null;
 
+    //20160411 Add Dialog To The Activity
+    private AlertDialog pickDialog;
 
     private Handler handler=new Handler(){
         @Override
@@ -156,6 +170,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         vDeliverySheetCode.setText(applyCode);
         iniActivity();
         iniEvent();
+        iniDialog();
 
         deliveryScanBoxThread=new DeliveryScanBoxThread(handler,applyCode);
         deliveryScanBoxThread.start();
@@ -330,6 +345,8 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         mDeliveryBoxes = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_scan_box_sheets);
         mDeliveryBoxesItemsList = new HashMap<>();
+        mDeliveryBoxesMatCount = new HashMap<>();
+        mDeliveryBoxesPickCountInsideBox = new HashMap<>();
         CNumList=new ArrayList<>();
 
         for(Good good:goodList){
@@ -351,9 +368,12 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 
             Set<String> boxSet = new HashSet<>();
             mDeliveryBoxesItemsList.put(good.getCode(),boxSet);
+
+            //20160411 Key:物品MatCode，Value:拣货数量
+            mDeliveryBoxesMatCount.put(good.getCode(),0.0);
         }
 
-        tmpAdapter = new DeliverySheetsScanBoxExpandableAdapter(this, mDeliveryBoxesDetails, mDeliveryBoxes,mDeliveryBoxesItemsList);
+        tmpAdapter = new DeliverySheetsScanBoxExpandableAdapter(this, mDeliveryBoxesDetails, mDeliveryBoxes,mDeliveryBoxesItemsList,mDeliveryBoxesMatCount);
         sheetListView.setAdapter(tmpAdapter);
 
 
@@ -377,27 +397,30 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
             @Override
             public void onClick(View v) {
 
+                saveOption();
+                startAction(false);
+                mReader.connect();
 
-                if (isReading) {
-                    isReading = false;
-                    btnScan.setText("扫描标签");
-                    stopAction();
-                    mReader.stop();
-                    //deliveryScanBoxScanTagThread.setIsReading(false);
-
-                } else if (!isReading) {
-                    saveOption();
-                    for(Map.Entry<String,Set<String>> entry:mDeliveryBoxesItemsList.entrySet()){
-                        entry.getValue().clear();
-                    }
-                    tmpAdapter.notifyDataSetChanged();
-                    isReading = true;
-                    btnScan.setText("停止扫描");
-//                    deliveryScanBoxScanTagThread = new DeliveryScanBoxScanTagThread(mDeliveryBoxesItemsList, true, handlerScanTag);
-//                    deliveryScanBoxScanTagThread.start();
-                    startAction(true);
-                    mReader.connect();
-                }
+//                if (isReading) {
+//                    isReading = false;
+//                    btnScan.setText("扫描标签");
+//                    stopAction();
+//                    mReader.stop();
+//                    //deliveryScanBoxScanTagThread.setIsReading(false);
+//
+//                } else if (!isReading) {
+//                    saveOption();
+//                    for (Map.Entry<String, Set<String>> entry : mDeliveryBoxesItemsList.entrySet()) {
+//                        entry.getValue().clear();
+//                    }
+//                    tmpAdapter.notifyDataSetChanged();
+//                    isReading = true;
+//                    btnScan.setText("停止扫描");
+////                    deliveryScanBoxScanTagThread = new DeliveryScanBoxScanTagThread(mDeliveryBoxesItemsList, true, handlerScanTag);
+////                    deliveryScanBoxScanTagThread.start();
+//                    startAction(true);
+//                    mReader.connect();
+//                }
 
                 //读货物标签线程
 
@@ -406,11 +429,42 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         btnCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deliverySubmitThread = new DeliverySubmitThread(applyCode, CNumList, handlerDelivery);
+                deliverySubmitThread = new DeliverySubmitThread(applyCode, CNumList, mDeliveryBoxesPickCountInsideBox, handlerDelivery);
                 deliverySubmitThread.start();
             }
         });
     }
+
+    private void iniDialog() {
+        TableLayout dialogForm = (TableLayout)getLayoutInflater().inflate(R.layout.dialog_delivery_scan_box,null);
+        pickDialog = new AlertDialog.Builder(this)
+                .setTitle("拣选货物")
+                .setView(dialogForm)
+                .setPositiveButton("确认回写数据", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(!CNumList.contains(curScanEpc)){
+                            CNumList.add(curScanEpc);
+                        }
+                        String matCode = curScanGood.getCode();
+                        Double val = Double.valueOf(((EditText) findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt)).getText().toString());
+                        mDeliveryBoxesMatCount.put(matCode,mDeliveryBoxesMatCount.get(matCode)+val);
+                        mDeliveryBoxesPickCountInsideBox.put(curScanEpc,val);
+                        mDeliveryBoxesItemsList.get(curScanGood.getCode()).add(curScanEpc);
+                        Message msg = handlerScanTag.obtainMessage();
+                        msg.what = 1;
+                        handlerScanTag.sendMessage(msg);
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .create();
+    }
+
     private void saveOption() {
         mOperationTime = 0;
         mInventoryTime = 400;
@@ -488,31 +542,37 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 
         public ScanThread(String epc) {
             this.epc = epc;
+            curScanEpc = epc;
         }
         @Override
         public void run() {
 
             ConnectServer connectServer=new ConnectServer();
             RFIDService.Client client = connectServer.openConnect();
-            Good good = null;
             try {
-                good = client.getGoodByCNum(epc);
+                curScanGood = client.getGoodByCNum(epc);
             } catch (TException e) {
                 e.printStackTrace();
             }
-            String matCode = good.getCode();
-            Integer scanCnt = mDeliveryBoxesItemsList.get(matCode).size();
-            Integer expecteCnt = Integer.valueOf(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
-            if( (mDeliveryBoxesItemsList.containsKey(matCode)) && !mDeliveryBoxesItemsList.get(matCode).contains(epc)
-                    && scanCnt < expecteCnt) {
-                if(!CNumList.contains(epc)){
-                    CNumList.add(epc);
-                }
-                mDeliveryBoxesItemsList.get(matCode).add(epc);
-                Message msg = handlerScanTag.obtainMessage();
-                msg.what = 1;
-                handlerScanTag.sendMessage(msg);
+            String matCode = curScanGood.getCode();
+            if( (mDeliveryBoxesItemsList.containsKey(matCode)) && !mDeliveryBoxesItemsList.get(matCode).contains(epc)) {
+                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonNum)).setText(curScanEpc);
+                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_matName)).setText(curScanGood.getDetail());
+                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_expectCnt)).setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
+                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt)).setText(curScanGood.getExpected_Quantity());
+                ((EditText)findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt))
+                        .setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
+                pickDialog.show();
+//                if(!CNumList.contains(epc)){
+//                    CNumList.add(epc);
+//                }
+//                mDeliveryBoxesItemsList.get(matCode).add(epc);
+//                Message msg = handlerScanTag.obtainMessage();
+//                msg.what = 1;
+//                handlerScanTag.sendMessage(msg);
             }
+            else
+                Toast.makeText(null,"货箱不在当前出库单中或已经被拣选过！",Toast.LENGTH_SHORT).show();
         }
     }
 }
