@@ -277,13 +277,18 @@ public class RFIDServiceImpl implements RFIDService.Iface{
     }
 
     @Override
-    public boolean confirmRetrieval(String ApplyDocCode, List<String> CNums) throws TException {
+    public boolean confirmRetrieval(String ApplyDocCode, Map<String, Integer> cartons) throws TException {
         PosDao pdao = new PosDao();
         pdao.Retrieval(ApplyDocCode, 1);
         WMSDetailDao wdao = new WMSDetailDao();
-        for(Iterator<String> it = CNums.iterator(); it.hasNext();){
-            String CNum = it.next();
-            wdao.bind(-1, CNum);
+        Iterator<Map.Entry<String, Integer>> it = cartons.entrySet().iterator();
+        for(; it.hasNext();){
+            Map.Entry<String, Integer> entry = it.next();
+            String CNum = entry.getKey();
+            int num = entry.getValue();
+            num = wdao.decrease(CNum, num);
+            if(num == 0)
+                wdao.bind(-1, CNum);
             wdao.bindGoodAndApplyDocCode(CNum,ApplyDocCode);
         }
         return true;

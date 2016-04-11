@@ -12,7 +12,7 @@ list<data.POS> getApplySheets();
 list<data.POS> getOutApplySheets();
 data.POS getPOSInfoByApplyDocCode(1:string ApplyDocCode);
 list<data.Good> getGoodsListByApplyDocCode(1:string ApplyDocCode);
-bool confirmRetrieval(1:string ApplyDocCode, 2:list<string> CNums);
+bool confirmRetrieval(1:string ApplyDocCode, 2:map<string, i32> cartons);
 bool confirmReceiving(1:string Code);//入库单号
 data.Good getGoodByCNum(1:string CNum);
 list<data.LocationInfo> getLocationListByItemErpCode(1:string ItemERPCode, 2:bool isBom);

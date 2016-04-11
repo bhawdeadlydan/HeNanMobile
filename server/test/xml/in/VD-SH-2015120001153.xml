@@ -1,0 +1,245 @@
+<ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest xmlns:ns1="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv">
+    <ns1:MsgHeader>
+        <ns2:SOURCE_SYSTEM_ID xmlns:ns2="http://mss.cmcc.com/MsgHeader">IES</ns2:SOURCE_SYSTEM_ID>
+        <ns2:SOURCE_SYSTEM_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">河南移动物流平台</ns2:SOURCE_SYSTEM_NAME>
+        <ns2:USER_ID xmlns:ns2="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns2:USER_ID>
+        <ns2:USER_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns2:USER_NAME>
+        <ns2:SUBMIT_DATE xmlns:ns2="http://mss.cmcc.com/MsgHeader">2016-04-10T15:46:30.919+08:00</ns2:SUBMIT_DATE>
+        <ns2:PAGE_SIZE xmlns:ns2="http://mss.cmcc.com/MsgHeader">10000</ns2:PAGE_SIZE>
+        <ns2:CURRENT_PAGE xmlns:ns2="http://mss.cmcc.com/MsgHeader">1</ns2:CURRENT_PAGE>
+        <ns2:TOTAL_RECORD xmlns:ns2="http://mss.cmcc.com/MsgHeader">10000</ns2:TOTAL_RECORD>
+        <ns2:PROVINCE_CODE xmlns:ns2="http://mss.cmcc.com/MsgHeader">HN</ns2:PROVINCE_CODE>
+        <ns2:ENVIRONMENT_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">IES</ns2:ENVIRONMENT_NAME>
+    </ns1:MsgHeader>
+    <ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection>
+        <ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem>
+            <ns1:COMPANY>IES</ns1:COMPANY>
+            <ns1:ORG_CODE>2521</ns1:ORG_CODE>
+            <ns1:WAREHOUSE_CODE></ns1:WAREHOUSE_CODE>
+            <ns1:BILL_TYPE>SET_IN_01</ns1:BILL_TYPE>
+            <ns1:CODE>VD-SH-2015120001153</ns1:CODE>
+            <ns1:FLAG>N</ns1:FLAG>
+            <ns1:RELATED_BILL1>2521-PO-2015110000278</ns1:RELATED_BILL1>
+            <ns1:RELATED_BILL2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:RELATED_BILL3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:PROJECT_CODE>B1521030</ns1:PROJECT_CODE>
+            <ns1:ORDER_DATE>2015-12-06T00:00:00.000+08:00</ns1:ORDER_DATE>
+            <ns1:EXPECTED_ARRIVE_DATE>2015-12-18T00:00:00.000+08:00</ns1:EXPECTED_ARRIVE_DATE>
+            <ns1:DOCK></ns1:DOCK>
+            <ns1:APPLY_PERSON>王剑涛</ns1:APPLY_PERSON>
+            <ns1:BUYER_NAME xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BUYER_EMAIL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BUYER_FAX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BUYER_PHONE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:MATERIALS_NAME>李玉峰</ns1:MATERIALS_NAME>
+            <ns1:MATERIALS_EMAIL></ns1:MATERIALS_EMAIL>
+            <ns1:MATERIALS_FAX></ns1:MATERIALS_FAX>
+            <ns1:MATERIALS_PHONE>13598846854</ns1:MATERIALS_PHONE>
+            <ns1:VENDOR_CODE>10169013</ns1:VENDOR_CODE>
+            <ns1:VENDOR_NAME>上海长跃通信技术有限公司</ns1:VENDOR_NAME>
+            <ns1:VENDOR_CONTACT_NAME>徐琴</ns1:VENDOR_CONTACT_NAME>
+            <ns1:VENDOR_CONTACT_EMAIL></ns1:VENDOR_CONTACT_EMAIL>
+            <ns1:VENDOR_CONTACT_FAX></ns1:VENDOR_CONTACT_FAX>
+            <ns1:VENDOR_CONTACT_PHONE>18516366688</ns1:VENDOR_CONTACT_PHONE>
+            <ns1:CARRIER_NAME>上海长跃通信技术有限公司</ns1:CARRIER_NAME>
+            <ns1:CARRIER_CONTACT_NAME>徐琴</ns1:CARRIER_CONTACT_NAME>
+            <ns1:CARRIER_CONTACT_EMAIL></ns1:CARRIER_CONTACT_EMAIL>
+            <ns1:CARRIER_CONTACT_FAX></ns1:CARRIER_CONTACT_FAX>
+            <ns1:CARRIER_CONTACT_PHONE>13661753974</ns1:CARRIER_CONTACT_PHONE>
+            <ns1:DISPOSITION xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BOMS_Collection>
+                <ns1:BOMS_Item>
+                    <ns1:SALE_BOMS_Collection/>
+                    <ns1:PACKING_BOMS_Collection>
+                        <ns1:PACKING_BOMS_Item>
+                            <ns1:PACKING_BOM_CODE>47796_12727101050078_10169013</ns1:PACKING_BOM_CODE>
+                            <ns1:PACKING_TYPE>1</ns1:PACKING_TYPE>
+                            <ns1:VENDOR_CODE>10169013</ns1:VENDOR_CODE>
+                            <ns1:VENDOR_NAME>上海长跃通信技术有限公司</ns1:VENDOR_NAME>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:PACKINGS_Collection>
+                                <ns1:PACKINGS_Item>
+                                    <ns1:PACKING_CODE>47796_12727101050078_10169013_01</ns1:PACKING_CODE>
+                                    <ns1:PACKING_NAME>纸箱</ns1:PACKING_NAME>
+                                    <ns1:PACKING_COUNT>1100</ns1:PACKING_COUNT>
+                                    <ns1:PACKING_LEN_UNIT>米</ns1:PACKING_LEN_UNIT>
+                                    <ns1:PACKING_LEN>0.001</ns1:PACKING_LEN>
+                                    <ns1:PACKING_WIDTH>0.001</ns1:PACKING_WIDTH>
+                                    <ns1:PACKING_HEIGHT>0.001</ns1:PACKING_HEIGHT>
+                                    <ns1:PACKING_CAPACITY_UOM>立方米</ns1:PACKING_CAPACITY_UOM>
+                                    <ns1:PACKING_CAPACITY>0.01</ns1:PACKING_CAPACITY>
+                                    <ns1:PACKING_WEIGHT_UOM>吨</ns1:PACKING_WEIGHT_UOM>
+                                    <ns1:PACKING_WEIGHT>0.2</ns1:PACKING_WEIGHT>
+                                    <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                </ns1:PACKINGS_Item>
+                            </ns1:PACKINGS_Collection>
+                        </ns1:PACKING_BOMS_Item>
+                    </ns1:PACKING_BOMS_Collection>
+                </ns1:BOMS_Item>
+                <ns1:BOMS_Item>
+                    <ns1:SALE_BOMS_Collection/>
+                    <ns1:PACKING_BOMS_Collection>
+                        <ns1:PACKING_BOMS_Item>
+                            <ns1:PACKING_BOM_CODE>47795_12727101050075_10169013</ns1:PACKING_BOM_CODE>
+                            <ns1:PACKING_TYPE>1</ns1:PACKING_TYPE>
+                            <ns1:VENDOR_CODE>10169013</ns1:VENDOR_CODE>
+                            <ns1:VENDOR_NAME>上海长跃通信技术有限公司</ns1:VENDOR_NAME>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:PACKINGS_Collection>
+                                <ns1:PACKINGS_Item>
+                                    <ns1:PACKING_CODE>47795_12727101050075_10169013_01</ns1:PACKING_CODE>
+                                    <ns1:PACKING_NAME>纸箱</ns1:PACKING_NAME>
+                                    <ns1:PACKING_COUNT>1100</ns1:PACKING_COUNT>
+                                    <ns1:PACKING_LEN_UNIT>米</ns1:PACKING_LEN_UNIT>
+                                    <ns1:PACKING_LEN>0.001</ns1:PACKING_LEN>
+                                    <ns1:PACKING_WIDTH>0.001</ns1:PACKING_WIDTH>
+                                    <ns1:PACKING_HEIGHT>0.001</ns1:PACKING_HEIGHT>
+                                    <ns1:PACKING_CAPACITY_UOM>立方米</ns1:PACKING_CAPACITY_UOM>
+                                    <ns1:PACKING_CAPACITY>0.01</ns1:PACKING_CAPACITY>
+                                    <ns1:PACKING_WEIGHT_UOM>吨</ns1:PACKING_WEIGHT_UOM>
+                                    <ns1:PACKING_WEIGHT>0.2</ns1:PACKING_WEIGHT>
+                                    <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                </ns1:PACKINGS_Item>
+                            </ns1:PACKINGS_Collection>
+                        </ns1:PACKING_BOMS_Item>
+                    </ns1:PACKING_BOMS_Collection>
+                </ns1:BOMS_Item>
+            </ns1:BOMS_Collection>
+            <ns1:WMS_DETAILS_Collection>
+                <ns1:WMS_DETAILS_Item>
+                    <ns1:WMS_DETAIL_Collection>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>47795_12727101050075_10169013_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201512000206054</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201512000206054/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>12727101050075</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>件</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>12727101050075</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>楼、街道光纤分配箱室外型壁挂式24芯</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>件</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>500</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>47796_12727101050078_10169013_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201512000206055</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201512000206055/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>12727101050078</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>件</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>12727101050078</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>室内光缆直熔盒24芯</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>件</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>500</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                    </ns1:WMS_DETAIL_Collection>
+                </ns1:WMS_DETAILS_Item>
+            </ns1:WMS_DETAILS_Collection>
+        </ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem>
+    </ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection>
+</ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest>

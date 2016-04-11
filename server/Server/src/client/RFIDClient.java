@@ -25,7 +25,7 @@ public class RFIDClient {
             // 设置传输协议为 TBinaryProtocol
             TProtocol protocol = new TBinaryProtocol(transport);
             RFIDService.Client client = new RFIDService.Client(protocol);
-//            client.printTag("VD-SH-2015120001434");
+            //client.printTag("VD-SH-2015120001434");
       //      List<LocationInfo> list1 = new ArrayList<>();//client.getLocationListByItemErpCode("2510TP000009924_53009", true);
 /*            ArrayList<String> l = new ArrayList<>();
             l.add("20151212000000a0");*/
@@ -40,7 +40,11 @@ public class RFIDClient {
             }*/
 //            client.confirmReceiving("VD-SH-2015090000006");
 //            List<Good> l = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
-            List<inStagingInfo> l = client.getInStagingInfo("广东和新");
+//            List<inStagingInfo> l = client.getInStagingInfo("广东和新");
+            //List<transportInfo> l = client.getTransportInfo();
+            Map<String, Integer> mp = new HashMap<>();
+            mp.put("201512180000013c", 1);
+            boolean a = client.confirmRetrieval("2524-REQ-2015120000125", mp);
             /*List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
                 POS pos = (POS)it.next();
@@ -55,19 +59,25 @@ public class RFIDClient {
 /*            ArrayList<String> cnums=  new ArrayList<>();
             cnums.add("2015121600000001");*/
 //            client.confirmRetrieval("2524-REQ-2015120000125", cnums);
-            for(Iterator it = l.iterator();it.hasNext();){
-                inStagingInfo item = (inStagingInfo)it.next();
-                Field[] fields = item.getClass().getDeclaredFields();
-                for (int i = 0; i < fields.length; i++) {
-                    String mod = Modifier.toString(fields[i].getModifiers());
-                    if(!mod.equals("public"))
-                        continue;
-                    System.out.print("成员变量" + i + "类型 : " + fields[i].getType().getName());
-                    System.out.print("\t成员变量" + i + "变量名: " + fields[i].getName() + "\t");
-                    System.out.println("成员变量" + i + "值: " + fields[i].get(item));
-                }
-                System.out.println("----------------------------------------");
-            }
+
+
+//            System.out.println(l.size());
+//            for(Iterator it = l.iterator();it.hasNext();){
+//                transportInfo item = (transportInfo)it.next();
+//                Field[] fields = item.getClass().getDeclaredFields();
+//                for (int i = 0; i < fields.length; i++) {
+//                    String mod = Modifier.toString(fields[i].getModifiers());
+//                    if(!mod.equals("public"))
+//                        continue;
+//                    System.out.print("成员变量" + i + "类型 : " + fields[i].getType().getName());
+//                    System.out.print("\t成员变量" + i + "变量名: " + fields[i].getName() + "\t");
+//                    System.out.println("成员变量" + i + "值: " + fields[i].get(item));
+//                }
+//                System.out.println("----------------------------------------");
+//            }
+
+
+
             /*for(Iterator it = l.iterator();it.hasNext();){
                 Good item = (Good)it.next();
                 Field[] fields = item.getClass().getDeclaredFields();
@@ -88,9 +98,6 @@ public class RFIDClient {
         } catch (TTransportException e) {
             e.printStackTrace();
         } catch (TException e) {
-            e.printStackTrace();
-        }
-        catch (IllegalAccessException e) {
             e.printStackTrace();
         }
     }

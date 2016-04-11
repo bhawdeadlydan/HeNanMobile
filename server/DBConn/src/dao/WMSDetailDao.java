@@ -184,6 +184,33 @@ public class WMSDetailDao extends BaseDao{
         }
     }
 
+    public int decrease(String CNum, int num) {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "update WmsDetailEntity as model set model.expectedQuantity = model.expectedQuantity - ? where model.cNum = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, num);
+            queryObject.setParameter(1, CNum);
+            queryObject.executeUpdate();
+            queryString = "select model.expectedQuantity from WmsDetailEntity as model where model.cNum = ?";
+            queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, CNum);
+            tx.commit();
+            if(!queryObject.list().isEmpty())
+                return (Integer)queryObject.list().get(0);
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return 0;
+    }
+
     public boolean isBom(String Code){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;

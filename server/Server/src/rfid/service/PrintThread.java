@@ -28,7 +28,7 @@ public class PrintThread implements Runnable{
     }
     @Override
     public void run() {
-        for(int i = 1; i < batchGoods.size(); i++){
+        for(int i = 0; i < batchGoods.size(); i++){
             printTag(batchGoods.get(i));
             Data data = new Data();
             data.setProjectCode(projectCode);
@@ -57,8 +57,8 @@ public class PrintThread implements Runnable{
     public void printTag(List<String[]> goods){
 //        for(int i = 0; i < 1; i++){
         for(int i = 0; i < goods.size(); i++){
-/*            if(i == 0x13c)
-                break;*/
+            if(i == 1)
+                break;
             String [] good = goods.get(i);
             printOne(projectCode, code, good[0], good[1], good[2], good[3],good[4],vendorName);
             trigger(good[4]);
