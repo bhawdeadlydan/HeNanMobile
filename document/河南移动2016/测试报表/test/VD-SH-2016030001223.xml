@@ -1,0 +1,2362 @@
+<ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest xmlns:ns1="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv">
+    <ns1:MsgHeader>
+        <ns2:SOURCE_SYSTEM_ID xmlns:ns2="http://mss.cmcc.com/MsgHeader">IES</ns2:SOURCE_SYSTEM_ID>
+        <ns2:SOURCE_SYSTEM_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">河南移动物流平台</ns2:SOURCE_SYSTEM_NAME>
+        <ns2:USER_ID xmlns:ns2="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns2:USER_ID>
+        <ns2:USER_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns2:USER_NAME>
+        <ns2:SUBMIT_DATE xmlns:ns2="http://mss.cmcc.com/MsgHeader">2016-03-22T09:11:30.221+08:00</ns2:SUBMIT_DATE>
+        <ns2:PAGE_SIZE xmlns:ns2="http://mss.cmcc.com/MsgHeader">10000</ns2:PAGE_SIZE>
+        <ns2:CURRENT_PAGE xmlns:ns2="http://mss.cmcc.com/MsgHeader">1</ns2:CURRENT_PAGE>
+        <ns2:TOTAL_RECORD xmlns:ns2="http://mss.cmcc.com/MsgHeader">10000</ns2:TOTAL_RECORD>
+        <ns2:PROVINCE_CODE xmlns:ns2="http://mss.cmcc.com/MsgHeader">HN</ns2:PROVINCE_CODE>
+        <ns2:ENVIRONMENT_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">IES</ns2:ENVIRONMENT_NAME>
+    </ns1:MsgHeader>
+    <ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection>
+        <ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem>
+            <ns1:COMPANY>IES</ns1:COMPANY>
+            <ns1:ORG_CODE>2521</ns1:ORG_CODE>
+            <ns1:WAREHOUSE_CODE></ns1:WAREHOUSE_CODE>
+            <ns1:BILL_TYPE>SET_IN_01</ns1:BILL_TYPE>
+            <ns1:CODE>VD-SH-2016030001223</ns1:CODE>
+            <ns1:FLAG>N</ns1:FLAG>
+            <ns1:RELATED_BILL1>2521-PO-2015070000040</ns1:RELATED_BILL1>
+            <ns1:RELATED_BILL2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:RELATED_BILL2>
+            <ns1:RELATED_BILL3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:RELATED_BILL3>
+            <ns1:PROJECT_CODE>B1521015</ns1:PROJECT_CODE>
+            <ns1:ORDER_DATE>2016-03-18T00:00:00.000+08:00</ns1:ORDER_DATE>
+            <ns1:EXPECTED_ARRIVE_DATE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                      xsi:nil="1"></ns1:EXPECTED_ARRIVE_DATE>
+            <ns1:DOCK></ns1:DOCK>
+            <ns1:APPLY_PERSON>王剑涛</ns1:APPLY_PERSON>
+            <ns1:BUYER_NAME xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:BUYER_NAME>
+            <ns1:BUYER_EMAIL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:BUYER_EMAIL>
+            <ns1:BUYER_FAX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:BUYER_FAX>
+            <ns1:BUYER_PHONE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:BUYER_PHONE>
+            <ns1:MATERIALS_NAME>李玉峰</ns1:MATERIALS_NAME>
+            <ns1:MATERIALS_EMAIL></ns1:MATERIALS_EMAIL>
+            <ns1:MATERIALS_FAX></ns1:MATERIALS_FAX>
+            <ns1:MATERIALS_PHONE>13598846854</ns1:MATERIALS_PHONE>
+            <ns1:VENDOR_CODE>VA1187</ns1:VENDOR_CODE>
+            <ns1:VENDOR_NAME>江苏亨通光电股份有限公司</ns1:VENDOR_NAME>
+            <ns1:VENDOR_CONTACT_NAME>盛政</ns1:VENDOR_CONTACT_NAME>
+            <ns1:VENDOR_CONTACT_EMAIL></ns1:VENDOR_CONTACT_EMAIL>
+            <ns1:VENDOR_CONTACT_FAX></ns1:VENDOR_CONTACT_FAX>
+            <ns1:VENDOR_CONTACT_PHONE>15838234368</ns1:VENDOR_CONTACT_PHONE>
+            <ns1:CARRIER_NAME>江苏飞力达国际物流股份有限公司</ns1:CARRIER_NAME>
+            <ns1:CARRIER_CONTACT_NAME>朱莉涛</ns1:CARRIER_CONTACT_NAME>
+            <ns1:CARRIER_CONTACT_EMAIL></ns1:CARRIER_CONTACT_EMAIL>
+            <ns1:CARRIER_CONTACT_FAX></ns1:CARRIER_CONTACT_FAX>
+            <ns1:CARRIER_CONTACT_PHONE>15738314812</ns1:CARRIER_CONTACT_PHONE>
+            <ns1:DISPOSITION xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:DISPOSITION>
+            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE1>
+            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE2>
+            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE3>
+            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE4>
+            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE5>
+            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE6>
+            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE7>
+            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE8>
+            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE9>
+            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE10>
+            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE11>
+            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE12>
+            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE13>
+            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE14>
+            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"></ns1:ATTRIBUTE15>
+            <ns1:BOMS_Collection>
+                <ns1:BOMS_Item>
+                    <ns1:SALE_BOMS_Collection></ns1:SALE_BOMS_Collection>
+                    <ns1:PACKING_BOMS_Collection>
+                        <ns1:PACKING_BOMS_Item>
+                            <ns1:PACKING_BOM_CODE>43505_10041650_VA1187</ns1:PACKING_BOM_CODE>
+                            <ns1:PACKING_TYPE>1</ns1:PACKING_TYPE>
+                            <ns1:VENDOR_CODE>VA1187</ns1:VENDOR_CODE>
+                            <ns1:VENDOR_NAME>江苏亨通光电股份有限公司</ns1:VENDOR_NAME>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                            <ns1:PACKINGS_Collection>
+                                <ns1:PACKINGS_Item>
+                                    <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                                    <ns1:PACKING_NAME>2km一盘</ns1:PACKING_NAME>
+                                    <ns1:PACKING_COUNT>2</ns1:PACKING_COUNT>
+                                    <ns1:PACKING_LEN_UNIT>米</ns1:PACKING_LEN_UNIT>
+                                    <ns1:PACKING_LEN>1.1</ns1:PACKING_LEN>
+                                    <ns1:PACKING_WIDTH>0.76</ns1:PACKING_WIDTH>
+                                    <ns1:PACKING_HEIGHT>1.1</ns1:PACKING_HEIGHT>
+                                    <ns1:PACKING_CAPACITY_UOM>立方米</ns1:PACKING_CAPACITY_UOM>
+                                    <ns1:PACKING_CAPACITY>0.92</ns1:PACKING_CAPACITY>
+                                    <ns1:PACKING_WEIGHT_UOM>吨</ns1:PACKING_WEIGHT_UOM>
+                                    <ns1:PACKING_WEIGHT>0.28</ns1:PACKING_WEIGHT>
+                                    <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE1>
+                                    <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE2>
+                                    <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE3>
+                                    <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE4>
+                                    <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE5>
+                                    <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE6>
+                                    <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE7>
+                                    <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE8>
+                                    <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:nil="1"></ns1:ATTRIBUTE9>
+                                    <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                     xsi:nil="1"></ns1:ATTRIBUTE10>
+                                    <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                     xsi:nil="1"></ns1:ATTRIBUTE11>
+                                    <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                     xsi:nil="1"></ns1:ATTRIBUTE12>
+                                    <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                     xsi:nil="1"></ns1:ATTRIBUTE13>
+                                    <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                     xsi:nil="1"></ns1:ATTRIBUTE14>
+                                    <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                     xsi:nil="1"></ns1:ATTRIBUTE15>
+                                </ns1:PACKINGS_Item>
+                            </ns1:PACKINGS_Collection>
+                        </ns1:PACKING_BOMS_Item>
+                    </ns1:PACKING_BOMS_Collection>
+                </ns1:BOMS_Item>
+            </ns1:BOMS_Collection>
+            <ns1:WMS_DETAILS_Collection>
+                <ns1:WMS_DETAILS_Item>
+                    <ns1:WMS_DETAIL_Collection>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246610</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246610/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246611</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246611/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246612</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246612/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246613</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246613/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246614</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246614/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246615</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246615/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246616</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246616/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246617</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246617/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246618</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246618/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246619</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246619/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246620</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246620/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246621</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246621/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246622</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246622/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246623</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246623/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246624</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246624/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246625</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246625/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246626</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246626/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246627</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246627/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246628</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246628/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246629</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246629/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246630</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246630/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246631</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246631/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246632</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246632/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246633</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246633/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246634</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246634/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246635</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246635/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246636</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246636/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246637</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246637/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246638</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246638/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246639</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246639/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246640</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246640/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246641</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246641/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246642</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246642/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246643</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246643/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246644</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246644/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246645</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246645/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246646</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246646/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246647</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246647/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246648</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246648/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246649</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246649/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246650</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246650/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246651</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246651/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246652</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246652/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246653</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246653/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246654</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246654/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246655</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246655/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246656</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246656/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246657</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246657/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246658</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246658/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>43505_10041650_VA1187_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000246659</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000246659/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10041650</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10041650</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTS\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE1>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE2>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE3>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE4>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE5>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE6>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE7>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE8>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                            xsi:nil="1"></ns1:ATTRIBUTE9>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE10>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE11>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE12>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE13>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE14>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xsi:nil="1"></ns1:ATTRIBUTE15>
+                        </ns1:WMS_DETAIL_Item>
+                    </ns1:WMS_DETAIL_Collection>
+                </ns1:WMS_DETAILS_Item>
+            </ns1:WMS_DETAILS_Collection>
+        </ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem>
+    </ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection>
+</ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest>

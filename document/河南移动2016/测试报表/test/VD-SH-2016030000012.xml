@@ -1,0 +1,2043 @@
+<ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest xmlns:ns1="http://mss.cmcc.com/SB_WMS_WMS_ImportComEpuSimMatStorSrv">
+    <ns1:MsgHeader>
+        <ns2:SOURCE_SYSTEM_ID xmlns:ns2="http://mss.cmcc.com/MsgHeader">IES</ns2:SOURCE_SYSTEM_ID>
+        <ns2:SOURCE_SYSTEM_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">河南移动物流平台</ns2:SOURCE_SYSTEM_NAME>
+        <ns2:USER_ID xmlns:ns2="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns2:USER_ID>
+        <ns2:USER_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">USER_IES_ID</ns2:USER_NAME>
+        <ns2:SUBMIT_DATE xmlns:ns2="http://mss.cmcc.com/MsgHeader">2016-04-10T15:42:03.657+08:00</ns2:SUBMIT_DATE>
+        <ns2:PAGE_SIZE xmlns:ns2="http://mss.cmcc.com/MsgHeader">10000</ns2:PAGE_SIZE>
+        <ns2:CURRENT_PAGE xmlns:ns2="http://mss.cmcc.com/MsgHeader">1</ns2:CURRENT_PAGE>
+        <ns2:TOTAL_RECORD xmlns:ns2="http://mss.cmcc.com/MsgHeader">10000</ns2:TOTAL_RECORD>
+        <ns2:PROVINCE_CODE xmlns:ns2="http://mss.cmcc.com/MsgHeader">HN</ns2:PROVINCE_CODE>
+        <ns2:ENVIRONMENT_NAME xmlns:ns2="http://mss.cmcc.com/MsgHeader">IES</ns2:ENVIRONMENT_NAME>
+    </ns1:MsgHeader>
+    <ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection>
+        <ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem>
+            <ns1:COMPANY>IES</ns1:COMPANY>
+            <ns1:ORG_CODE>2521</ns1:ORG_CODE>
+            <ns1:WAREHOUSE_CODE></ns1:WAREHOUSE_CODE>
+            <ns1:BILL_TYPE>SET_IN_01</ns1:BILL_TYPE>
+            <ns1:CODE>VD-SH-2016030000012</ns1:CODE>
+            <ns1:FLAG>N</ns1:FLAG>
+            <ns1:RELATED_BILL1>2510-PO-2016020000369</ns1:RELATED_BILL1>
+            <ns1:RELATED_BILL2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:RELATED_BILL3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:PROJECT_CODE>B1621003</ns1:PROJECT_CODE>
+            <ns1:ORDER_DATE>2016-03-01T00:00:00.000+08:00</ns1:ORDER_DATE>
+            <ns1:EXPECTED_ARRIVE_DATE>2016-03-06T00:00:00.000+08:00</ns1:EXPECTED_ARRIVE_DATE>
+            <ns1:DOCK></ns1:DOCK>
+            <ns1:APPLY_PERSON>赵立昕</ns1:APPLY_PERSON>
+            <ns1:BUYER_NAME xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BUYER_EMAIL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BUYER_FAX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BUYER_PHONE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:MATERIALS_NAME>李玉峰</ns1:MATERIALS_NAME>
+            <ns1:MATERIALS_EMAIL></ns1:MATERIALS_EMAIL>
+            <ns1:MATERIALS_FAX></ns1:MATERIALS_FAX>
+            <ns1:MATERIALS_PHONE>13598846854</ns1:MATERIALS_PHONE>
+            <ns1:VENDOR_CODE>10052669</ns1:VENDOR_CODE>
+            <ns1:VENDOR_NAME>江苏南方通信科技有限公司</ns1:VENDOR_NAME>
+            <ns1:VENDOR_CONTACT_NAME>陈奇</ns1:VENDOR_CONTACT_NAME>
+            <ns1:VENDOR_CONTACT_EMAIL></ns1:VENDOR_CONTACT_EMAIL>
+            <ns1:VENDOR_CONTACT_FAX></ns1:VENDOR_CONTACT_FAX>
+            <ns1:VENDOR_CONTACT_PHONE>18796981321</ns1:VENDOR_CONTACT_PHONE>
+            <ns1:CARRIER_NAME>江苏飞力达国际物流股份有限公司</ns1:CARRIER_NAME>
+            <ns1:CARRIER_CONTACT_NAME>朱莉涛</ns1:CARRIER_CONTACT_NAME>
+            <ns1:CARRIER_CONTACT_EMAIL></ns1:CARRIER_CONTACT_EMAIL>
+            <ns1:CARRIER_CONTACT_FAX></ns1:CARRIER_CONTACT_FAX>
+            <ns1:CARRIER_CONTACT_PHONE>15738314812</ns1:CARRIER_CONTACT_PHONE>
+            <ns1:DISPOSITION xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+            <ns1:BOMS_Collection>
+                <ns1:BOMS_Item>
+                    <ns1:SALE_BOMS_Collection/>
+                    <ns1:PACKING_BOMS_Collection>
+                        <ns1:PACKING_BOMS_Item>
+                            <ns1:PACKING_BOM_CODE>55374_10057244_10052669</ns1:PACKING_BOM_CODE>
+                            <ns1:PACKING_TYPE>1</ns1:PACKING_TYPE>
+                            <ns1:VENDOR_CODE>10052669</ns1:VENDOR_CODE>
+                            <ns1:VENDOR_NAME>江苏南方通信科技有限公司</ns1:VENDOR_NAME>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:PACKINGS_Collection>
+                                <ns1:PACKINGS_Item>
+                                    <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                                    <ns1:PACKING_NAME>3/箱</ns1:PACKING_NAME>
+                                    <ns1:PACKING_COUNT>3</ns1:PACKING_COUNT>
+                                    <ns1:PACKING_LEN_UNIT>米</ns1:PACKING_LEN_UNIT>
+                                    <ns1:PACKING_LEN>1.1</ns1:PACKING_LEN>
+                                    <ns1:PACKING_WIDTH>0.76</ns1:PACKING_WIDTH>
+                                    <ns1:PACKING_HEIGHT>1.1</ns1:PACKING_HEIGHT>
+                                    <ns1:PACKING_CAPACITY_UOM>立方米</ns1:PACKING_CAPACITY_UOM>
+                                    <ns1:PACKING_CAPACITY>0.92</ns1:PACKING_CAPACITY>
+                                    <ns1:PACKING_WEIGHT_UOM>吨</ns1:PACKING_WEIGHT_UOM>
+                                    <ns1:PACKING_WEIGHT>0.382</ns1:PACKING_WEIGHT>
+                                    <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                </ns1:PACKINGS_Item>
+                            </ns1:PACKINGS_Collection>
+                        </ns1:PACKING_BOMS_Item>
+                    </ns1:PACKING_BOMS_Collection>
+                </ns1:BOMS_Item>
+                <ns1:BOMS_Item>
+                    <ns1:SALE_BOMS_Collection/>
+                    <ns1:PACKING_BOMS_Collection>
+                        <ns1:PACKING_BOMS_Item>
+                            <ns1:PACKING_BOM_CODE>55373_10057244_10052669</ns1:PACKING_BOM_CODE>
+                            <ns1:PACKING_TYPE>1</ns1:PACKING_TYPE>
+                            <ns1:VENDOR_CODE>10052669</ns1:VENDOR_CODE>
+                            <ns1:VENDOR_NAME>江苏南方通信科技有限公司</ns1:VENDOR_NAME>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:PACKINGS_Collection>
+                                <ns1:PACKINGS_Item>
+                                    <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                                    <ns1:PACKING_NAME>2/箱</ns1:PACKING_NAME>
+                                    <ns1:PACKING_COUNT>2</ns1:PACKING_COUNT>
+                                    <ns1:PACKING_LEN_UNIT>米</ns1:PACKING_LEN_UNIT>
+                                    <ns1:PACKING_LEN>1.1</ns1:PACKING_LEN>
+                                    <ns1:PACKING_WIDTH>0.76</ns1:PACKING_WIDTH>
+                                    <ns1:PACKING_HEIGHT>1.1</ns1:PACKING_HEIGHT>
+                                    <ns1:PACKING_CAPACITY_UOM>立方米</ns1:PACKING_CAPACITY_UOM>
+                                    <ns1:PACKING_CAPACITY>0.92</ns1:PACKING_CAPACITY>
+                                    <ns1:PACKING_WEIGHT_UOM>吨</ns1:PACKING_WEIGHT_UOM>
+                                    <ns1:PACKING_WEIGHT>0.382</ns1:PACKING_WEIGHT>
+                                    <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                    <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                                </ns1:PACKINGS_Item>
+                            </ns1:PACKINGS_Collection>
+                        </ns1:PACKING_BOMS_Item>
+                    </ns1:PACKING_BOMS_Collection>
+                </ns1:BOMS_Item>
+            </ns1:BOMS_Collection>
+            <ns1:WMS_DETAILS_Collection>
+                <ns1:WMS_DETAILS_Item>
+                    <ns1:WMS_DETAIL_Collection>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101881</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101881/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101882</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101882/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101883</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101883/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101884</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101884/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101885</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101885/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101886</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101886/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101887</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101887/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101888</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101888/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101889</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101889/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101890</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101890/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101891</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101891/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101892</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101892/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101893</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101893/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101894</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101894/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101895</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101895/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101896</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101896/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101897</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101897/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101898</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101898/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101899</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101899/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101900</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101900/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101901</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101901/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55373_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101902</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101902/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>2</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101903</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101903/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101904</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101904/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101905</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101905/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101906</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101906/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101907</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101907/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101908</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101908/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101909</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101909/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101910</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101910/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101911</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101911/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101912</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101912/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101913</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101913/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101914</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101914/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101915</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101915/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101916</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101916/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101917</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101917/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101918</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101918/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101919</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101919/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101920</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101920/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101921</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101921/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101922</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101922/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101923</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101923/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101924</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101924/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101925</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101925/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101926</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101926/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101927</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101927/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101928</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101928/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101929</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101929/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101930</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101930/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101931</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101931/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101932</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101932/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101933</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101933/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101934</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101934/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101935</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101935/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101936</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101936/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101937</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101937/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101938</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101938/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101939</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101939/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101940</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101940/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101941</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101941/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101942</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101942/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101943</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101943/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                        <ns1:WMS_DETAIL_Item>
+                            <ns1:IS_BOM>N</ns1:IS_BOM>
+                            <ns1:SALE_BOM_CODE></ns1:SALE_BOM_CODE>
+                            <ns1:PACKING_CODE>55374_10057244_10052669_01</ns1:PACKING_CODE>
+                            <ns1:PRICE>0</ns1:PRICE>
+                            <ns1:CARTON_ORDER_NUM>201603000101944</ns1:CARTON_ORDER_NUM>
+                            <ns1:CARTON_NUM>201603000101944/1/1</ns1:CARTON_NUM>
+                            <ns1:ITEM_ERP_CODE>10057244</ns1:ITEM_ERP_CODE>
+                            <ns1:ITEM_ERP_UNIT>皮长公里</ns1:ITEM_ERP_UNIT>
+                            <ns1:ITEM_CODE>10057244</ns1:ITEM_CODE>
+                            <ns1:ITEM_NAME>普通光缆\GYTA\G.652D\24芯\亨通</ns1:ITEM_NAME>
+                            <ns1:ITEM_UNIT_CODE>皮长公里</ns1:ITEM_UNIT_CODE>
+                            <ns1:EXPECTED_QUANTITY>3</ns1:EXPECTED_QUANTITY>
+                            <ns1:ATTRIBUTE1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE3 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE5 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE6 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE7 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE8 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE9 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE10 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE11 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE12 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE13 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE14 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                            <ns1:ATTRIBUTE15 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>
+                        </ns1:WMS_DETAIL_Item>
+                    </ns1:WMS_DETAIL_Collection>
+                </ns1:WMS_DETAILS_Item>
+            </ns1:WMS_DETAILS_Collection>
+        </ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputItem>
+    </ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvInputCollection>
+</ns1:SB_WMS_WMS_ImportComEpuSimMatStorSrvRequest>
