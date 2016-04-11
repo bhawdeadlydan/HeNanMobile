@@ -81,6 +81,10 @@ public class RFIDService {
 
     public List<rfid.service.inStagingInfo> getInStagingInfo(String constructUnit) throws org.apache.thrift.TException;
 
+    public boolean addPic(String ApplyDocCode, List<String> URL) throws org.apache.thrift.TException;
+
+    public List<String> getPicsByApplyDocCode(String ApplyDocCode) throws org.apache.thrift.TException;
+
   }
 
   public interface AsyncIface {
@@ -126,6 +130,10 @@ public class RFIDService {
     public void getStagingInfo(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
     public void getInStagingInfo(String constructUnit, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+
+    public void addPic(String ApplyDocCode, List<String> URL, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
+
+    public void getPicsByApplyDocCode(String ApplyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -640,6 +648,53 @@ public class RFIDService {
         return result.success;
       }
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getInStagingInfo failed: unknown result");
+    }
+
+    public boolean addPic(String ApplyDocCode, List<String> URL) throws org.apache.thrift.TException
+    {
+      send_addPic(ApplyDocCode, URL);
+      return recv_addPic();
+    }
+
+    public void send_addPic(String ApplyDocCode, List<String> URL) throws org.apache.thrift.TException
+    {
+      addPic_args args = new addPic_args();
+      args.setApplyDocCode(ApplyDocCode);
+      args.setURL(URL);
+      sendBase("addPic", args);
+    }
+
+    public boolean recv_addPic() throws org.apache.thrift.TException
+    {
+      addPic_result result = new addPic_result();
+      receiveBase(result, "addPic");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "addPic failed: unknown result");
+    }
+
+    public List<String> getPicsByApplyDocCode(String ApplyDocCode) throws org.apache.thrift.TException
+    {
+      send_getPicsByApplyDocCode(ApplyDocCode);
+      return recv_getPicsByApplyDocCode();
+    }
+
+    public void send_getPicsByApplyDocCode(String ApplyDocCode) throws org.apache.thrift.TException
+    {
+      getPicsByApplyDocCode_args args = new getPicsByApplyDocCode_args();
+      args.setApplyDocCode(ApplyDocCode);
+      sendBase("getPicsByApplyDocCode", args);
+    }
+
+    public List<String> recv_getPicsByApplyDocCode() throws org.apache.thrift.TException
+    {
+      getPicsByApplyDocCode_result result = new getPicsByApplyDocCode_result();
+      receiveBase(result, "getPicsByApplyDocCode");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getPicsByApplyDocCode failed: unknown result");
     }
 
   }
@@ -1362,6 +1417,73 @@ public class RFIDService {
       }
     }
 
+    public void addPic(String ApplyDocCode, List<String> URL, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      addPic_call method_call = new addPic_call(ApplyDocCode, URL, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class addPic_call extends org.apache.thrift.async.TAsyncMethodCall {
+      private String ApplyDocCode;
+      private List<String> URL;
+      public addPic_call(String ApplyDocCode, List<String> URL, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.ApplyDocCode = ApplyDocCode;
+        this.URL = URL;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("addPic", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        addPic_args args = new addPic_args();
+        args.setApplyDocCode(ApplyDocCode);
+        args.setURL(URL);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public boolean getResult() throws org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_addPic();
+      }
+    }
+
+    public void getPicsByApplyDocCode(String ApplyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      getPicsByApplyDocCode_call method_call = new getPicsByApplyDocCode_call(ApplyDocCode, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class getPicsByApplyDocCode_call extends org.apache.thrift.async.TAsyncMethodCall {
+      private String ApplyDocCode;
+      public getPicsByApplyDocCode_call(String ApplyDocCode, org.apache.thrift.async.AsyncMethodCallback resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.ApplyDocCode = ApplyDocCode;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getPicsByApplyDocCode", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        getPicsByApplyDocCode_args args = new getPicsByApplyDocCode_args();
+        args.setApplyDocCode(ApplyDocCode);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public List<String> getResult() throws org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_getPicsByApplyDocCode();
+      }
+    }
+
   }
 
   public static class Processor<I extends Iface> extends org.apache.thrift.TBaseProcessor<I> implements org.apache.thrift.TProcessor {
@@ -1396,6 +1518,8 @@ public class RFIDService {
       processMap.put("getTransportInfo", new getTransportInfo());
       processMap.put("getStagingInfo", new getStagingInfo());
       processMap.put("getInStagingInfo", new getInStagingInfo());
+      processMap.put("addPic", new addPic());
+      processMap.put("getPicsByApplyDocCode", new getPicsByApplyDocCode());
       return processMap;
     }
 
@@ -1826,6 +1950,47 @@ public class RFIDService {
       }
     }
 
+    public static class addPic<I extends Iface> extends org.apache.thrift.ProcessFunction<I, addPic_args> {
+      public addPic() {
+        super("addPic");
+      }
+
+      public addPic_args getEmptyArgsInstance() {
+        return new addPic_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public addPic_result getResult(I iface, addPic_args args) throws org.apache.thrift.TException {
+        addPic_result result = new addPic_result();
+        result.success = iface.addPic(args.ApplyDocCode, args.URL);
+        result.setSuccessIsSet(true);
+        return result;
+      }
+    }
+
+    public static class getPicsByApplyDocCode<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getPicsByApplyDocCode_args> {
+      public getPicsByApplyDocCode() {
+        super("getPicsByApplyDocCode");
+      }
+
+      public getPicsByApplyDocCode_args getEmptyArgsInstance() {
+        return new getPicsByApplyDocCode_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public getPicsByApplyDocCode_result getResult(I iface, getPicsByApplyDocCode_args args) throws org.apache.thrift.TException {
+        getPicsByApplyDocCode_result result = new getPicsByApplyDocCode_result();
+        result.success = iface.getPicsByApplyDocCode(args.ApplyDocCode);
+        return result;
+      }
+    }
+
   }
 
   public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
@@ -1860,6 +2025,8 @@ public class RFIDService {
       processMap.put("getTransportInfo", new getTransportInfo());
       processMap.put("getStagingInfo", new getStagingInfo());
       processMap.put("getInStagingInfo", new getInStagingInfo());
+      processMap.put("addPic", new addPic());
+      processMap.put("getPicsByApplyDocCode", new getPicsByApplyDocCode());
       return processMap;
     }
 
@@ -2938,6 +3105,109 @@ public class RFIDService {
 
       public void start(I iface, getInStagingInfo_args args, org.apache.thrift.async.AsyncMethodCallback<List<rfid.service.inStagingInfo>> resultHandler) throws TException {
         iface.getInStagingInfo(args.constructUnit,resultHandler);
+      }
+    }
+
+    public static class addPic<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, addPic_args, Boolean> {
+      public addPic() {
+        super("addPic");
+      }
+
+      public addPic_args getEmptyArgsInstance() {
+        return new addPic_args();
+      }
+
+      public AsyncMethodCallback<Boolean> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new AsyncMethodCallback<Boolean>() { 
+          public void onComplete(Boolean o) {
+            addPic_result result = new addPic_result();
+            result.success = o;
+            result.setSuccessIsSet(true);
+            try {
+              fcall.sendResponse(fb,result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+              return;
+            } catch (Exception e) {
+              LOGGER.error("Exception writing to internal frame buffer", e);
+            }
+            fb.close();
+          }
+          public void onError(Exception e) {
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TBase msg;
+            addPic_result result = new addPic_result();
+            {
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+            }
+            try {
+              fcall.sendResponse(fb,msg,msgType,seqid);
+              return;
+            } catch (Exception ex) {
+              LOGGER.error("Exception writing to internal frame buffer", ex);
+            }
+            fb.close();
+          }
+        };
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public void start(I iface, addPic_args args, org.apache.thrift.async.AsyncMethodCallback<Boolean> resultHandler) throws TException {
+        iface.addPic(args.ApplyDocCode, args.URL,resultHandler);
+      }
+    }
+
+    public static class getPicsByApplyDocCode<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getPicsByApplyDocCode_args, List<String>> {
+      public getPicsByApplyDocCode() {
+        super("getPicsByApplyDocCode");
+      }
+
+      public getPicsByApplyDocCode_args getEmptyArgsInstance() {
+        return new getPicsByApplyDocCode_args();
+      }
+
+      public AsyncMethodCallback<List<String>> getResultHandler(final AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new AsyncMethodCallback<List<String>>() { 
+          public void onComplete(List<String> o) {
+            getPicsByApplyDocCode_result result = new getPicsByApplyDocCode_result();
+            result.success = o;
+            try {
+              fcall.sendResponse(fb,result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+              return;
+            } catch (Exception e) {
+              LOGGER.error("Exception writing to internal frame buffer", e);
+            }
+            fb.close();
+          }
+          public void onError(Exception e) {
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TBase msg;
+            getPicsByApplyDocCode_result result = new getPicsByApplyDocCode_result();
+            {
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+            }
+            try {
+              fcall.sendResponse(fb,msg,msgType,seqid);
+              return;
+            } catch (Exception ex) {
+              LOGGER.error("Exception writing to internal frame buffer", ex);
+            }
+            fb.close();
+          }
+        };
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public void start(I iface, getPicsByApplyDocCode_args args, org.apache.thrift.async.AsyncMethodCallback<List<String>> resultHandler) throws TException {
+        iface.getPicsByApplyDocCode(args.ApplyDocCode,resultHandler);
       }
     }
 
@@ -19801,6 +20071,1653 @@ public class RFIDService {
               _elem104 = new rfid.service.inStagingInfo();
               _elem104.read(iprot);
               struct.success.add(_elem104);
+            }
+          }
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class addPic_args implements org.apache.thrift.TBase<addPic_args, addPic_args._Fields>, java.io.Serializable, Cloneable, Comparable<addPic_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("addPic_args");
+
+    private static final org.apache.thrift.protocol.TField APPLY_DOC_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("ApplyDocCode", org.apache.thrift.protocol.TType.STRING, (short)1);
+    private static final org.apache.thrift.protocol.TField URL_FIELD_DESC = new org.apache.thrift.protocol.TField("URL", org.apache.thrift.protocol.TType.LIST, (short)2);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new addPic_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new addPic_argsTupleSchemeFactory());
+    }
+
+    public String ApplyDocCode; // required
+    public List<String> URL; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      APPLY_DOC_CODE((short)1, "ApplyDocCode"),
+      URL((short)2, "URL");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // APPLY_DOC_CODE
+            return APPLY_DOC_CODE;
+          case 2: // URL
+            return URL;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.APPLY_DOC_CODE, new org.apache.thrift.meta_data.FieldMetaData("ApplyDocCode", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.URL, new org.apache.thrift.meta_data.FieldMetaData("URL", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
+              new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(addPic_args.class, metaDataMap);
+    }
+
+    public addPic_args() {
+    }
+
+    public addPic_args(
+      String ApplyDocCode,
+      List<String> URL)
+    {
+      this();
+      this.ApplyDocCode = ApplyDocCode;
+      this.URL = URL;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public addPic_args(addPic_args other) {
+      if (other.isSetApplyDocCode()) {
+        this.ApplyDocCode = other.ApplyDocCode;
+      }
+      if (other.isSetURL()) {
+        List<String> __this__URL = new ArrayList<String>(other.URL);
+        this.URL = __this__URL;
+      }
+    }
+
+    public addPic_args deepCopy() {
+      return new addPic_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.ApplyDocCode = null;
+      this.URL = null;
+    }
+
+    public String getApplyDocCode() {
+      return this.ApplyDocCode;
+    }
+
+    public addPic_args setApplyDocCode(String ApplyDocCode) {
+      this.ApplyDocCode = ApplyDocCode;
+      return this;
+    }
+
+    public void unsetApplyDocCode() {
+      this.ApplyDocCode = null;
+    }
+
+    /** Returns true if field ApplyDocCode is set (has been assigned a value) and false otherwise */
+    public boolean isSetApplyDocCode() {
+      return this.ApplyDocCode != null;
+    }
+
+    public void setApplyDocCodeIsSet(boolean value) {
+      if (!value) {
+        this.ApplyDocCode = null;
+      }
+    }
+
+    public int getURLSize() {
+      return (this.URL == null) ? 0 : this.URL.size();
+    }
+
+    public java.util.Iterator<String> getURLIterator() {
+      return (this.URL == null) ? null : this.URL.iterator();
+    }
+
+    public void addToURL(String elem) {
+      if (this.URL == null) {
+        this.URL = new ArrayList<String>();
+      }
+      this.URL.add(elem);
+    }
+
+    public List<String> getURL() {
+      return this.URL;
+    }
+
+    public addPic_args setURL(List<String> URL) {
+      this.URL = URL;
+      return this;
+    }
+
+    public void unsetURL() {
+      this.URL = null;
+    }
+
+    /** Returns true if field URL is set (has been assigned a value) and false otherwise */
+    public boolean isSetURL() {
+      return this.URL != null;
+    }
+
+    public void setURLIsSet(boolean value) {
+      if (!value) {
+        this.URL = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case APPLY_DOC_CODE:
+        if (value == null) {
+          unsetApplyDocCode();
+        } else {
+          setApplyDocCode((String)value);
+        }
+        break;
+
+      case URL:
+        if (value == null) {
+          unsetURL();
+        } else {
+          setURL((List<String>)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case APPLY_DOC_CODE:
+        return getApplyDocCode();
+
+      case URL:
+        return getURL();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case APPLY_DOC_CODE:
+        return isSetApplyDocCode();
+      case URL:
+        return isSetURL();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof addPic_args)
+        return this.equals((addPic_args)that);
+      return false;
+    }
+
+    public boolean equals(addPic_args that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_ApplyDocCode = true && this.isSetApplyDocCode();
+      boolean that_present_ApplyDocCode = true && that.isSetApplyDocCode();
+      if (this_present_ApplyDocCode || that_present_ApplyDocCode) {
+        if (!(this_present_ApplyDocCode && that_present_ApplyDocCode))
+          return false;
+        if (!this.ApplyDocCode.equals(that.ApplyDocCode))
+          return false;
+      }
+
+      boolean this_present_URL = true && this.isSetURL();
+      boolean that_present_URL = true && that.isSetURL();
+      if (this_present_URL || that_present_URL) {
+        if (!(this_present_URL && that_present_URL))
+          return false;
+        if (!this.URL.equals(that.URL))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_ApplyDocCode = true && (isSetApplyDocCode());
+      list.add(present_ApplyDocCode);
+      if (present_ApplyDocCode)
+        list.add(ApplyDocCode);
+
+      boolean present_URL = true && (isSetURL());
+      list.add(present_URL);
+      if (present_URL)
+        list.add(URL);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(addPic_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetApplyDocCode()).compareTo(other.isSetApplyDocCode());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetApplyDocCode()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.ApplyDocCode, other.ApplyDocCode);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      lastComparison = Boolean.valueOf(isSetURL()).compareTo(other.isSetURL());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetURL()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.URL, other.URL);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("addPic_args(");
+      boolean first = true;
+
+      sb.append("ApplyDocCode:");
+      if (this.ApplyDocCode == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.ApplyDocCode);
+      }
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("URL:");
+      if (this.URL == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.URL);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class addPic_argsStandardSchemeFactory implements SchemeFactory {
+      public addPic_argsStandardScheme getScheme() {
+        return new addPic_argsStandardScheme();
+      }
+    }
+
+    private static class addPic_argsStandardScheme extends StandardScheme<addPic_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, addPic_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // APPLY_DOC_CODE
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.ApplyDocCode = iprot.readString();
+                struct.setApplyDocCodeIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 2: // URL
+              if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+                {
+                  org.apache.thrift.protocol.TList _list106 = iprot.readListBegin();
+                  struct.URL = new ArrayList<String>(_list106.size);
+                  String _elem107;
+                  for (int _i108 = 0; _i108 < _list106.size; ++_i108)
+                  {
+                    _elem107 = iprot.readString();
+                    struct.URL.add(_elem107);
+                  }
+                  iprot.readListEnd();
+                }
+                struct.setURLIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, addPic_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.ApplyDocCode != null) {
+          oprot.writeFieldBegin(APPLY_DOC_CODE_FIELD_DESC);
+          oprot.writeString(struct.ApplyDocCode);
+          oprot.writeFieldEnd();
+        }
+        if (struct.URL != null) {
+          oprot.writeFieldBegin(URL_FIELD_DESC);
+          {
+            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, struct.URL.size()));
+            for (String _iter109 : struct.URL)
+            {
+              oprot.writeString(_iter109);
+            }
+            oprot.writeListEnd();
+          }
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class addPic_argsTupleSchemeFactory implements SchemeFactory {
+      public addPic_argsTupleScheme getScheme() {
+        return new addPic_argsTupleScheme();
+      }
+    }
+
+    private static class addPic_argsTupleScheme extends TupleScheme<addPic_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, addPic_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetApplyDocCode()) {
+          optionals.set(0);
+        }
+        if (struct.isSetURL()) {
+          optionals.set(1);
+        }
+        oprot.writeBitSet(optionals, 2);
+        if (struct.isSetApplyDocCode()) {
+          oprot.writeString(struct.ApplyDocCode);
+        }
+        if (struct.isSetURL()) {
+          {
+            oprot.writeI32(struct.URL.size());
+            for (String _iter110 : struct.URL)
+            {
+              oprot.writeString(_iter110);
+            }
+          }
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, addPic_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(2);
+        if (incoming.get(0)) {
+          struct.ApplyDocCode = iprot.readString();
+          struct.setApplyDocCodeIsSet(true);
+        }
+        if (incoming.get(1)) {
+          {
+            org.apache.thrift.protocol.TList _list111 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.URL = new ArrayList<String>(_list111.size);
+            String _elem112;
+            for (int _i113 = 0; _i113 < _list111.size; ++_i113)
+            {
+              _elem112 = iprot.readString();
+              struct.URL.add(_elem112);
+            }
+          }
+          struct.setURLIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class addPic_result implements org.apache.thrift.TBase<addPic_result, addPic_result._Fields>, java.io.Serializable, Cloneable, Comparable<addPic_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("addPic_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.BOOL, (short)0);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new addPic_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new addPic_resultTupleSchemeFactory());
+    }
+
+    public boolean success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    private static final int __SUCCESS_ISSET_ID = 0;
+    private byte __isset_bitfield = 0;
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(addPic_result.class, metaDataMap);
+    }
+
+    public addPic_result() {
+    }
+
+    public addPic_result(
+      boolean success)
+    {
+      this();
+      this.success = success;
+      setSuccessIsSet(true);
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public addPic_result(addPic_result other) {
+      __isset_bitfield = other.__isset_bitfield;
+      this.success = other.success;
+    }
+
+    public addPic_result deepCopy() {
+      return new addPic_result(this);
+    }
+
+    @Override
+    public void clear() {
+      setSuccessIsSet(false);
+      this.success = false;
+    }
+
+    public boolean isSuccess() {
+      return this.success;
+    }
+
+    public addPic_result setSuccess(boolean success) {
+      this.success = success;
+      setSuccessIsSet(true);
+      return this;
+    }
+
+    public void unsetSuccess() {
+      __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __SUCCESS_ISSET_ID);
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return EncodingUtils.testBit(__isset_bitfield, __SUCCESS_ISSET_ID);
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __SUCCESS_ISSET_ID, value);
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((Boolean)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return isSuccess();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof addPic_result)
+        return this.equals((addPic_result)that);
+      return false;
+    }
+
+    public boolean equals(addPic_result that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_success = true;
+      boolean that_present_success = true;
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (this.success != that.success)
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_success = true;
+      list.add(present_success);
+      if (present_success)
+        list.add(success);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(addPic_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("addPic_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      sb.append(this.success);
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
+        __isset_bitfield = 0;
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class addPic_resultStandardSchemeFactory implements SchemeFactory {
+      public addPic_resultStandardScheme getScheme() {
+        return new addPic_resultStandardScheme();
+      }
+    }
+
+    private static class addPic_resultStandardScheme extends StandardScheme<addPic_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, addPic_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+                struct.success = iprot.readBool();
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, addPic_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.isSetSuccess()) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          oprot.writeBool(struct.success);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class addPic_resultTupleSchemeFactory implements SchemeFactory {
+      public addPic_resultTupleScheme getScheme() {
+        return new addPic_resultTupleScheme();
+      }
+    }
+
+    private static class addPic_resultTupleScheme extends TupleScheme<addPic_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, addPic_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          oprot.writeBool(struct.success);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, addPic_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.success = iprot.readBool();
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getPicsByApplyDocCode_args implements org.apache.thrift.TBase<getPicsByApplyDocCode_args, getPicsByApplyDocCode_args._Fields>, java.io.Serializable, Cloneable, Comparable<getPicsByApplyDocCode_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getPicsByApplyDocCode_args");
+
+    private static final org.apache.thrift.protocol.TField APPLY_DOC_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField("ApplyDocCode", org.apache.thrift.protocol.TType.STRING, (short)1);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getPicsByApplyDocCode_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getPicsByApplyDocCode_argsTupleSchemeFactory());
+    }
+
+    public String ApplyDocCode; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      APPLY_DOC_CODE((short)1, "ApplyDocCode");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // APPLY_DOC_CODE
+            return APPLY_DOC_CODE;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.APPLY_DOC_CODE, new org.apache.thrift.meta_data.FieldMetaData("ApplyDocCode", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getPicsByApplyDocCode_args.class, metaDataMap);
+    }
+
+    public getPicsByApplyDocCode_args() {
+    }
+
+    public getPicsByApplyDocCode_args(
+      String ApplyDocCode)
+    {
+      this();
+      this.ApplyDocCode = ApplyDocCode;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getPicsByApplyDocCode_args(getPicsByApplyDocCode_args other) {
+      if (other.isSetApplyDocCode()) {
+        this.ApplyDocCode = other.ApplyDocCode;
+      }
+    }
+
+    public getPicsByApplyDocCode_args deepCopy() {
+      return new getPicsByApplyDocCode_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.ApplyDocCode = null;
+    }
+
+    public String getApplyDocCode() {
+      return this.ApplyDocCode;
+    }
+
+    public getPicsByApplyDocCode_args setApplyDocCode(String ApplyDocCode) {
+      this.ApplyDocCode = ApplyDocCode;
+      return this;
+    }
+
+    public void unsetApplyDocCode() {
+      this.ApplyDocCode = null;
+    }
+
+    /** Returns true if field ApplyDocCode is set (has been assigned a value) and false otherwise */
+    public boolean isSetApplyDocCode() {
+      return this.ApplyDocCode != null;
+    }
+
+    public void setApplyDocCodeIsSet(boolean value) {
+      if (!value) {
+        this.ApplyDocCode = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case APPLY_DOC_CODE:
+        if (value == null) {
+          unsetApplyDocCode();
+        } else {
+          setApplyDocCode((String)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case APPLY_DOC_CODE:
+        return getApplyDocCode();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case APPLY_DOC_CODE:
+        return isSetApplyDocCode();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getPicsByApplyDocCode_args)
+        return this.equals((getPicsByApplyDocCode_args)that);
+      return false;
+    }
+
+    public boolean equals(getPicsByApplyDocCode_args that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_ApplyDocCode = true && this.isSetApplyDocCode();
+      boolean that_present_ApplyDocCode = true && that.isSetApplyDocCode();
+      if (this_present_ApplyDocCode || that_present_ApplyDocCode) {
+        if (!(this_present_ApplyDocCode && that_present_ApplyDocCode))
+          return false;
+        if (!this.ApplyDocCode.equals(that.ApplyDocCode))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_ApplyDocCode = true && (isSetApplyDocCode());
+      list.add(present_ApplyDocCode);
+      if (present_ApplyDocCode)
+        list.add(ApplyDocCode);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(getPicsByApplyDocCode_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetApplyDocCode()).compareTo(other.isSetApplyDocCode());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetApplyDocCode()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.ApplyDocCode, other.ApplyDocCode);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getPicsByApplyDocCode_args(");
+      boolean first = true;
+
+      sb.append("ApplyDocCode:");
+      if (this.ApplyDocCode == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.ApplyDocCode);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getPicsByApplyDocCode_argsStandardSchemeFactory implements SchemeFactory {
+      public getPicsByApplyDocCode_argsStandardScheme getScheme() {
+        return new getPicsByApplyDocCode_argsStandardScheme();
+      }
+    }
+
+    private static class getPicsByApplyDocCode_argsStandardScheme extends StandardScheme<getPicsByApplyDocCode_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getPicsByApplyDocCode_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // APPLY_DOC_CODE
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.ApplyDocCode = iprot.readString();
+                struct.setApplyDocCodeIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getPicsByApplyDocCode_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.ApplyDocCode != null) {
+          oprot.writeFieldBegin(APPLY_DOC_CODE_FIELD_DESC);
+          oprot.writeString(struct.ApplyDocCode);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getPicsByApplyDocCode_argsTupleSchemeFactory implements SchemeFactory {
+      public getPicsByApplyDocCode_argsTupleScheme getScheme() {
+        return new getPicsByApplyDocCode_argsTupleScheme();
+      }
+    }
+
+    private static class getPicsByApplyDocCode_argsTupleScheme extends TupleScheme<getPicsByApplyDocCode_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getPicsByApplyDocCode_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetApplyDocCode()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetApplyDocCode()) {
+          oprot.writeString(struct.ApplyDocCode);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getPicsByApplyDocCode_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.ApplyDocCode = iprot.readString();
+          struct.setApplyDocCodeIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getPicsByApplyDocCode_result implements org.apache.thrift.TBase<getPicsByApplyDocCode_result, getPicsByApplyDocCode_result._Fields>, java.io.Serializable, Cloneable, Comparable<getPicsByApplyDocCode_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getPicsByApplyDocCode_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.LIST, (short)0);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getPicsByApplyDocCode_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getPicsByApplyDocCode_resultTupleSchemeFactory());
+    }
+
+    public List<String> success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
+              new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getPicsByApplyDocCode_result.class, metaDataMap);
+    }
+
+    public getPicsByApplyDocCode_result() {
+    }
+
+    public getPicsByApplyDocCode_result(
+      List<String> success)
+    {
+      this();
+      this.success = success;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getPicsByApplyDocCode_result(getPicsByApplyDocCode_result other) {
+      if (other.isSetSuccess()) {
+        List<String> __this__success = new ArrayList<String>(other.success);
+        this.success = __this__success;
+      }
+    }
+
+    public getPicsByApplyDocCode_result deepCopy() {
+      return new getPicsByApplyDocCode_result(this);
+    }
+
+    @Override
+    public void clear() {
+      this.success = null;
+    }
+
+    public int getSuccessSize() {
+      return (this.success == null) ? 0 : this.success.size();
+    }
+
+    public java.util.Iterator<String> getSuccessIterator() {
+      return (this.success == null) ? null : this.success.iterator();
+    }
+
+    public void addToSuccess(String elem) {
+      if (this.success == null) {
+        this.success = new ArrayList<String>();
+      }
+      this.success.add(elem);
+    }
+
+    public List<String> getSuccess() {
+      return this.success;
+    }
+
+    public getPicsByApplyDocCode_result setSuccess(List<String> success) {
+      this.success = success;
+      return this;
+    }
+
+    public void unsetSuccess() {
+      this.success = null;
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return this.success != null;
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      if (!value) {
+        this.success = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((List<String>)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return getSuccess();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getPicsByApplyDocCode_result)
+        return this.equals((getPicsByApplyDocCode_result)that);
+      return false;
+    }
+
+    public boolean equals(getPicsByApplyDocCode_result that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_success = true && this.isSetSuccess();
+      boolean that_present_success = true && that.isSetSuccess();
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (!this.success.equals(that.success))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      List<Object> list = new ArrayList<Object>();
+
+      boolean present_success = true && (isSetSuccess());
+      list.add(present_success);
+      if (present_success)
+        list.add(success);
+
+      return list.hashCode();
+    }
+
+    @Override
+    public int compareTo(getPicsByApplyDocCode_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getPicsByApplyDocCode_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      if (this.success == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.success);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getPicsByApplyDocCode_resultStandardSchemeFactory implements SchemeFactory {
+      public getPicsByApplyDocCode_resultStandardScheme getScheme() {
+        return new getPicsByApplyDocCode_resultStandardScheme();
+      }
+    }
+
+    private static class getPicsByApplyDocCode_resultStandardScheme extends StandardScheme<getPicsByApplyDocCode_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getPicsByApplyDocCode_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+                {
+                  org.apache.thrift.protocol.TList _list114 = iprot.readListBegin();
+                  struct.success = new ArrayList<String>(_list114.size);
+                  String _elem115;
+                  for (int _i116 = 0; _i116 < _list114.size; ++_i116)
+                  {
+                    _elem115 = iprot.readString();
+                    struct.success.add(_elem115);
+                  }
+                  iprot.readListEnd();
+                }
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getPicsByApplyDocCode_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.success != null) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          {
+            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, struct.success.size()));
+            for (String _iter117 : struct.success)
+            {
+              oprot.writeString(_iter117);
+            }
+            oprot.writeListEnd();
+          }
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getPicsByApplyDocCode_resultTupleSchemeFactory implements SchemeFactory {
+      public getPicsByApplyDocCode_resultTupleScheme getScheme() {
+        return new getPicsByApplyDocCode_resultTupleScheme();
+      }
+    }
+
+    private static class getPicsByApplyDocCode_resultTupleScheme extends TupleScheme<getPicsByApplyDocCode_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getPicsByApplyDocCode_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          {
+            oprot.writeI32(struct.success.size());
+            for (String _iter118 : struct.success)
+            {
+              oprot.writeString(_iter118);
+            }
+          }
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getPicsByApplyDocCode_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          {
+            org.apache.thrift.protocol.TList _list119 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.success = new ArrayList<String>(_list119.size);
+            String _elem120;
+            for (int _i121 = 0; _i121 < _list119.size; ++_i121)
+            {
+              _elem120 = iprot.readString();
+              struct.success.add(_elem120);
             }
           }
           struct.setSuccessIsSet(true);

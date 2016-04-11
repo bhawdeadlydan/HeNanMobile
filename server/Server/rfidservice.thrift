@@ -24,4 +24,6 @@ bool stagingSiteCheckout(1:string applyPerson, 2:string constructPos, 3:string c
 list<data.transportInfo> getTransportInfo();
 list<data.stagingInfo> getStagingInfo(1:string constructUnit);
 list<data.inStagingInfo> getInStagingInfo(1:string constructUnit);
+bool addPic(1:string ApplyDocCode, 2:list<string> URL);
+list<string> getPicsByApplyDocCode(1:string ApplyDocCode);
 }

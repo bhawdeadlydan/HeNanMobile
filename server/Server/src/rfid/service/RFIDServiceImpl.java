@@ -564,4 +564,24 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         return l;
     }
 
+    @Override
+    public boolean addPic(String ApplyDocCode, List<String> URL) throws TException {
+        PicDao dao = new PicDao();
+        for(int i = 0; i < URL.size(); i++) {
+            PictureEntity pic = new PictureEntity();
+            pic.setApplyDocCode(ApplyDocCode);
+            pic.setUrl(URL.get(i));
+            dao.addEntity(pic);
+        }
+        return true;
+    }
+
+    @Override
+    public List<String> getPicsByApplyDocCode(String ApplyDocCode) throws TException {
+        List<String> pics;
+        PicDao dao = new PicDao();
+        pics = dao.getPics(ApplyDocCode);
+        return pics;
+    }
+
 }
