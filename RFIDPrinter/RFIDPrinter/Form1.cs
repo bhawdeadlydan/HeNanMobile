@@ -42,6 +42,23 @@ namespace RFIDPrinter
             
         }
 
+        private void update(string str)
+        {
+            textBox1.Text += str;
+        }
+
+        public void updateText(string str)
+        {
+            if(this.textBox1.InvokeRequired)
+            {
+                this.textBox1.BeginInvoke((MethodInvoker)delegate () { this.textBox1.Text += str; });
+            }
+            else
+            {
+                this.textBox1.Text += str;
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             server.Stop();

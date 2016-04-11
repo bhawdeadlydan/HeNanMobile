@@ -1,8 +1,0 @@
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\bin\Debug\RFIDPrinter.exe.config
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\bin\Debug\RFIDPrinter.exe
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\bin\Debug\RFIDPrinter.pdb
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Debug\RFIDPrinter.csprojResolveAssemblyReference.cache
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Debug\RFIDPrinter.Properties.Resources.resources
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Debug\RFIDPrinter.csproj.GenerateResource.Cache
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Debug\RFIDPrinter.exe
-E:\Projects\Visual Studio 2013\RFIDPrinter\RFIDPrinter\obj\Debug\RFIDPrinter.pdb

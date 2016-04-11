@@ -39,17 +39,17 @@ namespace RFIDPrinter
                     bool rst = printData(data.BatchGoods.ElementAt(i).ElementAt(j).ItemCode);
                     if(!rst)
                     {
-                        form.textBox1.Text += "写高频标签失败，是否重试，请点击左侧按钮。\n";
+                        form.updateText("写高频标签失败，是否重试，请点击左侧按钮。\n");
                         //wait until user choose the option
                         while (form.option == 0) ;
                         if(form.option == 1)//retry
                         {
                             j--;
-                            form.textBox1.Text += "准备重试..\n";
+                            form.updateText("准备重试..\n");
                         }
                         else if(form.option == -1)//terminate
                         {
-                            form.textBox1.Text += "准备退出\n";
+                            form.updateText("准备退出\n");
                             return false;
                         }
                     }
@@ -64,7 +64,7 @@ namespace RFIDPrinter
             String text = "当前需写入标签内信息及标签数量：\r\n" + "物料编码：" + matCode + "\r\n项目编码："
                 + projectCode + "\n";
             Console.WriteLine(text);
-            form.textBox1.Text += text;
+            form.updateText(text);
             for(int i = 0; i < 3; i++)
                 form.write1(matCode, projectCode);
             string[] res = form.read1();
