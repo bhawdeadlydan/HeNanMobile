@@ -17,10 +17,10 @@ using Thrift.Transport;
 
 public partial class RfidPrinterService {
   public interface Iface {
-    bool printData(Data data, int count);
+    bool callPrinter(Data data);
     #if SILVERLIGHT
-    IAsyncResult Begin_printData(AsyncCallback callback, object state, Data data, int count);
-    bool End_printData(IAsyncResult asyncResult);
+    IAsyncResult Begin_callPrinter(AsyncCallback callback, object state, Data data);
+    bool End_callPrinter(IAsyncResult asyncResult);
     #endif
   }
 
@@ -82,41 +82,40 @@ public partial class RfidPrinterService {
 
     
     #if SILVERLIGHT
-    public IAsyncResult Begin_printData(AsyncCallback callback, object state, Data data, int count)
+    public IAsyncResult Begin_callPrinter(AsyncCallback callback, object state, Data data)
     {
-      return send_printData(callback, state, data, count);
+      return send_callPrinter(callback, state, data);
     }
 
-    public bool End_printData(IAsyncResult asyncResult)
+    public bool End_callPrinter(IAsyncResult asyncResult)
     {
       oprot_.Transport.EndFlush(asyncResult);
-      return recv_printData();
+      return recv_callPrinter();
     }
 
     #endif
 
-    public bool printData(Data data, int count)
+    public bool callPrinter(Data data)
     {
       #if !SILVERLIGHT
-      send_printData(data, count);
-      return recv_printData();
+      send_callPrinter(data);
+      return recv_callPrinter();
 
       #else
-      var asyncResult = Begin_printData(null, null, data, count);
-      return End_printData(asyncResult);
+      var asyncResult = Begin_callPrinter(null, null, data);
+      return End_callPrinter(asyncResult);
 
       #endif
     }
     #if SILVERLIGHT
-    public IAsyncResult send_printData(AsyncCallback callback, object state, Data data, int count)
+    public IAsyncResult send_callPrinter(AsyncCallback callback, object state, Data data)
     #else
-    public void send_printData(Data data, int count)
+    public void send_callPrinter(Data data)
     #endif
     {
-      oprot_.WriteMessageBegin(new TMessage("printData", TMessageType.Call, seqid_));
-      printData_args args = new printData_args();
+      oprot_.WriteMessageBegin(new TMessage("callPrinter", TMessageType.Call, seqid_));
+      callPrinter_args args = new callPrinter_args();
       args.Data = data;
-      args.Count = count;
       args.Write(oprot_);
       oprot_.WriteMessageEnd();
       #if SILVERLIGHT
@@ -126,7 +125,7 @@ public partial class RfidPrinterService {
       #endif
     }
 
-    public bool recv_printData()
+    public bool recv_callPrinter()
     {
       TMessage msg = iprot_.ReadMessageBegin();
       if (msg.Type == TMessageType.Exception) {
@@ -134,13 +133,13 @@ public partial class RfidPrinterService {
         iprot_.ReadMessageEnd();
         throw x;
       }
-      printData_result result = new printData_result();
+      callPrinter_result result = new callPrinter_result();
       result.Read(iprot_);
       iprot_.ReadMessageEnd();
       if (result.__isset.success) {
         return result.Success;
       }
-      throw new TApplicationException(TApplicationException.ExceptionType.MissingResult, "printData failed: unknown result");
+      throw new TApplicationException(TApplicationException.ExceptionType.MissingResult, "callPrinter failed: unknown result");
     }
 
   }
@@ -148,7 +147,7 @@ public partial class RfidPrinterService {
     public Processor(Iface iface)
     {
       iface_ = iface;
-      processMap_["printData"] = printData_Process;
+      processMap_["callPrinter"] = callPrinter_Process;
     }
 
     protected delegate void ProcessFunction(int seqid, TProtocol iprot, TProtocol oprot);
@@ -181,14 +180,14 @@ public partial class RfidPrinterService {
       return true;
     }
 
-    public void printData_Process(int seqid, TProtocol iprot, TProtocol oprot)
+    public void callPrinter_Process(int seqid, TProtocol iprot, TProtocol oprot)
     {
-      printData_args args = new printData_args();
+      callPrinter_args args = new callPrinter_args();
       args.Read(iprot);
       iprot.ReadMessageEnd();
-      printData_result result = new printData_result();
-      result.Success = iface_.printData(args.Data, args.Count);
-      oprot.WriteMessageBegin(new TMessage("printData", TMessageType.Reply, seqid)); 
+      callPrinter_result result = new callPrinter_result();
+      result.Success = iface_.callPrinter(args.Data);
+      oprot.WriteMessageBegin(new TMessage("callPrinter", TMessageType.Reply, seqid)); 
       result.Write(oprot);
       oprot.WriteMessageEnd();
       oprot.Transport.Flush();
@@ -200,10 +199,9 @@ public partial class RfidPrinterService {
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class printData_args : TBase
+  public partial class callPrinter_args : TBase
   {
     private Data _data;
-    private int _count;
 
     public Data Data
     {
@@ -218,19 +216,6 @@ public partial class RfidPrinterService {
       }
     }
 
-    public int Count
-    {
-      get
-      {
-        return _count;
-      }
-      set
-      {
-        __isset.count = true;
-        this._count = value;
-      }
-    }
-
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -238,10 +223,9 @@ public partial class RfidPrinterService {
     #endif
     public struct Isset {
       public bool data;
-      public bool count;
     }
 
-    public printData_args() {
+    public callPrinter_args() {
     }
 
     public void Read (TProtocol iprot)
@@ -267,13 +251,6 @@ public partial class RfidPrinterService {
                 TProtocolUtil.Skip(iprot, field.Type);
               }
               break;
-            case 2:
-              if (field.Type == TType.I32) {
-                Count = iprot.ReadI32();
-              } else { 
-                TProtocolUtil.Skip(iprot, field.Type);
-              }
-              break;
             default: 
               TProtocolUtil.Skip(iprot, field.Type);
               break;
@@ -292,7 +269,7 @@ public partial class RfidPrinterService {
       oprot.IncrementRecursionDepth();
       try
       {
-        TStruct struc = new TStruct("printData_args");
+        TStruct struc = new TStruct("callPrinter_args");
         oprot.WriteStructBegin(struc);
         TField field = new TField();
         if (Data != null && __isset.data) {
@@ -301,14 +278,6 @@ public partial class RfidPrinterService {
           field.ID = 1;
           oprot.WriteFieldBegin(field);
           Data.Write(oprot);
-          oprot.WriteFieldEnd();
-        }
-        if (__isset.count) {
-          field.Name = "count";
-          field.Type = TType.I32;
-          field.ID = 2;
-          oprot.WriteFieldBegin(field);
-          oprot.WriteI32(Count);
           oprot.WriteFieldEnd();
         }
         oprot.WriteFieldStop();
@@ -321,19 +290,13 @@ public partial class RfidPrinterService {
     }
 
     public override string ToString() {
-      StringBuilder __sb = new StringBuilder("printData_args(");
+      StringBuilder __sb = new StringBuilder("callPrinter_args(");
       bool __first = true;
       if (Data != null && __isset.data) {
         if(!__first) { __sb.Append(", "); }
         __first = false;
         __sb.Append("Data: ");
         __sb.Append(Data== null ? "<null>" : Data.ToString());
-      }
-      if (__isset.count) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Count: ");
-        __sb.Append(Count);
       }
       __sb.Append(")");
       return __sb.ToString();
@@ -345,7 +308,7 @@ public partial class RfidPrinterService {
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class printData_result : TBase
+  public partial class callPrinter_result : TBase
   {
     private bool _success;
 
@@ -371,7 +334,7 @@ public partial class RfidPrinterService {
       public bool success;
     }
 
-    public printData_result() {
+    public callPrinter_result() {
     }
 
     public void Read (TProtocol iprot)
@@ -414,7 +377,7 @@ public partial class RfidPrinterService {
       oprot.IncrementRecursionDepth();
       try
       {
-        TStruct struc = new TStruct("printData_result");
+        TStruct struc = new TStruct("callPrinter_result");
         oprot.WriteStructBegin(struc);
         TField field = new TField();
 
@@ -436,7 +399,7 @@ public partial class RfidPrinterService {
     }
 
     public override string ToString() {
-      StringBuilder __sb = new StringBuilder("printData_result(");
+      StringBuilder __sb = new StringBuilder("callPrinter_result(");
       bool __first = true;
       if (__isset.success) {
         if(!__first) { __sb.Append(", "); }

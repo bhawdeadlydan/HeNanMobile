@@ -16,3 +16,4 @@ E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPri
 E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.Form1.resources
 E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.Properties.Resources.resources
 E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.csproj.GenerateResource.Cache
+E:\微云\实验室\实验室项目\河南移动\HeNanMobile\RFIDPrinter\RFIDPrinter\obj\Release\RFIDPrinter.csprojResolveAssemblyReference.cache

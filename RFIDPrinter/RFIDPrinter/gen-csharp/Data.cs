@@ -21,21 +21,10 @@ using Thrift.Transport;
 #endif
 public partial class Data : TBase
 {
-  private string _matCode;
   private string _projectCode;
-
-  public string MatCode
-  {
-    get
-    {
-      return _matCode;
-    }
-    set
-    {
-      __isset.matCode = true;
-      this._matCode = value;
-    }
-  }
+  private string _code;
+  private string _vendorName;
+  private List<List<Item>> _batchGoods;
 
   public string ProjectCode
   {
@@ -50,14 +39,55 @@ public partial class Data : TBase
     }
   }
 
+  public string Code
+  {
+    get
+    {
+      return _code;
+    }
+    set
+    {
+      __isset.code = true;
+      this._code = value;
+    }
+  }
+
+  public string VendorName
+  {
+    get
+    {
+      return _vendorName;
+    }
+    set
+    {
+      __isset.vendorName = true;
+      this._vendorName = value;
+    }
+  }
+
+  public List<List<Item>> BatchGoods
+  {
+    get
+    {
+      return _batchGoods;
+    }
+    set
+    {
+      __isset.batchGoods = true;
+      this._batchGoods = value;
+    }
+  }
+
 
   public Isset __isset;
   #if !SILVERLIGHT
   [Serializable]
   #endif
   public struct Isset {
-    public bool matCode;
     public bool projectCode;
+    public bool code;
+    public bool vendorName;
+    public bool batchGoods;
   }
 
   public Data() {
@@ -80,14 +110,49 @@ public partial class Data : TBase
         {
           case 1:
             if (field.Type == TType.String) {
-              MatCode = iprot.ReadString();
+              ProjectCode = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 2:
             if (field.Type == TType.String) {
-              ProjectCode = iprot.ReadString();
+              Code = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 3:
+            if (field.Type == TType.String) {
+              VendorName = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 4:
+            if (field.Type == TType.List) {
+              {
+                BatchGoods = new List<List<Item>>();
+                TList _list0 = iprot.ReadListBegin();
+                for( int _i1 = 0; _i1 < _list0.Count; ++_i1)
+                {
+                  List<Item> _elem2;
+                  {
+                    _elem2 = new List<Item>();
+                    TList _list3 = iprot.ReadListBegin();
+                    for( int _i4 = 0; _i4 < _list3.Count; ++_i4)
+                    {
+                      Item _elem5;
+                      _elem5 = new Item();
+                      _elem5.Read(iprot);
+                      _elem2.Add(_elem5);
+                    }
+                    iprot.ReadListEnd();
+                  }
+                  BatchGoods.Add(_elem2);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -113,20 +178,50 @@ public partial class Data : TBase
       TStruct struc = new TStruct("Data");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (MatCode != null && __isset.matCode) {
-        field.Name = "matCode";
-        field.Type = TType.String;
-        field.ID = 1;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(MatCode);
-        oprot.WriteFieldEnd();
-      }
       if (ProjectCode != null && __isset.projectCode) {
         field.Name = "projectCode";
         field.Type = TType.String;
-        field.ID = 2;
+        field.ID = 1;
         oprot.WriteFieldBegin(field);
         oprot.WriteString(ProjectCode);
+        oprot.WriteFieldEnd();
+      }
+      if (Code != null && __isset.code) {
+        field.Name = "code";
+        field.Type = TType.String;
+        field.ID = 2;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Code);
+        oprot.WriteFieldEnd();
+      }
+      if (VendorName != null && __isset.vendorName) {
+        field.Name = "vendorName";
+        field.Type = TType.String;
+        field.ID = 3;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(VendorName);
+        oprot.WriteFieldEnd();
+      }
+      if (BatchGoods != null && __isset.batchGoods) {
+        field.Name = "batchGoods";
+        field.Type = TType.List;
+        field.ID = 4;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.List, BatchGoods.Count));
+          foreach (List<Item> _iter6 in BatchGoods)
+          {
+            {
+              oprot.WriteListBegin(new TList(TType.Struct, _iter6.Count));
+              foreach (Item _iter7 in _iter6)
+              {
+                _iter7.Write(oprot);
+              }
+              oprot.WriteListEnd();
+            }
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -141,17 +236,29 @@ public partial class Data : TBase
   public override string ToString() {
     StringBuilder __sb = new StringBuilder("Data(");
     bool __first = true;
-    if (MatCode != null && __isset.matCode) {
-      if(!__first) { __sb.Append(", "); }
-      __first = false;
-      __sb.Append("MatCode: ");
-      __sb.Append(MatCode);
-    }
     if (ProjectCode != null && __isset.projectCode) {
       if(!__first) { __sb.Append(", "); }
       __first = false;
       __sb.Append("ProjectCode: ");
       __sb.Append(ProjectCode);
+    }
+    if (Code != null && __isset.code) {
+      if(!__first) { __sb.Append(", "); }
+      __first = false;
+      __sb.Append("Code: ");
+      __sb.Append(Code);
+    }
+    if (VendorName != null && __isset.vendorName) {
+      if(!__first) { __sb.Append(", "); }
+      __first = false;
+      __sb.Append("VendorName: ");
+      __sb.Append(VendorName);
+    }
+    if (BatchGoods != null && __isset.batchGoods) {
+      if(!__first) { __sb.Append(", "); }
+      __first = false;
+      __sb.Append("BatchGoods: ");
+      __sb.Append(BatchGoods);
     }
     __sb.Append(")");
     return __sb.ToString();

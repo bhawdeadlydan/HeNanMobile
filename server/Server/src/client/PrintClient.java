@@ -34,11 +34,11 @@ public class PrintClient {
         transport.close();
     }
 
-    public boolean printData(Data data, int count){
+    public boolean callPrinter(Data data){
         try {
             // 设置传输协议为 TBinaryProtocol
             if(connected)
-                return client.printData(data, count);
+                return client.callPrinter(data);
             else
                 return false;
         } catch (TTransportException e) {

@@ -1,6 +1,7 @@
 package rfid.service;
 
 import client.Data;
+import client.Item;
 import client.PrintClient;
 
 import java.io.*;
@@ -28,19 +29,42 @@ public class PrintThread implements Runnable{
     }
     @Override
     public void run() {
-        for(int i = 0; i < batchGoods.size(); i++){
-            printTag(batchGoods.get(i));
-            Data data = new Data();
-            data.setProjectCode(projectCode);
-            data.setMatCode(batchGoods.get(i).get(0)[1]);
-            System.out.println("print sequence " + i + " start");
-//             if(client == null || !client.printData(data, 2)) {
-            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
-                System.out.println("print sequence " + i + " over unexpectedly");
-                break;
+        System.out.println("print thread starting..");
+        Data data = new Data();
+        data.setProjectCode(projectCode);
+        data.setCode(code);
+        data.setVendorName(vendorName);
+        List<List<Item>> batGoods = new ArrayList<>();
+        for(Iterator<ArrayList<String[]>> it = batchGoods.iterator(); it.hasNext();) {
+            ArrayList<String[]> l = it.next();
+            List<Item> items = new ArrayList<>();
+            for(int i = 0; i < l.size(); i++) {
+                Item item = new Item();
+                item.setItemName(l.get(i)[0]);
+                item.setItemCode(l.get(i)[1]);
+                item.setItemNum(l.get(i)[2]);
+                item.setItemUnit(l.get(i)[3]);
+                item.setEPC(l.get(i)[4]);
+                items.add(item);
             }
-            System.out.println("print sequence " + i + " over");
+            batGoods.add(items);
         }
+        data.setBatchGoods(batGoods);
+        client.callPrinter(data);
+
+//        for(int i = 0; i < batchGoods.size(); i++){
+//            printTag(batchGoods.get(i));
+//            Data data = new Data();
+//            data.setProjectCode(projectCode);
+//            data.setMatCode(batchGoods.get(i).get(0)[1]);
+//            System.out.println("print sequence " + i + " start");
+////             if(client == null || !client.printData(data, 2)) {
+//            if(client == null || !client.printData(data, batchGoods.get(i).size())) {
+//                System.out.println("print sequence " + i + " over unexpectedly");
+//                break;
+//            }
+//            System.out.println("print sequence " + i + " over");
+//        }
         System.out.println("print thread exiting..");
         client.close();
     }

@@ -20,6 +20,7 @@ namespace RFIDPrinter
     public partial class Form1 : Form
     {
         public bool bOperatingSerial;
+        public int option;
         private int serialDevice;                   //串口设备
         ushort[] addrArray = new ushort[2];
         Byte[] sendBuffer = new Byte[1024];
@@ -32,7 +33,7 @@ namespace RFIDPrinter
 
         public Form1()
         {
-
+            option = 0;
             InitializeComponent();
             serverThread = new Thread(OpenServer);
             serverThread.Start();
@@ -230,7 +231,7 @@ namespace RFIDPrinter
             write1("10041806", "B1524015");
         }
 
-        private void read1()
+        public string[] read1()
         {
             String code1 = HexStringToString(readone("01"),Encoding.UTF8);
             String code2 = HexStringToString(readone("02"), Encoding.UTF8);
@@ -241,9 +242,15 @@ namespace RFIDPrinter
             projectCode = projectCode.TrimEnd('\0');
             time = time.TrimEnd('\0');
             //code1.Insert(code1.Length, code2);
+            string[] list = new string[3];
+            list[0] = code1 + code2;
+            list[1] = projectCode;
+            list[2] = time;
+
             Console.WriteLine(code1+code2);
             Console.WriteLine(projectCode);
             Console.WriteLine(time);
+            return list;
         }
 
         private string readone(String addr)
@@ -447,16 +454,26 @@ namespace RFIDPrinter
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Data d1 = new Data();
-            d1.ProjectCode = "B1524011";
-            d1.MatCode = "2510TP000009924_66666";
-            RfidPrinterImpl insance = new RfidPrinterImpl(this);
-            insance.printData(d1,3);
+            //Data d1 = new Data();
+            //d1.ProjectCode = "B1524011";
+            //d1.MatCode = "2510TP000009924_66666";
+            //RfidPrinterImpl insance = new RfidPrinterImpl(this);
+            //insance.printData(d1,3);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //serverThread.Abort();
+        }
+
+        private void retry_Click(object sender, EventArgs e)
+        {
+            option = 1;
+        }
+
+        private void terminate_Click(object sender, EventArgs e)
+        {
+            option = -1;
         }
     }
 }

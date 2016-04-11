@@ -25,7 +25,7 @@ public class RFIDClient {
             // 设置传输协议为 TBinaryProtocol
             TProtocol protocol = new TBinaryProtocol(transport);
             RFIDService.Client client = new RFIDService.Client(protocol);
-            //client.printTag("VD-SH-2015120001434");
+            client.printTag("VD-SH-2015120001434");
       //      List<LocationInfo> list1 = new ArrayList<>();//client.getLocationListByItemErpCode("2510TP000009924_53009", true);
 /*            ArrayList<String> l = new ArrayList<>();
             l.add("20151212000000a0");*/
@@ -42,9 +42,9 @@ public class RFIDClient {
 //            List<Good> l = client.getGoodsListByApplyDocCode("2524-REQ-2015100000297");
 //            List<inStagingInfo> l = client.getInStagingInfo("广东和新");
             //List<transportInfo> l = client.getTransportInfo();
-            Map<String, Integer> mp = new HashMap<>();
-            mp.put("201512180000013c", 1);
-            boolean a = client.confirmRetrieval("2524-REQ-2015120000125", mp);
+//            Map<String, Integer> mp = new HashMap<>();
+//            mp.put("201512180000013c", 1);
+//            boolean a = client.confirmRetrieval("2524-REQ-2015120000125", mp);
             /*List<POS> list = client.getApplySheets();
             for(Iterator it = list.iterator();it.hasNext();){
                 POS pos = (POS)it.next();
