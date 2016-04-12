@@ -25,13 +25,13 @@ public class RFIDClient {
             // 设置传输协议为 TBinaryProtocol
             TProtocol protocol = new TBinaryProtocol(transport);
             RFIDService.Client client = new RFIDService.Client(protocol);
-            //client.printTag("VD-SH-2015120001434");
+            client.printTag("VD-SH-2015120001434");
             //ArrayList<String> l = new ArrayList<>();
            // l.add("sadfasdfasf");
             //client.addPic("2521-REQ-2016030001368", l);
-            List<String> l1 = client.getPicsByApplyDocCode("2521-REQ-2016030001368");
-            for(int i = 0; i < l1.size(); i++)
-                System.out.println(l1.get(i));
+//            List<String> l1 = client.getPicsByApplyDocCode("2521-REQ-2016030001368");
+//            for(int i = 0; i < l1.size(); i++)
+//                System.out.println(l1.get(i));
       //      List<LocationInfo> list1 = new ArrayList<>();//client.getLocationListByItemErpCode("2510TP000009924_53009", true);
 /*            ArrayList<String> l = new ArrayList<>();
             l.add("20151212000000a0");*/

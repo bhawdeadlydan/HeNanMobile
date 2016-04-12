@@ -135,6 +135,7 @@
             // 
             // retry
             // 
+            this.retry.Enabled = false;
             this.retry.Location = new System.Drawing.Point(129, 185);
             this.retry.Name = "retry";
             this.retry.Size = new System.Drawing.Size(82, 35);
@@ -154,6 +155,7 @@
             // 
             // terminate
             // 
+            this.terminate.Enabled = false;
             this.terminate.Location = new System.Drawing.Point(129, 263);
             this.terminate.Name = "terminate";
             this.terminate.Size = new System.Drawing.Size(82, 35);

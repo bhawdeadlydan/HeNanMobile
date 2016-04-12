@@ -46,19 +46,7 @@ namespace RFIDPrinter
         {
             textBox1.Text += str;
         }
-
-        public void updateText(string str)
-        {
-            if(this.textBox1.InvokeRequired)
-            {
-                this.textBox1.BeginInvoke((MethodInvoker)delegate () { this.textBox1.Text += str; });
-            }
-            else
-            {
-                this.textBox1.Text += str;
-            }
-        }
-
+        
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             server.Stop();
@@ -491,6 +479,38 @@ namespace RFIDPrinter
         private void terminate_Click(object sender, EventArgs e)
         {
             option = -1;
+        }
+
+        public void toggleButtons()
+        {
+            if (this.retry.InvokeRequired)
+            {
+                retry.BeginInvoke((MethodInvoker)delegate() { retry.Enabled = !retry.Enabled; });
+            }
+            else
+            {
+                retry.Enabled = !retry.Enabled;
+            }
+            if (this.terminate.InvokeRequired)
+            {
+                terminate.BeginInvoke((MethodInvoker)delegate () { terminate.Enabled = !terminate.Enabled; });
+            }
+            else
+            {
+                terminate.Enabled = !terminate.Enabled;
+            }
+        }
+
+        public void updateText(string str)
+        {
+            if (this.textBox1.InvokeRequired)
+            {
+                this.textBox1.BeginInvoke((MethodInvoker)delegate () { this.textBox1.Text += str; });
+            }
+            else
+            {
+                this.textBox1.Text += str;
+            }
         }
     }
 }
