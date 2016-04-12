@@ -196,7 +196,6 @@ public class MainActivity extends Activity {
                 case R.id.btn_main_arrive_tmp:
                     intent.setClass(MainActivity.this, ArrivalActivity.class);
                     intent.putExtra("function", 0);
-
                     break;
                 case R.id.btn_main_arrive_construct:
                     intent.setClass(MainActivity.this, ArrivalActivity.class);

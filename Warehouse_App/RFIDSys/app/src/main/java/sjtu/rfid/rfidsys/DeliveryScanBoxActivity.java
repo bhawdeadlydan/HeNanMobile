@@ -62,9 +62,9 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
     private Map<String, Set<String>> mDeliveryBoxesItemsList;
 
     //20160411 记录已经拣选的某类货物的总共数量,Key:物料ERP编码，Value:该物料总数量
-    private HashMap<String,Double> mDeliveryBoxesMatCount;
+    private HashMap<String,Integer> mDeliveryBoxesMatCount;
     //20160411 记录每个箱子里面取了多少件东西,Key:箱子EPC编码，Value：取了该箱内多少件物品
-    private HashMap<String,Double> mDeliveryBoxesPickCountInsideBox;
+    private HashMap<String,Integer> mDeliveryBoxesPickCountInsideBox;
     //20160411 当前扫到的箱子所包含的货物
     private Good curScanGood = null;
     //20160411 当前扫到的箱子EPC号
@@ -370,7 +370,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
             mDeliveryBoxesItemsList.put(good.getCode(),boxSet);
 
             //20160411 Key:物品MatCode，Value:拣货数量
-            mDeliveryBoxesMatCount.put(good.getCode(),0.0);
+            mDeliveryBoxesMatCount.put(good.getCode(),0);
         }
 
         tmpAdapter = new DeliverySheetsScanBoxExpandableAdapter(this, mDeliveryBoxesDetails, mDeliveryBoxes,mDeliveryBoxesItemsList,mDeliveryBoxesMatCount);
@@ -447,7 +447,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                             CNumList.add(curScanEpc);
                         }
                         String matCode = curScanGood.getCode();
-                        Double val = Double.valueOf(((EditText) findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt)).getText().toString());
+                        Integer val = Integer.valueOf(((EditText) findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt)).getText().toString());
                         mDeliveryBoxesMatCount.put(matCode,mDeliveryBoxesMatCount.get(matCode)+val);
                         mDeliveryBoxesPickCountInsideBox.put(curScanEpc,val);
                         mDeliveryBoxesItemsList.get(curScanGood.getCode()).add(curScanEpc);

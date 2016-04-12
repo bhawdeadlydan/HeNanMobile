@@ -31,10 +31,10 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private Map<String,Set<String>> mDeliveryBoxesItemsList;
-    private Map<String,Double> mDeliveryBoxesMatCount;
+    private Map<String,Integer> mDeliveryBoxesMatCount;
 
     public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes,
-                                                  Map<String,Set<String>> mDeliveryBoxesItemsList,Map<String,Double> mDeliveryBoxesMatCount){
+                                                  Map<String,Set<String>> mDeliveryBoxesItemsList,Map<String,Integer> mDeliveryBoxesMatCount){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDeliveryBoxes = mDeliveryBoxes;
@@ -115,9 +115,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
         EditText realCount = (EditText) layout.findViewById(R.id.edittext_delivery_scan_box_scan_count);
         String matCode = mDeliveryBoxes.get(groupPosition).get("matCode");
-        Double t = mDeliveryBoxesMatCount.get(matCode);
-
-        realCount.setText(String.valueOf(t));
+        realCount.setText(String.valueOf(mDeliveryBoxesMatCount.get(matCode)));
         realCount.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

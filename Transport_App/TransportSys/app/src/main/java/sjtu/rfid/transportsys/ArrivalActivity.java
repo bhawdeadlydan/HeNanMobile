@@ -44,6 +44,8 @@ import tools.Data;
 
 public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack{
 
+    private static final int TAKE_PICTURE = 0x000001;
+
     ExpandableListView sheetListView;
     ArrivalExpandableAdapter tmpAdapter;
     private Map<String, Map<String, String>> mArrivalDetailList;
@@ -260,12 +262,15 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
 
                 type=func+"";//0:暂存点，1：施工点，2:复核出库
                 //applyCode
-                commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,commitHandler);
-                commitTransInfoThread.start();
+
+                Intent intent = new Intent();
+                intent.setClass(ArrivalActivity.this, PhotoActivity.class);
+                startActivityForResult(intent,TAKE_PICTURE);
+
+                //commitTransInfoThread=new CommitTransInfoThread(charge,time,position,type,applyCode,lng,lat,commitHandler);
+                //commitTransInfoThread.start();
             }
         });
-
-
     }
 
     @Override
@@ -481,6 +486,11 @@ public class ArrivalActivity extends Activity  implements RfidNfc.TagUidCallBack
             nnfc.onResume(this);
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    }
+
     class InnerThread1 extends Thread{
 
         private String transPerson;

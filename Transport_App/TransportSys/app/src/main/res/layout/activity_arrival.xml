@@ -66,7 +66,7 @@
     <Button
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="提交"
+        android:text="拍照提交"
         android:id="@+id/btn_arrival_commit"
         android:layout_alignTop="@+id/btn_arrival_position"
         android:layout_alignParentRight="true"
@@ -111,7 +111,7 @@
     <Button
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="定位"
+        android:text="地点定位"
         android:id="@+id/btn_arrival_position"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/btn_arrival_commit"

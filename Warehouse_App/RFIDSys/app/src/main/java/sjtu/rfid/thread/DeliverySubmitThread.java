@@ -19,12 +19,12 @@ public class DeliverySubmitThread extends Thread {
 
     private String applyCode;
     private List<String> CNums;
-    private HashMap<String,Double> mDeliveryBoxesPickCountInsideBox;
+    private HashMap<String,Integer> mDeliveryBoxesPickCountInsideBox;
     private Handler handler;
 
     private boolean result;
 
-    public DeliverySubmitThread(String applyCode,List<String> CNums,HashMap<String,Double> mDeliveryBoxesPickCountInsideBox,Handler handler){
+    public DeliverySubmitThread(String applyCode,List<String> CNums,HashMap<String,Integer> mDeliveryBoxesPickCountInsideBox,Handler handler){
         this.CNums=CNums;
         this.mDeliveryBoxesPickCountInsideBox = mDeliveryBoxesPickCountInsideBox;
         this.applyCode=applyCode;
@@ -39,7 +39,7 @@ public class DeliverySubmitThread extends Thread {
         try{
             // ##########################################
             // Need To Construct The Params
-            result=client.confirmRetrieval(applyCode,new HashMap<String, Integer>());
+            result=client.confirmRetrieval(applyCode,mDeliveryBoxesPickCountInsideBox);
             //result=client.confirmRetrieval(applyCode,CNums,new ArrayList<Integer>());
         }catch(TException e){
             msg.what=0;
