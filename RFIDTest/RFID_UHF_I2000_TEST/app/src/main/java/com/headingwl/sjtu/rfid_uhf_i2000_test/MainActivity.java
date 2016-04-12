@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -127,16 +128,11 @@ public class MainActivity extends Activity implements OnClickListener, RfidReade
 		ATLog.i(TAG, "INFO. onCreate()");
 
 		seekBar = (SeekBar)findViewById(R.id.seekBar);
+
 		seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				try {
-					mReader.setPower((seekBar.getProgress() + 1) * 10);
 
-					Log.i(TAG, String.valueOf(mReader.getPower()));
-				} catch (ATRfidReaderException e) {
-					e.printStackTrace();
-				}
 			}
 
 			@Override
@@ -146,6 +142,13 @@ public class MainActivity extends Activity implements OnClickListener, RfidReade
 
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
+				try {
+					mReader.setPower((seekBar.getProgress() + 1) * 10);
+
+					Log.i(TAG, String.valueOf(mReader.getPower()));
+				} catch (ATRfidReaderException e) {
+					e.printStackTrace();
+				}
 
 			}
 		});
@@ -191,6 +194,40 @@ public class MainActivity extends Activity implements OnClickListener, RfidReade
 
 
 		ATLog.i(TAG, "INFO. onStart()");
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		//
+		if ((keyCode == KeyEvent.KEYCODE_SOFT_RIGHT || keyCode == KeyEvent.KEYCODE_SHIFT_RIGHT
+				|| keyCode == KeyEvent.KEYCODE_SHIFT_LEFT) && event.getRepeatCount() <= 0
+				&& mReader.getAction() == ActionState.Stop && mReader.getState() == ConnectionState.Connected) {
+
+			ATLog.i(TAG, "INFO. onKeyDown(%d, %d)", keyCode, event.getAction());
+
+			startAction(true);
+
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+
+		if ((keyCode == KeyEvent.KEYCODE_SOFT_RIGHT || keyCode == KeyEvent.KEYCODE_SHIFT_RIGHT
+				|| keyCode == KeyEvent.KEYCODE_SHIFT_LEFT) && event.getRepeatCount() <= 0
+				&& mReader.getAction() != ActionState.Stop && mReader.getState() == ConnectionState.Connected) {
+
+			ATLog.i(TAG, "INFO. onKeyUp(%d, %d)", keyCode, event.getAction());
+
+			stopAction();
+
+			return true;
+		}
+
+		return super.onKeyUp(keyCode, event);
 	}
 
 	@Override
