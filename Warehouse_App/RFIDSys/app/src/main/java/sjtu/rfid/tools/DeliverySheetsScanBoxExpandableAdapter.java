@@ -31,14 +31,16 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private Map<String,Set<String>> mDeliveryBoxesItemsList;
+    private Map<String,Double> mDeliveryBoxesMatCount;
 
     public DeliverySheetsScanBoxExpandableAdapter(Context mContext, Map<String, Map<String, String>> mDeliveryBoxesDetails, List<Map<String,String>> mDeliveryBoxes,
-                                                  Map<String,Set<String>> mDeliveryBoxesItemsList){
+                                                  Map<String,Set<String>> mDeliveryBoxesItemsList,Map<String,Double> mDeliveryBoxesMatCount){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mDeliveryBoxes = mDeliveryBoxes;
         this.mDeliveryBoxesDetails = mDeliveryBoxesDetails;
         this.mDeliveryBoxesItemsList = mDeliveryBoxesItemsList;
+        this.mDeliveryBoxesMatCount = mDeliveryBoxesMatCount;
 
         this.mRealCountList = new ArrayList<>();
 
@@ -113,7 +115,7 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
         EditText realCount = (EditText) layout.findViewById(R.id.edittext_delivery_scan_box_scan_count);
         String matCode = mDeliveryBoxes.get(groupPosition).get("matCode");
-        Integer t = mDeliveryBoxesItemsList.get(matCode).size();
+        Double t = mDeliveryBoxesMatCount.get(matCode);
 
         realCount.setText(String.valueOf(t));
         realCount.addTextChangedListener(new TextWatcher() {
@@ -129,11 +131,11 @@ public class DeliverySheetsScanBoxExpandableAdapter extends BaseExpandableListAd
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (!s.toString().equals("")) {
-                    mRealCountList.set(groupPosition, Integer.valueOf(s.toString()));
-                } else {
-                    mRealCountList.set(groupPosition, 0);
-                }
+//                if (!s.toString().equals("")) {
+//                    mRealCountList.put(groupPosition, Double.valueOf(s.toString()));
+//                } else {
+//                    mRealCountList.set(groupPosition, 0);
+//                }
             }
         });
 
