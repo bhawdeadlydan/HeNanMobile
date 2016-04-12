@@ -68,11 +68,11 @@ namespace RFIDPrinter
                 + projectCode + "\r\n";
             Console.WriteLine(text);
             form.updateText(text);
-            //for(int i = 0; i < 3; i++)
-            //    form.write1(matCode, projectCode);
-            //string[] res = form.read1();
-            //if (res[0] == matCode && res[1] == projectCode)
-            //    return true;
+            for(int i = 0; i < 3; i++)
+               form.write1(matCode, projectCode);
+            string[] res = form.read1();
+            if (res[0] == matCode && res[1] == projectCode)
+               return true;
             return false;
 
             //form.infoTextBox.Text = text;
