@@ -3,6 +3,7 @@ package sjtu.rfid.rfidsys;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -118,6 +119,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
             checkResult=(boolean)msg.obj;
             if(checkResult) {
                 Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
                 finish();
             }
             else
@@ -150,6 +152,8 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_by_mat);
+
+        checkList = new HashMap<>();
 
         mSound = new SoundPlay(getApplicationContext());
         WaitDialog.show(this, "连接RFID模块中", "请稍等", new DialogInterface.OnCancelListener() {
@@ -434,6 +438,8 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
 
     public void iniActivity() {
         mTitleBar = new TitleBar(this,"货物盘点");
+        Intent intent = getIntent();
+
     }
 
     public void iniListView(CheckByMatEntity checkByMatEntity) {

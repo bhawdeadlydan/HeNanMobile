@@ -111,8 +111,6 @@
         android:text="货物移位"
         android:id="@+id/btn_move_box"
         android:layout_weight="0.5"
-        android:visibility="invisible"
-        android:enabled="false"
         android:layout_alignTop="@+id/linearLayout16"
         android:layout_centerHorizontal="true" />
 

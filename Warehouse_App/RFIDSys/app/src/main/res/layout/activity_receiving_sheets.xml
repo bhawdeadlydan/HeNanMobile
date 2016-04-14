@@ -26,4 +26,13 @@
         android:layout_below="@+id/include2"
         android:textSize="20dp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="刷新"
+        android:id="@+id/bnt_receiving_sheets_refresh"
+        android:layout_below="@+id/include2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

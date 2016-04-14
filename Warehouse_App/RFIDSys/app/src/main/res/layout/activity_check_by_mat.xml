@@ -58,7 +58,8 @@
             android:text="扫描需盘点货物"
             android:id="@+id/btn_check_by_mat_scan_box_get_info"
             android:textSize="10dp"
-            android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:visibility="invisible"/>
 
     </LinearLayout>
 

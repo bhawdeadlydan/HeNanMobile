@@ -20,6 +20,9 @@ public class MainActivity extends Activity {
     Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery,benConfig;
     MainButtonListener btnListener = new MainButtonListener();
 
+    public static final int CHECK_BY_MAT = 0;
+    public static final int CHECK_BY_POS = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,10 +78,13 @@ public class MainActivity extends Activity {
                     intent.setClass(MainActivity.this, MoveOrderListActivity.class);
                     break;
                 case R.id.btn_mat_cehck:
-                    intent.setClass(MainActivity.this, CheckByMatActivity.class);
+                    //intent.setClass(MainActivity.this, CheckByMatActivity.class);
+                    intent.setClass(MainActivity.this, CheckSheetActivity.class);
+                    intent.putExtra("checkType",CHECK_BY_MAT);
                     break;
                 case R.id.btn_loc_check:
-                    intent.setClass(MainActivity.this, CheckByPosActivity.class);
+                    intent.setClass(MainActivity.this, CheckSheetActivity.class);
+                    intent.putExtra("checkType", CHECK_BY_POS);
                     break;
                 case R.id.btn_delivery:
                     intent.setClass(MainActivity.this, DeliverySheetsActivity.class);

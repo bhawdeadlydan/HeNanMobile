@@ -48,7 +48,7 @@ public class DeliverySheetsActivity extends Activity {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             posList=(List<POS>)msg.obj;
-            iniListView(posList);
+            //iniListView(posList);
         }
     };
 
@@ -80,6 +80,13 @@ public class DeliverySheetsActivity extends Activity {
 
     public void iniActivity() {
         mTitleBar = new TitleBar(this,"申领出库");
+        Button refreshBtn = (Button)findViewById(R.id.btn_delivery_sheets_refresh);
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iniListView(posList);
+            }
+        });
     }
 
     public void iniListView(List<POS> posList) {

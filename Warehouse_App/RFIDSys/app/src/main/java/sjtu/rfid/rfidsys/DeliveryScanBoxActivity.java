@@ -572,7 +572,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 //                handlerScanTag.sendMessage(msg);
             }
             else
-                Toast.makeText(null,"货箱不在当前出库单中或已经被拣选过！",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"货箱不在当前出库单中或已经被拣选过！",Toast.LENGTH_SHORT).show();
         }
     }
 }
