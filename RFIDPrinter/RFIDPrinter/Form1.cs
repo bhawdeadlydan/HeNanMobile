@@ -30,16 +30,17 @@ namespace RFIDPrinter
         TServerTransport serverTransport;
         TServer server;
         Thread serverThread;
+        private RfidPrinterImpl printer;
 
         public Form1()
         {
             option = 0;
             InitializeComponent();
-            serverThread = new Thread(OpenServer);
+            printer = new RfidPrinterImpl(this);
+            serverThread = new Thread(connect);
             serverThread.Start();
             openUSB(0x0505, 0x5050);
             config144443ADefault();
-            
         }
 
         private void update(string str)
@@ -52,14 +53,43 @@ namespace RFIDPrinter
             server.Stop();
         }
 
+        private void connect()
+        {
+            try {
+                //set the ip as the server
+                TTransport transport = new TSocket("localhost", 7777);
+                TProtocol protocol = new TBinaryProtocol(transport);
+                RFIDService.Client client = new RFIDService.Client(protocol);
+                transport.Open();
+                while (true)
+                {
+                    if (client.toPrint())
+                    {
+                        List<Data> l = client.callPrinter();
+                        foreach (var dt in l)
+                        {
+                            printer.callPrinter(dt);
+                        }
+                    }
+                    Console.WriteLine("ping server to get print data...");
+                    Thread.Sleep(1000);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+
         private void OpenServer()
         {
-            RfidPrinterImpl handle = new RfidPrinterImpl(this);
-            RfidPrinterService.Processor processor = new RfidPrinterService.Processor(handle);
-            TProtocolFactory protocolFactory = new TJSONProtocol.Factory();
-            serverTransport = new TServerSocket(7778);
-            server = new TSimpleServer(processor, serverTransport);
-            server.Serve();
+            //RfidPrinterImpl handle = new RfidPrinterImpl(this);
+            //RfidPrinterService.Processor processor = new RfidPrinterService.Processor(handle);
+            //TProtocolFactory protocolFactory = new TJSONProtocol.Factory();
+            //serverTransport = new TServerSocket(7778);
+            //server = new TSimpleServer(processor, serverTransport);
+            //server.Serve();
         }
 
 

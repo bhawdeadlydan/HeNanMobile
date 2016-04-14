@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace RFIDPrinter
 {
-    class RfidPrinterImpl : RfidPrinterService.Iface
+    class RfidPrinterImpl
     {
         public static String DATAPATH = "d://data";
         public static String DETECTPATH = "d://rfid_print";
