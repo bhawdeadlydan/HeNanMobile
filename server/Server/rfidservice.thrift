@@ -26,4 +26,6 @@ list<data.stagingInfo> getStagingInfo(1:string constructUnit);
 list<data.inStagingInfo> getInStagingInfo(1:string constructUnit);
 bool addPic(1:string ApplyDocCode, 2:list<string> URL);
 list<string> getPicsByApplyDocCode(1:string ApplyDocCode);
+bool toPrint();
+list<data.Data> callPrinter();
 }

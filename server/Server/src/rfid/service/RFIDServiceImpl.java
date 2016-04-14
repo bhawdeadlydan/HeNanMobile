@@ -12,6 +12,7 @@ import java.util.*;
  * Created by richard on 2015/12/9.
  */
 public class RFIDServiceImpl implements RFIDService.Iface{
+    private ArrayList<String> printList = new ArrayList<>();
     @Override
     public List<ASN> getReceivingSheets() throws TException {
         ASNDao dao = new ASNDao();
@@ -89,78 +90,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
     @Override
     public boolean printTag(String Code) throws TException {
-        WMSDetailDao wdao = new WMSDetailDao();
-        ASNDao adao = new ASNDao();
-        boolean isbom = wdao.isBom(Code);
-        ArrayList<Good> l = new ArrayList<>();
-        ArrayList<ArrayList<String[]>> batchGoods = new ArrayList<>();
-        if(isbom){
-            List list = wdao.getBomDistinctGoods(Code);
-            if(list == null)
-                return true;
-            for(Iterator it = list.iterator(); it.hasNext();){
-                Object[] objs = (Object[]) it.next();
-                Good good = new Good();
-                good.setCode((String)objs[0]);
-                good.setNum(Integer.parseInt(objs[1].toString()));
-                good.setExpected_Quantity(Integer.parseInt(objs[2].toString()));
-                good.setIs_Bom(true);
-                Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
-                good.setDetail(str[0].toString());
-                good.setUnit(str[1].toString());
-                good.setCartonNums(wdao.getBomCartonNumsBySaleBomCode((String)objs[0], Code));
-                l.add(good);
-
-                //print
-                ArrayList<String[]> goods = new ArrayList<>();
-                List<Object[]> goodlist = wdao.getBomCartonsByItemCode((String)objs[0], Code);
-                for(Iterator i = goodlist.iterator();i.hasNext();){
-                    Object[] os = (Object[])i.next();
-                    String[] gooditem = new String[5];
-                    gooditem[0] = good.getDetail();
-                    gooditem[1] = good.getCode();
-                    gooditem[2] = os[1].toString();
-                    gooditem[3] = good.getUnit();
-                    gooditem[4] = os[0].toString();
-                    goods.add(gooditem);
-                }
-                batchGoods.add(goods);
-            }
-        }
-        else{
-            List list = wdao.getERPDistinctGoods(Code);
-            if(list == null)
-                return true;
-            for(Iterator it = list.iterator();it.hasNext();){
-                Object[] objs = (Object[])it.next();
-                Good good = new Good();
-                good.setCode((String)objs[0]);
-                good.setNum(Integer.parseInt(objs[1].toString()));
-                good.setExpected_Quantity(Integer.parseInt(objs[2].toString()));
-                good.setIs_Bom(false);
-                good.setDetail((String)objs[3]);
-                good.setUnit((String)objs[4]);
-                good.setCartonNums(wdao.getERPCartonNumsBySaleBomCode((String)objs[0], Code));
-                l.add(good);
-
-                //print
-                ArrayList<String[]> goods = new ArrayList<>();
-                List<Object[]> goodlist = wdao.getERPCartonsByItemCode((String)objs[0], Code);
-                for(Iterator i = goodlist.iterator();i.hasNext();){
-                    Object[] os = (Object[])i.next();
-                    String[] gooditem = new String[5];
-                    gooditem[0] = good.getDetail();
-                    gooditem[1] = good.getCode();
-                    gooditem[2] = os[1].toString();
-                    gooditem[3] = good.getUnit();
-                    gooditem[4] = os[0].toString();
-                    goods.add(gooditem);
-                }
-                batchGoods.add(goods);
-            }
-        }
-        Object[] info = adao.getASNInfo(Code);
-        new Thread(new PrintThread(info[0].toString(),Code,info[1].toString(), batchGoods)).start();
+        printList.add(Code);
         return true;
     }
 
@@ -582,6 +512,116 @@ public class RFIDServiceImpl implements RFIDService.Iface{
         PicDao dao = new PicDao();
         pics = dao.getPics(ApplyDocCode);
         return pics;
+    }
+
+    @Override
+    public boolean toPrint() throws TException {
+        return !printList.isEmpty();
+    }
+
+    @Override
+    public List<Data> callPrinter() throws TException {
+        List<Data> ldata = new ArrayList<>();
+        for(int j = 0; j < printList.size(); j++) {
+            String Code = printList.get(j);
+            Data dt = new Data();
+            WMSDetailDao wdao = new WMSDetailDao();
+            ASNDao adao = new ASNDao();
+            boolean isbom = wdao.isBom(Code);
+            ArrayList<Good> l = new ArrayList<>();
+            ArrayList<ArrayList<String[]>> batchGoods = new ArrayList<>();
+            if(isbom){
+                List list = wdao.getBomDistinctGoods(Code);
+                if(list == null)
+                    return null;
+                for(Iterator it = list.iterator(); it.hasNext();){
+                    Object[] objs = (Object[]) it.next();
+                    Good good = new Good();
+                    good.setCode((String)objs[0]);
+                    good.setNum(Integer.parseInt(objs[1].toString()));
+                    good.setExpected_Quantity(Integer.parseInt(objs[2].toString()));
+                    good.setIs_Bom(true);
+                    Object[] str = adao.getDesAndUnitBySaleBomCode((String)objs[0]);
+                    good.setDetail(str[0].toString());
+                    good.setUnit(str[1].toString());
+                    good.setCartonNums(wdao.getBomCartonNumsBySaleBomCode((String)objs[0], Code));
+                    l.add(good);
+
+                    //print
+                    ArrayList<String[]> goods = new ArrayList<>();
+                    List<Object[]> goodlist = wdao.getBomCartonsByItemCode((String)objs[0], Code);
+                    for(Iterator i = goodlist.iterator();i.hasNext();){
+                        Object[] os = (Object[])i.next();
+                        String[] gooditem = new String[5];
+                        gooditem[0] = good.getDetail();
+                        gooditem[1] = good.getCode();
+                        gooditem[2] = os[1].toString();
+                        gooditem[3] = good.getUnit();
+                        gooditem[4] = os[0].toString();
+                        goods.add(gooditem);
+                    }
+                    batchGoods.add(goods);
+                }
+            }
+            else{
+                List list = wdao.getERPDistinctGoods(Code);
+                if(list == null)
+                    return null;
+                for(Iterator it = list.iterator();it.hasNext();){
+                    Object[] objs = (Object[])it.next();
+                    Good good = new Good();
+                    good.setCode((String)objs[0]);
+                    good.setNum(Integer.parseInt(objs[1].toString()));
+                    good.setExpected_Quantity(Integer.parseInt(objs[2].toString()));
+                    good.setIs_Bom(false);
+                    good.setDetail((String)objs[3]);
+                    good.setUnit((String)objs[4]);
+                    good.setCartonNums(wdao.getERPCartonNumsBySaleBomCode((String)objs[0], Code));
+                    l.add(good);
+
+                    //print
+                    ArrayList<String[]> goods = new ArrayList<>();
+                    List<Object[]> goodlist = wdao.getERPCartonsByItemCode((String)objs[0], Code);
+                    for(Iterator i = goodlist.iterator();i.hasNext();){
+                        Object[] os = (Object[])i.next();
+                        String[] gooditem = new String[5];
+                        gooditem[0] = good.getDetail();
+                        gooditem[1] = good.getCode();
+                        gooditem[2] = os[1].toString();
+                        gooditem[3] = good.getUnit();
+                        gooditem[4] = os[0].toString();
+                        goods.add(gooditem);
+                    }
+                    batchGoods.add(goods);
+                }
+            }
+            Object[] info = adao.getASNInfo(Code);
+            //new Thread(new PrintThread(info[0].toString(),Code,info[1].toString(), batchGoods)).start();
+            {
+                dt.setProjectCode(info[0].toString());
+                dt.setCode(Code);
+                dt.setVendorName(info[1].toString());
+                List<List<Item>> batGoods = new ArrayList<>();
+                for (Iterator<ArrayList<String[]>> it = batchGoods.iterator(); it.hasNext(); ) {
+                    ArrayList<String[]> l1 = it.next();
+                    List<Item> items = new ArrayList<>();
+                    for (int i = 0; i < l1.size(); i++) {
+                        Item item = new Item();
+                        item.setItemName(l1.get(i)[0]);
+                        item.setItemCode(l1.get(i)[1]);
+                        item.setItemNum(l1.get(i)[2]);
+                        item.setItemUnit(l1.get(i)[3]);
+                        item.setEPC(l1.get(i)[4]);
+                        items.add(item);
+                    }
+                    batGoods.add(items);
+                }
+                dt.setBatchGoods(batGoods);
+            }
+            ldata.add(dt);
+        }
+        printList.clear();
+        return ldata;
     }
 
 }
