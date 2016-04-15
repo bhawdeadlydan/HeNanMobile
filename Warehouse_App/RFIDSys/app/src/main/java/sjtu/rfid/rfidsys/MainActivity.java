@@ -17,7 +17,7 @@ import sjtu.rfid.tools.PropertiesUtil;
 
 public class MainActivity extends Activity {
 
-    Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery,benConfig;
+    Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery,benConfig,btnLookUp;
     MainButtonListener btnListener = new MainButtonListener();
 
     public static final int CHECK_BY_MAT = 0;
@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
         btnLocCheck = (Button)findViewById(R.id.btn_loc_check);
         btnDelivery = (Button)findViewById(R.id.btn_delivery);
         benConfig=(Button)findViewById(R.id.btn_config);
+        btnLookUp = (Button)findViewById(R.id.btn_lookup);
 
         btnReceiving.setOnClickListener(btnListener);
         btnPutInStorage.setOnClickListener(btnListener);
@@ -59,6 +60,7 @@ public class MainActivity extends Activity {
         btnLocCheck.setOnClickListener(btnListener);
         btnDelivery.setOnClickListener(btnListener);
         benConfig.setOnClickListener(btnListener);
+        btnLookUp.setOnClickListener(btnListener);
 
     }
 
@@ -91,6 +93,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_config:
                     intent.setClass(MainActivity.this, ConfigActivity.class);
+                    break;
+                case R.id.btn_lookup:
+                    intent.setClass(MainActivity.this, LookUpActivity.class);
                     break;
             }
             startActivity(intent);

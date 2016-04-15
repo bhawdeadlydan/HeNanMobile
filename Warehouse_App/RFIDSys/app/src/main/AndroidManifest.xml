@@ -48,7 +48,8 @@
 
         <activity android:name=".MoveOrderListActivity" />
         <activity android:name=".ConfigActivity" />
-        <activity android:name=".CheckSheetActivity"></activity>
+        <activity android:name=".CheckSheetActivity" />
+        <activity android:name=".LookUpActivity"></activity>
     </application>
 
 </manifest>
