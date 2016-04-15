@@ -271,7 +271,7 @@ namespace RFIDPrinter
 
         private void write_Click(object sender, EventArgs e)
         {
-            write1("10041806", "B1524015");
+            write1("10041806", "B1524015","2016041500000005");
         }
 
         public string[] read1()
@@ -280,19 +280,23 @@ namespace RFIDPrinter
             String code2 = HexStringToString(readone("02"), Encoding.UTF8);
             String projectCode = HexStringToString(readone("04"),Encoding.UTF8);
             String time = HexStringToString(readone("05"),Encoding.UTF8);
+            String EPC = HexStringToString(readone("06") , Encoding.UTF8);
             code1 = code1.TrimEnd('\0');
             code2 = code2.TrimEnd('\0');
             projectCode = projectCode.TrimEnd('\0');
             time = time.TrimEnd('\0');
+            EPC = EPC.TrimEnd('\0');
             //code1.Insert(code1.Length, code2);
-            string[] list = new string[3];
+            string[] list = new string[4];
             list[0] = code1 + code2;
             list[1] = projectCode;
             list[2] = time;
+            list[3] = EPC;
 
             Console.WriteLine(code1+code2);
             Console.WriteLine(projectCode);
             Console.WriteLine(time);
+            Console.WriteLine(EPC);
             return list;
         }
 
@@ -358,7 +362,7 @@ namespace RFIDPrinter
             return null;
         }
 
-        public void write1(String Code, String ProjectCode)
+        public void write1(String Code, String ProjectCode,String EPC)
         {
             if (Code.Length > 16)
             {
@@ -377,6 +381,9 @@ namespace RFIDPrinter
             date = timestamp.ToString();
 
             writeone(date, "05");
+            if (EPC.Length > 16)
+                EPC = EPC.Substring(0 , 16);
+            writeone(EPC, "06");
         }
         private void writeone(String str, String addr)
         {

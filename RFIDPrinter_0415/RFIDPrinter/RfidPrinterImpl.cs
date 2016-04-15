@@ -37,7 +37,7 @@ namespace RFIDPrinter
                 for(int j = 0; j < data.BatchGoods.ElementAt(i).Count; j++)
                 {
                     printTag(data.BatchGoods.ElementAt(i).ElementAt(j));
-                    bool rst = printData(data.BatchGoods.ElementAt(i).ElementAt(j).ItemCode);
+                    bool rst = printData(data.BatchGoods.ElementAt(i).ElementAt(j).ItemCode , data.BatchGoods.ElementAt(i).ElementAt(j).EPC);
                     if(!rst)
                     {
                         form.toggleButtons();
@@ -63,7 +63,7 @@ namespace RFIDPrinter
             return true;
         }
 
-        public bool printData(String matCode)
+        public bool printData(String matCode,String EPC)
         {
             try {
                 for(int i = 0;; i++)
@@ -75,13 +75,13 @@ namespace RFIDPrinter
                     Thread.Sleep(200);
                 }
                 String text = "当前需写入标签内信息及标签数量：\r\n" + "物料编码：" + matCode + "\r\n项目编码："
-                    + projectCode + "\r\n";
+                    + projectCode + "\r\nEPC号码：" + EPC + "\r\n";
                 Console.WriteLine(text);
                 form.updateText(text);
                 for(int i = 0; i < 3; i++)
-                   form.write1(matCode, projectCode);
+                   form.write1(matCode, projectCode,EPC);
                 string[] res = form.read1();
-                if (res[0] == matCode && res[1] == projectCode) {
+                if (res[0] == matCode && res[1] == projectCode && res[3] == EPC) {
                     Console.WriteLine("写成功！");
                    return true;
                 }
