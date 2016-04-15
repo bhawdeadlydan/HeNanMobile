@@ -62,6 +62,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     private List<Map<String,String>> mCheckByMatList;
 
     private Map<Integer, Set<String>> posMapDetail;
+    private Map<Integer, Integer> posMapDetailCnt;
     private Set<String> boxSet;
 
     /**
@@ -91,7 +92,12 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
     private String itemCode = "";
     private int curPos = -1;
 
+    private String epc;
+
     private ATRfidReader mReader = null;
+
+    ConnectServer server;
+    RFIDService.Client client2;
 
 
     private Handler handler=new Handler(){
@@ -135,6 +141,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
                 type = 1;
                 curPos = Integer.valueOf(msg.obj.toString());
                 posMapDetail.get(curPos).clear();
+                posMapDetailCnt.put(curPos,0);
                 boxSet.clear();
                 startAction(true);
                 mReader.connect();
@@ -186,6 +193,9 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        server = new ConnectServer();
+        client2 = server.openConnect();
+
     }
 
     @Override
@@ -345,8 +355,8 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
                 } else if ( type == 1) {
                     String epc = new String(Converters.fromHexString(tag.substring(4)));
                     //Toast.makeText(getApplicationContext(), epc, Toast.LENGTH_SHORT).show();
-                    if( epc.length() == 16 ){
-                        if( !boxSet.contains(epc) ) {
+                    if (epc.length() == 16) {
+                        if (!boxSet.contains(epc)) {
                             ScanTagThread t = new ScanTagThread(epc);
                             t.start();
                         }
@@ -459,6 +469,7 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
 
         boxSet = new HashSet<>();
         posMapDetail = new HashMap<>();
+        posMapDetailCnt = new HashMap<>();
         for(LocationInfo locationInfo:locationInfoList){
             Map<String,String> mapDetail=new HashMap<>();
             mapDetail.put("posDes",String.valueOf(locationInfo.getID()));
@@ -473,9 +484,10 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
             mCheckByMatList.add(mapDetail);
 
             posMapDetail.put(locationInfo.getID(), new HashSet<String>());
+            posMapDetailCnt.put(locationInfo.getID(),0);
 
         }
-        mAdapter = new CheckByMatAdapter(this,mCheckByMatList,handlerScanTag,posMapDetail);
+        mAdapter = new CheckByMatAdapter(this,mCheckByMatList,handlerScanTag,posMapDetail,posMapDetailCnt);
         sheetListView.setAdapter(mAdapter);
     }
 
@@ -503,29 +515,31 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         });
     }
 
-    public class ScanTagThread extends  Thread{
+    public class ScanTagThread extends Thread{
         String epc = "";
         public ScanTagThread(String epc) {
             this.epc = epc;
         }
         @Override
         public void run() {
-            ConnectServer server = new ConnectServer();
-            RFIDService.Client client = server.openConnect();
+//            ConnectServer server = new ConnectServer();
+//            RFIDService.Client client = server.openConnect();
             try {
-                Good g = client.getGoodByCNum(epc);
-
-                if( g.getCode().equals(itemCode) ) {
-                    if( !boxSet.contains(epc)&&checkList.containsKey(g.getCode()) ) {
-                        int cur = checkList.get(g.getCode()).getRealNum();
-                        checkList.get(g.getCode()).setRealNum(cur + 1);
+                Good g = client2.getGoodByCNum(epc);
+                synchronized (boxSet) {
+                    if (g.getCode().equals(itemCode)) {
+                        if (!boxSet.contains(epc) && checkList.containsKey(g.getCode())) {
+                            int cur = checkList.get(g.getCode()).getRealNum();
+                            checkList.get(g.getCode()).setRealNum(cur + 1);
+                            boxSet.add(epc);
+                            //posMap.put(curPos,posMap.get(curPos)+1);
+                            posMapDetail.get(curPos).add(epc);
+                            posMapDetailCnt.put(curPos, posMapDetailCnt.get(curPos) + g.getNum());
+                            Message msg = handlerScanTag.obtainMessage();
+                            msg.what = 2;
+                            handlerScanTag.sendMessage(msg);
+                        }
                     }
-                    boxSet.add(epc);
-                    //posMap.put(curPos,posMap.get(curPos)+1);
-                    posMapDetail.get(curPos).add(epc);
-                    Message msg = handlerScanTag.obtainMessage();
-                    msg.what = 2;
-                    handlerScanTag.sendMessage(msg);
                 }
             } catch (TException e) {
                 e.printStackTrace();

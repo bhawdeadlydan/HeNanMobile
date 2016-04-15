@@ -314,7 +314,10 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             public void run() {
                 stopAction();
                 mReader.stop();
+                //String tmp = tag.substring(4);
+                //String epc = Converters.fromHexString(tmp).toString();
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
+                //byte[] bytes = epc.getBytes();
                 //Toast.makeText(getApplicationContext(),tag+","+epc,Toast.LENGTH_SHORT).show();
                 if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,3))) {
                     Message msg = scanHandler.obtainMessage();

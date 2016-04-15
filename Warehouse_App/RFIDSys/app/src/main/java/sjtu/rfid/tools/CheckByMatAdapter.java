@@ -29,6 +29,7 @@ public class CheckByMatAdapter extends BaseAdapter{
     private Context mContext;
     private List<Map<String,String>> mCheckByMatList;
     private Map<Integer,Set<String>> mPosMapDetail;
+    private Map<Integer,Integer> mPosMapDetailCnt;
 
     private CheckByMatScanTagThread checkByMatScanTagThread;
 
@@ -37,12 +38,13 @@ public class CheckByMatAdapter extends BaseAdapter{
 
 
     public CheckByMatAdapter(Context mContext, List<Map<String,String>> mCheckByMatList,
-                             Handler mHandler, Map<Integer,Set<String>> posMapDetail) {
+                             Handler mHandler, Map<Integer,Set<String>> posMapDetail, Map<Integer,Integer> posMapDetailCnt) {
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mCheckByMatList = mCheckByMatList;
         this.mHandler = mHandler;
         this.mPosMapDetail = posMapDetail;
+        this.mPosMapDetailCnt = posMapDetailCnt;
     }
 
     @Override
@@ -75,7 +77,8 @@ public class CheckByMatAdapter extends BaseAdapter{
         vSCount.setText(vSCount.getText() + "0");
         vBoxList.setText(map.get("boxList"));
         //vReadedCount.setText("扫到数量"+Integer.valueOf(map.get("readedCount")));
-        vReadedCount.setText("扫到数量:"+mPosMapDetail.get(Integer.valueOf(map.get("posDes"))).size());
+        //vReadedCount.setText("扫到数量:"+mPosMapDetail.get(Integer.valueOf(map.get("posDes"))).size());
+        vReadedCount.setText("扫到数量:"+mPosMapDetailCnt.get(Integer.valueOf(map.get("posDes"))));
 
 
 
@@ -85,7 +88,7 @@ public class CheckByMatAdapter extends BaseAdapter{
         } else {
             scanButton.setText("扫描该货位上的货物");
         }
-        scanButton.setOnClickListener(new MyClickListener(scanButton,vReadedCount,map.get("matCode"),Integer.valueOf(map.get("expectedCount")),
+        scanButton.setOnClickListener(new MyClickListener(scanButton, vReadedCount, map.get("matCode"), Integer.valueOf(map.get("expectedCount")),
                 Integer.valueOf(map.get("posDes"))));
         return layout;
     }

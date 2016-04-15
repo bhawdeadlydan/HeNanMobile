@@ -559,7 +559,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                 ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonNum)).setText(curScanEpc);
                 ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_matName)).setText(curScanGood.getDetail());
                 ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_expectCnt)).setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
-                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt)).setText(curScanGood.getExpected_Quantity());
+                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt)).setText(curScanGood.getNum());
                 ((EditText)findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt))
                         .setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
                 pickDialog.show();
