@@ -13,6 +13,7 @@ namespace RFIDPrinter
     {
         public static String DATAPATH = "d://data";
         public static String DETECTPATH = "d://rfid_print";
+        public static String BLANKPATH = "D://blank";
         Form1 form;
         private string projectCode;
         private String code;
@@ -58,6 +59,7 @@ namespace RFIDPrinter
                     }
                 }
             }
+            feedTask();
             return true;
         }
 
@@ -90,6 +92,7 @@ namespace RFIDPrinter
                 Console.WriteLine(e.Message);
                 return false;
             }
+                       
             //form.infoTextBox.Text = text;
             //form.Update();
             //int size = 0;
@@ -132,6 +135,15 @@ namespace RFIDPrinter
             printOne(projectCode, code, good.ItemName, good.ItemCode, good.ItemNum, good.ItemUnit, good.EPC, vendorName);
             trigger(good.EPC);
             Thread.Sleep(3000);
+        }
+
+        public void feedTask()
+        {
+            string path1 = Path.Combine(BLANKPATH, "blank1.txt");
+            string path2 = Path.Combine(BLANKPATH, "blank2.txt");
+            string content = "";
+            File.WriteAllText(path1, content, Encoding.Unicode);
+            File.WriteAllText(path2, content, Encoding.Unicode);
         }
         public void printOne(String ProjectCode, String Code, String ItemName, String ItemCode, String ItemNum, String ItemUnit, String EPC,
                              String VendorName)

@@ -96,10 +96,6 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
 
     private ATRfidReader mReader = null;
 
-    ConnectServer server;
-    RFIDService.Client client2;
-
-
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -193,8 +189,8 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        server = new ConnectServer();
-        client2 = server.openConnect();
+//        server = new ConnectServer();
+//        client2 = server.openConnect();
 
     }
 
@@ -522,10 +518,10 @@ public class CheckByMatActivity extends Activity implements RfidReaderEventListe
         }
         @Override
         public void run() {
-//            ConnectServer server = new ConnectServer();
-//            RFIDService.Client client = server.openConnect();
+            ConnectServer server = new ConnectServer();
+            RFIDService.Client client = server.openConnect();
             try {
-                Good g = client2.getGoodByCNum(epc);
+                Good g = client.getGoodByCNum(epc);
                 synchronized (boxSet) {
                     if (g.getCode().equals(itemCode)) {
                         if (!boxSet.contains(epc) && checkList.containsKey(g.getCode())) {
