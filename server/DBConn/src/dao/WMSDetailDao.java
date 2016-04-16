@@ -274,12 +274,54 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
+    public List<Object[]> getBomCartonsByItemCode1(String itemCode, String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cartonNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and saleBomCode = ?  and allocationId != -1";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
+            query.setParameter(1, itemCode);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
     public List<Object[]> getERPCartonsByItemCode(String itemCode, String Code){
         Session session = ourSessionFactory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
             String hql = "select model.cNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
+            Query query = session.createQuery(hql);
+            query.setParameter(0, Code);
+            query.setParameter(1, itemCode);
+            tx.commit();
+            return query.list();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public List<Object[]> getERPCartonsByItemCode1(String itemCode, String Code){
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "select model.cartonNum, model.expectedQuantity from WmsDetailEntity as model where asnCode = ? and itemCode = ? and allocationId != -1";
             Query query = session.createQuery(hql);
             query.setParameter(0, Code);
             query.setParameter(1, itemCode);

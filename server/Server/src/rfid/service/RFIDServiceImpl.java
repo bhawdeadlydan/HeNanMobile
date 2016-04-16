@@ -549,7 +549,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
                     //print
                     ArrayList<String[]> goods = new ArrayList<>();
-                    List<Object[]> goodlist = wdao.getBomCartonsByItemCode((String)objs[0], Code);
+                    List<Object[]> goodlist = wdao.getBomCartonsByItemCode1((String)objs[0], Code);
                     for(Iterator i = goodlist.iterator();i.hasNext();){
                         Object[] os = (Object[])i.next();
                         String[] gooditem = new String[5];
@@ -581,7 +581,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
 
                     //print
                     ArrayList<String[]> goods = new ArrayList<>();
-                    List<Object[]> goodlist = wdao.getERPCartonsByItemCode((String)objs[0], Code);
+                    List<Object[]> goodlist = wdao.getERPCartonsByItemCode1((String)objs[0], Code);
                     for(Iterator i = goodlist.iterator();i.hasNext();){
                         Object[] os = (Object[])i.next();
                         String[] gooditem = new String[5];
