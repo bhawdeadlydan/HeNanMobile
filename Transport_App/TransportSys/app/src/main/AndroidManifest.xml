@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Light.NoTitleBar">
         <activity android:name=".MainActivity">
-            <intent-filter>
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -55,11 +55,6 @@
         <activity android:name=".OrderSearchActivity" />
         <activity android:name=".TmpSearchActivity" />
         <activity android:name=".PhotoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -153,7 +153,10 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                 matName.setText(curScanGood.getDetail());
                 expectCnt.setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
                 cartonCnt.setText(String.valueOf(curScanGood.Num));
-                pickCnt.setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
+
+                int unpicked = Integer.valueOf(mDeliveryBoxesDetails.get(matCode).get("expectedCount"))-mDeliveryBoxesMatCount.get(matCode);
+                //pickCnt.setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
+                pickCnt.setText(curScanGood.getNum() < unpicked ? String.valueOf(curScanGood.getNum()) : String.valueOf(unpicked));
             }
             else if(msg.what == 1) {
                 Toast.makeText(getApplicationContext(),"货箱不在当前出库单中或已经被拣选过！",Toast.LENGTH_SHORT).show();

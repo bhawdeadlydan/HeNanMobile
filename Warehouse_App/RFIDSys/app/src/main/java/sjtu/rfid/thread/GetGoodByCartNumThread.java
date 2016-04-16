@@ -7,6 +7,7 @@ import org.apache.thrift.TException;
 
 import rfid.service.Good;
 import rfid.service.RFIDService;
+import sjtu.rfid.rfidsys.CheckByPosActivity;
 import sjtu.rfid.tools.ConnectServer;
 
 /**
@@ -33,13 +34,23 @@ public class GetGoodByCartNumThread extends Thread {
         {
             Good g = client.getGoodByCNum(epc);
             Message msg = mHandler.obtainMessage();
+            CheckItem item = new CheckItem(g,epc);
             msg.what = 3;
-            msg.obj = g;
+            msg.obj = item;
             mHandler.sendMessage(msg);
         } catch (TException e) {
             e.printStackTrace();
         } finally {
             server.closeConnect();
+        }
+    }
+
+    public class CheckItem {
+        public Good g;
+        public String epc;
+        public CheckItem(Good good, String epcstr) {
+            this.g = good;
+            this.epc = epcstr;
         }
     }
 }

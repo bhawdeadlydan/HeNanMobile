@@ -28,13 +28,16 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
     private Map<String,check> mCheckList;
     private Context mContext;
 
+    private Map<String,Map<String,String>> mCheckScannedBoxCnt;
+
     public CheckByPosExpandableAdapter(Context mContext, Map<String, Map<String, String>> mCheckByPosDetailList, List<Map<String,String>> mCheckByPosList,
-                                       Map<String,check>mCheckList){
+                                       Map<String,check>mCheckList,Map<String,Map<String,String>> mCheckScannedBoxCnt){
         this.mContext = mContext;
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mCheckByPosList = mCheckByPosList;
         this.mCheckByPosDetailList = mCheckByPosDetailList;
         this.mCheckList = mCheckList;
+        this.mCheckScannedBoxCnt = mCheckScannedBoxCnt;
     }
 
     @Override
@@ -104,7 +107,14 @@ public class CheckByPosExpandableAdapter extends BaseExpandableListAdapter {
         text2.setText(text2.getText()+map.get("matName"));
 
         TextView vBoxList = (TextView)layout.findViewById(R.id.text_check_box_detail_box_list);
-        vBoxList.setText(map.get("boxList"));
+        String matCode = mCheckByPosList.get(groupPosition).get("matCode");
+        StringBuilder sb = new StringBuilder();
+        Map<String,String> listBox = mCheckScannedBoxCnt.get(matCode);
+        for(String key : listBox.keySet()) {
+            sb.append("箱号："+key+" 数量："+listBox.get(key)+"\n");
+        }
+        vBoxList.setText(sb.toString());
+        //vBoxList.setText(map.get("boxList"));
         //Button button = (Button) layout.findViewById(R.id.btn_receiving_sheet);
         /*button.setOnClickListener(new View.OnClickListener() {
             @Override

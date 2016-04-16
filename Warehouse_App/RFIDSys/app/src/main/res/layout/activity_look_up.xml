@@ -34,7 +34,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="01"
+        android:text=""
         android:id="@+id/text_lookup_cartum"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
@@ -58,7 +58,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="02"
+        android:text=""
         android:id="@+id/text_lookup_matname"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
@@ -94,7 +94,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="N"
+        android:text=""
         android:textSize="18dp"
         android:id="@+id/text_lookup_isbom"
         android:layout_above="@+id/textView26"
@@ -104,7 +104,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6"
+        android:text=""
         android:textSize="18dp"
         android:id="@+id/text_lookup_cnt"
         android:layout_alignTop="@+id/textView26"
@@ -126,7 +126,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="盒"
+        android:text=""
         android:textSize="18dp"
         android:id="@+id/text_lookup_unit"
         android:layout_alignBottom="@+id/textView29"

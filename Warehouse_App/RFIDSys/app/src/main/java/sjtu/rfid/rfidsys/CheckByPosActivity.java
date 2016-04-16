@@ -57,6 +57,8 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
     private Map<String, Map<String, String>> mCheckByPosDetailList;
     private List<Map<String,String>> mCheckByPosList;
 
+    private Map<String,Map<String,String>> mCheckScannedBoxCnt;
+
     private TitleBar mTitleBar;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -142,10 +144,16 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                     new GetGoodByCartNumThread(msg.obj.toString(), handlerScan).start();
                 }
             } else if (msg.what == 3) {
-                Good g = (Good)msg.obj;
+
+                GetGoodByCartNumThread.CheckItem item= (GetGoodByCartNumThread.CheckItem)msg.obj;
+                Good g = item.g;
+                String epc = item.epc;
                 if( checkList.containsKey(g.getCode()) ) {
                     int cur = checkList.get(g.getCode()).getRealNum();
-                    checkList.get(g.getCode()).setRealNum(cur+1);
+                    checkList.get(g.getCode()).setRealNum(cur + g.getNum());
+
+                    mCheckScannedBoxCnt.get(g.getCode()).put(epc,String.valueOf(g.getNum()));
+
                     tmpAdapter.notifyDataSetChanged();
                 }
             }
@@ -334,10 +342,12 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
                 //Toast.makeText(getApplicationContext(),epc,Toast.LENGTH_SHORT).show();
                 //获取标签
-                if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,3))) {
+                if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,4))) {
+                    stopAction();
+                    mReader.stop();
                     Message msg = handlerScan.obtainMessage();
                     msg.what = 0;
-                    msg.obj = epc.substring(0,3);
+                    msg.obj = epc.substring(0,4);
                     handlerScan.sendMessage(msg);
                 }else if(scanType==2&&epc.length()==16){
                     final String tmp =epc;
@@ -446,6 +456,8 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
         mCheckByPosList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_check_by_pos_sheets);
 
+        mCheckScannedBoxCnt = new HashMap<>();
+
         for(Good good:goodList){
             Map<String,String> map=new HashMap<>();
             map.put("matCode",good.getCode());
@@ -462,8 +474,9 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                 showBoxList += s + '\n';
             }
             detailMap.put("boxList",showBoxList);
-
             mCheckByPosDetailList.put(good.getCode(), detailMap);
+
+            mCheckScannedBoxCnt.put(good.getCode(),new HashMap<String, String>());
 
             for(String s : good.getCartonNums()) {
                 boxList.put(s,false);
@@ -471,7 +484,7 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
 
         }
 
-        tmpAdapter = new CheckByPosExpandableAdapter(this,mCheckByPosDetailList,mCheckByPosList,checkList);
+        tmpAdapter = new CheckByPosExpandableAdapter(this,mCheckByPosDetailList,mCheckByPosList,checkList,mCheckScannedBoxCnt);
         sheetListView.setAdapter(tmpAdapter);
 
         sheetListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -498,7 +511,12 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                 //读货位标签线程
                 saveOption(300);
                 scanType=1;
-                startAction(false);
+                try {
+                    mReader.setPower(200);
+                } catch (ATRfidReaderException e) {
+                    e.printStackTrace();
+                }
+                startAction(true);
                 mReader.connect();
             }
         });

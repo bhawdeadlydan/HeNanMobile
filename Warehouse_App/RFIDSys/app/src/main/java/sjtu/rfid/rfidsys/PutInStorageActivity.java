@@ -312,19 +312,21 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                stopAction();
-                mReader.stop();
                 //String tmp = tag.substring(4);
                 //String epc = Converters.fromHexString(tmp).toString();
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
                 //byte[] bytes = epc.getBytes();
                 //Toast.makeText(getApplicationContext(),tag+","+epc,Toast.LENGTH_SHORT).show();
-                if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,3))) {
+                if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,4))) {
+                    stopAction();
+                    mReader.stop();
                     Message msg = scanHandler.obtainMessage();
                     msg.what = 0;
-                    msg.obj = epc.substring(0,3);
+                    msg.obj = epc.substring(0,4);
                     scanHandler.sendMessage(msg);
                 }else if(scanType==2&&epc.length()==16){
+                    stopAction();
+                    mReader.stop();
                     CNum=epc;
                     putInStorageThread=new PutInStorageThread(scanHandler,epc);
                     putInStorageThread.start();
@@ -399,7 +401,13 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             @Override
             public void onClick(View v) {
                 saveOption(300);
-                startAction(false,1);
+                startAction(true,0);
+                scanType = 1;
+                try {
+                    mReader.setPower(200);
+                } catch (ATRfidReaderException e) {
+                    e.printStackTrace();
+                }
                 mReader.connect();
             }
         });
@@ -408,6 +416,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             public void onClick(View v) {
                 saveOption(100);
                 startAction(false,2);
+                scanType = 2;
                 mReader.connect();
             }
         });
