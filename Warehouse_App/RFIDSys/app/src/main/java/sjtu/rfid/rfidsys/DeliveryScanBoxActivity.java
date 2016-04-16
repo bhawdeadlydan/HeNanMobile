@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -133,11 +135,36 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         }
     };
 
+    private Handler handlerPickDialog = new Handler() {
+        @Override
+        public void handleMessage(Message msg){
+            if(msg.what == 0){
+                pickDialog.show();
+                String[] strs = (String[]) msg.obj;
+                String matCode = strs[0];
+                String epc = strs[1];
+                Window window = pickDialog.getWindow();
+                TextView cartonNum = ((TextView)window.findViewById(R.id.text_dialog_delivery_scan_box_cartonNum));
+                TextView matName = ((TextView)window.findViewById(R.id.text_dialog_delivery_scan_box_matName));
+                TextView expectCnt = ((TextView)window.findViewById(R.id.text_dialog_delivery_scan_box_expectCnt));
+                TextView cartonCnt = ((TextView)window.findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt));
+                EditText pickCnt = ((EditText)window.findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt));
+                cartonNum.setText(curScanEpc);
+                matName.setText(curScanGood.getDetail());
+                expectCnt.setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
+                cartonCnt.setText(String.valueOf(curScanGood.Num));
+                pickCnt.setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
+            }
+            else if(msg.what == 1) {
+                Toast.makeText(getApplicationContext(),"货箱不在当前出库单中或已经被拣选过！",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_scan_box);
-
 
         mSound = new SoundPlay(getApplicationContext());
         WaitDialog.show(this, "连接RFID模块中", "请稍等", new DialogInterface.OnCancelListener() {
@@ -436,6 +463,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
     }
 
     private void iniDialog() {
+
         TableLayout dialogForm = (TableLayout)getLayoutInflater().inflate(R.layout.dialog_delivery_scan_box,null);
         pickDialog = new AlertDialog.Builder(this)
                 .setTitle("拣选货物")
@@ -447,7 +475,8 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                             CNumList.add(curScanEpc);
                         }
                         String matCode = curScanGood.getCode();
-                        Integer val = Integer.valueOf(((EditText) findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt)).getText().toString());
+                        Window window = pickDialog.getWindow();
+                        Integer val = Integer.valueOf(((EditText)window.findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt)).getText().toString());
                         mDeliveryBoxesMatCount.put(matCode,mDeliveryBoxesMatCount.get(matCode)+val);
                         mDeliveryBoxesPickCountInsideBox.put(curScanEpc,val);
                         mDeliveryBoxesItemsList.get(curScanGood.getCode()).add(curScanEpc);
@@ -463,6 +492,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
                     }
                 })
                 .create();
+        //pickDialog.show();
     }
 
     private void saveOption() {
@@ -556,13 +586,31 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
             }
             String matCode = curScanGood.getCode();
             if( (mDeliveryBoxesItemsList.containsKey(matCode)) && !mDeliveryBoxesItemsList.get(matCode).contains(epc)) {
-                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonNum)).setText(curScanEpc);
-                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_matName)).setText(curScanGood.getDetail());
-                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_expectCnt)).setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
-                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt)).setText(curScanGood.getExpected_Quantity());
-                ((EditText)findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt))
-                        .setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
-                pickDialog.show();
+                String[] strs = { matCode,epc};
+                Message msg = handlerPickDialog.obtainMessage();
+                msg.what = 0;
+                msg.obj = strs;
+                handlerPickDialog.sendMessage(msg);
+
+//                TextView cartonNum = ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonNum));
+//                TextView matName = ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_matName));
+//                TextView expectCnt = ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_expectCnt));
+//                TextView cartonCnt = ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt));
+//                EditText pickCnt = ((EditText)findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt));
+//                cartonNum.setText(curScanEpc);
+//                matName.setText(curScanGood.getDetail());
+//                expectCnt.setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
+//                cartonCnt.setText(curScanGood.getNum());
+//                pickCnt.setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
+
+
+//                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonNum)).setText(curScanEpc);
+//                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_matName)).setText(curScanGood.getDetail());
+//                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_expectCnt)).setText(mDeliveryBoxesDetails.get(matCode).get("expectedCount"));
+//                ((TextView)findViewById(R.id.text_dialog_delivery_scan_box_cartonCnt)).setText(curScanGood.getNum());
+//                ((EditText)findViewById(R.id.edittext_dialog_delivery_scan_box_pickCnt))
+//                        .setText(curScanGood.getExpected_Quantity() == 1 ? "1" : "0");
+                //pickDialog.show();
 //                if(!CNumList.contains(epc)){
 //                    CNumList.add(epc);
 //                }
@@ -570,9 +618,12 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
 //                Message msg = handlerScanTag.obtainMessage();
 //                msg.what = 1;
 //                handlerScanTag.sendMessage(msg);
+            } else {
+                Message msg = handlerPickDialog.obtainMessage();
+                msg.what = 1;
+                handlerPickDialog.sendMessage(msg);
             }
-            else
-                Toast.makeText(null,"货箱不在当前出库单中或已经被拣选过！",Toast.LENGTH_SHORT).show();
+
         }
     }
 }

@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
@@ -45,7 +47,7 @@ public class ReceivingSheetsActivity extends Activity {
             if(msg.what==0||msg.obj==null)
                 Toast.makeText(getApplicationContext(), "获取信息失败", Toast.LENGTH_SHORT).show();
             asnList=(List<ASN>)msg.obj;
-            iniListView(asnList);
+            //iniListView(asnList);
         }
     };
 
@@ -66,6 +68,13 @@ public class ReceivingSheetsActivity extends Activity {
     public void iniActivity()
     {
         mTitleBar = new TitleBar(this,"收货贴标");
+        Button refreshBtn = (Button)findViewById(R.id.bnt_receiving_sheets_refresh);
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iniListView(asnList);
+            }
+        });
     }
 
     public void iniListView(List<ASN> asnList) {

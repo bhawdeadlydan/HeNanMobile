@@ -85,14 +85,14 @@ public class Converters {
     StringBuffer buffer = new StringBuffer();
     int evenCounter=0;
     for (int i=length-1; i>=0; i--){
-	String token = Integer.toHexString((int)byteArray[offset+i] & 0xff);
-	buffer.insert(0, token);
-	if (token.length()==0)buffer.insert(0, "00");
-	if (token.length()==1)buffer.insert(0, "0");
-	evenCounter++;
-	if (isTagID==false)buffer.insert(0, separator);
-	if (isTagID==true && evenCounter==2)buffer.insert(0,separator);
-	if (evenCounter==2)evenCounter=0;
+        String token = Integer.toHexString((int)byteArray[offset+i] & 0xff);
+        buffer.insert(0, token);
+        if (token.length()==0)buffer.insert(0, "00");
+        if (token.length()==1)buffer.insert(0, "0");
+        evenCounter++;
+        if (isTagID==false)buffer.insert(0, separator);
+        if (isTagID==true && evenCounter==2)buffer.insert(0,separator);
+        if (evenCounter==2)evenCounter=0;
 
     }
     return buffer.toString().toUpperCase().trim();

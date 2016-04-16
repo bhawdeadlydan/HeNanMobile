@@ -17,8 +17,11 @@ import sjtu.rfid.tools.PropertiesUtil;
 
 public class MainActivity extends Activity {
 
-    Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery,benConfig;
+    Button btnReceiving,btnPutInStorage,btnMoveBox,btnMatCheck,btnLocCheck,btnDelivery,benConfig,btnLookUp;
     MainButtonListener btnListener = new MainButtonListener();
+
+    public static final int CHECK_BY_MAT = 0;
+    public static final int CHECK_BY_POS = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class MainActivity extends Activity {
         btnLocCheck = (Button)findViewById(R.id.btn_loc_check);
         btnDelivery = (Button)findViewById(R.id.btn_delivery);
         benConfig=(Button)findViewById(R.id.btn_config);
+        btnLookUp = (Button)findViewById(R.id.btn_lookup);
 
         btnReceiving.setOnClickListener(btnListener);
         btnPutInStorage.setOnClickListener(btnListener);
@@ -56,6 +60,7 @@ public class MainActivity extends Activity {
         btnLocCheck.setOnClickListener(btnListener);
         btnDelivery.setOnClickListener(btnListener);
         benConfig.setOnClickListener(btnListener);
+        btnLookUp.setOnClickListener(btnListener);
 
     }
 
@@ -75,16 +80,22 @@ public class MainActivity extends Activity {
                     intent.setClass(MainActivity.this, MoveOrderListActivity.class);
                     break;
                 case R.id.btn_mat_cehck:
-                    intent.setClass(MainActivity.this, CheckByMatActivity.class);
+                    //intent.setClass(MainActivity.this, CheckByMatActivity.class);
+                    intent.setClass(MainActivity.this, CheckSheetActivity.class);
+                    intent.putExtra("checkType",CHECK_BY_MAT);
                     break;
                 case R.id.btn_loc_check:
-                    intent.setClass(MainActivity.this, CheckByPosActivity.class);
+                    intent.setClass(MainActivity.this, CheckSheetActivity.class);
+                    intent.putExtra("checkType", CHECK_BY_POS);
                     break;
                 case R.id.btn_delivery:
                     intent.setClass(MainActivity.this, DeliverySheetsActivity.class);
                     break;
                 case R.id.btn_config:
                     intent.setClass(MainActivity.this, ConfigActivity.class);
+                    break;
+                case R.id.btn_lookup:
+                    intent.setClass(MainActivity.this, LookUpActivity.class);
                     break;
             }
             startActivity(intent);
