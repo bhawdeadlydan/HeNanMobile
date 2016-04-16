@@ -571,4 +571,34 @@ public class WMSDetailDao extends BaseDao{
         return null;
     }
 
+    public String getPackingNameByCNum(String CNum) {
+        Session session = ourSessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = "select model.packingCode from WmsDetailEntity as model where model.cartonNum = ?";
+            Query queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, CNum);
+            String pcode = "";
+            if(!queryObject.list().isEmpty())
+                pcode = (String)queryObject.list().get(0);
+            queryString = "select model.packingName from PackingEntity as model where model.packingCode = ?";
+            queryObject = session.createQuery(queryString);
+            queryObject.setParameter(0, pcode);
+            String pname = "";
+            if(!queryObject.list().isEmpty())
+                pname = (String)queryObject.list().get(0);
+            tx.commit();
+            return pname;
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return "";
+    }
+
 }

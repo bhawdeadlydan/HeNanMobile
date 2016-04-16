@@ -553,7 +553,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                     for(Iterator i = goodlist.iterator();i.hasNext();){
                         Object[] os = (Object[])i.next();
                         String[] gooditem = new String[5];
-                        gooditem[0] = good.getDetail();
+                        String packname = wdao.getPackingNameByCNum(os[0].toString());
+                        gooditem[0] = good.getDetail() + packname;
                         gooditem[1] = good.getCode();
                         gooditem[2] = os[1].toString();
                         gooditem[3] = good.getUnit();
@@ -585,7 +586,8 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                     for(Iterator i = goodlist.iterator();i.hasNext();){
                         Object[] os = (Object[])i.next();
                         String[] gooditem = new String[5];
-                        gooditem[0] = good.getDetail();
+                        String packname = wdao.getPackingNameByCNum(os[0].toString());
+                        gooditem[0] = good.getDetail() + packname;
                         gooditem[1] = good.getCode();
                         gooditem[2] = os[1].toString();
                         gooditem[3] = good.getUnit();
