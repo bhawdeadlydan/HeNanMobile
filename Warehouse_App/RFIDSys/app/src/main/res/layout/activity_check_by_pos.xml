@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="30dp"
-                android:text="货位："
+                android:text="货位:C001"
                 android:id="@+id/text_check_by_pos_loc"
                 android:textSize="20dp"/>
 

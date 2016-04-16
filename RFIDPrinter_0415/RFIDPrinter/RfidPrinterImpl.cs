@@ -156,7 +156,7 @@ namespace RFIDPrinter
 
         public void trigger(String EPC)
         {
-            string path = Path.Combine(DETECTPATH, EPC + ".txt");
+            string path = Path.Combine(DETECTPATH, EPC.Replace("/","_") + ".txt");
             string content = EPC;
             File.WriteAllText(path, content, Encoding.Unicode);
         }

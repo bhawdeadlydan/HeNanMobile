@@ -42,10 +42,15 @@ public class CheckSheetActivity extends Activity {
         mTitle = new TitleBar(this,"盘点清单");
         mListView = (ListView)findViewById(R.id.listView_check_sheet);
         list = new ArrayList<>();
-        list.add("201604141759");
-        list.add("201604141760");
-        list.add("201604141761");
-        mAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+        if(checkType == MainActivity.CHECK_BY_POS) {
+            list.add("盘点计划编号:A002-PD-201640003\n" +
+                    "盘点单位:郑州分公司综合服务中心\n" +
+                    "盘点开始日期:2016-04-19至2016-04-20\n" +
+                    "仓库名称:郑州紫鼎工程物资仓库\n" +
+                    "盘点部门:中外运11号库\n" +
+                    "盘点负责人:李玉峰");
+        }
+        mAdapter = new ArrayAdapter<String>(this,R.layout.item_lookup_checksheet,list);
 
         Button refreshBtn = (Button)findViewById(R.id.btn_check_sheet_refresh);
         refreshBtn.setOnClickListener(new View.OnClickListener() {
