@@ -558,7 +558,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                         gooditem[1] = good.getCode();
                         gooditem[2] = os[1].toString();
                         gooditem[3] = good.getUnit();
-                        gooditem[4] = os[0].toString();
+                        gooditem[4] = os[0].toString()+';'+os[2].toString();
                         goods.add(gooditem);
                     }
                     batchGoods.add(goods);
@@ -591,7 +591,7 @@ public class RFIDServiceImpl implements RFIDService.Iface{
                         gooditem[1] = good.getCode();
                         gooditem[2] = os[1].toString();
                         gooditem[3] = good.getUnit();
-                        gooditem[4] = os[0].toString();
+                        gooditem[4] = os[0].toString()+';'+os[2].toString();
                         goods.add(gooditem);
                     }
                     batchGoods.add(goods);

@@ -131,6 +131,7 @@ public class DeliveryScanBoxActivity extends Activity implements RfidReaderEvent
         public void handleMessage(Message msg){
             if(msg.what == 1){
                 tmpAdapter.notifyDataSetChanged();
+                mSound.playSuccess();
             }
         }
     };

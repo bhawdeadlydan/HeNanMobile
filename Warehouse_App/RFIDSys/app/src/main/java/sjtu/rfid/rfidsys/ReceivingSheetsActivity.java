@@ -83,6 +83,8 @@ public class ReceivingSheetsActivity extends Activity {
         mReceivingCodeList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_receiving_sheets);
         sheetListView.setItemsCanFocus(true);
+        if(asnList == null)
+            return;
         for(ASN asn:asnList){
             mReceivingCodeList.add(asn.getCode());
 

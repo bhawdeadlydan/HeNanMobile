@@ -37,7 +37,7 @@ public class PutInStorageThread extends Thread {
         try{
             good=client.getGoodByCNum(CNum);
             asnCode=client.getCodeByCNum(CNum);
-            putInStorageEntity=new PutInStorageEntity(good,asnCode);
+            putInStorageEntity=new PutInStorageEntity(good,asnCode,CNum);
             msg.what=1;
             msg.obj=putInStorageEntity;
             handler.sendMessage(msg);

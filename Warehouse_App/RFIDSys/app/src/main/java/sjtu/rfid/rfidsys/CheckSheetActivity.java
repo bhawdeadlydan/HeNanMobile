@@ -23,6 +23,7 @@ public class CheckSheetActivity extends Activity {
     TitleBar mTitle;
     ListView mListView;
     ArrayAdapter<String> mAdapter;
+    static boolean flag = false;
 
     int checkType = -1;
     int curSelectedPos = -1;
@@ -43,12 +44,15 @@ public class CheckSheetActivity extends Activity {
         mListView = (ListView)findViewById(R.id.listView_check_sheet);
         list = new ArrayList<>();
         if(checkType == MainActivity.CHECK_BY_POS) {
-            list.add("盘点计划编号:A002-PD-201640003\n" +
-                    "盘点单位:郑州分公司综合服务中心\n" +
-                    "盘点开始日期:2016-04-19至2016-04-20\n" +
-                    "仓库名称:郑州紫鼎工程物资仓库\n" +
-                    "盘点部门:中外运11号库\n" +
-                    "盘点负责人:李玉峰");
+            if(!flag) {
+                list.add("盘点计划编号:A002-PD-201640003\n" +
+                        "盘点单位:郑州分公司综合服务中心\n" +
+                        "盘点开始日期:2016-04-19至2016-04-20\n" +
+                        "仓库名称:郑州紫鼎工程物资仓库\n" +
+                        "盘点部门:中外运11号库\n" +
+                        "盘点负责人:李玉峰");
+                flag = true;
+            }
         }
         mAdapter = new ArrayAdapter<String>(this,R.layout.item_lookup_checksheet,list);
 

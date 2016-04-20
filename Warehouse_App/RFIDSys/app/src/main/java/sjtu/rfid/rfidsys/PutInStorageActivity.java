@@ -30,8 +30,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import rfid.service.ASN;
 import rfid.service.Good;
@@ -54,6 +56,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
     private Map<String, Map<String, String>> mPutInStorageDetailList;
     private List<Map<String,String>> mPutInStorageList;
     private TitleBar mTitleBar;
+    private Set<String> CNumList;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -65,10 +68,10 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
 //    private PutInStorageScanLocThread scanLocThread;
 //    private PutInStorageScanBoxThread scanBoxThread;
     private BindThread bindThread;
-    private String CNum="EPC201509000000";
     private Good good;
     public int goodPos=-1;
     private boolean bindResult;
+    private boolean isScanning = false;
 
     private int scanType=-1;
     private static final String TAG = "PutInStorageActivity";
@@ -116,6 +119,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             else if(msg.what == 1){
                 PutInStorageEntity putInStorageEntity=(PutInStorageEntity)msg.obj;
                 iniListView(putInStorageEntity);
+                mSound.playSuccess();
             }
         }
     };
@@ -161,6 +165,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         mSound.playSuccess();
 
         mPutInStorageDetailList = new HashMap<String, Map<String, String>>();
+        CNumList = new HashSet<>();
         mPutInStorageList = new ArrayList<>();
         iniActivity();
         iniEvent();
@@ -317,23 +322,28 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
                 String epc = new String(Converters.fromHexString(tag.substring(4)));
                 //byte[] bytes = epc.getBytes();
                 //Toast.makeText(getApplicationContext(),tag+","+epc,Toast.LENGTH_SHORT).show();
-                if (scanType==1&&Config.LocationMap.containsKey(epc.substring(0,4))) {
+                if (scanType == 1 && Config.LocationMap.containsKey(epc.substring(0, 4))) {
                     stopAction();
                     mReader.stop();
                     Message msg = scanHandler.obtainMessage();
                     msg.what = 0;
-                    msg.obj = epc.substring(0,4);
+                    msg.obj = epc.substring(0, 4);
                     scanHandler.sendMessage(msg);
-                }else if(scanType==2&&epc.length()==16){
-                    stopAction();
-                    mReader.stop();
-                    CNum=epc;
-                    putInStorageThread=new PutInStorageThread(scanHandler,epc);
-                    putInStorageThread.start();
+                    mSound.playSuccess();
+                } else if (scanType == 2 && epc.length() == 16) {
+//                    stopAction();
+//                    mReader.stop();
+                    synchronized (CNumList) {
+                        if (!CNumList.contains(epc)) {
+                            CNumList.add(epc);
+                            putInStorageThread = new PutInStorageThread(scanHandler, epc);
+                            putInStorageThread.start();
+                        }
+                    }
                 }
             }
         });
-        mSound.playSuccess();
+        //mSound.playSuccess();
 
     }
 
@@ -350,13 +360,13 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         if(putInStorageEntity==null)
             return;
 
-        if( !mPutInStorageDetailList.containsKey(CNum) ) {
+        if( !mPutInStorageDetailList.containsKey(putInStorageEntity.getEPC()) ) {
 
 
             Good good = putInStorageEntity.getGood();
             sheetListView = (ExpandableListView) findViewById(R.id.list_put_in_storage_sheets);
             Map<String, String> map = new HashMap<>();
-            map.put("boxCode", CNum);
+            map.put("boxCode", putInStorageEntity.getEPC());
             map.put("matName", good.getDetail());
             mPutInStorageList.add(map);
 
@@ -366,7 +376,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
             detailMap.put("count", String.valueOf(good.getNum()));
             detailMap.put("projectCode", good.getProjectCode());
             detailMap.put("asnCode", putInStorageEntity.getAsnCode());
-            mPutInStorageDetailList.put(CNum, detailMap);
+            mPutInStorageDetailList.put(putInStorageEntity.getEPC(), detailMap);
 
             tmpAdapter = new PutInStorageExpandableAdapter(this, mPutInStorageDetailList, mPutInStorageList);
             sheetListView.setAdapter(tmpAdapter);
@@ -393,7 +403,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
 
     public void iniEvent(){
         Button btnScanLoc=(Button)findViewById(R.id.btn_put_in_storage_scan_loc);
-        Button btnScanBox=(Button)findViewById(R.id.btn_put_in_storage_scan_box);
+        final Button btnScanBox=(Button)findViewById(R.id.btn_put_in_storage_scan_box);
         Button btnClear=(Button)findViewById(R.id.btn_put_in_storage_clear);
         Button btnBind=(Button)findViewById(R.id.btn_put_in_storage_bind);
 
@@ -414,10 +424,24 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
         btnScanBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveOption(100);
-                startAction(false,2);
-                scanType = 2;
-                mReader.connect();
+                if(!isScanning) {
+                    saveOption(100);
+                    startAction(true, 0);
+                    scanType = 2;
+                    isScanning = true;
+                    btnScanBox.setText("停止扫描");
+                    try {
+                        mReader.setPower(150);
+                    } catch (ATRfidReaderException e) {
+                        e.printStackTrace();
+                    }
+                    mReader.connect();
+                } else {
+                    stopAction();
+                    mReader.stop();
+                    isScanning = false;
+                    btnScanBox.setText("扫描货物");
+                }
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
@@ -427,6 +451,7 @@ public class PutInStorageActivity extends Activity implements RfidReaderEventLis
 
                 mPutInStorageDetailList.clear();
                 mPutInStorageList.clear();
+                CNumList.clear();
 
                 Message msg = handlerScanTag.obtainMessage();
                 msg.what = 1;

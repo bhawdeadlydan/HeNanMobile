@@ -94,6 +94,8 @@ public class DeliverySheetsActivity extends Activity {
         mDeliveryCodeDetailList = new HashMap<String, Map<String, String>>();
         mDeliveryCodeList = new ArrayList<>();
         sheetListView = (ExpandableListView) findViewById(R.id.list_delivery_sheets);
+        if(posList == null)
+            return;
         for(POS pos:posList){
             mDeliveryCodeList.add(pos.getApply_Doc_Code());
 

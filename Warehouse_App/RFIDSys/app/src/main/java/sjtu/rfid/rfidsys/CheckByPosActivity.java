@@ -119,6 +119,7 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
             checkResult=(boolean)msg.obj;
             if(checkResult) {
                 Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
                 finish();
             }
             else
@@ -527,6 +528,11 @@ public class CheckByPosActivity extends Activity implements RfidReaderEventListe
                 if( !isReading ) {
                     saveOption(100);
                     isReading = true;
+                    try {
+                        mReader.setPower(250);
+                    } catch (ATRfidReaderException e) {
+                        e.printStackTrace();
+                    }
                     btnScanBox.setText("停止扫描");
                     scanType=2;
                     startAction(true);
